@@ -207,6 +207,9 @@ server.use(async (req, res) => {
 		maxRedirects: 0,
 		validateStatus: () => true
 	});
+	console.log(inspirRes);
+	console.log(inspirRes.headers);
+	console.log(inspirRes.status);
 
 	if (inspirRes.headers.location) {
 		// Hardcoded - whatever
