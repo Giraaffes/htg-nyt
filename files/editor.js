@@ -173,7 +173,9 @@ $("#table tbody tr").each((i, row) => {
 
 	addVisibilityButtons(row);
 
-	$(row).find("td:eq(5) button:eq(1)").text("Kopier link").on("click", () => {
+	let copyLinkButton = $(row).find("td:eq(5) button:eq(1)");
+	copyLinkButton.data("url", copyLinkButton.data("url").replace(/^.+\//, "https://www.htg-nyt.dk/artikel/"));
+	copyLinkButton.text("Kopier link").on("click", () => {
 		$.notify("Link til artikel kopieret", "success");
 	});
 	$(row).find("td:eq(5) button:eq(0)").remove();

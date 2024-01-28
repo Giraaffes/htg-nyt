@@ -487,13 +487,13 @@ label .fas { width: 16px; text-align: center; }
 	let mainMenuNav = skolebladNav.clone().prependTo(".sidebar .navbar-nav");
 	let backNav = skolebladNav.clone().prependTo(".sidebar .navbar-nav");
 	skolebladNav.html(skolebladNav.html().replace("htg-nyt", "læs htg-nyt"));
-	skolebladNav.find(".nav-link").attr("href", "https://www.inspir.dk/e9a/htg");
+	skolebladNav.find(".nav-link").attr("href", "/?type=new");
 	backNav.find("i").removeClass("fa-newspaper").addClass("fa-circle-left");
 	backNav.html(backNav.html().replace("htg-nyt", "Gem og luk"));
-	backNav.find(".nav-link").attr("href", "https://www.inspir.dk/admin/articles/overview");
+	backNav.find(".nav-link").attr("href", "/editor");
 	mainMenuNav.find("i").removeClass("fa-newspaper").addClass("fa-house");
 	mainMenuNav.html(mainMenuNav.html().replace("htg-nyt", "Hovedmenu"));
-	mainMenuNav.find(".nav-link").attr("href", "https://www.inspir.dk/");
+	mainMenuNav.find(".nav-link").attr("href", "/hovedmenu");
 	let logoutNav = $(".sidebar .nav-item:last");
 	logoutNav.css({
 			"position": "unset",
@@ -518,7 +518,7 @@ label .fas { width: 16px; text-align: center; }
 	});
 	let viewArticleButton = addButton("Læs artikel (hvis offentlig)", () => {
 			let articlePath = $("#title").val().toLowerCase().replaceAll(" ", "_");
-			window.open(`https://inspir.dk/e9a/htg/${encodeURIComponent(articlePath)}`, "_blank");
+			window.open(`/artikel/${encodeURIComponent(articlePath)}`, "_blank");
 	})
 
 	rightMostDiv.css({
