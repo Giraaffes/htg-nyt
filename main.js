@@ -1,3 +1,5 @@
+require("express-async-errors");
+
 const fs = require("fs");
 
 const express = require("express");
@@ -163,7 +165,7 @@ const oldDomainRegex = /https:\/\/(?:www)?\.inspir\.dk/g;
 const urlPathRegex = /\/[^?]*/g;
 
 server.use(bodyParser.raw({ type: "*/*" }));
-server.use(async (req, res, next) => {
+server.use(async (req, res) => {
 	// Hardcoded - whatever
 	if (req.path == "/" && !req.url.match(/type=\w+/)) {
 		res.redirect("/?type=new");
@@ -176,31 +178,24 @@ server.use(async (req, res, next) => {
 	// Not sure if this is necessary
 	delete req.headers.host;
 
-	let inspirRes;
-	try {
-		inspirRes = await axios({
-			method: req.method,
-			url: `https://www.inspir.dk${req.url}`,
-			headers: req.headers,
-			params: req.query,
-			data: req.body,
-			responseType: "arraybuffer",
-			responseEncoding: "binary",
-			maxRedirects: 0,
-			validateStatus: () => true,
+	let inspirRes = await axios({
+		method: req.method,
+		url: `https://www.inspir.dk${req.url}`,
+		headers: req.headers,
+		params: req.query,
+		data: req.body,
+		responseType: "arraybuffer",
+		responseEncoding: "binary",
+		maxRedirects: 0,
+		validateStatus: () => true,
 
-			// Fiddler proxy
-			/*proxy: {
-				protocol: "http",
-				host: "127.0.0.1",
-				port: 8888
-			}*/
-		});
-	} catch (err) {
-		console.error(err);
-		res.status(500).send("<title>Fejl</title>Beklager, der opstod en fejl...").end();
-		return;
-	}
+		// Fiddler proxy
+		/*proxy: {
+			protocol: "http",
+			host: "127.0.0.1",
+			port: 8888
+		}*/
+	});
 
 	if (inspirRes.headers.location) {
 		// Hardcoded - whatever
@@ -226,6 +221,13 @@ server.use(async (req, res, next) => {
 	res.send(inspirRes.data);
 	res.end();
 });
+
+
+server.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).send("<title>Fejl</title>Beklager, der opstod en fejl...").end();
+})
+
 
 server.listen(8000, () => {
 	console.log("Ready");
