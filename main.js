@@ -129,6 +129,17 @@ function pageHook(path, html) {
 }
 
 
+const baseDomain = "htg-nyt.dk";
+
+server.use((req, res, next) => {
+	if (req.hostname == baseDomain) {
+		res.redirect(301, `${req.protocol}://www.${baseDomain}${req.originalUrl}`);
+	} else {
+		next();
+	}
+});
+
+
 function fileExists(filePath) {
 	try {
 		fs.accessSync(filePath, fs.constants.R_OK);
@@ -153,6 +164,12 @@ const urlPathRegex = /\/[^?]*/g;
 
 server.use(bodyParser.raw({ type: "*/*" }));
 server.use(async (req, res, next) => {
+	// Hardcoded - whatever
+	if (req.path == "/" && !req.url.match(/type=\w+/)) {
+		res.redirect("/?type=new");
+		return;
+	}
+
 	let originalPath = req.path; // Since this value is changed automatically below
 	req.url = unmapAllPaths(req.url, /^[^?]+/g);
 
@@ -196,7 +213,7 @@ server.use(async (req, res, next) => {
 	}
 
 	let contentType = inspirRes.headers["content-type"];
-	if (req.method == "GET" && contentType.startsWith("text/html")) {
+	if (req.method == "GET" && contentType && contentType.startsWith("text/html")) {
 		let encoding = contentType.match(/charset=([^;]+)/)[1];
 		let html = inspirRes.data.toString(encoding)
 		let newHtml = pageHook(originalPath, html);

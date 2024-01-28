@@ -1,3 +1,4 @@
+// Is automatically redirected by server but whatever - I'll keep it just in case
 let category = url.searchParams.get("type");
 if (!category || category.length == 0) {
 	url.searchParams.set("type", "new");
