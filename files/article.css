@@ -1,0 +1,28 @@
+.top-box, .post-headline, #article-footer {
+	margin: 0;
+}
+
+.top-box h3 {
+	font-size: 75%;
+	text-align: center;
+	margin: 0;
+}
+
+.authorContainer {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.post-headline img {
+	margin-left: 0;
+	margin-right: 5px;
+}
+
+.post-article {
+	margin-top: 25px;
+}
+
+.style-illustration img {
+	height: unset;
+	width: calc(100% - 20px);
+}

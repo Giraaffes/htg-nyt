@@ -1,0 +1,18 @@
+.col-sm-12 {
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.sign-in-block {
+	padding: unset;
+	width: 440px;
+}
+
+input[type="submit"] {
+	color: #ffffff !important;
+}
+
+a[href="/member/register"] label:hover {
+	cursor: pointer;
+	background-color: #dddddd;
+}

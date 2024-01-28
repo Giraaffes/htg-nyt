@@ -1,0 +1,31 @@
+#school-title {
+	text-align: center;
+	margin-left: 0;
+}
+
+#home-content .row:hover img {
+	filter: brightness(0.9);
+}
+
+#home-content .row:first-child img {
+	background-color: #466e64;
+	padding: 20px 0;
+}
+
+.message-bubble {
+	background-color: #ffffff;
+}
+
+.message-head {
+	margin-bottom: 5px;
+}
+
+.message-body {
+	height: 100%;
+	overflow: unset;
+}
+
+.message h4, .message p {
+	width: 100%;
+	text-align: center;
+}

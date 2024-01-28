@@ -1,0 +1,166 @@
+.notifyjs-container { 
+	font-size: 24px; padding: 10px;
+}
+
+.nav-item { 
+	transition: background-color 0.15s ease-in; 
+}
+
+.nav-item:hover { 
+	background-color: #eeeeee; }
+.nav-item:active { background-color: #dddddd; 
+}
+
+td .fas { 
+	width: 16px; text-align: center;
+}
+
+
+.header-logo {
+	width: unset;
+}
+
+.header-logo .site-title {
+	font-size: 21px;
+}
+
+.sidebar {
+	min-height: calc(100vh - 50px);
+	width: 180px;
+	transition: unset;
+}
+
+.sidebar .nav-item:last-child {
+	position: unset !important;
+}
+
+
+h3 {
+	font-weight: 400;
+	margin-right: 7px;
+}
+
+.admin-section-title {
+	margin: 16px 0 24px 0;
+}
+
+.admin-section-title .btn {
+	border-width: 2px;
+}
+
+#sort-info {
+	margin-bottom: 0;
+	color: #666666;
+	text-decoration: underline;
+}
+
+#update-order {
+	background-color: transparent;
+	border-color: #007bff;
+	border-width: 2px;
+	color: #222222;
+}
+
+#update-order:hover {
+	background-color: #0069d9;
+	border-color: #0062cc;
+	color: #ffffff;
+}
+
+#update-order:active {
+	background-color: #0062cc;
+	border-color: #005cbf;
+}
+
+
+#table {
+	border-bottom: 1px solid #dee2e6;
+	table-layout: fixed;
+	margin: 0;
+}
+
+#table td, #table th {
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+.tableSearch {
+	padding-left: 5px !important;
+	padding-right: 5px !important;
+}
+
+#table tbody td:last-child {
+	width: auto !important;
+	gap: 10px !important;
+}
+
+
+.vis-buttons-wrapper {
+	display: flex;
+	gap: 5px;
+}
+
+.vis-button {
+	color: #000000;
+	background-color: transparent;
+	border-color: #17a2b8;
+	border-width: 2px;
+	cursor: default;
+}
+
+.vis-button:hover {
+	background-color: #138496;
+	border-color: #117a8b;
+	color: #ffffff;
+	cursor: pointer;
+}
+
+.vis-button:active {
+	background-color: #117a8b;
+	border-color: #10707f;
+	color: #ffffff;
+}
+
+.vis-button.current {
+	color: #ffffff;
+	background-color: #17a2b8;
+	border-color: #17a2b8;
+	cursor: default;
+}
+
+
+.edit-button {
+	color: #ffffff;
+	background-color: #36ad5b;
+	border-color: #36ad5b;
+	cursor: default;
+	height: 100%;
+}
+
+.edit-button:hover {
+	background-color: #2b8848;
+	border-color: #25743e;
+	cursor: pointer;
+}
+
+.edit-button:active {
+	background-color: #25743e;
+	border-color: #1f6134;
+}
+
+
+.delete-button {
+	color: #ffffff;
+	background-color: #dc3545;
+	border-color: #dc3545;
+}
+
+.delete-button:hover {
+	background-color: #bf2232;
+	border-color: #ad1f2d;
+}
+
+.delete-button:active {
+	background-color: #ad1f2d;
+	border-color: #981b27;
+}

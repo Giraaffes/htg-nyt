@@ -1,0 +1,49 @@
+.top-box h3 {
+	text-align: center;
+	margin-left: 0;
+}
+
+#filterList button:not(.active):hover, #dynamic-filters button:not(.active):hover {
+	background-color: #dddddd;
+}
+
+#filterList button:not(.active):active, #dynamic-filters button:not(.active):active {
+	background-color: #cccccc;
+}
+
+#filterList button.active {
+	cursor: default;
+}
+
+#filters-text {
+	font-weight: lighter;
+	font-size: 90%;
+}
+
+#no-articles {
+	display: block;
+	font-weight: normal;
+	text-align: center;
+	margin: 20px 0;
+	font-size: 80%;
+}
+
+#dynamic-filters button.active:hover {
+	background-color: #444444;
+}
+
+#dynamic-filters button.active:active {
+	background-color: #777777;
+}
+
+.article-listing:hover h5:not(.grey-box) {
+	text-decoration: underline;
+}
+
+#footer-logos {
+	margin-top: 10px;
+}
+
+.article-image {
+	border-radius: 10px;
+}

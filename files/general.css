@@ -1,0 +1,110 @@
+.navigation {
+	margin: 15px;
+	padding: 0;
+	display: unset;
+	height: unset;
+}
+
+.navigation .openbtn {
+	width: 3.5rem;
+	line-height: 3.5rem;
+	padding: 0;
+	border: none !important;
+	border-radius: 5px;
+}
+
+.navigation .openbtn:hover {
+	background-color: #333333 !important;
+}
+
+.navigation .openbtn:active {
+	background-color: #555555 !important;
+}
+
+.sidepanel {
+	transition: 0.3s;
+}
+
+.sidepanel .closebtn {
+	font-size: 48px !important;
+	padding: 0;
+	top: 25px !important;
+	line-height: 0.6rem;
+	height: 1.2rem;
+	overflow: hidden;
+	transition: none;
+}
+
+.sidepanel .closebtn:hover {
+	color: #cccccc;
+}
+
+.sidepanel .nav-item {
+	margin: 0 !important;
+	padding: 10px 0 !important;
+	padding-right: 10px !important;
+}
+
+.sidepanel .nav-item:hover {
+	cursor: pointer;
+	background-color: #222222;
+}
+
+.sidepanel .nav-item:active {
+	background-color: #333333;
+}
+
+.sidepanel .nav-item:last-child {
+	border-bottom: none !important;
+}
+
+
+.check-btn {
+	margin: 15px;
+	right: unset;
+	bottom: unset;
+	left: 0;
+	top: 0;
+}
+
+.arrow-button {
+	width: 3.5rem;
+	height: 3.5rem;
+	background-color: #000000 !important;
+	transition: none;
+}
+
+.arrow-button:hover {
+	background-color: #333333 !important;
+	cursor: pointer;
+}
+
+.arrow-button:active {
+	background-color: #555555 !important;
+}
+
+.arrow-button i {
+	font-size: 70%;
+	color: #ffffff !important;
+}
+
+button.green-submit-btn {
+	padding: 0;
+	width: 3.5rem;
+	height: 3.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+button.green-submit-btn:hover {
+	background-color: #0e6371;
+}
+
+button.green-submit-btn:active {
+	background-color: #117888;
+}
+
+button.green-submit-btn i {
+	font-size: 70%;
+}
