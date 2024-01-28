@@ -196,7 +196,6 @@ server.use(async (req, res) => {
 			port: 8888
 		}*/
 	});
-	console.log(inspirRes.headers["transfer-encoding"], inspirRes.headers["content-length"]);
 
 	if (inspirRes.headers.location) {
 		// Hardcoded - whatever
@@ -215,6 +214,8 @@ server.use(async (req, res) => {
 		let newHtml = pageHook(originalPath, html);
 		inspirRes.data = Buffer.from(newHtml, encoding);
 	}
+
+	delete inspirRes.headers["transfer-encoding"];
 
 	res.statusMessage = inspirRes.statusText;
 	res.status(inspirRes.status);
