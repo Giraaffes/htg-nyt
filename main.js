@@ -210,6 +210,6 @@ server.use(async (req, res, next) => {
 	res.end();
 });
 
-server.listen(80, () => {
+server.listen(80, "127.0.0.1", () => {
 	console.log("Ready");
 });
