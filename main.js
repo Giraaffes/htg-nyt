@@ -113,6 +113,7 @@ function pageHook(path, html) {
 				`<script src="/custom/${inject.name}.js"></script></body>`
 			);
 		}
+		// Takes a bit to load when it's in body instead of head
 		if (inject.style) {
 			newHtml = newHtml.replace("</body>", 
 				`<link rel="stylesheet" href="/custom/${inject.name}.css"></body>`
