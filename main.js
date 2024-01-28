@@ -196,20 +196,7 @@ server.use(async (req, res) => {
 			port: 8888
 		}*/
 	});
-	console.log({
-		method: req.method,
-		url: `https://www.inspir.dk${req.url}`,
-		headers: req.headers,
-		params: req.query,
-		data: req.body,
-		responseType: "arraybuffer",
-		responseEncoding: "binary",
-		maxRedirects: 0,
-		validateStatus: () => true
-	});
-	console.log(inspirRes);
-	console.log(inspirRes.headers);
-	console.log(inspirRes.status);
+	console.log(inspirRes.headers["transfer-encoding"], inspirRes.headers["content-length"]);
 
 	if (inspirRes.headers.location) {
 		// Hardcoded - whatever
