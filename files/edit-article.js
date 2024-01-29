@@ -117,13 +117,13 @@ function addRadioCheckField(text, id, name, value) {
 const padStartElements = ["Brødtekst", "Mellemrubrik", "Citat"];
 
 async function submitForm(keepAlive, silent) {
-	let elementToPad = $("#form-inputs .form-data:first").filter((i, e) => padStartElements.includes($(e).find("h5").text()));
-	let beforePaddedValue = elementToPad.find("textarea").val()
-	elementToPad.find("textarea").val("\n" + beforePaddedValue);
+	//let elementToPad = $("#form-inputs .form-data:first").filter((i, e) => padStartElements.includes($(e).find("h5").text()));
+	//let beforePaddedValue = elementToPad.find("textarea").val()
+	//elementToPad.find("textarea").val("\n" + beforePaddedValue);
 
 	let formData = new FormData($("#magazines-articles-form")[0]);
 
-	elementToPad.find("textarea").val(beforePaddedValue);
+	//elementToPad.find("textarea").val(beforePaddedValue);
 
 	let res = await fetch(window.location.href, {
 			method: "POST",
