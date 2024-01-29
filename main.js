@@ -139,6 +139,7 @@ server.use((req, res, next) => {
 	if (req.hostname == baseDomain) {
 		res.redirect(301, `https://www.${baseDomain}${req.originalUrl}`);
 	} else {
+		console.log(req);
 		next();
 	}
 });
