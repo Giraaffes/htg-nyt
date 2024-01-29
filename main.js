@@ -1,6 +1,7 @@
 require("express-async-errors");
 
 const fs = require("fs");
+const { exec } = require('child_process');
 
 const express = require("express");
 const bodyParser = require("body-parser")
@@ -144,8 +145,13 @@ server.use((req, res, next) => {
 
 
 server.post("/github-push", (req, res) => {
-	console.log(req.url, req.headers);
+	if (!req.headers["x-github-hook-id"] == "457630844") return;
 	res.status(200).end();
+
+	exec("git pull", (error, stdout, stderr) => {
+		//process.kill();
+		console.log(error, stdout, stderr);
+	});
 });
 
 
