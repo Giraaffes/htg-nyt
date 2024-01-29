@@ -7,10 +7,14 @@
 
 .navigation .openbtn {
 	width: 3.5rem;
-	line-height: 3.5rem;
+	height: 3.5rem;
 	padding: 0;
 	border: none !important;
 	border-radius: 5px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .navigation .openbtn:hover {

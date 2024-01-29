@@ -58,4 +58,5 @@ if (nav.length == 1) {
 	}
 }
 
+$(".openbtn").html("<i class=\"fas fa-bars\" style=\"font-size: 70%;\"></i>");
 $(".arrow-button i").removeClass("fa-chevron-circle-left").addClass("fa-chevron-left");
