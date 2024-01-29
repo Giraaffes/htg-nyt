@@ -60,3 +60,6 @@ if (nav.length == 1) {
 
 $(".openbtn").html("<i class=\"fas fa-bars\"></i>");
 $(".arrow-button i").removeClass("fa-chevron-circle-left").addClass("fa-chevron-left");
+
+
+$("#footer-logos").nextAll("br").remove();
