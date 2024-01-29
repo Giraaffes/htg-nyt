@@ -143,6 +143,13 @@ server.use((req, res, next) => {
 });
 
 
+server.post("/github-push", (req, res) => {
+	console.log(req);
+	console.log(req.headers);
+	res.status(200).end();
+});
+
+
 function fileExists(filePath) {
 	try {
 		fs.accessSync(filePath, fs.constants.R_OK);
