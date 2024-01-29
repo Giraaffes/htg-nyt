@@ -111,6 +111,13 @@ button.green-submit-btn i {
 
 @media (max-width: 650px) {
 	.navigation, .check-btn {
-		margin-top: 75px;
+		margin-top: 0px !important;
+	}
+
+	.arrow-button, .openbtn {
+		border-radius: 0 !important;
+		width: 60px !important;
+		height: 60px !important;
+		line-height: 60px !important;
 	}
 }

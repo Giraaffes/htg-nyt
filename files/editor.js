@@ -251,38 +251,6 @@ dataTable = $("#table").DataTable({
 $("#table tfoot, #table caption, #table_filter, #table_info").remove();
 
 
-// Must be intialized after DataTable intializaton
-// Anchor which acts as a button but whatever I guess
-updateOrderButton.removeAttr("href").on("click", () => {
-	$.notify("Opdaterer...", "warn");
-
-	let rows = $("#table tbody tr").toArray();
-	rows.sort((a, b) => {
-		let aTime = dataTable.cell(a, 2).data();
-		let bTime = dataTable.cell(b, 2).data();
-		return aTime - bTime;
-	});
-
-	(async () => {
-		for (let row of rows) {
-			let articleName = $(row).find("td:eq(0)").text();
-			let articleUuid = $(row).attr("data-article-uuid");
-			let currentVisibilityButton = $(row).find("td:eq(4) button.current");
-
-			let formData = new FormData();
-			formData.append("uuid", articleUuid);
-			formData.append("action", (["active", "inactive"])[currentVisibilityButton.index()]);
-			await fetch(`/admin/articles/change-status/${pageUuid}`, {
-				method: "POST",
-				body: formData,
-			});
-			await new Promise((res, rej) => { setTimeout(res, 750); });
-			$.notify(`Artiklen "${articleName}" opdateret!`, "success");
-		}
-	})();
-});
-
-
 let searchFields = $("<tr></tr>").appendTo("#table thead");
 for (let i = 0; i < 4; i++) {
 	let column = dataTable.column(i);
