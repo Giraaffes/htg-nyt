@@ -149,8 +149,8 @@ server.post("/github-push", (req, res) => {
 	res.status(200).end();
 
 	exec("git pull", (error, stdout, stderr) => {
-		//process.kill();
-		console.log(error, stdout, stderr);
+		console.log(stdout);
+		process.kill();
 	});
 });
 
