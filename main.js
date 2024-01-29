@@ -144,8 +144,7 @@ server.use((req, res, next) => {
 
 
 server.post("/github-push", (req, res) => {
-	console.log(req);
-	console.log(req.headers);
+	console.log(req.url, req.headers);
 	res.status(200).end();
 });
 
@@ -175,7 +174,7 @@ const urlPathRegex = /\/[^?]*/g;
 server.use(bodyParser.raw({ type: "*/*" }));
 server.use(async (req, res) => {
 	// Hardcoded - whatever
-	if (req.path == "/" && !req.url.match(/type=\w+/)) {
+	if (req.method == "GET" && req.path == "/" && !req.url.match(/type=\w+/)) {
 		res.redirect("/?type=new");
 		return;
 	}
