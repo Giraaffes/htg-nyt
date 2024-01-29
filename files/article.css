@@ -9,12 +9,18 @@ body {
 .top-box {
 	width: 100%;
 	max-width: 500px;
+	padding: 0;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .top-box h3 {
 	font-size: 75%;
 	text-align: center;
 	margin: 0;
+	padding: 0;
 }
 
 .authorContainer {
@@ -34,4 +40,21 @@ body {
 .style-illustration img {
 	height: unset;
 	width: calc(100% - 20px);
+}
+
+@media (max-width: 650px) {
+	.navigation, .check-btn {
+		margin-top: 0px !important;
+	}
+
+	.arrow-button, .openbtn {
+		border-radius: 0 !important;
+		width: 60px !important;
+		height: 60px !important;
+		line-height: 60px !important;
+	}
+
+	.arrow-button i, .openbtn i {
+		font-size: 50% !important;
+	}
 }

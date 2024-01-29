@@ -17,6 +17,10 @@
 	align-items: center;
 }
 
+.navigation .openbtn i {
+	font-size: 70%;
+}
+
 .navigation .openbtn:hover {
 	background-color: #333333 !important;
 }
@@ -113,15 +117,11 @@ button.green-submit-btn i {
 	font-size: 70%;
 }
 
-@media (max-width: 650px) {
-	.navigation, .check-btn {
-		margin-top: 0px !important;
-	}
+#footer-logos {
+	margin-top: 10px;
+}
 
-	.arrow-button, .openbtn {
-		border-radius: 0 !important;
-		width: 60px !important;
-		height: 60px !important;
-		line-height: 60px !important;
-	}
+#footer-logos .footer-image:last-child {
+	margin-top: 0;
+	margin-bottom: 0;
 }
