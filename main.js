@@ -198,19 +198,23 @@ server.use(async (req, res) => {
 		}*/
 	});
 
-	if (inspirRes.headers.location) {
+	let redirectUrl = inspirRes.headers.location;
+	if (redirectUrl) {
 		// Hardcoded - whatever
 		if (req.path == "/user/logout") {
-			inspirRes.headers.location = "/?type=new";
+			redirectUrl = "/?type=new";
 		} else {
-			inspirRes.headers.location = inspirRes.headers.location.replace(oldDomainRegex, "");
-			inspirRes.headers.location = remapAllPaths(inspirRes.headers.location, urlPathRegex);
+			redirectUrl = redirectUrl.replace(oldDomainRegex, "");
+			redirectUrl = remapAllPaths(redirectUrl, urlPathRegex);
 		}
 	}
+	inspirRes.headers.location = redirectUrl;
 
 	let contentType = inspirRes.headers["content-type"];
 	if (req.method == "GET" && contentType && contentType.startsWith("text/html")) {
-		let encoding = contentType.match(/charset=([^;]+)/)[1];
+		let encodingMatch = contentType.match(/charset=([^;]+)/);
+		let encoding = encodingMatch ? encodingMatch[1] : "utf8";
+		
 		let html = inspirRes.data.toString(encoding)
 		let newHtml = pageHook(originalPath, html);
 		inspirRes.data = Buffer.from(newHtml, encoding);

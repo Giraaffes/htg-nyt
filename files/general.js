@@ -53,6 +53,8 @@ if (nav.length == 1) {
 			newNav.find("i").removeClass("fa-right-from-bracket").addClass(`fa-${navItem.icon}`);
 			newNav.find("a").attr("href", navItem.href);
 		}
+	} else {
+		nav.find(".nav-item:contains(Log ind) a").attr("href", "/login"); // Remove backTo parameter
 	}
 }
 
