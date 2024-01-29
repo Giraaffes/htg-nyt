@@ -150,7 +150,7 @@ server.post("/github-push", (req, res) => {
 
 	exec("git pull", (error, stdout, stderr) => {
 		console.log(stdout);
-		process.kill();
+		process.exit();
 	});
 });
 
