@@ -5,7 +5,7 @@
 
 .sign-in-block {
 	padding: unset;
-	width: 440px;
+	width: unset;
 }
 
 input[type="submit"] {

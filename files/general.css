@@ -108,3 +108,9 @@ button.green-submit-btn:active {
 button.green-submit-btn i {
 	font-size: 70%;
 }
+
+@media (max-width: 650px) {
+	.navigation, .check-btn {
+		margin-top: 75px;
+	}
+}

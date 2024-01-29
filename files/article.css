@@ -1,5 +1,14 @@
+body {
+	margin: 0;
+}
+
 .top-box, .post-headline, #article-footer {
 	margin: 0;
+}
+
+.top-box {
+	width: 100%;
+	max-width: 500px;
 }
 
 .top-box h3 {
