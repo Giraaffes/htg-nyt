@@ -76,9 +76,9 @@ const pageInjects = {
 		name: "editor",
 		script: true, style: true
 	},
-	"/edit-article/": {
+	"/edit-article/": { // Disabled cause Mezzio is wreaking havoc
 		name: "edit-article",
-		script: true
+		script: false
 	}
 };
 
