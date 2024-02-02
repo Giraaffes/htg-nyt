@@ -99,7 +99,7 @@ $(".filter-toolbar").remove();
 
 function addVisibilityButtons(row) {
 	let visButton = $("<button></button>").addClass("btn vis-button");
-	let wrapper = $("<div></div>").addClass("vis-buttons-wrapper"); // Need a wrapper cause of some stupid bug
+	let wrapper = $("<div></div>").addClass("vis-buttons-wrapper");
 	wrapper.appendTo($(row).find("td:eq(4)")).append(
 		visButton.clone().text("Offentlig"),
 		visButton.clone().text("Ikke offentlig"),
@@ -135,12 +135,12 @@ function addEditButton(row) {
 	let editButton = $("<button>Rediger</button>").addClass("btn btn-info edit-button");
 	let editLink = $(row).data("edit-link");
 	let editAnchor = $(`<a href="${editLink}"></a>`).append(editButton);
-	editAnchor.insertAfter($(row).find("td:eq(5) button:eq(0)"))
+	editAnchor.appendTo($(row).find("td:eq(5) .action-buttons-wrapper"))
 }
 
 function addDeleteButton(row) {
 	let deleteButton = $("<button>Slet</button>").addClass("btn delete-button");
-	deleteButton.appendTo($(row).find("td:eq(5)"));
+	deleteButton.appendTo($(row).find("td:eq(5) .action-buttons-wrapper"));
 
 	let articleName = $(row).find("td:eq(0)").text().trim();
 	let articleUuid = $(row).data("article-uuid");
@@ -175,7 +175,9 @@ $("#table tbody tr").each((i, row) => {
 
 	addVisibilityButtons(row);
 
-	let copyLinkButton = $(row).find("td:eq(5) button:eq(1)");
+	let actionButtonsWrapper = $("<div></div>").addClass("action-buttons-wrapper");
+
+	let copyLinkButton = $(row).find("td:eq(5) button:eq(1)").wrap(actionButtonsWrapper);
 	copyLinkButton.data("url", copyLinkButton.data("url").replace(/^.+\//, "https://www.htg-nyt.dk/artikel/"));
 	copyLinkButton.text("Kopier link").on("click", () => {
 		$.notify("Link til artikel kopieret", "success");

@@ -92,6 +92,7 @@ h3 {
 #table tbody td:last-child {
 	width: auto !important;
 	gap: 10px !important;
+	display: table-cell !important;
 }
 
 
@@ -128,6 +129,11 @@ h3 {
 	cursor: default;
 }
 
+
+.action-buttons-wrapper {
+	display: flex;
+	gap: 10px;
+}
 
 .edit-button {
 	color: #ffffff;
