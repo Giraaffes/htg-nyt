@@ -1,8 +1,9 @@
 // Is automatically redirected by server but whatever - I'll keep it just in case
-let category = url.searchParams.get("type");
+let url_ = new URL(location);
+let category = url_.searchParams.get("type");
 if (!category || category.length == 0) {
-	url.searchParams.set("type", "new");
-	location.replace(url);
+	url_.searchParams.set("type", "new");
+	location.replace(url_);
 }
 
 

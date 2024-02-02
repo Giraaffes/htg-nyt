@@ -1,10 +1,12 @@
+let isChefredaktør = $("button:contains('GLOBAL')").length > 0;
 if (!isChefredaktør) throw Error("Ignorer denne fejl :)");
 
 
-let category = url.searchParams.get("type");
+let url_ = new URL(location);
+let category = url_.searchParams.get("type");
 if (!category || category != "local") {
-	url.searchParams.set("type", "local");
-	location.replace(url);
+	url_.searchParams.set("type", "local");
+	location.replace(url_);
 }
 
 

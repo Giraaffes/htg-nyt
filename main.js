@@ -85,6 +85,12 @@ const pageInjects = {
 const oldDomainHrefRegex = /(?<=href=")https:\/\/(?:www)?\.inspir\.dk/g;
 const urlPathHrefRegex = /(?<=href=")[^?"]*/g;
 const backToPathHrefRegex = /(?<=href="[^"]+backTo=)[^&"]*/g;
+const jQueryScriptRegex = /<script[^>]+src="[^"]+code\.jquery\.com.+?<\/script>/s;
+const datatablesScriptRegex = /<script[^>]+src="[^"]+cdn\.datatables\.net.+?<\/script>/s;
+
+function insertInString(str, insertStr, pos) {
+	return `${str.slice(0, pos)}${insertStr}${str.slice(pos)}`;
+}
 
 function pageHook(path, html) {
 	let newHtml = html;
@@ -93,6 +99,26 @@ function pageHook(path, html) {
 	newHtml = remapAllPaths(newHtml, urlPathHrefRegex);
 	newHtml = remapAllPaths(newHtml, backToPathHrefRegex);
 
+	// It's assumed that there is always a script last in body - else shit will break
+	let injectScriptsAfter = /<\/script>(?=\s*<\/body>)/;
+
+	let jQueryScriptMatch = newHtml.match(jQueryScriptRegex);
+	if (jQueryScriptMatch) injectScriptsAfter = jQueryScriptMatch[0];
+
+	let datatablesScript = newHtml.match(datatablesScriptRegex);
+	if (datatablesScript) {
+		newHtml = newHtml
+			.replace(datatablesScript[0], "")
+			.replace(jQueryScriptMatch[0], `$&${datatablesScript[0]}`);
+			injectScriptsAfter	 = datatablesScript[0];
+	}
+
+	newHtml = newHtml.replace(injectScriptsAfter, 
+		`$&<script src="/custom/general.js"></script>`, 
+	).replace(/>(?=\s*<\/head>)/, 
+		`$&<link rel="stylesheet" href="/custom/general.css">`
+	);
+
 	let inject = pageInjects[path];
 	if (!inject) {
 		let subpathInjectKey = Object.keys(pageInjects).find(k => 
@@ -100,34 +126,21 @@ function pageHook(path, html) {
 		);
 		if (subpathInjectKey) inject = pageInjects[subpathInjectKey];
 	}
-
 	if (inject) {
 		if (inject.script) {
-			// Editor page needs script injected just before last script
-			if (path.startsWith("/editor/")) {
-				newHtml = newHtml.replace(/(?=<script>\s+initDataTable\(\);)/, 
-					"<script src=\"/custom/editor_extra.js\"></script>"
-				);
-			}
+			// Hardcoded for editor page - whatever
+			newHtml = newHtml.replace(/(?<=<script>\s*)initDataTable\(\);/, "");
 
-			newHtml = newHtml.replace("</body>", 
-				`<script src="/custom/${inject.name}.js"></script></body>`
+			newHtml = newHtml.replace(injectScriptsAfter, 
+				`$&<script src="/custom/${inject.name}.js"></script>`
 			);
 		}
-		// Takes a bit to load when it's in body instead of head
 		if (inject.style) {
-			newHtml = newHtml.replace("</body>", 
-				`<link rel="stylesheet" href="/custom/${inject.name}.css"></body>`
+			newHtml = newHtml.replace(/>(?=\s*<\/head>)/, 
+				`$&<link rel="stylesheet" href="/custom/${inject.name}.css">`
 			);
 		}
 	}
-
-	// Style is last in body now - remove some !important tags
-	newHtml = newHtml.replace("</body>", 
-		`<link rel="stylesheet" href="/custom/general.css"></body>`
-	).replace("</body>", 
-		`<script src="/custom/general.js"></script></body>`
-	);
 
 	return newHtml;
 }
@@ -248,7 +261,6 @@ server.use((err, req, res, next) => {
 })
 
 
-console.log(process.env.PORT);
 server.listen(process.env.PORT || 8000, "127.0.0.1", () => {
 	console.log("Ready");
 });

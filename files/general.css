@@ -5,7 +5,7 @@
 	height: unset;
 }
 
-.navigation .openbtn {
+.openbtn {
 	width: 3.5rem;
 	height: 3.5rem;
 	padding: 0;
@@ -17,15 +17,15 @@
 	align-items: center;
 }
 
-.navigation .openbtn i {
+.openbtn i {
 	font-size: 70%;
 }
 
-.navigation .openbtn:hover {
+.openbtn:hover {
 	background-color: #333333 !important;
 }
 
-.navigation .openbtn:active {
+.openbtn:active {
 	background-color: #555555 !important;
 }
 
