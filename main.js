@@ -54,32 +54,13 @@ function unmapAllPaths(string, pathRegex) {
 }
 
 
-// It might be unnecessary that script and style are enabled seperately
 const pageInjects = {
-	"/login": {
-		name: "login",
-		script: true, style: true
-	},
-	"/hovedmenu": {
-		name: "homepage",
-		script: true, style: true
-	},
-	"/": {
-		name: "frontpage",
-		script: true, style: true
-	},
-	"/artikel/": {
-		name: "article",
-		script: true, style: true
-	},
-	"/editor/": {
-		name: "editor",
-		script: true, style: true
-	},
-	"/edit-article/": { // Disabled cause Mezzio is wreaking havoc
-		name: "edit-article",
-		script: false
-	}
+	"/login": "login",
+	"/hovedmenu": "homepage",
+	"/": "frontpage",
+	"/artikel/": "article",
+	"/editor/": "editor",
+	"/edit-article/": "edit-article"
 };
 
 const oldDomainHrefRegex = /(?<=href=")https:\/\/(?:www)?\.inspir\.dk/g;
@@ -114,32 +95,28 @@ function pageHook(path, html) {
 	}
 
 	newHtml = newHtml.replace(injectScriptsAfter, 
-		`$&<script src="/custom/general.js"></script>`, 
+		`$&<script src="/custom/js/general.js"></script>`, 
 	).replace(/>(?=\s*<\/head>)/, 
-		`$&<link rel="stylesheet" href="/custom/general.css">`
+		`$&<link rel="stylesheet" href="/custom/css/general.css">`
 	);
 
-	let inject = pageInjects[path];
-	if (!inject) {
+	let injectName = pageInjects[path];
+	if (!injectName) {
 		let subpathInjectKey = Object.keys(pageInjects).find(k => 
 			k != "/" && k.endsWith("/") && path.startsWith(k)
 		);
-		if (subpathInjectKey) inject = pageInjects[subpathInjectKey];
+		if (subpathInjectKey) injectName = pageInjects[subpathInjectKey];
 	}
-	if (inject) {
-		if (inject.script) {
-			// Hardcoded for editor page - whatever
-			newHtml = newHtml.replace(/(?<=<script>\s*)initDataTable\(\);/, "");
+	if (injectName) {
+		// Hardcoded for editor page - whatever
+		newHtml = newHtml.replace(/(?<=<script>\s*)initDataTable\(\);/, "");
 
-			newHtml = newHtml.replace(injectScriptsAfter, 
-				`$&<script src="/custom/${inject.name}.js"></script>`
-			);
-		}
-		if (inject.style) {
-			newHtml = newHtml.replace(/>(?=\s*<\/head>)/, 
-				`$&<link rel="stylesheet" href="/custom/${inject.name}.css">`
-			);
-		}
+		newHtml = newHtml.replace(injectScriptsAfter, 
+			`$&<script src="/custom/js/${injectName}.js"></script>`
+		);
+		newHtml = newHtml.replace(/>(?=\s*<\/head>)/, 
+			`$&<link rel="stylesheet" href="/custom/css/${injectName}.css">`
+		);
 	}
 
 	return newHtml;
@@ -177,8 +154,8 @@ function fileExists(filePath) {
 	}
 }
 
-server.get("/custom/:file", (req, res) => {
-	let filePath = `${__dirname}/files/${req.params.file}`;
+server.get(/\/custom(\/.+)/, (req, res) => {
+	let filePath = `${__dirname}/files/${req.params[0]}`;
 	if (fileExists(filePath)) {
 		res.sendFile(filePath);
 	} else {
