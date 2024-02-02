@@ -94,9 +94,7 @@ function pageHook(path, html) {
 			injectScriptsAfter	 = datatablesScript[0];
 	}
 
-	newHtml = newHtml.replace(injectScriptsAfter, 
-		`$&<script src="/custom/js/general.js"></script>`, 
-	).replace(/>(?=\s*<\/head>)/, 
+	newHtml = newHtml.replace(/>(?=\s*<\/head>)/, 
 		`$&<link rel="stylesheet" href="/custom/css/general.css">`
 	);
 
@@ -118,6 +116,10 @@ function pageHook(path, html) {
 			`$&<link rel="stylesheet" href="/custom/css/${injectName}.css">`
 		);
 	}
+
+	newHtml = newHtml.replace(injectScriptsAfter, 
+		`$&<script src="/custom/js/general.js"></script>`, 
+	);
 
 	return newHtml;
 }
