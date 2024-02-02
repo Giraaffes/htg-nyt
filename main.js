@@ -139,7 +139,6 @@ server.use((req, res, next) => {
 	if (req.hostname == baseDomain) {
 		res.redirect(301, `https://www.${baseDomain}${req.originalUrl}`);
 	} else {
-		console.log(req);
 		next();
 	}
 });
@@ -249,6 +248,7 @@ server.use((err, req, res, next) => {
 })
 
 
-server.listen(8000, "127.0.0.1", () => {
+console.log(process.env.PORT);
+server.listen(process.env.PORT || 8000, "127.0.0.1", () => {
 	console.log("Ready");
 });

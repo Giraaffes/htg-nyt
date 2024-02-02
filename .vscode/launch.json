@@ -12,7 +12,10 @@
 				"<node_internals>/**"
 			],
 			"runtimeExecutable": "nodemon",
-			"program": "${workspaceFolder}\\main.js"
+			"program": "${workspaceFolder}\\main.js",
+			"env": {
+				"PORT": "80"
+			}
 		}
 	]
 }
