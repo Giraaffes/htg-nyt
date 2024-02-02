@@ -1,5 +1,6 @@
 .notifyjs-container { 
-	font-size: 24px; padding: 10px;
+	font-size: 24px; 
+	padding: 10px;
 }
 
 .nav-item { 
@@ -19,7 +20,8 @@
 }
 
 label .fas { 
-	width: 16px; text-align: center; 
+	width: 16px; 
+	text-align: center; 
 }
 
 
@@ -43,5 +45,5 @@ label .fas {
 
 
 .page-content {
-	padding: 10px 30px;
+	/*padding: 10px 30px;*/
 }
