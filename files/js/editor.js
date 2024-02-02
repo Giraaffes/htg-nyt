@@ -1,4 +1,4 @@
-let isChefredaktør = $("button:contains('GLOBAL')").length > 0;
+let isChefredaktør = ($("button:contains('GLOBAL')").length > 0);
 if (!isChefredaktør) throw Error("Ignorer denne fejl :)");
 
 

@@ -1,0 +1,47 @@
+.notifyjs-container { 
+	font-size: 24px; padding: 10px;
+}
+
+.nav-item { 
+	transition: background-color 0.15s ease-in; 
+}
+
+.nav-item:hover { 
+	background-color: #eeeeee; 
+}
+
+.nav-item:active { 
+	background-color: #dddddd; 
+}
+
+.form-data { 
+	width: unset !important; 
+}
+
+label .fas { 
+	width: 16px; text-align: center; 
+}
+
+
+.header-logo {
+	width: unset;
+}
+
+.header-logo .site-title {
+	font-size: 21px;
+}
+
+.sidebar {
+	min-height: calc(100vh - 50px);
+	width: 180px;
+	transition: unset;
+}
+
+.sidebar .nav-item:last-child {
+	position: unset !important;
+}
+
+
+.page-content {
+	padding: 10px 30px;
+}
