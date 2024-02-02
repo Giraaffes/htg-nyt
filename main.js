@@ -57,7 +57,7 @@ function unmapAllPaths(string, pathRegex) {
 const pageInjects = {
 	"/login": "login",
 	"/hovedmenu": "homepage",
-	"/": "frontpage",
+	"/": "front-page",
 	"/artikel/": "article",
 	"/editor/": "editor",
 	"/edit-article/": "edit-article"
