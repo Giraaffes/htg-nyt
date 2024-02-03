@@ -7,21 +7,42 @@ $(() => {
 });
 
 
-const categoryChanges = {
-	"new": {icon: "newspaper"},
-	"faq": {icon: "face-laugh", title: "Alt det sjove"},
-	"academy": {title: "Lærerige emner"},
-	"hack": {title: "Tips & tricks"}
+const remapCategoryIds = {
+	"new": "nyt",
+	"faq": "sjovt",
+	"academy": "lærerigt",
+	"meeting": "mødesteder",
+	"calendar": "kalender"
 };
 
-if (categoryChanges[category] && categoryChanges[category].title) {
-	$(".headline-content h1").text(categoryChanges[category].title);
+$("#filterList button").each((_, btn) => {
+	
+});
+
+
+const categoryChanges = {
+	"new": {name: "nyt", icon: "newspaper"},
+	"faq": {name: "sjovt", icon: "face-laugh", title: "Alt det sjove"},
+	"academy": {name: "lærerigt", title: "Lærerige emner"},
+	"hack": {title: "Tips & tricks"}, // delete later
+	"meeting": {name: "mødesteder"},
+	"calendar": {name: "kalender"}
+};
+
+let activeCategoryName = $("#filterList button.active").data("value");
+let activeCategoryChanges = categoryChanges[activeCategoryName];
+if (activeCategoryChanges && activeCategoryChanges.title) {
+	$(".headline-content h1").text(activeCategoryChanges.title);
 }
 
 $("#filterList button").each((_, btn) => {
 	let btnCategory = $(btn).data("value");
-	if (categoryChanges[btnCategory] && categoryChanges[btnCategory].icon) {
-		$(btn).find("i").removeClass().addClass("fas").addClass(`fa-${categoryChanges[btnCategory].icon}`);
+	let changes = categoryChanges[btnCategory];
+	if (!changes) return;
+
+	if (changes.name) $(btn).data("value", changes.name);
+	if (changes.icon) {
+		$(btn).find("i").removeClass().addClass("fas").addClass(`fa-${changes.icon}`);
 	}
 });
 
@@ -32,7 +53,7 @@ $(() => {
 			e.preventDefault();
 		
 			let ctg = $(btn).data("value");
-			if (ctg == "new") {
+			if (ctg == "nyt") {
 				url_.searchParams.delete("type");
 			} else {
 				url_.searchParams.set("type", ctg);

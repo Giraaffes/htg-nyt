@@ -166,16 +166,31 @@ server.get(/\/custom(\/.+)/, (req, res) => {
 });
 
 
+const remapCategoryIds = {
+	"nyt": "new",
+	"sjovt": "faq",
+	"lærerigt": "academy",
+	"mødesteder": "meeting",
+	"kalender": "calendar"
+};
+
 const oldDomainRegex = /https:\/\/(?:www)?\.inspir\.dk/g;
 const urlPathRegex = /\/[^?]*/g;
 
 server.use(bodyParser.raw({ type: "*/*", limit: "100mb" }));
 server.use(async (req, res) => {
-	// Hardcoded
 	if (req.method == "GET") {
-		let paramsStr = (req.url.match(/(?<=\?).+/) || [null])[0];
+		let paramsStr = (req.url.match(/(?<=\?).+/) || [""])[0];
 		let params = new URLSearchParams(paramsStr);
-		if (req.path == "/" && !params.has("type")) {
+
+		if (req.path == "/") {
+			let remapCategoryIdTo = remapCategoryIds[params.get("type")];
+			console.log(remapCategoryIdTo);
+			if (remapCategoryIdTo) params.set("type", remapCategoryIdTo);
+		} 
+		
+		// Hardcoded
+		if (req.path == "/" && (!params.has("type") || !params.get("type").trim())) {
 			params.set("type", "new");
 		} else if (req.path.startsWith("/editor/") && !params.has("type")) {
 			params.set("type", "local");
@@ -196,7 +211,6 @@ server.use(async (req, res) => {
 		method: req.method,
 		url: `https://www.inspir.dk${req.url}`,
 		headers: req.headers,
-		params: req.query,
 		data: req.body,
 		responseType: "arraybuffer",
 		responseEncoding: "binary",
