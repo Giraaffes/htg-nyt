@@ -2,14 +2,6 @@ let isChefredaktør = ($("button:contains('GLOBAL')").length > 0);
 if (!isChefredaktør) throw Error("Ignorer denne fejl :)");
 
 
-let url_ = new URL(location);
-let category = url_.searchParams.get("type");
-if (!category || category != "local") {
-	url_.searchParams.set("type", "local");
-	location.replace(url_);
-}
-
-
 // https://stackoverflow.com/a/26915856
 function getUuid1Date(uuid) {
 	let splitUuid = uuid.split("-");

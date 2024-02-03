@@ -172,12 +172,18 @@ const urlPathRegex = /\/[^?]*/g;
 server.use(bodyParser.raw({ type: "*/*", limit: "100mb" }));
 server.use(async (req, res) => {
 	// Hardcoded
-	if (req.method == "GET" && req.path == "/" && !req.url.match(/type=\w+/)) {
-		let paramsStr = (req.url.match(/\?.+/) || [null])[0];
+	if (req.method == "GET") {
+		let paramsStr = (req.url.match(/(?<=\?).+/) || [null])[0];
 		let params = new URLSearchParams(paramsStr);
-		params.set("type", "new");
-		req.url = req.url.replace(/(?:\?.*)?$/, "?" + params.toString());
-		console.log(req.url);
+		if (req.path == "/" && !params.has("type")) {
+			params.set("type", "new");
+		} else if (req.path.startsWith("/editor/") && !params.has("type")) {
+			params.set("type", "local");
+		}
+
+		if (paramsStr != params.toString()) {
+			req.url = req.url.replace(/(?:\?.*)?$/, "?" + params.toString());
+		}
 	}
 
 	let originalPath = req.path; // Since this value is changed automatically below
