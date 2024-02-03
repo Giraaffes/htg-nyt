@@ -55,7 +55,7 @@ function addCheckField(type, html, name, value, id) {
 // Nav menu
 let skolebladNav = $(".sidebar .nav-item:first");
 skolebladNav.html(skolebladNav.html().replace("htg-nyt", "læs htg-nyt"));
-skolebladNav.find(".nav-link").attr("href", "/?type=new");
+skolebladNav.find(".nav-link").attr("href", "/");
 
 let backNav = skolebladNav.clone().insertBefore(skolebladNav);
 backNav.html(backNav.html().replace("læs htg-nyt", "Gem og luk"));

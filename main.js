@@ -106,7 +106,7 @@ function pageHook(path, html) {
 		if (subpathInjectKey) injectName = pageInjects[subpathInjectKey];
 	}
 	if (injectName) {
-		// Hardcoded for editor page - whatever
+		// Hardcoded for editor page
 		newHtml = newHtml.replace(/(?<=<script>\s*)initDataTable\(\);/, "");
 
 		newHtml = newHtml.replace(injectScriptsAfter, 
@@ -171,10 +171,13 @@ const urlPathRegex = /\/[^?]*/g;
 
 server.use(bodyParser.raw({ type: "*/*", limit: "100mb" }));
 server.use(async (req, res) => {
-	// Hardcoded - whatever
+	// Hardcoded
 	if (req.method == "GET" && req.path == "/" && !req.url.match(/type=\w+/)) {
-		res.redirect("/?type=new");
-		return;
+		let paramsStr = (req.url.match(/\?.+/) || [null])[0];
+		let params = new URLSearchParams(paramsStr);
+		params.set("type", "new");
+		req.url = req.url.replace(/(?:\?.*)?$/, "?" + params.toString());
+		console.log(req.url);
 	}
 
 	let originalPath = req.path; // Since this value is changed automatically below
@@ -204,9 +207,9 @@ server.use(async (req, res) => {
 
 	let redirectUrl = inspirRes.headers.location;
 	if (redirectUrl) {
-		// Hardcoded - whatever
+		// Hardcoded
 		if (req.path == "/user/logout") {
-			redirectUrl = "/?type=new";
+			redirectUrl = "/";
 		} else {
 			redirectUrl = redirectUrl.replace(oldDomainRegex, "");
 			redirectUrl = remapAllPaths(redirectUrl, urlPathRegex);

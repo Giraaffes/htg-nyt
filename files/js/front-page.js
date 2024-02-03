@@ -1,10 +1,5 @@
-// Is automatically redirected by server but whatever - I'll keep it just in case
 let url_ = new URL(location);
-let category = url_.searchParams.get("type");
-if (!category || category.length == 0) {
-	url_.searchParams.set("type", "new");
-	location.replace(url_);
-}
+let category = url_.searchParams.get("type") || "new";
 
 
 $(() => {
@@ -31,7 +26,7 @@ $("#filterList button").each((_, btn) => {
 });
 
 
-// Disabled because it it breaks when actually clicking the tags
+// Disabled because it breaks when actually clicking the tags
 /*$("#dynamic-filters button").each((_, tagBtn) => {
 	let tagName = $(tagBtn).text().toLowerCase().trim();
 	let articleTags = $(".article-listing .grey-box").filter((_, tag) => {
@@ -63,6 +58,8 @@ if ($("#dynamic-filters button").length > 0) {
 }
 
 
-$(".article-anchor").each((_, a) => {
-	$(a).attr("href", $(a).attr("href") + "?backToCategory=" + category);
-});
+if (category != "new") {
+	$(".article-anchor").each((_, a) => {
+		$(a).attr("href", $(a).attr("href") + "?backToCategory=" + category);
+	});
+}

@@ -39,7 +39,7 @@ let dataTable; // Is intialized later
 
 let skolebladNav = $(".sidebar .nav-item:first");
 skolebladNav.html(skolebladNav.html().replace("htg-nyt", "læs htg-nyt"));
-skolebladNav.find(".nav-link").attr("href", "/?type=new");
+skolebladNav.find(".nav-link").attr("href", "/");
 
 let mainMenuNav = skolebladNav.clone().insertBefore(skolebladNav);
 mainMenuNav.html(mainMenuNav.html().replace("læs htg-nyt", "Hovedmenu"));

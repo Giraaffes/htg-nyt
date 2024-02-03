@@ -1,6 +1,7 @@
-let backToCategory = (new URL(window.location)).searchParams.get("backToCategory");
+let url_ = new URL(window.location);
+let backToCategory = url_.searchParams.get("backToCategory");
 $(".arrow-button").removeAttr("onclick").attr("href", 
-	`${location.origin}/?type=${backToCategory || "new"}`
+	`${location.origin}/${backToCategory ? `?type=${backToCategory}` : ""}`
 );
 
 if ($(".navbar-nav").length == 0) {
