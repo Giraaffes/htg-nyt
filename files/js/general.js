@@ -63,3 +63,15 @@ $(".arrow-button i").removeClass("fa-chevron-circle-left").addClass("fa-chevron-
 
 
 $("#footer-logos").nextAll("br").remove();
+
+
+const categories = {
+	"Nyt": {name: "Nyheder", icon: "newspaper"},
+	"Inspir": {name: "Fordybelse", icon: "brain"},
+	"FAQ": {name: "Sjovt", icon: "face-laugh"},
+	"Academy": {name: "Lærerigt", icon: "graduation-cap"},
+	"Hacks": {name: "Tips & tricks", icon: "lightbulb"},
+	"Folk": {name: "Folk", icon: "user"},
+	"Mødesteder": {name: "Mødesteder", icon: "users"},
+	"Kalender": {name: "Kalender", icon: "calendar-alt"}
+};

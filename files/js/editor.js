@@ -194,17 +194,7 @@ $("#table tbody tr").each((i, row) => {
 });
 
 
-const categories = {
-	"Nyt": {name: "Nyheder", icon: "newspaper"},
-	"Inspir": {name: "Fordybelse", icon: "brain"},
-	"FAQ": {name: "Sjovt", icon: "face-laugh"},
-	"Academy": {name: "Lærerigt", icon: "graduation-cap"},
-	"Hacks": {name: "Tips & tricks", icon: "lightbulb"},
-	"Folk": {name: "Folk", icon: "user"},
-	"Mødesteder": {name: "Mødesteder", icon: "users"},
-	"Kalender": {name: "Kalender", icon: "calendar-alt"}
-};
-
+// 'categories' variable from general.js
 dataTable = $("#table").DataTable({
 	language: {
 		"zeroRecords": "Ingen resultater fundet for denne søgning"

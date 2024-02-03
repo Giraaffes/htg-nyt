@@ -169,7 +169,7 @@ server.get(/\/custom(\/.+)/, (req, res) => {
 const oldDomainRegex = /https:\/\/(?:www)?\.inspir\.dk/g;
 const urlPathRegex = /\/[^?]*/g;
 
-server.use(bodyParser.raw({ type: "*/*" }));
+server.use(bodyParser.raw({ type: "*/*", limit: "100mb" }));
 server.use(async (req, res) => {
 	// Hardcoded - whatever
 	if (req.method == "GET" && req.path == "/" && !req.url.match(/type=\w+/)) {
