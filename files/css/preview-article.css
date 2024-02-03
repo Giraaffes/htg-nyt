@@ -1,0 +1,36 @@
+.app * {
+	max-height: unset;
+}
+
+.content {
+	height: 100vh;
+	max-height: unset;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.content > div {
+	overflow-x: hidden !important;
+	border: 1px solid #cccccc;
+	height: 711px;
+	max-height: 100vh;
+}
+
+.top-box, .post-headline, .post-article {
+	position: static;
+}
+
+.authorContainer {
+	margin: 0 10px;
+	padding-top: 10px;
+}
+
+.top-box h3 {
+	margin: 0 10px;
+	text-align: center;
+}
+
+.style-socials {
+	margin: 20px 0;
+}

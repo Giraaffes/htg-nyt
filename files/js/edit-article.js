@@ -1,6 +1,8 @@
 let isChefredaktør = ($("input[name=\"status\"]").length > 0);
 if (!isChefredaktør) throw Error("Ignorer denne fejl :)");
 
+let pageUuid = window.location.pathname.match(/[\w-]+$/)[0];
+
 
 // TODO
 $("#widgets-container").remove();
@@ -175,9 +177,8 @@ authorSelectDiv.find("input").eq(isAnonymous ? 1 : 0).prop("checked", true);
 let saveButton = addButton("Gem artikel", saveArticle);
 actionButtonsDiv.append(saveButton);	
 
-let previewLink = $("#preview-article").parent().attr("href");
 let previewButton = addButton("Forhåndsvis artikel", () => {
-		window.open(previewLink, "_blank");
+		window.open(`/preview-article/${pageUuid}`, "_blank");
 });
 actionButtonsDiv.append(previewButton);
 
@@ -255,7 +256,6 @@ function addElementButtons(element) {
 		}
 	}).appendTo(buttonsDiv);
 
-	let pageUuid = window.location.pathname.match(/[\w-]+$/)[0];
 	let deleteButton = addButton(faIcon("trash-can"), () => {
 		if (!window.confirm("Vil du virkelig slette dette element permanent?")) return;
 

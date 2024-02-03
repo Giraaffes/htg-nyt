@@ -18,7 +18,8 @@ const remapPaths = [
 	{from: "e9a/htg", to: ""},
 	{from: "admin/articles/overview/", to: "editor/"},
 	{from: "admin/articles/overview", to: "editor"},
-	{from: "admin/articles/edit/", to: "edit-article/"}
+	{from: "admin/articles/edit/", to: "edit-article/"},
+	{from: "admin/articles/preview-article/", to: "preview-article/"}
 ];
 
 function remapAllPaths(string, pathRegex) {
@@ -60,7 +61,8 @@ const pageInjects = {
 	"/": "front-page",
 	"/artikel/": "article",
 	"/editor/": "editor",
-	"/edit-article/": "edit-article"
+	"/edit-article/": "edit-article",
+	"/preview-article/": "preview-article"
 };
 
 const oldDomainHrefRegex = /(?<=href=")https:\/\/(?:www)?\.inspir\.dk/g;
