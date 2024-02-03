@@ -212,6 +212,10 @@ if (iframe.length == 1) {
 		iframe.css("height", "unset");
 }
 
+// Thumbnail fix
+$("#magazines-articles-form > div:last .form-data:eq(3)").removeAttr("style");
+$("#cropPreview").removeAttr("style");	
+
 
 // Article elements
 // https://stackoverflow.com/a/19033868
