@@ -26,6 +26,23 @@ $("#filterList button").each((_, btn) => {
 });
 
 
+$(() => {
+	$("#filterList button").each((_, btn) => {
+		$(btn).off().on("click", e => {
+			e.preventDefault();
+		
+			let ctg = $(btn).data("value");
+			if (ctg == "new") {
+				url_.searchParams.delete("type");
+			} else {
+				url_.searchParams.set("type", ctg);
+			}
+			location = url_;
+		});
+	});
+});
+
+
 // Disabled because it breaks when actually clicking the tags
 /*$("#dynamic-filters button").each((_, tagBtn) => {
 	let tagName = $(tagBtn).text().toLowerCase().trim();
