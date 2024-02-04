@@ -1,7 +1,11 @@
 let isChefredaktør = ($("button:contains('GLOBAL')").length > 0);
 if (!isChefredaktør) throw Error("Ignorer denne fejl :)");
 
+let pageUuid = window.location.pathname.match(/[\w-]+$/)[0];
+let dataTable; // Is intialized later
 
+
+// Util functions
 // https://stackoverflow.com/a/26915856
 function getUuid1Date(uuid) {
 	let splitUuid = uuid.split("-");
@@ -25,10 +29,7 @@ function formatDate(date) {
 }
 
 
-let pageUuid = window.location.pathname.match(/[\w-]+$/)[0];
-let dataTable; // Is intialized later
-
-
+// Nav menu
 let skolebladNav = $(".sidebar .nav-item:first");
 skolebladNav.html(skolebladNav.html().replace("htg-nyt", "læs htg-nyt"));
 skolebladNav.find(".nav-link").attr("href", "/");
@@ -43,14 +44,17 @@ let logoutNav = $(".sidebar .nav-item:last .nav-link").prepend(
 );
 
 
+// Overview general
 let skolebladTitle = $("h3").text().toUpperCase();
 $("title").text(`${skolebladTitle} - Redaktør`);
 $("h3").text(`Skolebladet '${skolebladTitle}'`);
-$(".alert, br").remove();
+$(".alert, br, .filter-toolbar").remove();
 
 let newArticleButton = $(".admin-section-title .btn");
 newArticleButton.text("+ Ny artikel");
 
+
+// Update order button
 let updateOrderButton = newArticleButton.clone().insertAfter(newArticleButton);
 updateOrderButton.attr("id", "update-order").text("Opdater rækkefølge (dette kan tage lang tid)");
 updateOrderButton.removeAttr("href").on("click", () => {
@@ -86,9 +90,8 @@ $("<p id=\"sort-info\"><- Hvad? Hold musen over mig</p>").insertAfter(updateOrde
 	"Normalt står artikler inde på skolebladet i rækkefølge efter hvornår de sidst blev ændret.\nTryk for at sortere alle artikler efter deres oprettelsesdato (som det burde være).\nRækkefølgen bliver dog gal igen så snart en ældre artikel ændres :/"
 );
 
-$(".filter-toolbar").remove();
 
-
+// Immediate table changes (new columns w/ dates and buttons)
 function addVisibilityButtons(row) {
 	let visButton = $("<button></button>").addClass("btn vis-button");
 	let wrapper = $("<div></div>").addClass("vis-buttons-wrapper");
@@ -186,7 +189,9 @@ $("#table tbody tr").each((i, row) => {
 });
 
 
-// 'categories' variable from general.js
+// Initialize DataTable
+// 'categoryChanges' variable from general.js
+// indentation nightmare
 dataTable = $("#table").DataTable({
 	language: {
 		"zeroRecords": "Ingen resultater fundet for denne søgning"
@@ -211,19 +216,15 @@ dataTable = $("#table").DataTable({
 				}, orderSequence: ["desc", "asc"]
 		}, {
 			target: 3, render: (data, type, row) => {
-				if (data == "-") {
-					return type == "sort" ? "末" : (type == "filter" ? "" : data);
+				let ctgChanges = Object.values(categoryChanges).find(e => e.oldTitle == data);
+				if (data == "-" || !ctgChanges) {
+					return type == "sort" ? "末" : (type == "filter" ? "" : "-");
+				} else if (type == "display") {
+					return `<i class="fas fa-${ctgChanges.icon}" aria-hidden="true"></i>&nbsp;&nbsp;${ctgChanges.nav}`;
+				} else if (type == "sort" || type == "filter") {
+					return ctgChanges.nav;
 				} else {
-					let category = categories[data];
-					if (!category) return data;
-
-					if (type == "display") {
-						return `<i class="fas fa-${category.icon}" aria-hidden="true"></i>&nbsp;&nbsp;${category.name}`;
-					} else if (type == "sort" || type == "filter") {
-						return category.name;
-					} else {
-						return data;
-					}
+					return data;
 				}
 			}
 		}, {
@@ -237,6 +238,7 @@ dataTable = $("#table").DataTable({
 $("#table tfoot, #table caption, #table_filter, #table_info").remove();
 
 
+// Search fields
 let searchFields = $("<tr></tr>").appendTo("#table thead");
 for (let i = 0; i < 4; i++) {
 	let column = dataTable.column(i);
@@ -253,6 +255,7 @@ for (let i = 0; i < 4; i++) {
 searchFields.append("<th></th><th></th>");
 
 
+// Table changes which need requests
 $("#table tbody tr").each((i, e) => {
 	let editLink = $(e).data("edit-link")
 	if (!editLink) return;

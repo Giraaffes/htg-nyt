@@ -170,7 +170,7 @@ server.get(/\/custom(\/.+)/, (req, res) => {
 
 const remapCategoryIds = {
 	"nyt": "new",
-	"sjovt": "faq",
+	"sjovt": "article",
 	"lærerigt": "academy",
 	"mødesteder": "meeting",
 	"kalender": "calendar"
@@ -187,7 +187,6 @@ server.use(async (req, res) => {
 
 		if (req.path == "/") {
 			let remapCategoryIdTo = remapCategoryIds[params.get("type")];
-			console.log(remapCategoryIdTo);
 			if (remapCategoryIdTo) params.set("type", remapCategoryIdTo);
 		} 
 		

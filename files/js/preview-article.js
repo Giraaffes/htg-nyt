@@ -1,5 +1,5 @@
 $(".authorContainer").insertAfter(".post-title");
-$(".top-box h3").text($("title").text());
+$(".top-box h3").text("HTG-NYT");
 $("title").text(`Preview "${$(".post-title h2").text()}"`)
 
 // No!!!!

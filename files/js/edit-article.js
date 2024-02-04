@@ -48,7 +48,7 @@ function addButton(html, clickCallback) {
 }
 
 function addCheckField(type, html, name, value, id) {
-	let input = $(`<input type="${type}" name="${name}" value="${value}" id=${id}>`).hide();
+	let input = $(`<input type="${type}" name="${name}" value="${value}" id=${id}>`).addClass("custom-input").hide();
 	let field = $(`<label for="${id}">${html}</label>`).addClass("custom-field");
 	return $([input[0], field[0]]);
 }
@@ -97,22 +97,26 @@ $("#hideable-menu > div").removeAttr("style").css("width", i =>
 
 
 // Categories and tags
-// 'categories' variable from general.js
-let categoriesOrdered = Object.keys(categories);
-$("#static-filters label").toArray().sort((a, b) => {
-	return categoriesOrdered.indexOf($(a).text()) - categoriesOrdered.indexOf($(b).text());
-}).forEach(ctg => {
-	let input = $(`#${$(ctg).attr("for")}`);
-	let { name, icon } = categories[$(ctg).text()];
+// 'categoryChanges' variable from general.js
+let ctgChangeEntries = Object.entries(categoryChanges);
+for (let [ name, ctgChange ] of ctgChangeEntries) {
+	let input = $(`#static-filters #${name}`);
+	let uuid = input.attr("value");
+
 	let newCtgRadio = addCheckField("radio",
-		`${faIcon(icon)}&nbsp;&nbsp;${name}`,
-		$(input).attr("name"), $(input).attr("value"), $(input).attr("id")
+		ctgChange.nav, "type", uuid, name
 	);
+
+	// wtf????
+	$(() => {
+		let label = newCtgRadio.eq(1);
+		label.html(`${faIcon(ctgChange.icon)}&nbsp;&nbsp;${label.html()}`)
+	});
+
 	if (input.is(":checked")) newCtgRadio.prop("checked", true);
 	$(newCtgRadio).appendTo("#static-filters");
-	
-	$(ctg).remove(); input.remove();
-});
+}
+$("#static-filters :not(.custom-input):not(.custom-field)").remove();
 
 $("#dynamic-filters label").each((_, tag) => {
 	let input = $(`#${$(tag).attr("for")}`);

@@ -3,29 +3,60 @@
 	margin-left: 0;
 }
 
-#filterList button:not(.active):hover, #dynamic-filters button:not(.active):hover {
-	background-color: #dddddd;
+
+#filterList {
+	padding: 0;
+	padding-top: 20px;
 }
 
-#filterList button:not(.active):active, #dynamic-filters button:not(.active):active {
-	background-color: #cccccc;
+#filterList button {
+	flex-grow: 1;
+	aspect-ratio: 1.9;
+	margin-bottom: 0;
+
+	font-size: 1.2rem !important;
+	border: none;
+	border-radius: 0;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 5px;
+}
+
+#filterList button:not(.active):hover {
+	filter: brightness(90%);
+}
+
+#filterList button:not(.active):active {
+	filter: brightness(85%);
+}
+
+#filterList button:not(.active) i {
+	opacity: 0.9;
+}
+
+#filterList button:not(.active) span {
+	opacity: 0.9;
+	font-size: 60%;
 }
 
 #filterList button.active {
 	cursor: default;
 }
 
+
 #filters-text {
 	font-weight: lighter;
 	font-size: 90%;
 }
 
-#no-articles {
-	display: block;
-	font-weight: normal;
-	text-align: center;
-	margin: 20px 0;
-	font-size: 80%;
+#dynamic-filters button:not(.active):hover {
+	background-color: #dddddd;
+}
+
+#dynamic-filters button:not(.active):active {
+	background-color: #cccccc;
 }
 
 #dynamic-filters button.active:hover {
@@ -34,6 +65,15 @@
 
 #dynamic-filters button.active:active {
 	background-color: #777777;
+}
+
+
+#no-articles {
+	display: block;
+	font-weight: normal;
+	text-align: center;
+	margin: 20px 0;
+	font-size: 80%;
 }
 
 .article-listing:hover h5:not(.grey-box) {
