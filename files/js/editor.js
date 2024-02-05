@@ -182,7 +182,7 @@ $("#table tbody tr").each((i, row) => {
 	let editLinkNode = $(row).find(".edit-a");
 	let editLink = editLinkNode.attr("href")
 	$(row).attr("data-edit-link", editLink);
-	editLinkNode.closest("td").text(editLinkNode.text().trim());
+	//editLinkNode.closest("td").text(editLinkNode.text().trim());
 	addEditButton(row);
 
 	addDeleteButton(row);

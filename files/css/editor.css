@@ -99,6 +99,10 @@ h3 {
 }
 
 
+a.edit-a {
+	color: black;
+}
+
 .vis-buttons-wrapper {
 	display: flex;
 	gap: 5px;
