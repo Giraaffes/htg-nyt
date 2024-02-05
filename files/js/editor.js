@@ -69,7 +69,7 @@ updateOrderButton.removeAttr("href").on("click", () => {
 
 	(async () => {
 			for (let row of rows) {
-					let articleName = $(row).find("td:eq(0)").text();
+					let articleName = $(row).find("td:eq(0)").text().trim();
 					let articleUuid = $(row).attr("data-article-uuid");
 					let currentVisibilityButton = $(row).find("td:eq(4) button.current");
 
