@@ -16,7 +16,7 @@
 [ ] Maybe remove the long ugly uuid from the article overview page url
 [X] Fix the categories
 [X] Fix adding images
-[ ] Add dates to articles
+[X] Add dates to articles
 [ ] 	Date on preview page
 [ ] Move nav button down a bit on homepage on mobile
 

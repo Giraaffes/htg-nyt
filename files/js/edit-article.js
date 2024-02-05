@@ -429,7 +429,7 @@ const elementTypes = [
 	{ text: "Sociale medier", name: "socials" }
 ];
 
-function loadNewElement(element) {
+async function loadNewElement(element) {
 	let elementIndex = $("#form-inputs").children(".form-data").index(element) + 1;
 
 	let inputs = element.find("input, textarea");
@@ -440,15 +440,20 @@ function loadNewElement(element) {
 		$(input).attr("name",
 			$(input).attr("name").replace(/(?<=^content\[)[^\]]+/, elementName)
 		);
+		// Code could be better but this is an important fix right now
+		if ($(input).attr("name").match(/^content\[[^\]]+\]$/)) {
+			$(input).attr("name", $(input).attr("name") + "[value]");
+		}
 	});
 
-	fetch(window.location.href).then(res => res.text()).then(html => {
-		let formHtml = html.match(/<form[^\n]+id="magazines-articles-form".+?<\/form>/s)[0];
-		let formData = new FormData($(formHtml)[0]);
-		let uuidDataName = `content[${elementType}${elementIndex}][uuid]`;
-		let uuid = formData.get(uuidDataName);
-		element.append(`<input type="hidden" name="${uuidDataName}" value="${uuid}">`);
-	});
+	let res = await fetch(window.location.href)
+	let html = await res.text();
+	
+	let formHtml = html.match(/<form[^\n]+id="magazines-articles-form".+?<\/form>/s)[0];
+	let formData = new FormData($(formHtml)[0]);
+	let uuidDataName = `content[${elementType}${elementIndex}][uuid]`;
+	let uuid = formData.get(uuidDataName);
+	element.append(`<input type="hidden" name="${uuidDataName}" value="${uuid}">`);
 }
 
 function addNewElementButtons(removeOnAdd) {
@@ -482,7 +487,7 @@ function addNewElementButtons(removeOnAdd) {
 
 			let elementWasAdded = await saveArticle(false, true);
 			if (elementWasAdded) {
-				loadNewElement(insertedElement);
+				await loadNewElement(insertedElement);
 			} else {
 				insertedElement.remove();
 				newNewElementButtons.remove();
@@ -515,7 +520,7 @@ $("#dynamic-filters").closest(".form-data").css("margin-bottom", "0");
 
 // Date
 // https://stackoverflow.com/a/26915856
-/*function getUuid1Date(uuid) {
+function getUuid1Date(uuid) {
 	let splitUuid = uuid.split("-");
 	let time = parseInt(`${splitUuid[2].slice(1)}${splitUuid[1]}${splitUuid[0]}`, 16);
 	var timeMillis = Math.floor((time - 122192928000000000) / 10000);
@@ -526,15 +531,23 @@ $(async () => {
 	let dateElement = $(".form-data:has(h5:contains(Sociale medier))")
 		.filter((_, e) => $(e).find("textarea").val().includes("supercool-htg-nyt-date"));
 	if (dateElement.length == 0) {
-		console.log("wow");
 		let articleDate = getUuid1Date(pageUuid);
-		let dateStr = articleDate.toString();
+		let dateNum = articleDate.getTime();
+		let dateHtml = `<data value="${dateNum}" id="supercool-htg-nyt-date"></data>`;
 
 		addMagazineInput("socials");
-		let insertedElement = $("#form-inputs .form-data:last")
-		insertedElement.find("textarea").val(`<time datetime="${dateStr}" id=supercool-htg-nyt-date">`);
-		
+		let insertedElement = $("#form-inputs .form-data:last");
+		insertedElement.hide();
+		/*insertedElement.find("textarea").on("change", event => {
+			event.stopPropagation();
+		});*/
+
 		await saveArticle(false, true);
-		loadNewElement(insertedElement);
+		insertedElement.find("textarea").val(dateHtml).text(dateHtml);
+		await loadNewElement(insertedElement);
+		await saveArticle(false, true);
+	} else {
+		dateElement.hide();
+		dateElement.next(".new-element-buttons").hide();
 	}
-});*/
+});

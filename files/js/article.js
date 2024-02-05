@@ -24,7 +24,7 @@ if ($(".navbar-nav").length == 0) {
 // Date
 let dateElement = $("#supercool-htg-nyt-date");
 if (dateElement.length == 1) {
-	let date = new Date(dateElement.attr("datetime"));
+	let date = new Date(parseInt(dateElement.val(), 10));
 	let dateStr = date.toLocaleString("da-DK", {day: "numeric", month: "long", year: "numeric"});
 	$(".authorDisName p").append(`<br><span class="date">${dateStr}</span>`);
 }
