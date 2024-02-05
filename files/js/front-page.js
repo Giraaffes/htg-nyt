@@ -22,9 +22,16 @@ $("#filterList button").each((_, ctg) => {
 activeCtgName = $("#filterList button.active").data("value");
 
 
+// Category nav dividers
+$("#filterList button").each((_, ctg) => {
+	let div = $("<div></div>").addClass("categories-divider").insertAfter($(ctg));
+	if (!$(ctg).is(".active") && !$(ctg).nextAll("button:first").is(".active")) {
+		div.addClass("visible");
+	}
+});
 
 
-// Fix category colors
+// Category colors
 function overlayOnWhite(rgbaStr) {
 	let [ r, g, b, a ] = rgbaStr.match(/[\d\.]+/g);
 	a = parseFloat(a);
@@ -44,7 +51,7 @@ activeColor = overlayOnWhite(activeColor);
 $(".headline-content, #filterList button.active").css("background-color", activeColor);
 
 
-// Category buttons
+// Category click events
 let url_ = new URL(location);
 $(() => {
 	$("#filterList button").each((_, btn) => {
@@ -66,7 +73,7 @@ $(() => {
 });
 
 
-// Remove global articles and random tagslet url_ = new URL(location);
+// Remove global articles and random tags
 $(".article-anchor").each((_, a) => {
 	let globalMatch = $(a).attr("href").match(/_\w{6}$/);
 	if (globalMatch) $(a).closest(".article-listing").remove();

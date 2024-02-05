@@ -10,7 +10,7 @@
 
 input[type="submit"], input[type="submit"]:hover {
 	color: #ffffff !important;
-	border-color: #000000 !important;
+	border: none !important;
 	border-radius: 0;
 }
 

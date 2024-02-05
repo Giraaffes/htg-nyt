@@ -482,11 +482,11 @@ function addNewElementButtons(removeOnAdd) {
 
 			let elementWasAdded = await saveArticle(false, true);
 			if (elementWasAdded) {
-					loadNewElement(insertedElement);
+				loadNewElement(insertedElement);
 			} else {
-					insertedElement.remove();
-					newNewElementButtons.remove();
-					$.notify("Kunne ikke tilføje element", "error");
+				insertedElement.remove();
+				newNewElementButtons.remove();
+				$.notify("Kunne ikke tilføje element", "error");
 			}
 		});
 		wrapper.append(button);
@@ -511,3 +511,30 @@ divider.clone().insertAfter("#hideable-menu");
 divider.clone().insertBefore("#form-inputs");
 
 $("#dynamic-filters").closest(".form-data").css("margin-bottom", "0");
+
+
+// Date
+// https://stackoverflow.com/a/26915856
+/*function getUuid1Date(uuid) {
+	let splitUuid = uuid.split("-");
+	let time = parseInt(`${splitUuid[2].slice(1)}${splitUuid[1]}${splitUuid[0]}`, 16);
+	var timeMillis = Math.floor((time - 122192928000000000) / 10000);
+	return new Date(timeMillis);
+};
+
+$(async () => {
+	let dateElement = $(".form-data:has(h5:contains(Sociale medier))")
+		.filter((_, e) => $(e).find("textarea").val().includes("supercool-htg-nyt-date"));
+	if (dateElement.length == 0) {
+		console.log("wow");
+		let articleDate = getUuid1Date(pageUuid);
+		let dateStr = articleDate.toString();
+
+		addMagazineInput("socials");
+		let insertedElement = $("#form-inputs .form-data:last")
+		insertedElement.find("textarea").val(`<time datetime="${dateStr}" id=supercool-htg-nyt-date">`);
+		
+		await saveArticle(false, true);
+		loadNewElement(insertedElement);
+	}
+});*/

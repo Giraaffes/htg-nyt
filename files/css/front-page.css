@@ -11,7 +11,7 @@
 
 #filterList button {
 	flex-grow: 1;
-	aspect-ratio: 1.8;
+	aspect-ratio: 1.6;
 	margin-bottom: 0;
 
 	font-size: 1.2rem !important;
@@ -45,6 +45,17 @@
 
 #filterList button.active {
 	cursor: default;
+}
+
+
+.categories-divider {
+	width: 1px;
+	background-color: #000000;
+	opacity: 0;
+}
+
+.categories-divider.visible {
+	opacity: 0.2;
 }
 
 

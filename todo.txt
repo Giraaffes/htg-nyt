@@ -17,6 +17,7 @@
 [X] Fix the categories
 [X] Fix adding images
 [ ] Add dates to articles
+[ ] 	Date on preview page
 [ ] Move nav button down a bit on homepage on mobile
 
 [ ] Redaktør support
