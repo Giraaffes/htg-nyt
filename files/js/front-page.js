@@ -23,15 +23,6 @@ $("#filterList button").each((_, ctg) => {
 activeCtgName = $("#filterList button.active").data("value");
 
 
-// Category nav dividers
-$("#filterList button").each((_, ctg) => {
-	let div = $("<div></div>").addClass("categories-divider").insertAfter($(ctg));
-	if (!$(ctg).is(".active") && !$(ctg).nextAll("button:first").is(".active")) {
-		div.addClass("visible");
-	}
-});
-
-
 // Category colors
 function overlayOnWhite(rgbaStr) {
 	let [ r, g, b, a ] = rgbaStr.match(/[\d\.]+/g);
@@ -50,6 +41,15 @@ $("#filterList button:not(.active)").css("background-color", bgrColor);
 let activeColor = $(".headline-content").css("background-color");
 activeColor = overlayOnWhite(activeColor);
 $(".headline-content, #filterList button.active").css("background-color", activeColor);
+
+
+// Category nav dividers
+$("#filterList button").each((_, ctg) => {
+	let div = $("<div></div>").addClass("categories-divider").insertAfter($(ctg));
+	if ($(ctg).is(".active") || $(ctg).nextAll("button:first").is(".active")) {
+		div.addClass("active").css("background-color", activeColor);
+	}
+});
 
 
 // Category click events

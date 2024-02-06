@@ -49,13 +49,13 @@
 
 
 .categories-divider {
-	width: 1px;
+	width: 2px;
 	background-color: #000000;
-	opacity: 0;
+	opacity: 0.1;
 }
 
-.categories-divider.visible {
-	opacity: 0.15;
+.categories-divider.active {
+	opacity: 1;
 }
 
 
