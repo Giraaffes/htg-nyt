@@ -6,6 +6,7 @@ $("#filterList button").unwrap()
 let activeCtgName = $("#filterList button.active").data("value");
 let activeCtgChanges = categoryChanges[activeCtgName];
 $(".headline-content h1").text(activeCtgChanges.title);
+$("title").text(`${activeCtgChanges.nav} | HTG-NYT`);
 
 let activeColorName = $("#mediaContainer > div:first").attr("class").slice(0, -6);
 $(`.${activeColorName}-color`).removeClass(`${activeColorName}-color`).addClass(`${activeCtgChanges.color}-color`);

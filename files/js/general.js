@@ -1,12 +1,6 @@
-$("#footer-section-1 h4:first").text("Høje-Taastrup Gymnasium");
-
-let redaktører = $("#footer-section-2 h4:eq(0)").nextUntil("#footer-section-2 h4:eq(1)")
-if (redaktører) {
-	let sortedElements = redaktører.toArray().sort((a, b) => 
-		$(a).text() < $(b).text() ? -1 : 1
-	);
-	$(sortedElements).insertAfter("#footer-section-2 h4:eq(0)");
-}
+$("link[rel=apple-touch-icon]").attr("href", "/custom/img/icon_180.png");
+$("link[rel=icon][sizes=32x32]").attr("href", "/custom/img/icon_32.png");
+$("link[rel=icon][sizes=16x16]").attr("href", "/custom/img/icon_16.png");
 
 
 const navItems = {
@@ -61,6 +55,16 @@ if (nav.length == 1) {
 $(".openbtn").html("<i class=\"fas fa-bars\"></i>");
 $(".arrow-button i").removeClass("fa-chevron-circle-left").addClass("fa-chevron-left");
 
+
+$("#footer-section-1 h4:first").text("Høje-Taastrup Gymnasium");
+
+let redaktører = $("#footer-section-2 h4:eq(0)").nextUntil("#footer-section-2 h4:eq(1)")
+if (redaktører) {
+	let sortedElements = redaktører.toArray().sort((a, b) => 
+		$(a).text() < $(b).text() ? -1 : 1
+	);
+	$(sortedElements).insertAfter("#footer-section-2 h4:eq(0)");
+}
 
 $("#footer-logos").nextAll("br").remove();
 

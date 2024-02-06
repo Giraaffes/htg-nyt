@@ -1,3 +1,7 @@
+// Title
+$("title").text($(".post-title h2").text());
+
+
 // Back button
 let url_ = new URL(window.location);
 let backToCategory = url_.searchParams.get("backToCategory");

@@ -45,9 +45,8 @@ let logoutNav = $(".sidebar .nav-item:last .nav-link").prepend(
 
 
 // Overview general
-let skolebladTitle = $("h3").text().toUpperCase();
-$("title").text(`${skolebladTitle} - Redaktør`);
-$("h3").text(`Skolebladet '${skolebladTitle}'`);
+$("title").text("Redaktør | HTG-NYT");
+$("h3").text("Skolebladet 'HTG-NYT'");
 $(".alert, br, .filter-toolbar").remove();
 
 let newArticleButton = $(".admin-section-title .btn");
