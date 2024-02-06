@@ -19,6 +19,8 @@
 [X] Add dates to articles
 [ ] 	Date on preview page
 [ ] Move nav button down a bit on homepage on mobile
+[ ] Make the titles a bit easier to click on editor page
+[ ] Make header and navbar fixed on editor and edit article pages
 
 [ ] Redaktør support
 [ ] Fix several other pages
