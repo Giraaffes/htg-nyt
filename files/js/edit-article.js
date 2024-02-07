@@ -9,8 +9,10 @@ $("#widgets-container").remove();
 
 
 // Saving
-let doNotSave = false;
+const autoSaveInterval = 1 * 60 * 1000;
+const maxFailedAttempts = 3;
 
+let doNotSave = false;
 async function saveArticle(keepAlive, silent) {
 	let formData = new FormData($("#magazines-articles-form")[0]);
 
@@ -38,6 +40,17 @@ $(window).on("beforeunload", () => {
 	saveArticle(true);
 	const time = Date.now();
 	while ((Date.now() - time) < 50) {}
+});
+
+let failedAttempts = 0;
+$(() => {
+	setInterval(async () => {
+		let success = await saveArticle(false, true)
+		if (success) failedAttempts++;
+		if (failedAttempts >= maxFailedAttempts) {
+			location.reload(); // Too sudden?
+		}
+	}, autoSaveInterval);
 });
 
 
@@ -306,13 +319,13 @@ function fixEmbedElement(element) {
 function fixAnswerElement(element) {
 	let contentDiv = $(element).find(".element-content");
 
-	let colors = element.find(".content-colors");
-	if (colors.length == 1) {
-		colors.appendTo(contentDiv);
+	let colorsDiv = element.find(".content-colors");
+	if (colorsDiv.length == 1) {
+		colorsDiv.appendTo(contentDiv);
 		return;
 	}
 	
-	let colorsDiv = $("<div></div>").addClass("content-colors article-input-style");
+	colorsDiv = $("<div></div>").addClass("content-colors article-input-style");
 	colorsDiv.appendTo(contentDiv);
 	$(`<span>
 			<label style="background-color: #a0873266"></label>
@@ -331,10 +344,10 @@ function fixAnswerElement(element) {
 			<input class="content-color-btn" style="accent-color: #466e6466;" type="checkbox" name="content[blabla][color]" value="#466e6466">
 		</span>`).appendTo(colorsDiv);
 	
-	colors.find("input").each((_, clr) => {
+	colorsDiv.find("input").each((_, clr) => {
 		$(clr).on("change", () => {
 			if ($(clr).is(":checked")) {
-				colors.find("input").prop("checked", false);
+				colorsDiv.find("input").prop("checked", false);
 				$(clr).prop("checked", true);
 			}
 		});

@@ -117,6 +117,7 @@ function addVisibilityButtons(row) {
 					$.notify(`Artiklen "${articleName}" blev sat til '${$(btn).text().trim()}'`, "success");
 					$(row).find("td:eq(4) button.current").removeClass("current");
 					$(btn).addClass("current");
+					$(row).removeClass("public private").addClass((["public", "private"])[i]);
 				} else {
 					$.notify("Kunne ikke ændre på artiklens synlighed", "error");
 				}
@@ -125,10 +126,21 @@ function addVisibilityButtons(row) {
 	});
 }
 
+function addReadArticleButton(row) {
+	let articlePath = $(row).find("td:eq(0)").text().trim().toLowerCase().replaceAll(" ", "_");
+	let articleUrl = `/artikel/${encodeURIComponent(articlePath)}`;
+
+	let readArticleButton = $(`<a href="${articleUrl}" target="_blank">Læs artikel</a>`).addClass("btn btn-info read-button");
+	readArticleButton.appendTo($(row).find("td:eq(5) .action-buttons-wrapper"));
+
+	readArticleButton.on("click", event => {
+		if (!$(row).is(".public")) event.preventDefault();
+	});
+}
+
 function addEditButton(row) {
-	let editButton = $("<button>Rediger</button>").addClass("btn btn-info edit-button");
 	let editLink = $(row).data("edit-link");
-	let editAnchor = $(`<a href="${editLink}"></a>`).append(editButton);
+	let editAnchor = $(`<a href="${editLink}">Rediger</a>`).addClass("btn btn-info edit-button");
 	editAnchor.appendTo($(row).find("td:eq(5) .action-buttons-wrapper"))
 }
 
@@ -169,19 +181,15 @@ $("#table tbody tr").each((i, row) => {
 
 	addVisibilityButtons(row);
 
-	let actionButtonsWrapper = $("<div></div>").addClass("action-buttons-wrapper");
+	let actionButtonsDiv = $("<div></div>").addClass("action-buttons-wrapper")
+	$(row).find("td:eq(5)").append(actionButtonsDiv);
+	$(row).find("td:eq(5) button").remove();
 
-	let copyLinkButton = $(row).find("td:eq(5) button:eq(1)").wrap(actionButtonsWrapper);
-	copyLinkButton.data("url", copyLinkButton.data("url").replace(/^.+\//, "https://www.htg-nyt.dk/artikel/"));
-	copyLinkButton.text("Kopier link").on("click", () => {
-		$.notify("Link til artikel kopieret", "success");
-	});
-	$(row).find("td:eq(5) button:eq(0)").remove();
+	addReadArticleButton(row);
 
 	let editLinkNode = $(row).find(".edit-a");
 	let editLink = editLinkNode.attr("href")
 	$(row).attr("data-edit-link", editLink);
-	//editLinkNode.closest("td").text(editLinkNode.text().trim());
 	addEditButton(row);
 
 	addDeleteButton(row);
@@ -268,5 +276,6 @@ $("#table tbody tr").each((i, e) => {
 			let status = $(formHtml).serialize().match(/status=(\w+)/)[1];
 			let visButtonIndex = (status == "active") ? 0 : 1;
 			$(e).find("td:eq(4) button").eq(visButtonIndex).addClass("current");
+			$(e).addClass(status == "active" ? "public" : "private");
 	});
 });

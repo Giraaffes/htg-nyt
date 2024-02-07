@@ -82,6 +82,14 @@ h3 {
 	margin: 0;
 }
 
+#table tr {
+	height: fit-content;
+}
+
+#table td:first-child {
+	height: 100%
+}
+
 #table td, #table th {
 	padding-left: 8px;
 	padding-right: 8px;
@@ -101,6 +109,11 @@ h3 {
 
 a.edit-a {
 	color: black;
+
+	height: 100%;
+	display: flex;
+	justify-content: start;
+	align-items: center;
 }
 
 .vis-buttons-wrapper {
@@ -142,6 +155,11 @@ a.edit-a {
 	gap: 10px;
 }
 
+tr:not(.public) .read-button {
+	pointer-events: none;
+	opacity: 0.6;
+}
+
 .edit-button {
 	color: #ffffff;
 	background-color: #36ad5b;
@@ -157,8 +175,8 @@ a.edit-a {
 }
 
 .edit-button:active {
-	background-color: #25743e;
-	border-color: #1f6134;
+	background-color: #25743e !important;
+	border-color: #1f6134 !important;
 }
 
 

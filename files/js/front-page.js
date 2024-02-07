@@ -76,8 +76,8 @@ $(() => {
 
 // Remove global articles and random tags
 $(".article-anchor").each((_, a) => {
-	let globalMatch = $(a).attr("href").match(/_\w{6}$/);
-	if (globalMatch) $(a).closest(".article-listing").remove();
+	let isLocal = $(a).attr("href").startsWith("/artikel/");
+	if (!isLocal) $(a).closest(".article-listing").remove();
 });
 
 /*if (activeCtgName == "meeting" && $(".grey-box:contains(Miljø)").length == 0) {
