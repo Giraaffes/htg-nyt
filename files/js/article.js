@@ -32,3 +32,9 @@ if (dateElement.length == 1) {
 	let dateStr = date.toLocaleString("da-DK", {day: "numeric", month: "long", year: "numeric"});
 	$(".authorDisName p").append(`<br><span class="date">${dateStr}</span>`);
 }
+
+
+// Allow html in paragraphs
+$(".style-body p").each((_, e) => {
+	$(e).html($(e).text());
+});

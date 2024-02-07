@@ -20,12 +20,18 @@
 [ ] 	Date on preview page
 [ ] Move nav button down a bit on homepage on mobile
 [ ] Make the titles a bit easier to click on editor page
-[ ] Make header and navbar fixed on editor and edit article pages
 [ ] Fix adding thumbnails
 [ ] Translate "crop image" text
-
+[ ] Edit article textboxes dynamic height
+[ ] Fix title and manchet overlapping on front page on phone
+[ ] Fix you can choose multiple colors for newly created answer elements
+[X] Some error when addding an image
+[ ] Border on images
+ 
+[ ] Make header and navbar fixed on editor and edit article pages
 [ ] Standard redaktør support
 [ ] Fix several other pages
 [ ] Custom tags
+[ ] Auto save
 
 [ ] Finally, check that everything also works on chrome

@@ -9,6 +9,8 @@ $("#widgets-container").remove();
 
 
 // Saving
+let doNotSave = false;
+
 async function saveArticle(keepAlive, silent) {
 	let formData = new FormData($("#magazines-articles-form")[0]);
 
@@ -28,6 +30,11 @@ async function saveArticle(keepAlive, silent) {
 }
 
 $(window).on("beforeunload", () => {
+	if (doNotSave) {
+		doNotSave = false;
+		return;
+	}
+
 	saveArticle(true);
 	const time = Date.now();
 	while ((Date.now() - time) < 50) {}
@@ -75,7 +82,7 @@ let logoutNav = $(".sidebar .nav-item:last .nav-link").prepend(
 
 
 // Editor general
-$(".alert").remove();
+$(".alert, .content-buttons").remove();
 
 $("#title").on("keyup change clear", () => {
 	$("title").text(`Rediger "${$("#title").val() || "[Unavngivet]"}"`);
@@ -275,7 +282,9 @@ function addElementButtons(element) {
 
 				element.next("div").remove();
 				element.remove();
-				if ($("#form-inputs").children(".form-data").length == 0) addNewElementButtons(true).appendTo("#form-inputs");
+				if ($("#form-inputs .form-data").length == 0) {
+					addNewElementButtons(true).prependTo("#form-inputs");
+				}
 			} else {
 				$.notify("Element kunne ikke slettes - prøv at genindlæse siden", "error");
 			}
@@ -474,6 +483,8 @@ function addNewElementButtons(removeOnAdd) {
 
 				await waitForWindowFocus();
 				if (fileInput[0].files.length == 0) insertedElement.remove();
+
+				doNotSave = true;
 				return;
 			}
 
@@ -500,22 +511,18 @@ function addNewElementButtons(removeOnAdd) {
 }
 
 let elements = $("#form-inputs .form-data");
-if (elements.length > 0) {
-	elements.each((_, element) => {
-		$(element).find(".added-content-buttons").remove();
-		$(element).after(addNewElementButtons(false));
-	});
-} else {
-	$("#form-inputs").append(addNewElementButtons(true));
+elements.each((_, element) => {
+	$(element).find(".added-content-buttons").remove();
+	$(element).after(addNewElementButtons(false));
+});
+
+let dateElement = $(".form-data:has(h5:contains(Sociale medier))").filter((_, e) => 
+	$(e).find("textarea").val().includes("supercool-htg-nyt-date")
+);
+// If the only element is the hidden date or if there are no elements
+if (elements.length == dateElement.length) {
+	addNewElementButtons(true).prependTo("#form-inputs");
 }
-
-
-// Dividers
-let divider = $("<hr></hr>").addClass("custom-divider");
-divider.clone().insertAfter("#hideable-menu");
-divider.clone().insertBefore("#form-inputs");
-
-$("#dynamic-filters").closest(".form-data").css("margin-bottom", "0");
 
 
 // Date
@@ -528,8 +535,6 @@ function getUuid1Date(uuid) {
 };
 
 $(async () => {
-	let dateElement = $(".form-data:has(h5:contains(Sociale medier))")
-		.filter((_, e) => $(e).find("textarea").val().includes("supercool-htg-nyt-date"));
 	if (dateElement.length == 0) {
 		let articleDate = getUuid1Date(pageUuid);
 		let dateNum = articleDate.getTime();
@@ -537,17 +542,22 @@ $(async () => {
 
 		addMagazineInput("socials");
 		let insertedElement = $("#form-inputs .form-data:last");
-		insertedElement.hide();
-		/*insertedElement.find("textarea").on("change", event => {
-			event.stopPropagation();
-		});*/
+		insertedElement.removeClass("form-data").hide();
 
 		await saveArticle(false, true);
-		insertedElement.find("textarea").val(dateHtml).text(dateHtml);
+		insertedElement.find("textarea").val(dateHtml);
 		await loadNewElement(insertedElement);
 		await saveArticle(false, true);
 	} else {
-		dateElement.hide();
-		dateElement.next(".new-element-buttons").hide();
+		dateElement.removeClass("form-data").hide();
+		dateElement.next(".new-element-buttons").remove();
 	}
 });
+
+
+// Dividers
+let divider = $("<hr></hr>").addClass("custom-divider");
+divider.clone().insertAfter("#hideable-menu");
+divider.clone().insertBefore("#form-inputs");
+
+$("#dynamic-filters").closest(".form-data").css("margin-bottom", "0");
