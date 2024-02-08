@@ -52,6 +52,23 @@ span {
 }
 
 
+.delete-button {
+	color: #ffffff;
+	background-color: #bf2232;
+	border-color: #ad1f2d;
+}
+
+.delete-button:hover {
+	background-color: #ad1f2d;
+	border-color: #981b27;
+}
+
+.delete-button:active {
+	background-color: #981b27;
+	border-color: #821722;
+}
+
+
 .check-toolbar .custom-field {
 	background-color: #ffffff;
 	color: #000000;

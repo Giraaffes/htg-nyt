@@ -102,4 +102,12 @@
 	#filterList button:not(.active) span {
 		font-size: 2.4vw;
 	}
+
+	.article-headline {
+		font-size: 4.25vw !important;
+	}
+
+	.article-body p {
+		font-size: 4vw !important;
+	}
 }

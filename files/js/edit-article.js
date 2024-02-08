@@ -1,7 +1,7 @@
-let isChefredaktør = ($("input[name=\"status\"]").length > 0);
+const isChefredaktør = ($("input[name=\"status\"]").length > 0);
 if (!isChefredaktør) throw Error("Ignorer denne fejl :)");
 
-let pageUuid = window.location.pathname.match(/[\w-]+$/)[0];
+const pageUuid = window.location.pathname.match(/[\w-]+$/)[0];
 
 
 // TODO
@@ -154,16 +154,24 @@ $("<div></div>").css({"flex": "auto"}).appendTo("#dynamic-filters");
 $(() => {
 	// Prevent page refreshing
 	$("#dynamic-filters input").off();
+	
+	// Handling click must be done after ready for some reason
+	$("#static-filters input").on("change", async e => {
+		let label = $(e.target).next();
+		
+		// Calendar fix
+		if ($(label).attr("for") == "calendar") {
+			$("#date-input").show();
+		} else {
+			$("#date-input").hide();
+		}
 
-	// Calendar fix (must be done after ready for some reason)
-	$("#static-filters label").each((_, ctg) => {
-		$(ctg).on("click", () => {
-			if ($(ctg).attr("for") == "calendar") {
-				$("#date-input").show();
-			} else {
-				$("#date-input").hide();
-			}
-		});
+		let success = await saveArticle(false, true);
+		if (success) {
+			$.notify(`Kategori ændret til "${$(label).text().trim()}"`, "success");
+		} else {
+			$.notify("Artiklens kategori kunne ikke ændres", "error");
+		}
 	});
 })
 
@@ -181,6 +189,16 @@ addCheckField("radio", "Ikke offentlig", "status", "inactive", "ikke-offentlig")
 let articleVisibility = $("#fixed-menu input[name=\"status\"]:checked").attr("value");
 visibilitySelectDiv.find("input").eq(articleVisibility == "active" ? 0 : 1).prop("checked", true);
 
+// This is a better way of handling an event for multiple elements - I will do this in the future
+visibilitySelectDiv.find("input").on("change", async e => {
+	let success = await saveArticle(false, true);
+	if (success) {
+		$.notify(`Artikel sat til "${$(e.target).next().text()}"`, "success");
+	} else {
+		$.notify("Artiklens synlighed kunne ikke ændres", "error");
+	}
+});
+
 
 // Author buttons
 let authorDiv = $("<div></div>").addClass("form-data");
@@ -195,6 +213,16 @@ addCheckField("radio", "Anonym", "withoutAuthor", "true", "without-author").appe
 
 let isAnonymous = $("#withoutAuthor").is(":checked");
 authorSelectDiv.find("input").eq(isAnonymous ? 1 : 0).prop("checked", true);
+
+authorSelectDiv.find("input").on("change", async e => {
+	let success = await saveArticle(false, true);
+	if (success) {
+		$.notify($(e.target).index() == 0 ? "Artikel ikke længere anonym" : "Artikel sat til anonym", "success");
+	} else {
+		$.notify("Artiklens skribent kunne ikke ændres", "error");
+	}
+});
+
 
 
 // Save, preview and view article buttons
@@ -213,8 +241,31 @@ let viewArticleButton = addButton("Læs artikel", () => {
 actionButtonsDiv.append(viewArticleButton);
 
 $("<p></p>").text(
-	"(Husk at gemme før du forhåndsviser / læser artiklen)"
+	"(Husk at gemme før du forhåndsviser / læser artiklen, så du kan se dine ændringer)"
 ).addClass("info-text").appendTo(actionButtonsDiv);
+
+
+// Delete button
+const magazineUuid = $("#magazine-edition-uuid").val();
+function deleteArticle() {
+	if (!window.confirm(`Er du virkelig sikker på, at du vil slette denne artikel permanent?`)) return;
+
+	let formData = new FormData();
+	formData.append("uuid", pageUuid);
+	fetch(`/admin/articles/delete-article/${magazineUuid}`, {
+		method: "POST",
+		body: formData,
+	}).then(res => res.json()).then(data => {
+		if (data.status == "success") {
+			window.close();
+		} else {
+			$.notify("Kunne ikke slette artikel", "error");
+		}
+	});
+}
+
+let deleteButton = addButton("Slet artikel", deleteArticle);
+deleteButton.addClass("delete-button").appendTo(actionButtonsDiv);
 
 
 // Remove previous top section

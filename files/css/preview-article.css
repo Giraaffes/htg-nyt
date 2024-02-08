@@ -17,13 +17,9 @@
 	max-height: 100vh;
 }
 
+
 .top-box, .post-headline, .post-article {
 	position: static;
-}
-
-.authorContainer {
-	margin: 0 10px;
-	padding-top: 10px;
 }
 
 .top-box h3 {
@@ -31,6 +27,32 @@
 	text-align: center;
 }
 
+.authorContainer {
+	margin: 0 10px;
+	padding-top: 10px;
+
+	display: flex;
+	gap: 10px;
+	justify-content: start;
+	align-items: center;
+}
+
+.authorContainer .date {
+	color: #777777; 
+	font-size: 0.8em;
+}
+
+
 .style-socials {
 	margin: 20px 0;
+}
+
+.style-illustration img {
+	height: unset;
+	width: calc(100% - 20px);
+	box-shadow: 0 0 3px #dddddd;
+}
+
+.style-illustration p {
+	color: #555555;
 }

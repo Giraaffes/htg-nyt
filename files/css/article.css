@@ -51,6 +51,11 @@ body {
 .style-illustration img {
 	height: unset;
 	width: calc(100% - 20px);
+	box-shadow: 0 0 3px #dddddd;
+}
+
+.style-illustration p {
+	color: #555555;
 }
 
 @media (max-width: 650px) {
