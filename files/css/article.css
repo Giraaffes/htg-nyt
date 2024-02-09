@@ -58,6 +58,10 @@ body {
 	color: #555555;
 }
 
+.style-middle-heading p {
+	color: #333333;
+}
+
 @media (max-width: 650px) {
 	.navigation, .check-btn {
 		margin-top: 0px;

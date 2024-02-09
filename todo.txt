@@ -23,7 +23,7 @@
 [ ] Translate "crop image" text
 [X] Fix title and manchet overlapping on front page on phone
 [X] Fix you can choose multiple colors for newly created answer elements
-[X] Some error when addding an image
+[X] Some error when adding an image
 [X] Border on images
 [ ] Login redirect back
 [X] Add delete article button in edit article page
