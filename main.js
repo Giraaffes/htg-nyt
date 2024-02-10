@@ -170,7 +170,7 @@ server.get(/\/custom(\/.+)/, (req, res) => {
 
 const remapCategoryIds = {
 	"nyt": "new",
-	"sjovt": "article",
+	"sjovt": "faq",
 	"lærerigt": "hack",
 	"mødesteder": "meeting",
 	"kalender": "calendar"

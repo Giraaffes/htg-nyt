@@ -6,21 +6,21 @@
 [X] Fix article overview page
 [X] Convert edit article script
 [ ]   And add support for those new thingies
-[ ] 	Open article button only works when set to public
-[ ] 	Max 2 tags text
+[-] 	Open article button only works when set to public
+[-] 	Max 2 tags text
 [X] Convert preview article script
 [ ] Avoid redirects - handle it on the server (login, front page)
 [ ] Perhaps redirect logouts to the referer page?
-[ ] Translate pages like "editor", "edit-article" and "preview-article"
+[~] Translate pages like "editor", "edit-article" and "preview-article"
 [ ] Maybe remove the long ugly uuid from the article overview page url
 [X] Fix the categories
 [X] Fix adding images
 [X] Add dates to articles
 [X] 	Date on preview page
-[ ] Move nav button down a bit on homepage on mobile
+[-] Move nav button down a bit on homepage on mobile
 [X] Make the titles a bit easier to click on editor page
 [X] Fix adding thumbnails
-[ ] Translate "crop image" text
+[-] Translate "crop image" text
 [X] Fix title and manchet overlapping on front page on phone
 [X] Fix you can choose multiple colors for newly created answer elements
 [X] Some error when adding an image
@@ -28,13 +28,13 @@
 [ ] Login redirect back
 [X] Add delete article button in edit article page
 [X] Copy article link btn -> Read article
-[ ] Fix slashes breaking article name ("ASF/SAFE")
  
 [ ] Make header and navbar fixed on editor and edit article pages
 [ ] Standard redaktør support
 [ ] Fix several other pages
 [ ] Fix new thingies in articles
-[ ] Custom tags
+[-] Custom tags
 [X] Auto save
+[ ] Fix slashes breaking article name ("ASF/SAFE")
 
 [ ] Finally, check that everything also works on chrome

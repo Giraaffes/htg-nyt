@@ -115,6 +115,10 @@ $("#hideable-menu > div").removeAttr("style").css("width", i =>
 	(["50%", "15rem", "12rem"])[i]
 );
 
+// Fix 10/2/24
+$("#fixed-menu > .form-data").prependTo("#hideable-menu > div:eq(0)")
+$("#hideable-menu").show();
+
 
 // Categories and tags
 // 'categoryChanges' variable from general.js

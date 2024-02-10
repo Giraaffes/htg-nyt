@@ -75,8 +75,8 @@ const categoryChanges = {
 		oldTitle: "Nyt", name: "nyt", 
 		icon: "newspaper", color: "green",
 		title: "Nyheder", nav: "Nyheder"
-	}, "article": {
-		oldTitle: "Inspir", name: "sjovt", 
+	}, "faq": {
+		oldTitle: "FAQ", name: "sjovt", 
 		icon: "face-laugh", color: "red",
 		title: "Alt det sjove", nav: "Sjovt"
 	}, "hack": {
