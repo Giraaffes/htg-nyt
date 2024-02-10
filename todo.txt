@@ -29,6 +29,7 @@
 [X] Add delete article button in edit article page
 [X] Copy article link btn -> Read article
 [ ] Rename kalender param til aktiviteter
+[ ] textarea better height
  
 [ ] Make header and navbar fixed on editor and edit article pages
 [ ] Standard redaktør support

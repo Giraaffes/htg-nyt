@@ -53,6 +53,13 @@ $(() => {
 	}, autoSaveInterval);
 });
 
+$(document).on("keydown", e => {
+	if (e.ctrlKey && e.key == "s") {
+		e.preventDefault();
+		saveArticle();
+	}
+});
+
 
 // General functions
 function faIcon(iconName) {
@@ -249,7 +256,6 @@ authorSelectDiv.find("input").on("change", async e => {
 		$.notify("Artiklens skribent kunne ikke ændres", "error");
 	}
 });
-
 
 
 // Save, preview and view article buttons
