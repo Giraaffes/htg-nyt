@@ -112,7 +112,7 @@ let firstDiv = $("#hideable-menu > div:eq(0)");
 let middleDiv = $("#hideable-menu > div:eq(1)");
 let actionButtonsDiv = $("<div></div>").addClass("action-buttons").appendTo("#hideable-menu");
 $("#hideable-menu > div").removeAttr("style").css("width", i => 
-	(["50%", "15rem", "12rem"])[i]
+	(["40%", "15rem", "12rem"])[i]
 );
 
 // Fix 10/2/24
@@ -120,8 +120,7 @@ $("#fixed-menu > .form-data").prependTo("#hideable-menu > div:eq(0)")
 $("#hideable-menu").show();
 
 
-// Categories and tags
-// 'categoryChanges' variable from general.js
+// Categories
 let ctgChangeEntries = Object.entries(categoryChanges);
 for (let [ name, ctgChange ] of ctgChangeEntries) {
 	let input = $(`#static-filters #${name}`);
@@ -131,7 +130,7 @@ for (let [ name, ctgChange ] of ctgChangeEntries) {
 		ctgChange.nav, "type", uuid, name
 	);
 
-	// wtf????
+	// I have to do it after load for some reason
 	$(() => {
 		let label = newCtgRadio.eq(1);
 		label.html(`${faIcon(ctgChange.icon)}&nbsp;&nbsp;${label.html()}`)
@@ -142,24 +141,8 @@ for (let [ name, ctgChange ] of ctgChangeEntries) {
 }
 $("#static-filters :not(.custom-input):not(.custom-field)").remove();
 
-$("#dynamic-filters label").each((_, tag) => {
-	let input = $(`#${$(tag).attr("for")}`);
-	let newTagCheckbox = addCheckField("checkbox",
-		$(tag).text(), 
-		$(input).attr("name"), $(input).attr("value"), $(input).attr("id")
-	);
-	if (input.is(":checked")) newTagCheckbox.prop("checked", true);
-	$("#dynamic-filters").append(newTagCheckbox);
-
-	$(tag).remove(); input.remove();
-});
-$("<div></div>").css({"flex": "auto"}).appendTo("#dynamic-filters");
-
+// Also must be done after ready for some reason
 $(() => {
-	// Prevent page refreshing
-	$("#dynamic-filters input").off();
-	
-	// Handling click must be done after ready for some reason
 	$("#static-filters input").on("change", async e => {
 		let label = $(e.target).next();
 		
@@ -177,6 +160,37 @@ $(() => {
 			$.notify("Artiklens kategori kunne ikke ændres", "error");
 		}
 	});
+});
+
+
+// Tags
+function capitalizeFirstLetter(str) {
+	return `${str.slice(0, 1).toUpperCase()}${str.slice(1).toLowerCase()}`;
+}
+
+let includedTags = keepTags.concat(Object.keys(tagChanges)).sort((tag1, tag2) => 
+	(tagChanges[tag1] || tag1) > (tagChanges[tag2] || tag2) ? 1 : -1	
+);
+console.log(includedTags);
+for (let tagName of includedTags) {
+	let tag = $("#dynamic-filters label").filter((_, oldTag) => 
+		$(oldTag).text().trim().toLowerCase() == tagName
+	).first();
+	let input = $(`#${tag.attr("for")}`);
+
+	let newTagCheckbox = addCheckField("checkbox",
+		capitalizeFirstLetter(tagChanges[tagName] || tagName), 
+		input.attr("name"), input.attr("value"), input.attr("id")
+	);
+	if (input.is(":checked")) newTagCheckbox.prop("checked", true);
+	$("#dynamic-filters").append(newTagCheckbox);
+}
+$("#dynamic-filters :not(.custom-field):not(.custom-input)").remove();
+$("<div></div>").css({"flex": "auto"}).appendTo("#dynamic-filters");
+
+// Prevent page refreshing
+$(() => {
+	$("#dynamic-filters input").off();
 })
 
 

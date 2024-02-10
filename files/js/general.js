@@ -94,3 +94,21 @@ const categoryChanges = {
 	}
 	//"meeting": {name: "kantinen", icon: "utensils", title: "Kantinen"} // ??
 };
+
+
+// Used on front page and edit article
+const keepTags = [
+	"intro", "aktuelt", "debat", "kultur", "sundhed", "miljø", "krea", 
+	"sprog", "tur", "spil", "fest", "sport", "hygge", "ferie", "historie",
+	"politik", "kunst", "musik", "demokrati"
+];
+const tagChanges = {
+	"samfund": "samfundet",
+	
+	// random
+	"interesse": "anmeldelse",
+	"hall of fame": "personale",
+	"eksistens": "interview",
+	"wtf": "useriøst",
+	"valg": "quiz"
+};

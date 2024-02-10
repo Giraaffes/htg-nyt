@@ -22,8 +22,7 @@ $("#filterList button").each((_, ctg) => {
 });
 activeCtgName = $("#filterList button.active").data("value");
 
-
-// Category colors
+// Colors
 function overlayOnWhite(rgbaStr) {
 	let [ r, g, b, a ] = rgbaStr.match(/[\d\.]+/g);
 	a = parseFloat(a);
@@ -42,8 +41,7 @@ let activeColor = $(".headline-content").css("background-color");
 activeColor = overlayOnWhite(activeColor);
 $(".headline-content, #filterList button.active").css("background-color", activeColor);
 
-
-// Category nav dividers
+// Nav dividers
 $("#filterList button").each((_, ctg) => {
 	let div = $("<div></div>").addClass("categories-divider").insertAfter($(ctg));
 	if ($(ctg).is(".active") || $(ctg).nextAll("button:first").is(".active")) {
@@ -51,42 +49,19 @@ $("#filterList button").each((_, ctg) => {
 	}
 });
 
-
-// Category click events
+// Functionality
 let url_ = new URL(location);
 $(() => {
-	$("#filterList button").each((_, btn) => {
-		$(btn).off();
-		if ($(btn).is(".active")) return;
+	$("#filterList button").off().on("click", e => {
+		let btn = $(e.currentTarget);
+		if (btn.is(".active")) return;
 
-		$(btn).on("click", e => {
-			e.preventDefault();
-		
-			let ctg = $(btn).data("value");
-			if (ctg == "nyt") {
-				url_.searchParams.delete("type");
-			} else {
-				url_.searchParams.set("type", ctg);
-			}
-			location = url_;
-		});
+		e.preventDefault();
+		let ctg = btn.data("value");
+		url_.search = (ctg == "nyt" ? "" : `?type=${ctg}`);
+		location = url_;
 	});
 });
-
-
-// Remove global articles and random tags
-$(".article-anchor").each((_, a) => {
-	let isLocal = $(a).attr("href").startsWith("/artikel/");
-	if (!isLocal) $(a).closest(".article-listing").remove();
-});
-
-/*if (activeCtgName == "meeting" && $(".grey-box:contains(Miljø)").length == 0) {
-	$("#dynamic-filters button:contains(MILJØ)").remove();
-} else */if (activeCtgName == "sjovt" && $(".grey-box:contains(NZG)").length == 0) {
-	$("#dynamic-filters button:contains(NZG)").remove();
-} else if (activeCtgName == "lærerigt" && $(".grey-box:contains(Førstegangsvælger)").length == 0) {
-	$("#dynamic-filters button:contains(FØRSTEGANGSVÆLGER)").remove();
-}
 
 
 // Tag filters
@@ -98,15 +73,71 @@ if ($("#dynamic-filters button").length > 0) {
 	$("#dynamic-filters").remove();
 }
 
-// Disabled because it breaks when actually clicking the tags
-/*$("#dynamic-filters button").each((_, tagBtn) => {
-	let tagName = $(tagBtn).text().toLowerCase().trim();
-	let articleTags = $(".article-listing .grey-box").filter((_, tag) => {
-		let articleTagName = $(tag).text().toLowerCase().trim();
-		return articleTagName == tagName;
+// Custom tags
+$("#dynamic-filters button, .article-listing .grey-box").each((_, filterOrTag) => {
+	let name = $(filterOrTag).text().trim().toLowerCase();
+	if (!keepTags.includes(name) && !tagChanges[name]) $(filterOrTag).remove();
+	name = tagChanges[name] || name;
+	$(filterOrTag).text(name);
+});
+
+// Remove (excuse my language but) those random ass tags
+$("#dynamic-filters button").each((_, filterBtn) => {
+	let tag = $(filterBtn).text().toLowerCase().trim();
+	let tagsInArticles = $(".article-listing .grey-box").filter((_, articleTag) => {
+		let articleTagName = $(articleTag).text().toLowerCase().trim();
+		return articleTagName == tag;
 	});
-	if (articleTags.length == 0) tagBtn.remove();
-});*/
+	if (tagsInArticles.length == 0) filterBtn.remove();
+});
+
+// Functionality
+$(() => {
+	$("#dynamic-filters button").off().on("click", e => {
+		let filterBtn = $(e.currentTarget);
+		if (filterBtn.is(".active")) {
+			filterBtn.removeClass("active");
+			$(".article-listing").removeClass("hidden");
+		} else {
+			$("#dynamic-filters button.active").removeClass("active");
+			filterBtn.addClass("active");
+
+			let tagName = filterBtn.text().toLowerCase().trim();
+			$(".article-listing").addClass("hidden");
+			$(".article-listing").filter((_, article) => 
+				$(article).find(".grey-box").filter((_, articleTag) => 
+					$(articleTag).text().toLowerCase().trim() == tagName
+				).length > 0
+			).removeClass("hidden");
+		}
+
+	});
+});
+
+// Display fix and sort
+function sortByLength(elements) {
+	elements.toArray().sort((e1, e2) => 
+		$(e2).text().trim().length - $(e1).text().trim().length
+	).forEach(e => $(e).appendTo($(e).parent()));
+}
+
+function sortAlphabetically(elements) {
+	elements.toArray().sort((e1, e2) => 
+		$(e1).text().trim() > $(e2).text().trim() ? 1 : -1
+	).forEach(e => $(e).appendTo($(e).parent()));
+}
+
+if (activeCtgName == "nyt" || activeCtgName == "lærerigt") {
+	$(".article-tags").addClass("article-tags-on-image");
+	$(".article-tags").each((_, tagsDiv) => {
+		sortByLength($(tagsDiv).find(".grey-box"));
+	});
+} else {
+	$("div:has(> .grey-box)").each((_, tagsDiv) => {
+		sortAlphabetically($(tagsDiv).find(".grey-box"));
+	});
+}
+sortAlphabetically($("#dynamic-filters button"));
 
 
 // Articles
@@ -117,5 +148,11 @@ if (activeCtgName != "nyt") {
 }
 
 if ($(".article-listing").length == 0) {
-	$(".headline-content").after("<span id=\"no-articles\">Der er ingen artikler her endnu!</span>")
+	$(".headline-content").parent().append("<span id=\"no-articles\">Der er ingen artikler her (endnu?)</span>")
 }
+
+// Remove global articles
+$(".article-anchor").each((_, a) => {
+	let isLocal = $(a).attr("href").startsWith("/artikel/");
+	if (!isLocal) $(a).closest(".article-listing").remove();
+});

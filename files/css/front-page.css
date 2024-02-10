@@ -89,12 +89,30 @@
 	font-size: 80%;
 }
 
+.article-listing.hidden {
+	display: none;
+}
+
+/* Funky syntax - I hope it works on all devices */
+:nth-child(odd of .article-listing:not(.hidden)) {
+	background-color: #f2f2f2;
+}
+
+:nth-child(even of .article-listing:not(.hidden)) {
+	background-color: #ffffff;
+}
+
 .article-listing:hover h5:not(.grey-box) {
 	text-decoration: underline;
 }
 
 .article-image {
 	border-radius: 10px;
+}
+
+.article-tags-on-image {
+	flex-flow: column-reverse nowrap;
+	align-items: end;
 }
 
 
