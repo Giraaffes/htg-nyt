@@ -171,7 +171,6 @@ function capitalizeFirstLetter(str) {
 let includedTags = keepTags.concat(Object.keys(tagChanges)).sort((tag1, tag2) => 
 	(tagChanges[tag1] || tag1) > (tagChanges[tag2] || tag2) ? 1 : -1	
 );
-console.log(includedTags);
 for (let tagName of includedTags) {
 	let tag = $("#dynamic-filters label").filter((_, oldTag) => 
 		$(oldTag).text().trim().toLowerCase() == tagName
@@ -195,6 +194,8 @@ $(() => {
 
 
 // Visibility buttons
+let isArticleVisible;
+
 let visibilityDiv = $("<div></div>").addClass("form-data");
 visibilityDiv.appendTo(middleDiv).append("<h5>Synlighed</h5>");
 
@@ -206,12 +207,20 @@ addCheckField("radio", "Ikke offentlig", "status", "inactive", "ikke-offentlig")
 
 let articleVisibility = $("#fixed-menu input[name=\"status\"]:checked").attr("value");
 visibilitySelectDiv.find("input").eq(articleVisibility == "active" ? 0 : 1).prop("checked", true);
+if (articleVisibility == "active") $("#magazines-articles-form").addClass("public");;
 
 // This is a better way of handling an event for multiple elements - I will do this in the future
 visibilitySelectDiv.find("input").on("change", async e => {
+	let input = $(e.currentTarget);
+	if (input.attr("value") == "active") {
+		$("#magazines-articles-form").addClass("public");
+	} else {
+		$("#magazines-articles-form").removeClass("public");
+	}
+
 	let success = await saveArticle(false, true);
 	if (success) {
-		$.notify(`Artikel sat til "${$(e.target).next().text()}"`, "success");
+		$.notify(`Artikel sat til "${input.next().text()}"`, "success");
 	} else {
 		$.notify("Artiklens synlighed kunne ikke ændres", "error");
 	}
@@ -253,9 +262,11 @@ let previewButton = addButton("Forhåndsvis artikel", () => {
 actionButtonsDiv.append(previewButton);
 
 let viewArticleButton = addButton("Læs artikel", () => {
+	if (!$("#magazines-articles-form").hasClass("public")) return;
+
 	let articlePath = $("#title").val().toLowerCase().replaceAll(" ", "_");
 	window.open(`/artikel/${encodeURIComponent(articlePath)}`, "_blank");
-})
+}).addClass("read-button");
 actionButtonsDiv.append(viewArticleButton);
 
 $("<p></p>").text(
@@ -458,7 +469,7 @@ $("#form-inputs .form-data").each((_, element) => {
 // Renaming
 const renameHeaders = {
 	"Static filters": "Kategori",
-	"Dynamic filters": "Tags",
+	"Dynamic filters": "Tags (maks. 2)",
 	"DATE": "Startdato",
 	"END DATE": "Slutdato",
 	"ADDRESS": "Adresse",
@@ -643,3 +654,8 @@ divider.clone().insertAfter("#hideable-menu");
 divider.clone().insertBefore("#form-inputs");
 
 $("#dynamic-filters").closest(".form-data").css("margin-bottom", "0");
+
+
+// Crop image translations
+$(".modal h5:contains(Crop the image)").text("Beskær billede");
+$(".modal button:contains(Cancel)").text("Annuller");

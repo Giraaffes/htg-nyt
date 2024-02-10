@@ -6,8 +6,8 @@
 [X] Fix article overview page
 [X] Convert edit article script
 [ ]   And add support for those new thingies
-[-] 	Open article button only works when set to public
-[-] 	Max 2 tags text
+[X] 	Open article button only works when set to public
+[X] 	Max 2 tags text
 [X] Convert preview article script
 [ ] Avoid redirects - handle it on the server (login, front page)
 [ ] Perhaps redirect logouts to the referer page?
@@ -17,10 +17,10 @@
 [X] Fix adding images
 [X] Add dates to articles
 [X] 	Date on preview page
-[-] Move nav button down a bit on homepage on mobile
+[X] Move nav button down a bit on homepage on mobile
 [X] Make the titles a bit easier to click on editor page
 [X] Fix adding thumbnails
-[-] Translate "crop image" text
+[X] Translate "crop image" text
 [X] Fix title and manchet overlapping on front page on phone
 [X] Fix you can choose multiple colors for newly created answer elements
 [X] Some error when adding an image
