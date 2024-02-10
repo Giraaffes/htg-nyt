@@ -532,7 +532,7 @@ const elementTypes = [
 ];
 
 async function loadNewElement(element) {
-	let elementIndex = $("#form-inputs").children(".form-data").index(element) + 1;
+	let elementIndex = $("#form-inputs").children(":not(.new-element-buttons)").index(element) + 1;
 
 	let inputs = element.find("input, textarea");
 	let elementType = inputs.first().attr("name").match(/content\[([a-z-]+)/)[1];
