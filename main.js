@@ -16,10 +16,10 @@ const remapPaths = [
 	{from: "", to: "hovedmenu"},
 	{from: "e9a/htg/", to: "artikel/"},
 	{from: "e9a/htg", to: ""},
-	{from: "admin/articles/overview/", to: "editor/"},
-	{from: "admin/articles/overview", to: "editor"},
-	{from: "admin/articles/edit/", to: "edit-article/"},
-	{from: "admin/articles/preview-article/", to: "preview-article/"}
+	{from: "admin/articles/overview/9e106940-5c97-11ee-b9bf-d56e49dc725a", to: "redaktør"},
+	{from: "admin/articles/overview", to: "redaktør"},
+	{from: "admin/articles/edit/", to: "rediger-artikel/"},
+	{from: "admin/articles/preview-article/", to: "forhåndsvis-artikel/"}
 ];
 
 function remapAllPaths(string, pathRegex) {
@@ -55,14 +55,26 @@ function unmapAllPaths(string, pathRegex) {
 }
 
 
+function redirectHook(req, redirectUrl) {
+	if (
+		req.method == "POST" && req.path == "/user/login" || 
+		req.method == "GET" && req.path == "/user/logout") 
+	{
+		return req.query["backTo"] || "/";
+	}
+
+	return redirectUrl;
+}
+
+
 const pageInjects = {
 	"/login": "login",
 	"/hovedmenu": "homepage",
 	"/": "front-page",
 	"/artikel/": "article",
-	"/editor/": "editor",
-	"/edit-article/": "edit-article",
-	"/preview-article/": "preview-article"
+	"/redaktør": "editor",
+	"/rediger-artikel/": "edit-article",
+	"/forhåndsvis-artikel/": "preview-article"
 };
 
 const oldDomainHrefRegex = /(?<=href=")https:\/\/(?:www)?\.inspir\.dk/g;
@@ -71,9 +83,9 @@ const backToPathHrefRegex = /(?<=href="[^"]+backTo=)[^&"]*/g;
 const jQueryScriptRegex = /<script[^>]+src="[^"]+code\.jquery\.com.+?<\/script>/s;
 const datatablesScriptRegex = /<script[^>]+src="[^"]+cdn\.datatables\.net.+?<\/script>/s;
 
-function insertInString(str, insertStr, pos) {
+/*function insertInString(str, insertStr, pos) {
 	return `${str.slice(0, pos)}${insertStr}${str.slice(pos)}`;
-}
+}*/
 
 function pageHook(path, html) {
 	let newHtml = html;
@@ -168,12 +180,12 @@ server.get(/\/custom(\/.+)/, (req, res) => {
 });
 
 
-const remapCategoryIds = {
+const remapCategoryNames = {
 	"nyt": "new",
 	"sjovt": "faq",
 	"lærerigt": "hack",
 	"mødesteder": "meeting",
-	"kalender": "calendar"
+	"aktiviteter": "calendar"
 };
 
 const oldDomainRegex = /https:\/\/(?:www)?\.inspir\.dk/g;
@@ -181,25 +193,24 @@ const urlPathRegex = /\/[^?]*/g;
 
 server.use(bodyParser.raw({ type: "*/*", limit: "100mb" }));
 server.use(async (req, res) => {
-	if (req.method == "GET") {
-		let paramsStr = (req.url.match(/(?<=\?).+/) || [""])[0];
-		let params = new URLSearchParams(paramsStr);
+	req.url = decodeURI(req.url); // I really hope this doesn't cause any trouble
 
-		if (req.path == "/") {
-			let remapCategoryIdTo = remapCategoryIds[params.get("type")];
-			if (remapCategoryIdTo) params.set("type", remapCategoryIdTo);
-		} 
-		
-		// Hardcoded
-		if (req.path == "/" && (!params.has("type") || !params.get("type").trim())) {
+	let paramsStr = (req.url.match(/(?<=\?).+/) || [""])[0];
+	let params = new URLSearchParams(paramsStr);
+	let typeParam = (params.get("type") || "").trim();
+
+	if (req.path == "/") {
+		if (typeParam) {
+			let newCategoryName = remapCategoryNames[params.get("type")];
+			if (newCategoryName) params.set("type", newCategoryName);
+		} else {
 			params.set("type", "new");
-		} else if (req.path.startsWith("/editor/") && !params.has("type")) {
-			params.set("type", "local");
 		}
-
-		if (paramsStr != params.toString()) {
-			req.url = req.url.replace(/(?:\?.*)?$/, "?" + params.toString());
-		}
+	} else if (req.path == "/redaktør" && !typeParam) {
+		params.set("type", "local");
+	}
+	if (paramsStr != params.toString()) {
+		req.url = req.url.replace(/(?:\?.*)?$/, "?" + params.toString());
 	}
 
 	let originalPath = req.path; // Since this value is changed automatically below
@@ -216,27 +227,16 @@ server.use(async (req, res) => {
 		responseType: "arraybuffer",
 		responseEncoding: "binary",
 		maxRedirects: 0,
-		validateStatus: () => true,
-
-		// Fiddler proxy
-		/*proxy: {
-			protocol: "http",
-			host: "127.0.0.1",
-			port: 8888
-		}*/
+		validateStatus: () => true
 	});
 
 	let redirectUrl = inspirRes.headers.location;
 	if (redirectUrl) {
-		// Hardcoded
-		if (req.path == "/user/logout") {
-			redirectUrl = "/";
-		} else {
-			redirectUrl = redirectUrl.replace(oldDomainRegex, "");
-			redirectUrl = remapAllPaths(redirectUrl, urlPathRegex);
-		}
+		redirectUrl = redirectUrl.replace(oldDomainRegex, "");
+		redirectUrl = remapAllPaths(redirectUrl, urlPathRegex);
+		redirectUrl = redirectHook(req, redirectUrl);
+		inspirRes.headers.location = encodeURI(redirectUrl);
 	}
-	inspirRes.headers.location = redirectUrl;
 
 	let contentType = inspirRes.headers["content-type"];
 	if (req.method == "GET" && contentType && contentType.startsWith("text/html")) {

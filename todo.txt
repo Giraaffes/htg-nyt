@@ -5,14 +5,13 @@
 [X] 	Set those for each inject page, then cleanup scripts and styles
 [X] Fix article overview page
 [X] Convert edit article script
-[ ]   And add support for those new thingies
 [X] 	Open article button only works when set to public
 [X] 	Max 2 tags text
 [X] Convert preview article script
-[ ] Avoid redirects - handle it on the server (login, front page)
-[ ] Perhaps redirect logouts to the referer page?
-[ ] Translate pages like "editor", "edit-article" and "preview-article"
-[ ] Maybe remove the long ugly uuid from the article overview page url
+[X] Avoid redirects - handle it on the server (login)
+[X] Perhaps redirect logouts to the referer page?
+[X] Translate pages like "editor", "edit-article" and "preview-article"
+[X] Maybe remove the long ugly uuid from the article overview page url
 [X] Fix the categories
 [X] Fix adding images
 [X] Add dates to articles
@@ -25,11 +24,11 @@
 [X] Fix you can choose multiple colors for newly created answer elements
 [X] Some error when adding an image
 [X] Border on images
-[ ] Login redirect back
+[X] Login redirect back
 [X] Add delete article button in edit article page
 [X] Copy article link btn -> Read article
-[ ] Rename kalender param til aktiviteter
-[ ] textarea better height
+[X] Rename kalender param til aktiviteter
+[X] textarea better height
  
 [ ] Make header and navbar fixed on editor and edit article pages
 [ ] Standard redaktør support

@@ -51,6 +51,8 @@
 	margin: 0 !important;
 	padding: 10px 0 !important;
 	padding-right: 10px !important;
+
+	user-select: none;
 }
 
 .sidepanel .nav-item:hover {
@@ -64,6 +66,19 @@
 
 .sidepanel .nav-item:last-child {
 	border-bottom: none !important;
+}
+
+.sidepanel .nav-item i {
+	width: 25px;
+	margin-left: 10px;
+	font-size: 70%;
+	text-align: center;
+}
+
+.sidepanel .nav-item i.fa-right-to-bracket {
+	width: 30px;
+	margin-left: 5px;
+	font-size: 80%;
 }
 
 

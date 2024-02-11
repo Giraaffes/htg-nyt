@@ -16,6 +16,7 @@ let doNotSave = false;
 async function saveArticle(keepAlive, silent) {
 	let formData = new FormData($("#magazines-articles-form")[0]);
 
+	// This throws errors because of the 'ø' in redirect url but whatever
 	let res = await fetch(window.location.href, {
 			method: "POST",
 			body: formData,
@@ -89,7 +90,7 @@ skolebladNav.find(".nav-link").attr("href", "/");
 let backNav = skolebladNav.clone().insertBefore(skolebladNav);
 backNav.html(backNav.html().replace("læs htg-nyt", "Gem og luk"));
 backNav.find("i").removeClass("fa-newspaper").addClass("fa-circle-left");
-backNav.find(".nav-link").attr("href", "/editor");
+backNav.find(".nav-link").attr("href", "/redaktør");
 
 let mainMenuNav = skolebladNav.clone().insertBefore(skolebladNav);
 mainMenuNav.html(mainMenuNav.html().replace("læs htg-nyt", "Hovedmenu"));
@@ -263,7 +264,7 @@ let saveButton = addButton("Gem artikel", saveArticle);
 actionButtonsDiv.append(saveButton);	
 
 let previewButton = addButton("Forhåndsvis artikel", () => {
-		window.open(`/preview-article/${pageUuid}`, "_blank");
+		window.open(`/forhåndsvis-artikel/${pageUuid}`, "_blank");
 });
 actionButtonsDiv.append(previewButton);
 
@@ -337,17 +338,8 @@ function swap(a, b) {
 	temp.replaceWith(b);
 };
 
-function waitForWindowFocus() {
-	return new Promise((res, rej) => {
-			$(window).on("focus", () => {
-					setTimeout(res, 200);
-					$(window).off("focus");
-			});
-	});
-}
-
 function addElementButtons(element) {
-	element.find("#upArrow, #downArrow, #deleteContent").remove();
+	element.find(".content-span-container").remove();
 
 	let buttonsDiv = element.find(".element-buttons");
 
@@ -407,6 +399,8 @@ function fixAnswerElement(element) {
 
 	let colorsDiv = element.find(".content-colors");
 	if (colorsDiv.length == 1) {
+		// Mezzio fix 11/2/24
+		colorsDiv.find("input[type=text]").insertBefore(contentDiv.find("textarea"));
 		colorsDiv.appendTo(contentDiv);
 		return;
 	}
@@ -440,6 +434,17 @@ function fixAnswerElement(element) {
 	});
 }
 
+function fixTextareas(element) {
+	element.find("textarea").each((_, textarea) => {
+		let initialHeight = $(textarea).height();
+		$(textarea).on("input", () => {
+			$(textarea).height(5);
+			let newHeight = Math.max($(textarea).prop('scrollHeight'), initialHeight);
+			$(textarea).height(newHeight);
+		}).trigger("input");
+	});
+}
+
 function fixArticleElement(element) {
 	let originalContent = element.children();
 	let wrapperDiv = $("<div></div>").addClass("element-wrapper");
@@ -465,6 +470,8 @@ function fixArticleElement(element) {
 	}
 
 	element.find("p:contains(Spørger), p:contains(Svarer)").remove();
+
+	fixTextareas(element);
 }
 
 $("#form-inputs .form-data").each((_, element) => {
@@ -484,7 +491,8 @@ const renameHeaders = {
 	"MANCHET": "Manchet",
 	"VIDEO": "Video",
 	"THUMBNAIL": "Billede",
-	"SoMe": "Sociale medier"
+	"SoMe": "Sociale medier",
+	"Pic": "Billede"
 }
 
 const renamePlaceholders = {
@@ -529,13 +537,22 @@ $(".form-data").each((_, formData) => {
 const elementTypes = [
 	{ text: "Brødtekst", name: "body" },
 	{ text: "Mellemrubrik", name: "middle-heading" },
-	{ text: "Illustration", name: "illustration" },
+	{ text: "Billede", name: "illustration" },
 	{ text: "Citat", name: "quote" },
 	{ text: "Spørgsmål", name: "question" },
 	{ text: "Svar", name: "answer" },
 	{ text: "Afsluttende link", name: "link" },
 	{ text: "Sociale medier", name: "socials" }
 ];
+
+function waitForWindowFocus() {
+	return new Promise((res, rej) => {
+			$(window).on("focus", () => {
+					setTimeout(res, 200);
+					$(window).off("focus");
+			});
+	});
+}
 
 async function loadNewElement(element) {
 	let elementIndex = $("#form-inputs").children(":not(.new-element-buttons)").index(element) + 1;

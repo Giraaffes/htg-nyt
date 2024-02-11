@@ -1,7 +1,7 @@
 let isChefredaktør = ($("button:contains('GLOBAL')").length > 0);
 if (!isChefredaktør) throw Error("Ignorer denne fejl :)");
 
-let pageUuid = window.location.pathname.match(/[\w-]+$/)[0];
+const skolebladUuid = "9e106940-5c97-11ee-b9bf-d56e49dc725a";
 let dataTable; // Is intialized later
 
 
@@ -75,7 +75,7 @@ updateOrderButton.removeAttr("href").on("click", () => {
 					let formData = new FormData();
 					formData.append("uuid", articleUuid);
 					formData.append("action", (["active", "inactive"])[currentVisibilityButton.index()]);
-					await fetch(`/admin/articles/change-status/${pageUuid}`, {
+					await fetch(`/admin/articles/change-status/${skolebladUuid}`, {
 							method: "POST",
 							body: formData,
 					});
@@ -109,7 +109,7 @@ function addVisibilityButtons(row) {
 			let formData = new FormData();
 			formData.append("uuid", articleUuid);
 			formData.append("action", (["active", "inactive"])[i]);
-			fetch(`/admin/articles/change-status/${pageUuid}`, {
+			fetch(`/admin/articles/change-status/${skolebladUuid}`, {
 				method: "POST",
 				body: formData,
 			}).then(res => {
@@ -155,7 +155,7 @@ function addDeleteButton(row) {
 
 			let formData = new FormData();
 			formData.append("uuid", articleUuid);
-			fetch(`/admin/articles/delete-article/${pageUuid}`, {
+			fetch(`/admin/articles/delete-article/${skolebladUuid}`, {
 					method: "POST",
 					body: formData,
 			}).then(res => res.json()).then(data => {
