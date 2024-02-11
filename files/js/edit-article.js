@@ -343,7 +343,7 @@ function swap(a, b) {
 };
 
 function addElementButtons(element) {
-	element.find(".content-span-container").remove();
+	element.find(".content-span-container, #upArrow, #downArrow, #deleteContent").remove();
 
 	let buttonsDiv = element.find(".element-buttons");
 
