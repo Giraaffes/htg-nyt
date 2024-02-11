@@ -438,13 +438,18 @@ function fixAnswerElement(element) {
 	});
 }
 
+// https://stackoverflow.com/a/18262927
 function fixTextareas(element) {
 	element.find("textarea").each((_, textarea) => {
 		let initialHeight = $(textarea).height();
 		$(textarea).on("input", () => {
+			let initialTop = window.scrollY;
+
 			$(textarea).height(5);
 			let newHeight = Math.max($(textarea).prop('scrollHeight'), initialHeight);
 			$(textarea).height(newHeight);
+
+			window.scrollTo({top: initialTop});
 		}).trigger("input");
 	});
 }
