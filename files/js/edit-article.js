@@ -501,7 +501,8 @@ const renameHeaders = {
 	"VIDEO": "Video",
 	"THUMBNAIL": "Billede",
 	"SoMe": "Sociale medier",
-	"Pic": "Billede"
+	"Pic": "Billede",
+	"Tekst": "Brødtekst"
 }
 
 const renamePlaceholders = {
