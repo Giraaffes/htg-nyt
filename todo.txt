@@ -1,35 +1,3 @@
-[X] Implicit type=new parameter - fix in homepage.js, main.js, article.js, editor.js, edit-article.js
-[X] Implicit type=local parameter - fix in editor.js
-[X] Rename type parameters
-[X] Correct script and style inject positions
-[X] 	Set those for each inject page, then cleanup scripts and styles
-[X] Fix article overview page
-[X] Convert edit article script
-[X] 	Open article button only works when set to public
-[X] 	Max 2 tags text
-[X] Convert preview article script
-[X] Avoid redirects - handle it on the server (login)
-[X] Perhaps redirect logouts to the referer page?
-[X] Translate pages like "editor", "edit-article" and "preview-article"
-[X] Maybe remove the long ugly uuid from the article overview page url
-[X] Fix the categories
-[X] Fix adding images
-[X] Add dates to articles
-[X] 	Date on preview page
-[X] Move nav button down a bit on homepage on mobile
-[X] Make the titles a bit easier to click on editor page
-[X] Fix adding thumbnails
-[X] Translate "crop image" text
-[X] Fix title and manchet overlapping on front page on phone
-[X] Fix you can choose multiple colors for newly created answer elements
-[X] Some error when adding an image
-[X] Border on images
-[X] Login redirect back
-[X] Add delete article button in edit article page
-[X] Copy article link btn -> Read article
-[X] Rename kalender param til aktiviteter
-[X] textarea better height
- 
 [ ] Make header and navbar fixed on editor and edit article pages
 [ ] Standard redaktør support
 [ ] Fix several other pages
