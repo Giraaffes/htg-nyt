@@ -47,7 +47,11 @@ let failedAttempts = 0;
 $(() => {
 	setInterval(async () => {
 		let success = await saveArticle(false, true)
-		if (success) failedAttempts++;
+		if (success) {
+			failedAttempts = 0;
+		} else {
+			failedAttempts++;
+		}
 		if (failedAttempts >= maxFailedAttempts) {
 			location.reload(); // Too sudden?
 		}
