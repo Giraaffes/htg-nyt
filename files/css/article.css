@@ -2,6 +2,10 @@ body {
 	margin: 0;
 }
 
+s {
+	text-decoration: line-through;
+}
+
 .top-box, .post-headline, #article-footer {
 	margin: 0;
 }
