@@ -111,5 +111,6 @@ const tagChanges = {
 	"hall of fame": "personale",
 	"eksistens": "interview",
 	"wtf": "useriøst",
-	"valg": "quiz"
+	"valg": "quiz",
+	"+": "lang"
 };
