@@ -112,5 +112,6 @@ const tagChanges = {
 	"eksistens": "interview",
 	"wtf": "useriøst",
 	"valg": "quiz",
-	"+": "lang"
+	"+": "lang",
+	"rejser": "transport"
 };
