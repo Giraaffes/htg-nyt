@@ -84,7 +84,7 @@ const categoryChanges = {
 	}, "hack": {
 		oldTitle: "Hacks", name: "lærerigt", 
 		icon: "graduation-cap", color: "blue",
-		title: "Lærerige emner", nav: "Lærerigt"
+		title: "Lærerige artikler", nav: "Lærerigt"
 	}, "folk": {
 		oldTitle: "Folk", name: "folk", 
 		icon: "user", color: "yellow",
