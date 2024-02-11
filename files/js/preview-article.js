@@ -18,7 +18,7 @@ if (dateElement.length == 1) {
 	$(".authorDisName p").append(`<br><span class="date">${dateStr}</span>`);
 }
 
-// Allow html in paragraphs
-$(".style-body p").each((_, e) => {
+// Allow html (sometimes)
+$(".style-body p, .style-illustration p").each((_, e) => {
 	$(e).html($(e).text());
 });
