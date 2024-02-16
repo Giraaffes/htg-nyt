@@ -1,6 +1,6 @@
 [X] Redo front page articles layout (mainly with regards to tags being weird)
 
-[ ] Make header and navbar fixed on editor and edit article pages
+[X] Make header and navbar fixed on editor and edit article pages
 [ ] Standard redaktør support
 [ ] Fix several other pages
 [ ] Fix new thingies in articles

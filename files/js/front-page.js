@@ -151,7 +151,6 @@ if ($(".article-listing").length == 0) {
 	$(".headline-content").parent().append("<span id=\"no-articles\">Der er ingen artikler her (endnu?)</span>")
 }
 
-console.log(activeCtgName);
 if (activeCtgName == "nyt" || activeCtgName == "lærerigt") {
 	$(".article-listing").each((_, article) => {
 		$(article).find(".article-tags").appendTo($(article).find(".article-container > div:eq(0)"));

@@ -19,6 +19,11 @@ td .fas {
 }
 
 
+.header, .sidebar {
+	position: fixed;
+	z-index: 1;
+}
+
 .header-logo {
 	width: unset;
 }
@@ -35,6 +40,14 @@ td .fas {
 
 .sidebar .nav-item:last-child {
 	position: unset !important;
+}
+
+.main {
+	margin-top: 50px;
+}
+
+.page-content {
+	margin-left: 180px;
 }
 
 

@@ -16,7 +16,6 @@ let doNotSave = false;
 async function saveArticle(keepAlive, silent) {
 	let formData = new FormData($("#magazines-articles-form")[0]);
 
-	// This throws errors because of the 'ø' in redirect url but whatever
 	let res = await fetch(window.location.href, {
 			method: "POST",
 			body: formData,
@@ -282,7 +281,21 @@ actionButtonsDiv.append(viewArticleButton);
 
 $("<p></p>").text(
 	"(Husk at gemme før du forhåndsviser / læser artiklen, så du kan se dine ændringer)"
-).addClass("info-text").appendTo(actionButtonsDiv);
+).addClass("info-text").appendTo(actionButtonsDiv)
+
+
+// Fixed save button
+let fixedSaveButton = addButton("Gem artikel (ctrl + S)", saveArticle);
+fixedSaveButton.appendTo(".main-container").addClass("fixed-save-button");
+
+$(document).on("scroll", () => {
+	console.log(scrollY);
+	if (scrollY > 200) {
+		fixedSaveButton.css("opacity", "1");
+	} else {
+		fixedSaveButton.css("opacity", "0");
+	}
+}).trigger("scroll");
 
 
 // Delete button
