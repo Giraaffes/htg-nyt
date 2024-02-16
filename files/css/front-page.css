@@ -24,7 +24,7 @@
 	justify-content: center;
 	align-items: center;
 	gap: 5px;
-	overflow-x: hidden;
+	overflow: hidden;
 
 	font-size: 1.2rem !important;
 	color: #000000;
@@ -151,8 +151,9 @@
 	margin-top: 10px !important;
 }
 
-.article-listing img {
+.article-container img, .article-container div:has(img) {
 	margin: 0;
+	align-self: center;
 }
 
 
@@ -167,5 +168,9 @@
 
 	.article-body p {
 		font-size: 4vw !important;
+	}
+
+	.grey-box {
+		font-size: 3.1vw !important;
 	}
 }

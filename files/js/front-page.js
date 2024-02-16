@@ -114,30 +114,10 @@ $(() => {
 	});
 });
 
-// Display fix and sort
-function sortByLength(elements) {
-	elements.toArray().sort((e1, e2) => 
-		$(e2).text().trim().length - $(e1).text().trim().length
-	).forEach(e => $(e).appendTo($(e).parent()));
-}
-
-function sortAlphabetically(elements) {
-	elements.toArray().sort((e1, e2) => 
-		$(e1).text().trim() > $(e2).text().trim() ? 1 : -1
-	).forEach(e => $(e).appendTo($(e).parent()));
-}
-
-if (activeCtgName == "nyt" || activeCtgName == "lærerigt") {
-	$(".article-tags").addClass("article-tags-on-image");
-	$(".article-tags").each((_, tagsDiv) => {
-		sortByLength($(tagsDiv).find(".grey-box"));
-	});
-} else {
-	$("div:has(> .grey-box)").each((_, tagsDiv) => {
-		sortAlphabetically($(tagsDiv).find(".grey-box"));
-	});
-}
-sortAlphabetically($("#dynamic-filters button"));
+// Sort tags
+$("#dynamic-filters button").toArray().sort((e1, e2) => 
+	$(e1).text().trim() > $(e2).text().trim() ? 1 : -1
+).forEach(e => $(e).appendTo("#dynamic-filters"));
 
 
 // Articles
