@@ -151,9 +151,8 @@
 	margin-top: 10px !important;
 }
 
-.article-container img, .article-container div:has(img) {
+.article-container img {
 	margin: 0;
-	align-self: center;
 }
 
 
@@ -171,6 +170,6 @@
 	}
 
 	.grey-box {
-		font-size: 3.1vw !important;
+		font-size: 3.6vw !important;
 	}
 }
