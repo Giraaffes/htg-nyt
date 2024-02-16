@@ -1,10 +1,11 @@
 // Categories
-// categoryChanges from general.js
 $("#filterList button").unwrap()
 	.filter((_, ctg) => !($(ctg).data("value") in categoryChanges)).remove();
 
 let activeCtgName = $("#filterList button.active").data("value");
 let activeCtgChanges = categoryChanges[activeCtgName];
+activeCtgName = activeCtgChanges.name;
+
 $(".headline-content h1").text(activeCtgChanges.title);
 $("title").text(`${activeCtgChanges.nav} | HTG-NYT`);
 
@@ -12,21 +13,34 @@ let activeColorName = $("#mediaContainer > div:first").attr("class").slice(0, -6
 $(`.${activeColorName}-color`).removeClass(`${activeColorName}-color`).addClass(`${activeCtgChanges.color}-color`);
 $(`#${activeColorName}-headline`).attr("id", `${activeCtgChanges.color}-headline`);
 
+// Navs
+function faIcon(iconName) {
+	return `<i class=\"fas fa-${iconName}\" aria-hidden=\"true\"></i>`;
+}
+
 $("#filterList button").each((_, ctg) => {
 	let ctgName = $(ctg).data("value");
 	let changes = categoryChanges[ctgName];
 
-	$(ctg).data("value", changes.name);
-	$(ctg).find("i").removeClass().addClass("fas").addClass(`fa-${changes.icon}`);
-	if (!$(ctg).is(".active")) $(ctg).append(`<span>${changes.nav}</span>`);
+	$(ctg).contents().remove();
+	let ctgA = $("<a></a>").appendTo($(ctg));
+	ctgA.attr("href", changes.name == "nyt" ? "/" : `/?type=${changes.name}`);
+	ctgA.attr("draggable", "false");
+
+	ctgA.append(faIcon(changes.icon));
+	if (!$(ctg).is(".active")) ctgA.append(`<span>${changes.nav}</span>`);
 });
-activeCtgName = $("#filterList button.active").data("value");
+
+$(() => {
+	$("#filterList button").off();
+});
 
 // Colors
 function overlayOnWhite(rgbaStr) {
 	let [ r, g, b, a ] = rgbaStr.match(/[\d\.]+/g);
 	a = parseFloat(a);
 
+	// Lerp r, g, b and white by alpha
 	r = Math.floor(r * a + 255 * (1 - a));
 	g = Math.floor(g * a + 255 * (1 - a));
 	b = Math.floor(b * a + 255 * (1 - a));
@@ -47,20 +61,6 @@ $("#filterList button").each((_, ctg) => {
 	if ($(ctg).is(".active") || $(ctg).nextAll("button:first").is(".active")) {
 		div.addClass("active").css("background-color", activeColor);
 	}
-});
-
-// Functionality
-let url_ = new URL(location);
-$(() => {
-	$("#filterList button").off().on("click", e => {
-		let btn = $(e.currentTarget);
-		if (btn.is(".active")) return;
-
-		e.preventDefault();
-		let ctg = btn.data("value");
-		url_.search = (ctg == "nyt" ? "" : `?type=${ctg}`);
-		location = url_;
-	});
 });
 
 
@@ -149,6 +149,13 @@ if (activeCtgName != "nyt") {
 
 if ($(".article-listing").length == 0) {
 	$(".headline-content").parent().append("<span id=\"no-articles\">Der er ingen artikler her (endnu?)</span>")
+}
+
+console.log(activeCtgName);
+if (activeCtgName == "nyt" || activeCtgName == "lærerigt") {
+	$(".article-listing").each((_, article) => {
+		$(article).find(".article-tags").appendTo($(article).find(".article-container > div:eq(0)"));
+	});
 }
 
 // Remove global articles
