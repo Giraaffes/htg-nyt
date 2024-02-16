@@ -13,7 +13,7 @@ const loggedInNavItems = [
 	{name: "Hovedmenu", icon: "house", href: "/hovedmenu"},
 	{name: "Min profil", icon: "user", href: "/account/details"},
 	{name: "Klassen", icon: "users", href: "/klassen"},
-	{name: "Udvalg", icon: "school", href: "/councils"},
+	{name: "Udvalg", icon: "school", href: "/councils/list"},
 	{name: "Redaktør", icon: "layer-group", href: "/redaktør"},
 	{name: "Log ud", icon: "right-from-bracket", href: "/user/logout", addRedirect: true}
 ];
