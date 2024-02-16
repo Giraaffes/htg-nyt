@@ -127,8 +127,8 @@ $("#hideable-menu > div").removeAttr("style").css("width", i =>
 	(["40%", "15rem", "12rem"])[i]
 );
 
-// Fix 10/2/24
-$("#fixed-menu > .form-data").prependTo("#hideable-menu > div:eq(0)")
+// Mezzio fix 10/2/24, 16/2/24
+$("#fixed-menu .form-data:has(#static-filters)").prependTo("#hideable-menu > div:eq(0)")
 $("#hideable-menu").show();
 
 
