@@ -110,15 +110,20 @@ $(() => {
 				).length > 0
 			).removeClass("hidden");
 		}
-
 	});
 });
 
 // Sort tags
-$("#dynamic-filters button").toArray().sort((e1, e2) => 
-	$(e1).text().trim() > $(e2).text().trim() ? 1 : -1
-).forEach(e => $(e).appendTo("#dynamic-filters"));
+function sortAlphabetically(elements) {
+	elements.toArray().sort((e1, e2) => 
+		$(e1).text().trim() > $(e2).text().trim() ? 1 : -1
+	).forEach(e => $(e).appendTo($(e).parent()));
+}
 
+sortAlphabetically($("#dynamic-filters button"));
+$("div:has(> .grey-box)").each((_, tagsDiv) => {
+	sortAlphabetically($(tagsDiv).find(".grey-box"));
+});
 
 // Articles
 if (activeCtgName != "nyt") {
