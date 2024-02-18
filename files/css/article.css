@@ -39,6 +39,25 @@ body {
 }
 
 
+.magazine-article-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.magazine-article-container > :not(.top-box) {
+	position: static;
+	margin: 0;
+}
+
+.magazine-article-container .post-headline {
+	margin-top: 60px;
+}
+
+.magazine-article-container .post-article {
+	margin-top: 10px;
+}
+
+
 .post-headline img {
 	margin-left: 0;
 	margin-right: 5px;
@@ -60,7 +79,23 @@ body {
 
 .style-middle-heading p {
 	color: #111111;
+	margin-top: 1.5em;
 }
+
+
+.link-button {
+	border-width: 1px;
+	margin-bottom: 1rem;
+}
+
+.link-button:hover {
+	background-color: #8d9e8a;
+}
+
+.link-button:active {
+	background-color: #9aa998;
+}
+
 
 @media (max-width: 650px) {
 	.navigation, .check-btn {

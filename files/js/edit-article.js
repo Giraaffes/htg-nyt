@@ -289,7 +289,6 @@ let fixedSaveButton = addButton("Gem artikel (ctrl + S)", saveArticle);
 fixedSaveButton.appendTo(".main-container").addClass("fixed-save-button");
 
 $(document).on("scroll", () => {
-	console.log(scrollY);
 	if (scrollY > 200) {
 		fixedSaveButton.css("opacity", "1");
 	} else {
@@ -655,16 +654,17 @@ elements.each((_, element) => {
 	$(element).after(addNewElementButtons(false));
 });
 
-let dateElement = $(".form-data:has(h5:contains(Sociale medier))").filter((_, e) => 
-	$(e).find("textarea").val().includes("supercool-htg-nyt-date")
+
+
+// Metadata element
+let metadataElement = $(".form-data:has(h5:contains(Sociale medier))").filter((_, e) => 
+	$(e).find("textarea").val().includes("supercool-htg-nyt-date") // Have to update all the articles if I want this changed
 );
-// If the only element is the hidden date or if there are no elements
-if (elements.length == dateElement.length) {
+// (If the only element is the hidden date or if there are no elements at all)
+if (elements.length == metadataElement.length) {
 	addNewElementButtons(true).prependTo("#form-inputs");
 }
 
-
-// Date
 // https://stackoverflow.com/a/26915856
 function getUuid1Date(uuid) {
 	let splitUuid = uuid.split("-");
@@ -673,23 +673,32 @@ function getUuid1Date(uuid) {
 	return new Date(timeMillis);
 };
 
-$(async () => {
-	if (dateElement.length == 0) {
-		let articleDate = getUuid1Date(pageUuid);
-		let dateNum = articleDate.getTime();
-		let dateHtml = `<data value="${dateNum}" id="supercool-htg-nyt-date"></data>`;
+const articleDateNum = getUuid1Date(pageUuid).getTime();
+function updateMetadata() {
+	let html = `<data value="${articleDateNum}" id="supercool-htg-nyt-date"></data>`;
+	if ($("input#calendar").is(":checked")) {
+		let startDateNum = new Date($("input#date").val()).getTime();
+		html += `<data value="${startDateNum}" id="supercool-htg-nyt-start-date"></data>`;
+		let endDateNum = new Date($("input#endDate").val()).getTime();
+		html += `<data value="${endDateNum}" id="supercool-htg-nyt-end-date"></data>`;
+	}
+	metadataElement.find("textarea").val(html);
+}
+$("#static-filters input, input#date, input#endDate").on("change", updateMetadata);
 
+$(async () => {
+	if (metadataElement.length == 0) {
 		addMagazineInput("socials");
-		let insertedElement = $("#form-inputs .form-data:last");
-		insertedElement.removeClass("form-data").hide();
+		metadataElement = $("#form-inputs .form-data:last");
+		metadataElement.removeClass("form-data").hide();
 
 		await saveArticle(false, true);
-		insertedElement.find("textarea").val(dateHtml);
-		await loadNewElement(insertedElement);
+		await loadNewElement(metadataElement);
+		updateMetadata();
 		await saveArticle(false, true);
 	} else {
-		dateElement.removeClass("form-data").hide();
-		dateElement.next(".new-element-buttons").remove();
+		metadataElement.removeClass("form-data").hide();
+		metadataElement.next(".new-element-buttons").remove();
 	}
 });
 
