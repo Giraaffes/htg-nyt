@@ -107,12 +107,12 @@
 }
 
 /* Funky syntax - I hope it works on all devices */
-:nth-child(odd of .article-listing:not(.hidden)) {
-	background-color: #f2f2f2;
+:nth-child(odd of #dynamic-filters, .article-listing:not(.hidden)) {
+	background-color: #ffffff;
 }
 
-:nth-child(even of .article-listing:not(.hidden)) {
-	background-color: #ffffff;
+:nth-child(even of #dynamic-filters, .article-listing:not(.hidden)) {
+	background-color: #f2f2f2;
 }
 
 .article-listing:hover h5:not(.grey-box) {
