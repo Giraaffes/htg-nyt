@@ -1,0 +1,3155 @@
+[
+	{
+		"name": "Aardonyx",
+		"meaning": "'Earth claw'",
+		"diet": "herbivorous",
+		"timespan": "199-189",
+		"location": "South Africa",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/aardonyx.jpg",
+		"bodyShape": "prosauropod",
+		"length": 8
+	},
+	{
+		"name": "Abelisaurus",
+		"meaning": "'Abel's lizard'",
+		"diet": "carnivorous",
+		"timespan": "74-70",
+		"location": "Argentina",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/abeli.jpg",
+		"bodyShape": "large theropod",
+		"length": 9
+	},
+	{
+		"name": "Achelousaurus",
+		"meaning": "'Achelous' lizard'",
+		"diet": "herbivorous",
+		"timespan": "83-70",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/achelou.jpg",
+		"bodyShape": "ceratopsian",
+		"length": 6
+	},
+	{
+		"name": "Achillobator",
+		"meaning": "'Achilles hero'",
+		"diet": "carnivorous",
+		"timespan": "99-84",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Achillobator.jpg",
+		"bodyShape": "large theropod",
+		"length": 5
+	},
+	{
+		"name": "Acrocanthosaurus",
+		"meaning": "'high-spined lizard'",
+		"diet": "carnivorous",
+		"timespan": "115-105",
+		"location": "Canada, USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/acrocantho.jpg",
+		"bodyShape": "large theropod",
+		"length": 12
+	},
+	{
+		"name": "Aegyptosaurus",
+		"meaning": "'Egyptian lizard'",
+		"diet": "herbivorous",
+		"timespan": "98-93",
+		"location": "Egypt",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/aegypto.jpg",
+		"bodyShape": "sauropod",
+		"length": 15
+	},
+	{
+		"name": "Afrovenator",
+		"meaning": "'African hunter'",
+		"diet": "carnivorous",
+		"timespan": "132-121",
+		"location": "Niger",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/afrovenator.jpg",
+		"bodyShape": "large theropod",
+		"length": 9
+	},
+	{
+		"name": "Agilisaurus",
+		"meaning": "'agile lizard'",
+		"diet": "herbivorous",
+		"timespan": "169-159",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Agilisaurus.jpg",
+		"bodyShape": "small ornithischian",
+		"length": 1.5
+	},
+	{
+		"name": "Alamosaurus",
+		"meaning": "'Alamo lizard'",
+		"diet": "herbivorous",
+		"timespan": "70-66",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/alamo.jpg",
+		"bodyShape": "sauropod",
+		"length": 21
+	},
+	{
+		"name": "Albertaceratops",
+		"meaning": "'Alberta horned face'",
+		"diet": "herbivorous",
+		"timespan": "80-75",
+		"location": "Canada, USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/albertaceratops.jpg",
+		"bodyShape": "ceratopsian",
+		"length": 7
+	},
+	{
+		"name": "Albertosaurus",
+		"meaning": "'Alberta lizard'",
+		"diet": "carnivorous",
+		"timespan": "76-74",
+		"location": "Canada",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/albert.jpg",
+		"bodyShape": "large theropod",
+		"length": 9
+	},
+	{
+		"name": "Alectrosaurus",
+		"meaning": "'eagle lizard'",
+		"diet": "carnivorous",
+		"timespan": "90-70",
+		"location": "China, Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/alectro.jpg",
+		"bodyShape": "large theropod",
+		"length": 5
+	},
+	{
+		"name": "Alioramus",
+		"meaning": "'other [evolutionary] branch'",
+		"diet": "carnivorous",
+		"timespan": "71-66",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Alioramus.jpg",
+		"bodyShape": "large theropod",
+		"length": 6
+	},
+	{
+		"name": "Allosaurus",
+		"meaning": "'other lizard'",
+		"diet": "carnivorous",
+		"timespan": "152-145",
+		"location": "Portugal, USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/allo.jpg",
+		"bodyShape": "large theropod",
+		"length": 12
+	},
+	{
+		"name": "Alvarezsaurus",
+		"meaning": "'Alvarez's lizard'",
+		"diet": "carnivorous",
+		"timespan": "89-85",
+		"location": "Argentina",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/alvarez.jpg",
+		"bodyShape": "small theropod",
+		"length": 2
+	},
+	{
+		"name": "Amargasaurus",
+		"meaning": "'Amarga lizard'",
+		"diet": "herbivorous",
+		"timespan": "132-127",
+		"location": "Argentina",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Amargasaurus.jpg",
+		"bodyShape": "sauropod",
+		"length": 12
+	},
+	{
+		"name": "Ammosaurus",
+		"meaning": "'sand lizard'",
+		"diet": "herbivorous",
+		"timespan": "195-180",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/ammo.jpg",
+		"bodyShape": "prosauropod",
+		"length": 5
+	},
+	{
+		"name": "Ampelosaurus",
+		"meaning": "'vineyard lizard'",
+		"diet": "herbivorous",
+		"timespan": "71-66",
+		"location": "France",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Ampelosaurus.jpg",
+		"bodyShape": "sauropod",
+		"length": 15
+	},
+	{
+		"name": "Amygdalodon",
+		"meaning": "'almond tooth'",
+		"diet": "herbivorous",
+		"timespan": "177-169",
+		"location": "Argentina",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Amygdalodon.jpg",
+		"bodyShape": "sauropod",
+		"length": 15
+	},
+	{
+		"name": "Anchiceratops",
+		"meaning": "'near horned lizard'",
+		"diet": "herbivorous",
+		"timespan": "74-70",
+		"location": "Canada",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/anchi2.jpg",
+		"bodyShape": "ceratopsian",
+		"length": 6
+	},
+	{
+		"name": "Anchisaurus",
+		"meaning": "'near lizard'",
+		"diet": "herbivorous",
+		"timespan": "190",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/anchi.jpg",
+		"bodyShape": "prosauropod",
+		"length": 2
+	},
+	{
+		"name": "Ankylosaurus",
+		"meaning": "'fused lizard'",
+		"diet": "herbivorous",
+		"timespan": "68-66",
+		"location": "Canada, USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/ankylosaurus.jpg",
+		"bodyShape": "armoured dinosaur",
+		"length": 8
+	},
+	{
+		"name": "Anserimimus",
+		"meaning": "'goose mimic'",
+		"diet": "carnivorous",
+		"timespan": "84-66",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/anseri.jpg",
+		"bodyShape": "large theropod",
+		"length": 3.5
+	},
+	{
+		"name": "Antarctosaurus",
+		"meaning": "'non-northern lizard'",
+		"diet": "herbivorous",
+		"timespan": "84",
+		"location": "Argentina, Chile, Uruguay",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/antarcto.jpg",
+		"bodyShape": "sauropod",
+		"length": 18
+	},
+	{
+		"name": "Apatosaurus",
+		"meaning": "'deceptive lizard'",
+		"diet": "herbivorous",
+		"timespan": "152-145",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/apatosaurus-art.jpg",
+		"bodyShape": "sauropod",
+		"length": 21
+	},
+	{
+		"name": "Aragosaurus",
+		"meaning": "'AragÃ³n lizard'",
+		"diet": "herbivorous",
+		"timespan": "132-121",
+		"location": "Spain",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Aragosaurus.jpg",
+		"bodyShape": "sauropod",
+		"length": 18
+	},
+	{
+		"name": "Aralosaurus",
+		"meaning": "'Aral lizard'",
+		"diet": "herbivorous",
+		"timespan": "94-84",
+		"location": "Kazakhstan",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Aralosaurus.jpg",
+		"bodyShape": "large ornithopod",
+		"length": 8
+	},
+	{
+		"name": "Archaeoceratops",
+		"meaning": "'ancient horned face'",
+		"diet": "herbivorous",
+		"timespan": "121-99",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Archaeoceratops.jpg",
+		"bodyShape": "ceratopsian",
+		"length": 1.3
+	},
+	{
+		"name": "Archaeopteryx",
+		"meaning": "'ancient wing'",
+		"diet": "carnivorous",
+		"timespan": "149-145",
+		"location": "Germany",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/archaeopteryx.jpg",
+		"bodyShape": "small theropod",
+		"length": 0.5
+	},
+	{
+		"name": "Archaeornithomimus",
+		"meaning": "'ancient bird mimic'",
+		"diet": "carnivorous",
+		"timespan": "95-70",
+		"location": "China, Uzbekistan",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/archaeorn.jpg",
+		"bodyShape": "small theropod",
+		"length": 3.5
+	},
+	{
+		"name": "Argentinosaurus",
+		"meaning": "'Argentina lizard'",
+		"diet": "herbivorous",
+		"timespan": "90",
+		"location": "Argentina",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/argent.jpg",
+		"bodyShape": "sauropod",
+		"length": 35
+	},
+	{
+		"name": "Arrhinoceratops",
+		"meaning": "'without-nose-horn face'",
+		"diet": "herbivorous",
+		"timespan": "72-67",
+		"location": "Canada",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Arrhinoceratops.jpg",
+		"bodyShape": "ceratopsian",
+		"length": 6
+	},
+	{
+		"name": "Atlascopcosaurus",
+		"meaning": "'Atlas Copco lizard'",
+		"diet": "herbivorous",
+		"timespan": "121-97",
+		"location": "Australia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Atlascopcosaurus.jpg",
+		"bodyShape": "small ornithopod",
+		"length": 3
+	},
+	{
+		"name": "Aucasaurus",
+		"meaning": "'Auca lizard'",
+		"diet": "carnivorous",
+		"timespan": "84-71",
+		"location": "Argentina",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Aucasaurus.jpg",
+		"bodyShape": "large theropod",
+		"length": 5
+	},
+	{
+		"name": "Austrosaurus",
+		"meaning": "'south lizard'",
+		"diet": "herbivorous",
+		"timespan": "112-99",
+		"location": "Australia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Austrosaurus.jpg",
+		"bodyShape": "sauropod",
+		"length": 15
+	},
+	{
+		"name": "Avaceratops",
+		"meaning": "'Ava's horned face'",
+		"diet": "herbivorous",
+		"timespan": "80-75",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Avaceratops.jpg",
+		"bodyShape": "ceratopsian",
+		"length": 2.3
+	},
+	{
+		"name": "Avimimus",
+		"meaning": "'bird mimic'",
+		"diet": "omnivorous",
+		"timespan": "80-75",
+		"location": "China, Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/avim.jpg",
+		"bodyShape": "small theropod",
+		"length": 1.5
+	},
+	{
+		"name": "Bactrosaurus",
+		"meaning": "'club [spined] lizard'",
+		"diet": "herbivorous",
+		"timespan": "84-71",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Bactrosaurus.jpg",
+		"bodyShape": "large ornithopod",
+		"length": 6
+	},
+	{
+		"name": "Bagaceratops",
+		"meaning": "'small-horned face'",
+		"diet": "herbivorous",
+		"timespan": "85-80",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Bagaceratops.jpg",
+		"bodyShape": "ceratopsian",
+		"length": 1
+	},
+	{
+		"name": "Bambiraptor",
+		"meaning": "'Bambi plunderer'",
+		"diet": "carnivorous",
+		"timespan": "84-71",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Bambiraptor.jpg",
+		"bodyShape": "small theropod",
+		"length": 1
+	},
+	{
+		"name": "Barapasaurus",
+		"meaning": "'big leg lizard'",
+		"diet": "herbivorous",
+		"timespan": "185-170",
+		"location": "India",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/barapa.jpg",
+		"bodyShape": "sauropod",
+		"length": 14
+	},
+	{
+		"name": "Barosaurus",
+		"meaning": "'heavy lizard'",
+		"diet": "herbivorous",
+		"timespan": "155-145",
+		"location": "Tanzania, USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/baro.jpg",
+		"bodyShape": "sauropod",
+		"length": 24
+	},
+	{
+		"name": "Baryonyx",
+		"meaning": "'heavy claw'",
+		"diet": "carnivorous",
+		"timespan": "125",
+		"location": "England, Spain, United Kingdom",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/bary.jpg",
+		"bodyShape": "large theropod",
+		"length": 10
+	},
+	{
+		"name": "Becklespinax",
+		"meaning": "'Beckles' spinax'",
+		"diet": "carnivorous",
+		"timespan": "142-132",
+		"location": "England, United Kingdom",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Becklespinax.jpg",
+		"bodyShape": "large theropod",
+		"length": 5
+	},
+	{
+		"name": "Beipiaosaurus",
+		"meaning": "'Beipiao lizard'",
+		"diet": "omnivorous",
+		"timespan": "127-121",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Beipiaosaurus.jpg",
+		"bodyShape": "small theropod",
+		"length": 2
+	},
+	{
+		"name": "Bellusaurus",
+		"meaning": "'fine lizard'",
+		"diet": "herbivorous",
+		"timespan": "180-159",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Bellusaurus.jpg",
+		"bodyShape": "sauropod",
+		"length": 5
+	},
+	{
+		"name": "Borogovia",
+		"meaning": "'borogove'",
+		"diet": "carnivorous",
+		"timespan": "84-66",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Borogovia.jpg",
+		"bodyShape": "small theropod",
+		"length": 1.5
+	},
+	{
+		"name": "Brachiosaurus",
+		"meaning": "'arm lizard'",
+		"diet": "herbivorous",
+		"timespan": "155-140",
+		"location": "Algeria, Portugal, Tanzania, USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/brach.jpg",
+		"bodyShape": "sauropod",
+		"length": 30
+	},
+	{
+		"name": "Brachylophosaurus",
+		"meaning": "'short-crested lizard'",
+		"diet": "herbivorous",
+		"timespan": "89-88",
+		"location": "Canada, USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Brachylophosaurus.jpg",
+		"bodyShape": "large ornithopod",
+		"length": 7
+	},
+	{
+		"name": "Brachytrachelopan",
+		"meaning": "'short-necked Pan [shepherd god]'",
+		"diet": "herbivorous",
+		"timespan": "150",
+		"location": "Argentina",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Brachytrachelopan.jpg",
+		"bodyShape": "sauropod",
+		"length": 10
+	},
+	{
+		"name": "Buitreraptor",
+		"meaning": "'Buitrera ('vulture roost') plunderer'",
+		"diet": "carnivorous",
+		"timespan": "99-90",
+		"location": "Argentina",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Buitreraptor.jpg",
+		"bodyShape": "small theropod",
+		"length": 1.3
+	},
+	{
+		"name": "Camarasaurus",
+		"meaning": "'chambered lizard'",
+		"diet": "herbivorous",
+		"timespan": "150-140",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/camara.jpg",
+		"bodyShape": "sauropod",
+		"length": 23
+	},
+	{
+		"name": "Camptosaurus",
+		"meaning": "'bent lizard'",
+		"diet": "herbivorous",
+		"timespan": "155-145",
+		"location": "England, United Kingdom, USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/campto.jpg",
+		"bodyShape": "large ornithopod",
+		"length": 5
+	},
+	{
+		"name": "Carcharodontosaurus",
+		"meaning": "'Carcharodon lizard'",
+		"diet": "carnivorous",
+		"timespan": "99-94",
+		"location": "Algeria, Egypt, Morocco, North Africa",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/carcharodontosaurus.jpg",
+		"bodyShape": "large theropod",
+		"length": 12.5
+	},
+	{
+		"name": "Carnotaurus",
+		"meaning": "'carnivorous bull'",
+		"diet": "carnivorous",
+		"timespan": "69-71",
+		"location": "Argentina",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/carnotaurus.jpg",
+		"bodyShape": "large theropod",
+		"length": 8
+	},
+	{
+		"name": "Caudipteryx",
+		"meaning": "'tail feather'",
+		"diet": "omnivorous",
+		"timespan": "125-122",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/caudip.jpg",
+		"bodyShape": "small theropod",
+		"length": 1
+	},
+	{
+		"name": "Cedarpelta",
+		"meaning": "'Cedar [Mountain Formation] shield'",
+		"diet": "herbivorous",
+		"timespan": "142-127",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Cedarpelta.jpg",
+		"bodyShape": "armoured dinosaur",
+		"length": 10
+	},
+	{
+		"name": "Centrosaurus",
+		"meaning": "'sharp pointed lizard'",
+		"diet": "herbivorous",
+		"timespan": "76-74",
+		"location": "Canada",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/centro.jpg",
+		"bodyShape": "ceratopsian",
+		"length": 6
+	},
+	{
+		"name": "Ceratosaurus",
+		"meaning": "'horned lizard'",
+		"diet": "carnivorous",
+		"timespan": "153-148",
+		"location": "Portugal, USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/cerato.jpg",
+		"bodyShape": "large theropod",
+		"length": 6
+	},
+	{
+		"name": "Cetiosauriscus",
+		"meaning": "'like whale lizard'",
+		"diet": "herbivorous",
+		"timespan": "175-160",
+		"location": "England, United Kingdom",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/cetios.jpg",
+		"bodyShape": "sauropod",
+		"length": 15
+	},
+	{
+		"name": "Cetiosaurus",
+		"meaning": "'whale lizard'",
+		"diet": "herbivorous",
+		"timespan": "170-160",
+		"location": "England, United Kingdom",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/cetio.jpg",
+		"bodyShape": "sauropod",
+		"length": 18
+	},
+	{
+		"name": "Chaoyangsaurus",
+		"meaning": "'Chaoyang lizard'",
+		"diet": "herbivorous",
+		"timespan": "152-145",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Chaoyangsaurus.jpg",
+		"bodyShape": "ceratopsian",
+		"length": 1.1
+	},
+	{
+		"name": "Chasmosaurus",
+		"meaning": "'chasm lizard'",
+		"diet": "herbivorous",
+		"timespan": "76-74",
+		"location": "Canada",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/chasmo.jpg",
+		"bodyShape": "ceratopsian",
+		"length": 5
+	},
+	{
+		"name": "Chindesaurus",
+		"meaning": "'Chinde lizard'",
+		"diet": "carnivorous",
+		"timespan": "227-210",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Chindesaurus.jpg",
+		"bodyShape": "early dinosaur",
+		"length": 4
+	},
+	{
+		"name": "Chinshakiangosaurus",
+		"meaning": "'Chinshakiang lizard'",
+		"diet": "herbivorous",
+		"timespan": "159-142",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Chinshakiangosaurus.jpg",
+		"bodyShape": "sauropod",
+		"length": 11
+	},
+	{
+		"name": "Chirostenotes",
+		"meaning": "'narrow-handed'",
+		"diet": "omnivorous",
+		"timespan": "79-67",
+		"location": "Canada",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Chirostenotes.jpg",
+		"bodyShape": "small theropod",
+		"length": 1.7
+	},
+	{
+		"name": "Chubutisaurus",
+		"meaning": "'Chubut [Province] lizard'",
+		"diet": "herbivorous",
+		"timespan": "112-99",
+		"location": "Argentina",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Chubutisaurus.jpg",
+		"bodyShape": "sauropod",
+		"length": 23
+	},
+	{
+		"name": "Chungkingosaurus",
+		"meaning": "'Chongqing lizard'",
+		"diet": "herbivorous",
+		"timespan": "159-142",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Chungkingosaurus.jpg",
+		"bodyShape": "armoured dinosaur",
+		"length": 4
+	},
+	{
+		"name": "Citipati",
+		"meaning": "'lord of the funeral pyre'",
+		"diet": "omnivorous",
+		"timespan": "81-75",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Citipati.jpg",
+		"bodyShape": "small theropod",
+		"length": 2.1
+	},
+	{
+		"name": "Coelophysis",
+		"meaning": "'hollow form'",
+		"diet": "carnivorous",
+		"timespan": "225-190",
+		"location": "South Africa, USA, Zimbabwe",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/coelo.jpg",
+		"bodyShape": "small theropod",
+		"length": 2
+	},
+	{
+		"name": "Coelurus",
+		"meaning": "'hollow tail'",
+		"diet": "carnivorous",
+		"timespan": "155-145",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/coelurus.jpg",
+		"bodyShape": "small theropod",
+		"length": 1.8
+	},
+	{
+		"name": "Coloradisaurus",
+		"meaning": "'[Los] Colorados lizard'",
+		"diet": "omnivorous",
+		"timespan": "221-210",
+		"location": "Argentina",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Coloradisaurus.jpg",
+		"bodyShape": "prosauropod",
+		"length": 4
+	},
+	{
+		"name": "Compsognathus",
+		"meaning": "'pretty jaw'",
+		"diet": "carnivorous",
+		"timespan": "145-140",
+		"location": "France, Germany",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Compsognathus.jpg",
+		"bodyShape": "small theropod",
+		"length": 0.65
+	},
+	{
+		"name": "Conchoraptor",
+		"meaning": "'conch thief'",
+		"diet": "carnivorous",
+		"timespan": "81-76",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Conchoraptor.jpg",
+		"bodyShape": "small theropod",
+		"length": 1.5
+	},
+	{
+		"name": "Confuciusornis",
+		"meaning": "'Confucius bird'",
+		"diet": "carnivorous",
+		"timespan": "127-121",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Confuciusornis.jpg",
+		"bodyShape": "small theropod",
+		"length": 0.25
+	},
+	{
+		"name": "Corythosaurus",
+		"meaning": "'Corinthian helmet lizard'",
+		"diet": "herbivorous",
+		"timespan": "76-74",
+		"location": "Canada, USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/coryth.jpg",
+		"bodyShape": "large ornithopod",
+		"length": 10
+	},
+	{
+		"name": "Cryolophosaurus",
+		"meaning": "'frozen crested lizard'",
+		"diet": "carnivorous",
+		"timespan": "170",
+		"location": "Antarctica",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/cryolopho.jpg",
+		"bodyShape": "large theropod",
+		"length": 8
+	},
+	{
+		"name": "Dacentrurus",
+		"meaning": "'pointed tail'",
+		"diet": "herbivorous",
+		"timespan": "154-150",
+		"location": "England, France, Portugal, United Kingdom",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/dacentr.jpg",
+		"bodyShape": "armoured dinosaur",
+		"length": 6
+	},
+	{
+		"name": "Daspletosaurus",
+		"meaning": "'frightful lizard'",
+		"diet": "carnivorous",
+		"timespan": "76-74",
+		"location": "Canada",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/daspelet.jpg",
+		"bodyShape": "large theropod",
+		"length": 9
+	},
+	{
+		"name": "Datousaurus",
+		"meaning": "'Datou lizard'",
+		"diet": "herbivorous",
+		"timespan": "170",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/datou.jpg",
+		"bodyShape": "sauropod",
+		"length": 15
+	},
+	{
+		"name": "Deinocheirus",
+		"meaning": "'terrible hand'",
+		"diet": "omnivorous",
+		"timespan": "70-66",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/deinoc.jpg",
+		"bodyShape": "large theropod",
+		"length": 10
+	},
+	{
+		"name": "Deinonychus",
+		"meaning": "'terrible claw'",
+		"diet": "carnivorous",
+		"timespan": "115-108",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/deinonychus.jpg",
+		"bodyShape": "small theropod",
+		"length": 3.4
+	},
+	{
+		"name": "Deltadromeus",
+		"meaning": "'delta runner'",
+		"diet": "carnivorous",
+		"timespan": "99-94",
+		"location": "Morocco",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Deltadromeus.jpg",
+		"bodyShape": "large theropod",
+		"length": 8.1
+	},
+	{
+		"name": "Dicraeosaurus",
+		"meaning": "'forked lizard'",
+		"diet": "herbivorous",
+		"timespan": "150-135",
+		"location": "Tanzania",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Dicraeosaurus.jpg",
+		"bodyShape": "sauropod",
+		"length": 20
+	},
+	{
+		"name": "Dilophosaurus",
+		"meaning": "'two-ridged lizard'",
+		"diet": "carnivorous",
+		"timespan": "190",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/dilopho.jpg",
+		"bodyShape": "large theropod",
+		"length": 6
+	},
+	{
+		"name": "Diplodocus",
+		"meaning": "'double beam'",
+		"diet": "herbivorous",
+		"timespan": "152-145",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/diplodocus.jpg",
+		"bodyShape": "sauropod",
+		"length": 26
+	},
+	{
+		"name": "Dracorex",
+		"meaning": "'Dragon king'",
+		"diet": "herbivorous",
+		"timespan": "66",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Dracorex.jpg",
+		"bodyShape": "pachycephalosaur",
+		"length": 4
+	},
+	{
+		"name": "Dreadnoughtus",
+		"meaning": "'fears nothing'",
+		"diet": "herbivorous",
+		"timespan": "76-70",
+		"location": "Argentina",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/dreadnoughtus-c.jpg",
+		"bodyShape": "sauropod",
+		"length": 26
+	},
+	{
+		"name": "Dromaeosaurus",
+		"meaning": "'running lizard'",
+		"diet": "carnivorous",
+		"timespan": "76-74",
+		"location": "Canada, USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/droma.jpg",
+		"bodyShape": "small theropod",
+		"length": 1.8
+	},
+	{
+		"name": "Dromiceiomimus",
+		"meaning": "'emu mimic'",
+		"diet": "omnivorous",
+		"timespan": "74-70",
+		"location": "Canada",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/dromic.jpg",
+		"bodyShape": "large theropod",
+		"length": 3.5
+	},
+	{
+		"name": "Dryosaurus",
+		"meaning": "'oak lizard'",
+		"diet": "herbivorous",
+		"timespan": "155-140",
+		"location": "Tanzania, USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/dryo.jpg",
+		"bodyShape": "small ornithopod",
+		"length": 4
+	},
+	{
+		"name": "Dryptosaurus",
+		"meaning": "'tearing lizard'",
+		"diet": "carnivorous",
+		"timespan": "84-66",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/drypto.jpg",
+		"bodyShape": "large theropod",
+		"length": 6.4
+	},
+	{
+		"name": "Dubreuillosaurus",
+		"meaning": "'(unknown)'",
+		"diet": "carnivorous",
+		"timespan": "169-164",
+		"location": "France",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Dubreuillosaurus.jpg",
+		"length": 0
+	},
+	{
+		"name": "Edmontonia",
+		"meaning": "'of Edmonton'",
+		"diet": "herbivorous",
+		"timespan": "76-74",
+		"location": "Canada",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Edmontonia.jpg",
+		"bodyShape": "armoured dinosaur",
+		"length": 4
+	},
+	{
+		"name": "Edmontosaurus",
+		"meaning": "'Edmonton lizard'",
+		"diet": "herbivorous",
+		"timespan": "76-66",
+		"location": "Canada",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/edmonto.jpg",
+		"bodyShape": "large ornithopod",
+		"length": 13
+	},
+	{
+		"name": "Einiosaurus",
+		"meaning": "'bison lizard'",
+		"diet": "herbivorous",
+		"timespan": "74",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Einiosaurus.jpg",
+		"bodyShape": "ceratopsian",
+		"length": 6
+	},
+	{
+		"name": "Elaphrosaurus",
+		"meaning": "'fleet lizard'",
+		"diet": "carnivorous",
+		"timespan": "154-151",
+		"location": "Tanzania",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Elaphrosaurus.jpg",
+		"bodyShape": "large theropod",
+		"length": 6.2
+	},
+	{
+		"name": "Emausaurus",
+		"meaning": "'EMAU (Ernst-Moritz-Arndt-UniversitÃ¤t) lizard'",
+		"diet": "herbivorous",
+		"timespan": "190-180",
+		"location": "Germany",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Emausaurus.jpg",
+		"bodyShape": "armoured dinosaur",
+		"length": 2
+	},
+	{
+		"name": "Eolambia",
+		"meaning": "'dawn lambeosaurine'",
+		"diet": "herbivorous",
+		"timespan": "99-94",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Eolambia.jpg",
+		"length": 0
+	},
+	{
+		"name": "Eoraptor",
+		"meaning": "'early plunderer'",
+		"diet": "carnivorous",
+		"timespan": "228",
+		"location": "Argentina",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/eor.jpg",
+		"bodyShape": "small theropod",
+		"length": 1.7
+	},
+	{
+		"name": "Eotyrannus",
+		"meaning": "'dawn tyrant'",
+		"diet": "carnivorous",
+		"timespan": "127-121",
+		"location": "England, United Kingdom",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Eotyrannus.jpg",
+		"bodyShape": "large theropod",
+		"length": 5
+	},
+	{
+		"name": "Equijubus",
+		"meaning": "'(unknown)'",
+		"diet": "herbivorous",
+		"timespan": "127-99",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Equijubus.jpg",
+		"length": 0
+	},
+	{
+		"name": "Erketu",
+		"meaning": "'Erketu = Tengri (a Mongolian creator-god)'",
+		"diet": "herbivorous",
+		"timespan": "?",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Erketu.jpg",
+		"bodyShape": "sauropod",
+		"length": 15
+	},
+	{
+		"name": "Erlikosaurus",
+		"meaning": "'Erlik's lizard'",
+		"diet": "omnivorous",
+		"timespan": "99-89",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Erlikosaurus.jpg",
+		"bodyShape": "small theropod",
+		"length": 3.4
+	},
+	{
+		"name": "Euhelopus",
+		"meaning": "'1 marsh foot'",
+		"diet": "herbivorous",
+		"timespan": "154-142",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Euhelopus.jpg",
+		"bodyShape": "sauropod",
+		"length": 10
+	},
+	{
+		"name": "Euoplocephalus",
+		"meaning": "'well-armoured head'",
+		"diet": "herbivorous",
+		"timespan": "76-70",
+		"location": "Canada, USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/euoplo.jpg",
+		"bodyShape": "armoured dinosaur",
+		"length": 7
+	},
+	{
+		"name": "Europasaurus",
+		"meaning": "'Europe lizard'",
+		"diet": "herbivorous",
+		"timespan": "154-151",
+		"location": "Germany",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Europasaurus.jpg",
+		"bodyShape": "sauropod",
+		"length": 6.2
+	},
+	{
+		"name": "Eustreptospondylus",
+		"meaning": "'well-curved vertebra'",
+		"diet": "carnivorous",
+		"timespan": "165",
+		"location": "England, United Kingdom",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Eustreptospondylus.jpg",
+		"bodyShape": "large theropod",
+		"length": 7
+	},
+	{
+		"name": "Fukuiraptor",
+		"meaning": "'Fukui plunderer'",
+		"diet": "carnivorous",
+		"timespan": "121-99",
+		"location": "Japan",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Fukuiraptor.jpg",
+		"bodyShape": "large theropod",
+		"length": 4.2
+	},
+	{
+		"name": "Fukuisaurus",
+		"meaning": "'Fukui lizard'",
+		"diet": "herbivorous",
+		"timespan": "121-99",
+		"location": "Japan",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Fukuisaurus.jpg",
+		"bodyShape": "large ornithopod",
+		"length": 4.7
+	},
+	{
+		"name": "Gallimimus",
+		"meaning": "'chicken mimic'",
+		"diet": "omnivorous",
+		"timespan": "74-70",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/gallim.jpg",
+		"bodyShape": "large theropod",
+		"length": 6
+	},
+	{
+		"name": "Gargoyleosaurus",
+		"meaning": "'gargoyle lizard'",
+		"diet": "herbivorous",
+		"timespan": "154-142",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Gargoyleosaurus.jpg",
+		"bodyShape": "armoured dinosaur",
+		"length": 4
+	},
+	{
+		"name": "Garudimimus",
+		"meaning": "'Garuda mimic'",
+		"diet": "omnivorous",
+		"timespan": "99-89",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Garudimimus.jpg",
+		"bodyShape": "large theropod",
+		"length": 4.7
+	},
+	{
+		"name": "Gasosaurus",
+		"meaning": "'gas lizard'",
+		"diet": "carnivorous",
+		"timespan": "170-160",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/gaso.jpg",
+		"bodyShape": "small theropod",
+		"length": 4
+	},
+	{
+		"name": "Gasparinisaura",
+		"meaning": "'Gasparini's lizard'",
+		"diet": "herbivorous",
+		"timespan": "86-71",
+		"location": "Argentina",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Gasparinisaura.jpg",
+		"bodyShape": "small ornithopod",
+		"length": 0.8
+	},
+	{
+		"name": "Gastonia",
+		"meaning": "'[Robert] Gaston'",
+		"diet": "herbivorous",
+		"timespan": "142-127",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Gastonia.jpg",
+		"bodyShape": "armoured dinosaur",
+		"length": 4.6
+	},
+	{
+		"name": "Giganotosaurus",
+		"meaning": "'giant southern lizard'",
+		"diet": "carnivorous",
+		"timespan": "112-90",
+		"location": "Argentina",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/giganoto.jpg",
+		"bodyShape": "large theropod",
+		"length": 12.5
+	},
+	{
+		"name": "Gilmoreosaurus",
+		"meaning": "'Gilmore's lizard'",
+		"diet": "herbivorous",
+		"timespan": "76-70",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/gilmore.jpg",
+		"bodyShape": "large ornithopod",
+		"length": 6
+	},
+	{
+		"name": "Giraffatitan",
+		"meaning": "'giraffe titan'",
+		"diet": "herbivorous",
+		"timespan": "154-142",
+		"location": "Tanzania",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Giraffatitan.jpg",
+		"bodyShape": "sauropod",
+		"length": 23
+	},
+	{
+		"name": "Gobisaurus",
+		"meaning": "'Gobi lizard'",
+		"diet": "herbivorous",
+		"timespan": "121-99",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Gobisaurus.jpg",
+		"bodyShape": "armoured dinosaur",
+		"length": 5
+	},
+	{
+		"name": "Gorgosaurus",
+		"meaning": "'fierce lizard'",
+		"diet": "carnivorous",
+		"timespan": "80-73",
+		"location": "Canada, USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Gorgosaurus.jpg",
+		"bodyShape": "large theropod",
+		"length": 8.6
+	},
+	{
+		"name": "Goyocephale",
+		"meaning": "'decorated head'",
+		"diet": "herbivorous",
+		"timespan": "81-75",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Goyocephale.jpg",
+		"bodyShape": "pachycephalosaur",
+		"length": 2
+	},
+	{
+		"name": "Graciliceratops",
+		"meaning": "'gracile horned face'",
+		"diet": "herbivorous",
+		"timespan": "99-84",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Graciliceratops.jpg",
+		"length": 0
+	},
+	{
+		"name": "Gryposaurus",
+		"meaning": "'hook-nosed lizard'",
+		"diet": "herbivorous",
+		"timespan": "86-71",
+		"location": "Canada, USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Gryposaurus.jpg",
+		"bodyShape": "large ornithopod",
+		"length": 10
+	},
+	{
+		"name": "Guaibasaurus",
+		"meaning": "'[Rio] Guaiba lizard'",
+		"diet": "herbivorous",
+		"timespan": "221-210",
+		"location": "Brazil",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Guaibasaurus.jpg",
+		"bodyShape": "prosauropod",
+		"length": 1.8
+	},
+	{
+		"name": "Guanlong",
+		"meaning": "'crowned dragon'",
+		"diet": "carnivorous",
+		"timespan": "159-154",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Guanlong.jpg",
+		"bodyShape": "small theropod",
+		"length": 3
+	},
+	{
+		"name": "Hadrosaurus",
+		"meaning": "'big lizard'",
+		"diet": "herbivorous",
+		"timespan": "78-74",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/hadro.jpg",
+		"bodyShape": "large ornithopod",
+		"length": 9
+	},
+	{
+		"name": "Hagryphus",
+		"meaning": "'Ha (Egyptian god of the western desert) griffin'",
+		"diet": "omnivorous",
+		"timespan": "?",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Hagryphus.jpg",
+		"bodyShape": "small theropod",
+		"length": 3
+	},
+	{
+		"name": "Haplocanthosaurus",
+		"meaning": "'simple-spined lizard'",
+		"diet": "herbivorous",
+		"timespan": "154-142",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Haplocanthosaurus.jpg",
+		"bodyShape": "sauropod",
+		"length": 21.5
+	},
+	{
+		"name": "Harpymimus",
+		"meaning": "'harpy mimic'",
+		"diet": "omnivorous",
+		"timespan": "121-99",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Harpymimus.jpg",
+		"bodyShape": "small theropod",
+		"length": 2
+	},
+	{
+		"name": "Herrerasaurus",
+		"meaning": "'Herrera's lizard'",
+		"diet": "carnivorous",
+		"timespan": "228",
+		"location": "Argentina",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/herrera.jpg",
+		"bodyShape": "early dinosaur",
+		"length": 3
+	},
+	{
+		"name": "Hesperosaurus",
+		"meaning": "'western lizard'",
+		"diet": "herbivorous",
+		"timespan": "154-142",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Hesperosaurus.jpg",
+		"bodyShape": "armoured dinosaur",
+		"length": 6
+	},
+	{
+		"name": "Heterodontosaurus",
+		"meaning": "'different-teeth lizard'",
+		"diet": "herbivorous",
+		"timespan": "205",
+		"location": "Lesotho, South Africa",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/hetero.jpg",
+		"bodyShape": "small ornithischian",
+		"length": 1.2
+	},
+	{
+		"name": "Heyuannia",
+		"meaning": "'from [the city of] Heyuan'",
+		"diet": "omnivorous",
+		"timespan": "72-68",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/heyuannia.jpg",
+		"bodyShape": "small theropod",
+		"length": 2
+	},
+	{
+		"name": "Homalocephale",
+		"meaning": "'level head'",
+		"diet": "herbivorous",
+		"timespan": "72-68",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Homalocephale.jpg",
+		"bodyShape": "pachycephalosaur",
+		"length": 1.5
+	},
+	{
+		"name": "Huayangosaurus",
+		"meaning": "'Huayang lizard'",
+		"diet": "herbivorous",
+		"timespan": "170-160",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/huayango.jpg",
+		"bodyShape": "armoured dinosaur",
+		"length": 4.5
+	},
+	{
+		"name": "Hylaeosaurus",
+		"meaning": "'woodland lizard'",
+		"diet": "herbivorous",
+		"timespan": "150-135",
+		"location": "England, United Kingdom",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/hylaeo.jpg",
+		"bodyShape": "armoured dinosaur",
+		"length": 5
+	},
+	{
+		"name": "Hypacrosaurus",
+		"meaning": "'near-topmost lizard'",
+		"diet": "herbivorous",
+		"timespan": "70",
+		"location": "Canada, USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Hypacrosaurus.jpg",
+		"bodyShape": "large ornithopod",
+		"length": 9
+	},
+	{
+		"name": "Hypsilophodon",
+		"meaning": "'high-ridge tooth'",
+		"diet": "herbivorous",
+		"timespan": "125",
+		"location": "England, Spain, United Kingdom",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/hypsil.jpg",
+		"bodyShape": "small ornithopod",
+		"length": 2.3
+	},
+	{
+		"name": "Iguanodon",
+		"meaning": "'iguana tooth'",
+		"diet": "herbivorous",
+		"timespan": "140-110",
+		"location": "Belgium, England, United Kingdom",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/iguano.jpg",
+		"bodyShape": "large ornithopod",
+		"length": 10
+	},
+	{
+		"name": "Indosuchus",
+		"meaning": "'Indian crocodile'",
+		"diet": "carnivorous",
+		"timespan": "71-66",
+		"location": "India",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Indosuchus.jpg",
+		"bodyShape": "large theropod",
+		"length": 7
+	},
+	{
+		"name": "Irritator",
+		"meaning": "'irritator'",
+		"diet": "carnivorous",
+		"timespan": "112-99",
+		"location": "Brazil",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Irritator.jpg",
+		"bodyShape": "large theropod",
+		"length": 6.5
+	},
+	{
+		"name": "Isisaurus",
+		"meaning": "'ISI (Indian Statistical Institute) lizard'",
+		"diet": "herbivorous",
+		"timespan": "71-66",
+		"location": "India",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Isisaurus.jpg",
+		"length": 0
+	},
+	{
+		"name": "Janenschia",
+		"meaning": "'named after Janansch'",
+		"diet": "herbivorous",
+		"timespan": "154-151",
+		"location": "Tanzania",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Janenschia.jpg",
+		"bodyShape": "sauropod",
+		"length": 20
+	},
+	{
+		"name": "Jaxartosaurus",
+		"meaning": "'Jaxartes [River] lizard'",
+		"diet": "herbivorous",
+		"timespan": "94-84",
+		"location": "Kazakhstan",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Jaxartosaurus.jpg",
+		"bodyShape": "large ornithopod",
+		"length": 9
+	},
+	{
+		"name": "Jingshanosaurus",
+		"meaning": "'Jingshan lizard'",
+		"diet": "herbivorous",
+		"timespan": "205-190",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Jingshanosaurus.jpg",
+		"bodyShape": "prosauropod",
+		"length": 5
+	},
+	{
+		"name": "Jinzhousaurus",
+		"meaning": "'Jinzhou lizard'",
+		"diet": "herbivorous",
+		"timespan": "127-121",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Jinzhousaurus.jpg",
+		"length": 0
+	},
+	{
+		"name": "Jobaria",
+		"meaning": "'Jobar (mythical animal)'",
+		"diet": "herbivorous",
+		"timespan": "132-94",
+		"location": "Niger",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Jobaria.jpg",
+		"bodyShape": "sauropod",
+		"length": 21
+	},
+	{
+		"name": "Juravenator",
+		"meaning": "'Jura (Bavarian mountains) hunter'",
+		"diet": "carnivorous",
+		"timespan": "154-151",
+		"location": "Germany",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Juravenator.jpg",
+		"bodyShape": "small theropod",
+		"length": 0.8
+	},
+	{
+		"name": "Kentrosaurus",
+		"meaning": "'spiky lizard'",
+		"diet": "herbivorous",
+		"timespan": "155-150",
+		"location": "Tanzania",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/kentro.jpg",
+		"bodyShape": "armoured dinosaur",
+		"length": 5
+	},
+	{
+		"name": "Khaan",
+		"meaning": "'ruler'",
+		"diet": "omnivorous",
+		"timespan": "81-75",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Khaan.jpg",
+		"bodyShape": "small theropod",
+		"length": 1.8
+	},
+	{
+		"name": "Kotasaurus",
+		"meaning": "'Kota lizard'",
+		"diet": "herbivorous",
+		"timespan": "205-180",
+		"location": "India",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Kotasaurus.jpg",
+		"bodyShape": "sauropod",
+		"length": 9
+	},
+	{
+		"name": "Kritosaurus",
+		"meaning": "'noble lizard'",
+		"diet": "herbivorous",
+		"timespan": "78-74",
+		"location": "Argentina, USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/krito.jpg",
+		"bodyShape": "large ornithopod",
+		"length": 8
+	},
+	{
+		"name": "Lambeosaurus",
+		"meaning": "'Lambe's lizard'",
+		"diet": "herbivorous",
+		"timespan": "76-74",
+		"location": "Canada",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/lambeo.jpg",
+		"bodyShape": "large ornithopod",
+		"length": 9
+	},
+	{
+		"name": "Lapparentosaurus",
+		"meaning": "'Lapparent's lizard'",
+		"diet": "herbivorous",
+		"timespan": "169-164",
+		"location": "Madagascar",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Lapparentosaurus.jpg",
+		"length": 0
+	},
+	{
+		"name": "Leaellynasaura",
+		"meaning": "'Leaellyn's lizard'",
+		"diet": "herbivorous",
+		"timespan": "115-110",
+		"location": "Australia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Leaellynasaura.jpg",
+		"bodyShape": "small ornithopod",
+		"length": 2
+	},
+	{
+		"name": "Leptoceratops",
+		"meaning": "'slim horned face'",
+		"diet": "herbivorous",
+		"timespan": "67-66",
+		"location": "Canada, USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Leptoceratops.jpg",
+		"bodyShape": "ceratopsian",
+		"length": 3
+	},
+	{
+		"name": "Lesothosaurus",
+		"meaning": "'Lesotho lizard'",
+		"diet": "herbivorous",
+		"timespan": "213-200",
+		"location": "Lesotho",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/lesotho.jpg",
+		"bodyShape": "small ornithischian",
+		"length": 1
+	},
+	{
+		"name": "Liaoceratops",
+		"meaning": "'Liaoning horned face'",
+		"diet": "herbivorous",
+		"timespan": "127-121",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Liaoceratops.jpg",
+		"length": 0
+	},
+	{
+		"name": "Ligabuesaurus",
+		"meaning": "'[Dr Giancarlo] Ligabue lizard'",
+		"diet": "herbivorous",
+		"timespan": "121-99",
+		"location": "Argentina",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Ligabuesaurus.jpg",
+		"bodyShape": "sauropod",
+		"length": 24
+	},
+	{
+		"name": "Liliensternus",
+		"meaning": "'[for] Lilienstern'",
+		"diet": "carnivorous",
+		"timespan": "205-202",
+		"location": "France, Germany",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Liliensternus.jpg",
+		"bodyShape": "small theropod",
+		"length": 5
+	},
+	{
+		"name": "Lophorhothon",
+		"meaning": "'crested nose'",
+		"diet": "herbivorous",
+		"timespan": "84-71",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Lophorhothon.jpg",
+		"bodyShape": "large ornithopod",
+		"length": 4.5
+	},
+	{
+		"name": "Lophostropheus",
+		"meaning": "'crested verebra'",
+		"diet": "carnivorous",
+		"timespan": "203-196",
+		"location": "France",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/lophostropheus.jpg",
+		"bodyShape": "large theropod",
+		"length": 6.2
+	},
+	{
+		"name": "Lufengosaurus",
+		"meaning": "'Lufeng lizard'",
+		"diet": "herbivorous",
+		"timespan": "200-195",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/lufengos.jpg",
+		"bodyShape": "prosauropod",
+		"length": 6
+	},
+	{
+		"name": "Lurdusaurus",
+		"meaning": "'heavy lizard'",
+		"diet": "herbivorous",
+		"timespan": "121-112",
+		"location": "Niger",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Lurdusaurus.jpg",
+		"bodyShape": "large ornithopod",
+		"length": 9
+	},
+	{
+		"name": "Lycorhinus",
+		"meaning": "'wolf snout'",
+		"diet": "herbivorous",
+		"timespan": "205-195",
+		"location": "South Africa",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Lycorhinus.jpg",
+		"bodyShape": "small ornithischian",
+		"length": 1.2
+	},
+	{
+		"name": "Magyarosaurus",
+		"meaning": "'Magyar lizard'",
+		"diet": "herbivorous",
+		"timespan": "71-66",
+		"location": "Romania",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Magyarosaurus.jpg",
+		"bodyShape": "sauropod",
+		"length": 5
+	},
+	{
+		"name": "Maiasaura",
+		"meaning": "'good mother lizard'",
+		"diet": "herbivorous",
+		"timespan": "80-75",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/maia.jpg",
+		"bodyShape": "large ornithopod",
+		"length": 9
+	},
+	{
+		"name": "Majungasaurus",
+		"meaning": "'Majunga lizard'",
+		"diet": "carnivorous",
+		"timespan": "84-71",
+		"location": "Madagascar",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Majungatholus.jpg",
+		"bodyShape": "large theropod",
+		"length": 6
+	},
+	{
+		"name": "Malawisaurus",
+		"meaning": "'Malawi lizard'",
+		"diet": "herbivorous",
+		"timespan": "121-112",
+		"location": "Malawi",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Malawisaurus.jpg",
+		"bodyShape": "sauropod",
+		"length": 9
+	},
+	{
+		"name": "Mamenchisaurus",
+		"meaning": "'Mamenchi lizard'",
+		"diet": "herbivorous",
+		"timespan": "155-145",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/mamench.jpg",
+		"bodyShape": "sauropod",
+		"length": 22
+	},
+	{
+		"name": "Mapusaurus",
+		"meaning": "'Earth (Mapuche language, Patagonia) lizard'",
+		"diet": "carnivorous",
+		"timespan": "99-94",
+		"location": "Argentina",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Mapusaurus.jpg",
+		"bodyShape": "large theropod",
+		"length": 13
+	},
+	{
+		"name": "Marshosaurus",
+		"meaning": "'[Othniel Charles] Marsh lizard'",
+		"diet": "carnivorous",
+		"timespan": "154-142",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Marshosaurus.jpg",
+		"bodyShape": "large theropod",
+		"length": 6
+	},
+	{
+		"name": "Masiakasaurus",
+		"meaning": "'vicious lizard'",
+		"diet": "carnivorous",
+		"timespan": "84-71",
+		"location": "Madagascar",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Masiakasaurus.jpg",
+		"bodyShape": "small theropod",
+		"length": 2
+	},
+	{
+		"name": "Massospondylus",
+		"meaning": "'massive vertebrae'",
+		"diet": "omnivorous",
+		"timespan": "208-204",
+		"location": "Lesotho, South Africa, Zimbabwe",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/massospon.jpg",
+		"bodyShape": "prosauropod",
+		"length": 4
+	},
+	{
+		"name": "Maxakalisaurus",
+		"meaning": "'Maxakali (tribe of Brazil) lizard'",
+		"diet": "herbivorous",
+		"timespan": "80",
+		"location": "Brazil",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Maxakalisaurus.jpg",
+		"bodyShape": "sauropod",
+		"length": 13
+	},
+	{
+		"name": "Megalosaurus",
+		"meaning": "'big lizard'",
+		"diet": "carnivorous",
+		"timespan": "166",
+		"location": "England, United Kingdom",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/megalosaurus.jpg",
+		"bodyShape": "large theropod",
+		"length": 6
+	},
+	{
+		"name": "Melanorosaurus",
+		"meaning": "'Black [Mountain] lizard'",
+		"diet": "omnivorous",
+		"timespan": "227-221",
+		"location": "South Africa",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Melanorosaurus.jpg",
+		"bodyShape": "prosauropod",
+		"length": 12
+	},
+	{
+		"name": "Metriacanthosaurus",
+		"meaning": "'moderately-spined lizard'",
+		"diet": "carnivorous",
+		"timespan": "159-154",
+		"location": "England, United Kingdom",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Metriacanthosaurus.jpg",
+		"bodyShape": "large theropod",
+		"length": 8.2
+	},
+	{
+		"name": "Microceratus",
+		"meaning": "'tiny horned'",
+		"diet": "herbivorous",
+		"timespan": "86-66",
+		"location": "China, Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/microceratus.jpg",
+		"bodyShape": "ceratopsian",
+		"length": 0.5
+	},
+	{
+		"name": "Micropachycephalosaurus",
+		"meaning": "'tiny thick-headed lizard'",
+		"diet": "herbivorous",
+		"timespan": "84-71",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Micropachycephalosaurus.jpg",
+		"bodyShape": "ceratopsian",
+		"length": 0.6
+	},
+	{
+		"name": "Microraptor",
+		"meaning": "'tiny plunderer'",
+		"diet": "carnivorous",
+		"timespan": "125-122",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Microraptor.jpg",
+		"bodyShape": "small theropod",
+		"length": 0.8
+	},
+	{
+		"name": "Minmi",
+		"meaning": "'named after Minmi Crossing, Queensland'",
+		"diet": "herbivorous",
+		"timespan": "121-112",
+		"location": "Australia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Minmi.jpg",
+		"bodyShape": "armoured dinosaur",
+		"length": 3
+	},
+	{
+		"name": "Monolophosaurus",
+		"meaning": "'single-crested lizard'",
+		"diet": "carnivorous",
+		"timespan": "180-159",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Monolophosaurus.jpg",
+		"bodyShape": "large theropod",
+		"length": 5.7
+	},
+	{
+		"name": "Mononykus",
+		"meaning": "'single claw'",
+		"diet": "unknown",
+		"timespan": "81-68",
+		"location": "China, Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Mononykus.jpg",
+		"bodyShape": "small theropod",
+		"length": 1
+	},
+	{
+		"name": "Mussaurus",
+		"meaning": "'mouse lizard'",
+		"diet": "herbivorous",
+		"timespan": "221-210",
+		"location": "Argentina",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/muss.jpg",
+		"bodyShape": "prosauropod",
+		"length": 3
+	},
+	{
+		"name": "Muttaburrasaurus",
+		"meaning": "'Muttaburra lizard'",
+		"diet": "herbivorous",
+		"timespan": "110-100",
+		"location": "Australia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/muttab.jpg",
+		"bodyShape": "large ornithopod",
+		"length": 7
+	},
+	{
+		"name": "Nanshiungosaurus",
+		"meaning": "'Nanxiong lizard'",
+		"diet": "omnivorous",
+		"timespan": "84-71",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Nanshiungosaurus.jpg",
+		"bodyShape": "large theropod",
+		"length": 4.4
+	},
+	{
+		"name": "Nedoceratops",
+		"meaning": "'insufficient horned face'",
+		"diet": "herbivorous",
+		"timespan": "66",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Diceratops.jpg",
+		"bodyShape": "ceratopsian",
+		"length": 7
+	},
+	{
+		"name": "Nemegtosaurus",
+		"meaning": "'Nemegt lizard'",
+		"diet": "herbivorous",
+		"timespan": "72-68",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Nemegtosaurus.jpg",
+		"bodyShape": "sauropod",
+		"length": 13
+	},
+	{
+		"name": "Neovenator",
+		"meaning": "'new hunter'",
+		"diet": "carnivorous",
+		"timespan": "127-121",
+		"location": "England, United Kingdom",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Neovenator.jpg",
+		"bodyShape": "large theropod",
+		"length": 7.4
+	},
+	{
+		"name": "Neuquensaurus",
+		"meaning": "'Neuquen (River) lizard'",
+		"diet": "herbivorous",
+		"timespan": "71-66",
+		"location": "Argentina",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Neuquenosaurus.jpg",
+		"bodyShape": "sauropod",
+		"length": 15
+	},
+	{
+		"name": "Nigersaurus",
+		"meaning": "'Niger lizard'",
+		"diet": "herbivorous",
+		"timespan": "121-99",
+		"location": "Algeria, Niger, Tunisia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Nigersaurus.jpg",
+		"bodyShape": "sauropod",
+		"length": 15
+	},
+	{
+		"name": "Nipponosaurus",
+		"meaning": "'Japanese lizard'",
+		"diet": "herbivorous",
+		"timespan": "89-84",
+		"location": "Russia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Nipponosaurus.jpg",
+		"length": 0
+	},
+	{
+		"name": "Noasaurus",
+		"meaning": "'northwestern Argentina lizard'",
+		"diet": "carnivorous",
+		"timespan": "84-66",
+		"location": "Argentina",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Noasaurus.jpg",
+		"bodyShape": "small theropod",
+		"length": 1
+	},
+	{
+		"name": "Nodosaurus",
+		"meaning": "'node lizard'",
+		"diet": "herbivorous",
+		"timespan": "110-100",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/nodo.jpg",
+		"bodyShape": "armoured dinosaur",
+		"length": 5
+	},
+	{
+		"name": "Nomingia",
+		"meaning": "'Nomingiin'",
+		"diet": "omnivorous",
+		"timespan": "72-68",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Nomingia.jpg",
+		"bodyShape": "small theropod",
+		"length": 1.6
+	},
+	{
+		"name": "Nothronychus",
+		"meaning": "'sloth-like claw'",
+		"diet": "omnivorous",
+		"timespan": "94-89",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Nothronychus.jpg",
+		"bodyShape": "large theropod",
+		"length": 5.3
+	},
+	{
+		"name": "Nqwebasaurus",
+		"meaning": "'Nqweba lizard'",
+		"diet": "carnivorous",
+		"timespan": "159-132",
+		"location": "South Africa",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Nqwebasaurus.jpg",
+		"bodyShape": "small theropod",
+		"length": 1
+	},
+	{
+		"name": "Omeisaurus",
+		"meaning": "'Omei lizard'",
+		"diet": "herbivorous",
+		"timespan": "169-159",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Omeisaurus.jpg",
+		"bodyShape": "sauropod",
+		"length": 20
+	},
+	{
+		"name": "Opisthocoelicaudia",
+		"meaning": "'hollow-backed tail [vertebrae]'",
+		"diet": "herbivorous",
+		"timespan": "72-68",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Opisthocoelicaudia.jpg",
+		"bodyShape": "sauropod",
+		"length": 12
+	},
+	{
+		"name": "Ornitholestes",
+		"meaning": "'bird robber'",
+		"diet": "carnivorous",
+		"timespan": "150-144",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/ornithol.jpg",
+		"bodyShape": "small theropod",
+		"length": 2
+	},
+	{
+		"name": "Ornithomimus",
+		"meaning": "'bird mimic'",
+		"diet": "omnivorous",
+		"timespan": "74-66",
+		"location": "Canada, USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/ornithom.jpg",
+		"bodyShape": "large theropod",
+		"length": 4
+	},
+	{
+		"name": "Orodromeus",
+		"meaning": "'mountain runner'",
+		"diet": "herbivorous",
+		"timespan": "74",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/orodro.jpg",
+		"bodyShape": "small ornithopod",
+		"length": 2
+	},
+	{
+		"name": "Oryctodromeus",
+		"meaning": "'digging runner'",
+		"diet": "herbivorous",
+		"timespan": "99-94",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/oryctodromeus.jpg",
+		"bodyShape": "small ornithopod",
+		"length": 2.1
+	},
+	{
+		"name": "Othnielia",
+		"meaning": "'[for] Othniel [Marsh]'",
+		"diet": "herbivorous",
+		"timespan": "154-142",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Othnielia.jpg",
+		"bodyShape": "small ornithischian",
+		"length": 1.4
+	},
+	{
+		"name": "Ouranosaurus",
+		"meaning": "'brave monitor lizard'",
+		"diet": "herbivorous",
+		"timespan": "115-100",
+		"location": "Niger",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/ourano.jpg",
+		"bodyShape": "large ornithopod",
+		"length": 7
+	},
+	{
+		"name": "Oviraptor",
+		"meaning": "'egg thief'",
+		"diet": "omnivorous",
+		"timespan": "85-75",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/oviraps.jpg",
+		"bodyShape": "small theropod",
+		"length": 2
+	},
+	{
+		"name": "Pachycephalosaurus",
+		"meaning": "'thick-headed lizard'",
+		"diet": "herbivorous",
+		"timespan": "69-66",
+		"location": "Canada, USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/pachycephalosaurus.jpg",
+		"bodyShape": "pachycephalosaur",
+		"length": 3
+	},
+	{
+		"name": "Pachyrhinosaurus",
+		"meaning": "'thick-nosed lizard'",
+		"diet": "herbivorous",
+		"timespan": "76-74",
+		"location": "Canada",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/pachyr.jpg",
+		"bodyShape": "ceratopsian",
+		"length": 6
+	},
+	{
+		"name": "Panoplosaurus",
+		"meaning": "'fully-armoured lizard'",
+		"diet": "herbivorous",
+		"timespan": "79-75",
+		"location": "Canada, USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Panoplosaurus.jpg",
+		"bodyShape": "armoured dinosaur",
+		"length": 7
+	},
+	{
+		"name": "Pantydraco",
+		"meaning": "'Pant-y-ffynnon dragon'",
+		"diet": "herbivorous",
+		"timespan": "?",
+		"location": "United Kingdom, Wales",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/pantydraco.jpg",
+		"bodyShape": "prosauropod",
+		"length": 3
+	},
+	{
+		"name": "Paralititan",
+		"meaning": "'tidal giant'",
+		"diet": "herbivorous",
+		"timespan": "99-94",
+		"location": "Egypt",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Paralititan.jpg",
+		"bodyShape": "sauropod",
+		"length": 28
+	},
+	{
+		"name": "Parasaurolophus",
+		"meaning": "'like 'Saurolophus''",
+		"diet": "herbivorous",
+		"timespan": "77-73",
+		"location": "Canada, USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/parasaurolophus.jpg",
+		"bodyShape": "large ornithopod",
+		"length": 9
+	},
+	{
+		"name": "Parksosaurus",
+		"meaning": "'Park's lizard'",
+		"diet": "herbivorous",
+		"timespan": "76-74",
+		"location": "Canada",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/parkso.jpg",
+		"bodyShape": "small ornithopod",
+		"length": 3
+	},
+	{
+		"name": "Patagosaurus",
+		"meaning": "'Patagonian lizard'",
+		"diet": "herbivorous",
+		"timespan": "164-159",
+		"location": "Argentina",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Patagosaurus.jpg",
+		"bodyShape": "sauropod",
+		"length": 18
+	},
+	{
+		"name": "Patagotitan",
+		"meaning": "'titan from Patagonia'",
+		"diet": "herbivorous",
+		"timespan": "101",
+		"location": "Argentina",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/patagotitan-mef-c.jpg",
+		"bodyShape": "sauropod",
+		"length": 37.5
+	},
+	{
+		"name": "Pelecanimimus",
+		"meaning": "'pelican mimic'",
+		"diet": "carnivorous",
+		"timespan": "127-121",
+		"location": "Spain",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Pelicanimimus.jpg",
+		"bodyShape": "small theropod",
+		"length": 2.5
+	},
+	{
+		"name": "Pelorosaurus",
+		"meaning": "'monstrous lizard'",
+		"diet": "herbivorous",
+		"timespan": "125",
+		"location": "England, United Kingdom",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/pelo.jpg",
+		"bodyShape": "sauropod",
+		"length": 25
+	},
+	{
+		"name": "Pentaceratops",
+		"meaning": "'five-horned face'",
+		"diet": "herbivorous",
+		"timespan": "76-74",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Pentaceratops.jpg",
+		"bodyShape": "ceratopsian",
+		"length": 6.8
+	},
+	{
+		"name": "Piatnitzkysaurus",
+		"meaning": "'Piatnitzky's lizard'",
+		"diet": "carnivorous",
+		"timespan": "164-159",
+		"location": "Argentina",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Piatnitzkysaurus.jpg",
+		"bodyShape": "large theropod",
+		"length": 4.2
+	},
+	{
+		"name": "Pinacosaurus",
+		"meaning": "'plank lizard'",
+		"diet": "herbivorous",
+		"timespan": "81-75",
+		"location": "China, Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Pinacosaurus.jpg",
+		"bodyShape": "armoured dinosaur",
+		"length": 5
+	},
+	{
+		"name": "Plateosaurus",
+		"meaning": "'flat lizard'",
+		"diet": "herbivorous",
+		"timespan": "210",
+		"location": "France, Germany, Switzerland",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/plateo.jpg",
+		"bodyShape": "prosauropod",
+		"length": 7
+	},
+	{
+		"name": "Podokesaurus",
+		"meaning": "'swift-footed lizard'",
+		"diet": "carnivorous",
+		"timespan": "195-180",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Podokesaurus.jpg",
+		"bodyShape": "small theropod",
+		"length": 0.9
+	},
+	{
+		"name": "Poekilopleuron",
+		"meaning": "'varied ribs'",
+		"diet": "carnivorous",
+		"timespan": "169-164",
+		"location": "France",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Poekilopleuron.jpg",
+		"bodyShape": "large theropod",
+		"length": 9
+	},
+	{
+		"name": "Polacanthus",
+		"meaning": "'many spines'",
+		"diet": "herbivorous",
+		"timespan": "125",
+		"location": "England, United Kingdom",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/polac.jpg",
+		"bodyShape": "armoured dinosaur",
+		"length": 5
+	},
+	{
+		"name": "Prenocephale",
+		"meaning": "'sloping head'",
+		"diet": "herbivorous",
+		"timespan": "80-66",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Prenocephale.jpg",
+		"bodyShape": "pachycephalosaur",
+		"length": 2.4
+	},
+	{
+		"name": "Probactrosaurus",
+		"meaning": "'before Bactrosaurus'",
+		"diet": "herbivorous",
+		"timespan": "121-99",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Probactrosaurus.jpg",
+		"bodyShape": "large ornithopod",
+		"length": 6
+	},
+	{
+		"name": "Proceratosaurus",
+		"meaning": "'before Ceratosaurus'",
+		"diet": "carnivorous",
+		"timespan": "169-164",
+		"location": "England, United Kingdom",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Proceratosaurus.jpg",
+		"bodyShape": "small theropod",
+		"length": 4.1
+	},
+	{
+		"name": "Procompsognathus",
+		"meaning": "'before Compsognathus'",
+		"diet": "carnivorous",
+		"timespan": "221-210",
+		"location": "Germany",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Procompsognathus.jpg",
+		"bodyShape": "small theropod",
+		"length": 1
+	},
+	{
+		"name": "Prosaurolophus",
+		"meaning": "'before lizard crest [Saurolophus]'",
+		"diet": "herbivorous",
+		"timespan": "77-75",
+		"location": "Canada, USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Prosaurolophus.jpg",
+		"bodyShape": "large ornithopod",
+		"length": 7.6
+	},
+	{
+		"name": "Protarchaeopteryx",
+		"meaning": "'before Archaeopteryx'",
+		"diet": "carnivorous",
+		"timespan": "122-120",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Protarchaeopteryx.jpg",
+		"bodyShape": "small theropod",
+		"length": 2
+	},
+	{
+		"name": "Protoceratops",
+		"meaning": "'first horned face'",
+		"diet": "herbivorous",
+		"timespan": "74-70",
+		"location": "China, Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/proto.jpg",
+		"bodyShape": "ceratopsian",
+		"length": 1.8
+	},
+	{
+		"name": "Protohadros",
+		"meaning": "'first hadrosaur'",
+		"diet": "herbivorous",
+		"timespan": "99-94",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Protohadros.jpg",
+		"bodyShape": "large ornithopod",
+		"length": 6
+	},
+	{
+		"name": "Psittacosaurus",
+		"meaning": "'parrot lizard'",
+		"diet": "herbivorous",
+		"timespan": "120-100",
+		"location": "China, Mongolia, Russia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/psittaco.jpg",
+		"bodyShape": "ceratopsian",
+		"length": 2
+	},
+	{
+		"name": "Puertasaurus",
+		"meaning": "'Puerta and Reuil's lizard'",
+		"diet": "herbivorous",
+		"timespan": "76-70",
+		"location": "Argentina",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/puertasaurus-c.jpg",
+		"bodyShape": "sauropod",
+		"length": 30
+	},
+	{
+		"name": "Pyroraptor",
+		"meaning": "'fire thief'",
+		"diet": "carnivorous",
+		"timespan": "84-71",
+		"location": "France, Spain",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/pyroraptor.jpg",
+		"length": 0
+	},
+	{
+		"name": "Quaesitosaurus",
+		"meaning": "'extraordinary lizard'",
+		"diet": "herbivorous",
+		"timespan": "86-84",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Quaesitosaurus.jpg",
+		"bodyShape": "sauropod",
+		"length": 23
+	},
+	{
+		"name": "Rajasaurus",
+		"meaning": "'Princely lizard'",
+		"diet": "carnivorous",
+		"timespan": "72-66",
+		"location": "India",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/rajasaurus.jpg",
+		"bodyShape": "large theropod",
+		"length": 6.6
+	},
+	{
+		"name": "Rebbachisaurus",
+		"meaning": "'[Ait] Rebbach lizard'",
+		"diet": "herbivorous",
+		"timespan": "112-99",
+		"location": "Morocco",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Rebbachisaurus.jpg",
+		"bodyShape": "sauropod",
+		"length": 20
+	},
+	{
+		"name": "Rhabdodon",
+		"meaning": "'rod tooth'",
+		"diet": "herbivorous",
+		"timespan": "76-70",
+		"location": "Austria, France, Romania, Spain",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/rhab.jpg",
+		"bodyShape": "large ornithopod",
+		"length": 4
+	},
+	{
+		"name": "Rhoetosaurus",
+		"meaning": "'Rhoetan lizard'",
+		"diet": "herbivorous",
+		"timespan": "177-169",
+		"location": "Australia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Rhoetosaurus.jpg",
+		"bodyShape": "sauropod",
+		"length": 15
+	},
+	{
+		"name": "Rinchenia",
+		"meaning": "'Rinchen'",
+		"diet": "omnivorous",
+		"timespan": "72-68",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Rinchenia.jpg",
+		"bodyShape": "small theropod",
+		"length": 2.5
+	},
+	{
+		"name": "Riojasaurus",
+		"meaning": "'[La] Rioja lizard'",
+		"diet": "herbivorous or omnivorous",
+		"timespan": "221-210",
+		"location": "Argentina",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Riojasaurus.jpg",
+		"bodyShape": "prosauropod",
+		"length": 5.15
+	},
+	{
+		"name": "Rugops",
+		"meaning": "'wrinkle face'",
+		"diet": "carnivorous",
+		"timespan": "95",
+		"location": "Niger",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Rugops.jpg",
+		"bodyShape": "large theropod",
+		"length": 7
+	},
+	{
+		"name": "Saichania",
+		"meaning": "'beautiful'",
+		"diet": "herbivorous",
+		"timespan": "80",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/saich.jpg",
+		"bodyShape": "armoured dinosaur",
+		"length": 6.6
+	},
+	{
+		"name": "Saltasaurus",
+		"meaning": "'Salta lizard'",
+		"diet": "herbivorous",
+		"timespan": "70-66",
+		"location": "Argentina",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/salta.jpg",
+		"bodyShape": "sauropod",
+		"length": 12
+	},
+	{
+		"name": "Sarcosaurus",
+		"meaning": "'flesh lizard'",
+		"diet": "carnivorous",
+		"timespan": "202-195",
+		"location": "England, United Kingdom",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Sarcosaurus.jpg",
+		"bodyShape": "small theropod",
+		"length": 3
+	},
+	{
+		"name": "Saurolophus",
+		"meaning": "'ridged lizard'",
+		"diet": "herbivorous",
+		"timespan": "74-70",
+		"location": "Canada, Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/sauro.jpg",
+		"bodyShape": "large ornithopod",
+		"length": 9
+	},
+	{
+		"name": "Sauropelta",
+		"meaning": "'lizard shield'",
+		"diet": "herbivorous",
+		"timespan": "121-94",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Sauropelta.jpg",
+		"bodyShape": "armoured dinosaur",
+		"length": 6.5
+	},
+	{
+		"name": "Saurophaganax",
+		"meaning": "'king of the lizard eaters'",
+		"diet": "carnivorous",
+		"timespan": "154-142",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Saurophaganax.jpg",
+		"bodyShape": "large theropod",
+		"length": 12
+	},
+	{
+		"name": "Saurornithoides",
+		"meaning": "'bird-like lizard'",
+		"diet": "carnivorous",
+		"timespan": "85-80",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/saurorn.jpg",
+		"bodyShape": "small theropod",
+		"length": 3
+	},
+	{
+		"name": "Scelidosaurus",
+		"meaning": "'limb lizard'",
+		"diet": "herbivorous",
+		"timespan": "208-194",
+		"location": "England, United Kingdom",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/scelid.jpg",
+		"bodyShape": "armoured dinosaur",
+		"length": 4
+	},
+	{
+		"name": "Scutellosaurus",
+		"meaning": "'small shield lizard'",
+		"diet": "herbivorous",
+		"timespan": "205-202",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Scutellosaurus.jpg",
+		"bodyShape": "armoured dinosaur",
+		"length": 1.2
+	},
+	{
+		"name": "Secernosaurus",
+		"meaning": "'separated lizard'",
+		"diet": "herbivorous",
+		"timespan": "71-66",
+		"location": "Argentina",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Secernosaurus.jpg",
+		"bodyShape": "large ornithopod",
+		"length": 3
+	},
+	{
+		"name": "Segisaurus",
+		"meaning": "'Segi [Canyon] lizard'",
+		"diet": "carnivorous",
+		"timespan": "195-180",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Segisaurus.jpg",
+		"bodyShape": "small theropod",
+		"length": 1.5
+	},
+	{
+		"name": "Segnosaurus",
+		"meaning": "'slow lizard'",
+		"diet": "carnivorous",
+		"timespan": "97-88",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/segno.jpg",
+		"bodyShape": "large theropod",
+		"length": 4
+	},
+	{
+		"name": "Shamosaurus",
+		"meaning": "'desert lizard'",
+		"diet": "herbivorous",
+		"timespan": "121-99",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Shamosaurus.jpg",
+		"length": 0
+	},
+	{
+		"name": "Shanag",
+		"meaning": "'named after the dancers in the Buddhist Tsam festival'",
+		"diet": "carnivorous",
+		"timespan": "126-142",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/shanag.jpg",
+		"bodyShape": "small theropod",
+		"length": 0.45
+	},
+	{
+		"name": "Shantungosaurus",
+		"meaning": "'Shantung (=Shandong) lizard'",
+		"diet": "herbivorous",
+		"timespan": "78-74",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/shantung.jpg",
+		"bodyShape": "large ornithopod",
+		"length": 15
+	},
+	{
+		"name": "Shunosaurus",
+		"meaning": "'Shuno lizard'",
+		"diet": "herbivorous",
+		"timespan": "170-160",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/shuno.jpg",
+		"bodyShape": "sauropod",
+		"length": 10
+	},
+	{
+		"name": "Shuvuuia",
+		"meaning": "'bird'",
+		"diet": "omnivorous",
+		"timespan": "75-81",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Shuvuuia.jpg",
+		"bodyShape": "small theropod",
+		"length": 0.6
+	},
+	{
+		"name": "Silvisaurus",
+		"meaning": "'forest lizard'",
+		"diet": "herbivorous",
+		"timespan": "121-112",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Silvisaurus.jpg",
+		"bodyShape": "armoured dinosaur",
+		"length": 4
+	},
+	{
+		"name": "Sinocalliopteryx",
+		"meaning": "'Chinese beautiful feather'",
+		"diet": "carnivorous",
+		"timespan": "125",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/sinocalliopteryx.jpg",
+		"bodyShape": "small theropod",
+		"length": 2.37
+	},
+	{
+		"name": "Sinornithosaurus",
+		"meaning": "'Chinese bird lizard'",
+		"diet": "carnivorous",
+		"timespan": "122-120",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Sinornithosaurus.jpg",
+		"bodyShape": "small theropod",
+		"length": 2
+	},
+	{
+		"name": "Sinosauropteryx",
+		"meaning": "'Chinese lizard wing'",
+		"diet": "carnivorous",
+		"timespan": "122-120",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Sinosauropteryx.jpg",
+		"bodyShape": "small theropod",
+		"length": 1
+	},
+	{
+		"name": "Sinovenator",
+		"meaning": "'Chinese hunter'",
+		"diet": "carnivorous",
+		"timespan": "127-121",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Sinvenator.jpg",
+		"bodyShape": "small theropod",
+		"length": 1
+	},
+	{
+		"name": "Sinraptor",
+		"meaning": "'Chinese plunderer'",
+		"diet": "carnivorous",
+		"timespan": "169-142",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Sinraptor.jpg",
+		"bodyShape": "large theropod",
+		"length": 7.6
+	},
+	{
+		"name": "Sonidosaurus",
+		"meaning": "'Sonid (area in which the type locality is) lizard'",
+		"diet": "herbivorous",
+		"timespan": "89-66",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Sonidosaurus.jpg",
+		"bodyShape": "sauropod",
+		"length": 9
+	},
+	{
+		"name": "Spinosaurus",
+		"meaning": "'spine lizard'",
+		"diet": "carnivorous",
+		"timespan": "99-94",
+		"location": "Egypt, Morocco",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/spinosaurus.jpg",
+		"bodyShape": "large theropod",
+		"length": 14
+	},
+	{
+		"name": "Staurikosaurus",
+		"meaning": "'Southern Cross lizard'",
+		"diet": "carnivorous",
+		"timespan": "227-221",
+		"location": "Brazil",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Staurikosaurus.jpg",
+		"bodyShape": "early dinosaur",
+		"length": 2
+	},
+	{
+		"name": "Stegoceras",
+		"meaning": "'horny roof'",
+		"diet": "herbivorous",
+		"timespan": "76-74",
+		"location": "Canada, USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/stegoceras.jpg",
+		"bodyShape": "pachycephalosaur",
+		"length": 2.4
+	},
+	{
+		"name": "Stegosaurus",
+		"meaning": "'roof lizard'",
+		"diet": "herbivorous",
+		"timespan": "152-145",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/stego.jpg",
+		"bodyShape": "armoured dinosaur",
+		"length": 9
+	},
+	{
+		"name": "Stenopelix",
+		"meaning": "'narrow pelvis'",
+		"diet": "herbivorous",
+		"timespan": "127-121",
+		"location": "Germany",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Stenopelix.jpg",
+		"bodyShape": "ceratopsian",
+		"length": 1.5
+	},
+	{
+		"name": "Struthiomimus",
+		"meaning": "'ostrich mimic'",
+		"diet": "omnivorous",
+		"timespan": "76-74",
+		"location": "Canada",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/struthio.jpg",
+		"bodyShape": "small theropod",
+		"length": 4
+	},
+	{
+		"name": "Struthiosaurus",
+		"meaning": "'ostrich lizard'",
+		"diet": "herbivorous",
+		"timespan": "83-75",
+		"location": "Austria, France, Romania, Spain",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Struthiosaurus.jpg",
+		"bodyShape": "armoured dinosaur",
+		"length": 2.5
+	},
+	{
+		"name": "Stygimoloch",
+		"meaning": "'Styx demon'",
+		"diet": "herbivorous",
+		"timespan": "67-66",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Stygimoloch.jpg",
+		"bodyShape": "pachycephalosaur",
+		"length": 3
+	},
+	{
+		"name": "Styracosaurus",
+		"meaning": "'spiked lizard'",
+		"diet": "herbivorous",
+		"timespan": "76-70",
+		"location": "Canada, USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/styrac.jpg",
+		"bodyShape": "ceratopsian",
+		"length": 5.5
+	},
+	{
+		"name": "Suchomimus",
+		"meaning": "'crocodile mimic'",
+		"diet": "carnivorous",
+		"timespan": "121-112",
+		"location": "Niger",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Suchomimus.jpg",
+		"bodyShape": "large theropod",
+		"length": 11
+	},
+	{
+		"name": "Supersaurus",
+		"meaning": "'super lizard'",
+		"diet": "herbivorous",
+		"timespan": "154-142",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Supersaurus.jpg",
+		"bodyShape": "sauropod",
+		"length": 35
+	},
+	{
+		"name": "Talarurus",
+		"meaning": "'wicker tail'",
+		"diet": "herbivorous",
+		"timespan": "99-89",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Talarurus.jpg",
+		"bodyShape": "armoured dinosaur",
+		"length": 6
+	},
+	{
+		"name": "Tanius",
+		"meaning": "'[H. C.] Tan'",
+		"diet": "herbivorous",
+		"timespan": "89-66",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Tanius.jpg",
+		"length": 0
+	},
+	{
+		"name": "Tarbosaurus",
+		"meaning": "'alarming lizard'",
+		"diet": "carnivorous",
+		"timespan": "74-70",
+		"location": "China, Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/tarbo.jpg",
+		"bodyShape": "large theropod",
+		"length": 10
+	},
+	{
+		"name": "Tarchia",
+		"meaning": "'brainy one'",
+		"diet": "herbivorous",
+		"timespan": "75-70",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/tarchia-ml.jpg",
+		"bodyShape": "armoured dinosaur",
+		"length": 5.5
+	},
+	{
+		"name": "Telmatosaurus",
+		"meaning": "'swamp lizard'",
+		"diet": "herbivorous",
+		"timespan": "84-66",
+		"location": "France, Romania, Spain",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Telmatosaurus.jpg",
+		"bodyShape": "large ornithopod",
+		"length": 5
+	},
+	{
+		"name": "Tenontosaurus",
+		"meaning": "'sinew lizard'",
+		"diet": "herbivorous",
+		"timespan": "120-110",
+		"location": "Canada, USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/tenonto.jpg",
+		"bodyShape": "large ornithopod",
+		"length": 7
+	},
+	{
+		"name": "Thecodontosaurus",
+		"meaning": "'socket-toothed lizard'",
+		"diet": "omnivorous",
+		"timespan": "227-205",
+		"location": "England, United Kingdom",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Thecodontosaurus.jpg",
+		"bodyShape": "prosauropod",
+		"length": 2.5
+	},
+	{
+		"name": "Therizinosaurus",
+		"meaning": "'scythe lizard'",
+		"diet": "unknown",
+		"timespan": "85-70",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/theriz.jpg",
+		"length": 0
+	},
+	{
+		"name": "Thescelosaurus",
+		"meaning": "'wonderful lizard'",
+		"diet": "herbivorous",
+		"timespan": "76-66",
+		"location": "Canada, USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/thescelo.jpg",
+		"bodyShape": "small ornithopod",
+		"length": 3.5
+	},
+	{
+		"name": "Torosaurus",
+		"meaning": "'bull lizard'",
+		"diet": "herbivorous",
+		"timespan": "70-66",
+		"location": "Canada, USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/toro.jpg",
+		"bodyShape": "ceratopsian",
+		"length": 7.5
+	},
+	{
+		"name": "Torvosaurus",
+		"meaning": "'savage lizard'",
+		"diet": "carnivorous",
+		"timespan": "155-144",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/torvo.jpg",
+		"bodyShape": "large theropod",
+		"length": 10
+	},
+	{
+		"name": "Triceratops",
+		"meaning": "'three-horned face'",
+		"diet": "herbivorous",
+		"timespan": "68-66",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/triceratops.jpg",
+		"bodyShape": "ceratopsian",
+		"length": 9
+	},
+	{
+		"name": "Troodon",
+		"meaning": "'wounding tooth'",
+		"diet": "carnivorous",
+		"timespan": "74-66",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/troo.jpg",
+		"bodyShape": "small theropod",
+		"length": 2
+	},
+	{
+		"name": "Tsagantegia",
+		"meaning": "'Tsagan Teg'",
+		"diet": "herbivorous",
+		"timespan": "99-84",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Tsagantegia.jpg",
+		"length": 0
+	},
+	{
+		"name": "Tsintaosaurus",
+		"meaning": "'Qingdao lizard'",
+		"diet": "herbivorous",
+		"timespan": "84-71",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Tsintaosaurus.jpg",
+		"bodyShape": "large ornithopod",
+		"length": 12
+	},
+	{
+		"name": "Tuojiangosaurus",
+		"meaning": "'Tuo River lizard'",
+		"diet": "herbivorous",
+		"timespan": "157-154",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/tuojiang.jpg",
+		"bodyShape": "armoured dinosaur",
+		"length": 7
+	},
+	{
+		"name": "Tylocephale",
+		"meaning": "'swelling head'",
+		"diet": "herbivorous",
+		"timespan": "75-72",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Tylocephale.jpg",
+		"bodyShape": "pachycephalosaur",
+		"length": 1.4
+	},
+	{
+		"name": "Tyrannosaurus",
+		"meaning": "'tyrant lizard'",
+		"diet": "carnivorous",
+		"timespan": "68-66",
+		"location": "Canada, USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/tyran.jpg",
+		"bodyShape": "large theropod",
+		"length": 12
+	},
+	{
+		"name": "Tyrannotitan",
+		"meaning": "'tyrant titan'",
+		"diet": "carnivorous",
+		"timespan": "101",
+		"location": "Argentina",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/tyrannotitan-c.jpg",
+		"bodyShape": "large theropod",
+		"length": 12
+	},
+	{
+		"name": "Udanoceratops",
+		"meaning": "'Udan [Sayr] horned face'",
+		"diet": "herbivorous",
+		"timespan": "81-75",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Udanoceratops.jpg",
+		"length": 0
+	},
+	{
+		"name": "Unenlagia",
+		"meaning": "'half bird'",
+		"diet": "carnivorous",
+		"timespan": "94-86",
+		"location": "Argentina",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Unenlagia.jpg",
+		"bodyShape": "small theropod",
+		"length": 2.4
+	},
+	{
+		"name": "Urbacodon",
+		"meaning": "'URBAC tooth'",
+		"diet": "carnivorous",
+		"timespan": "95",
+		"location": "Uzbekistan",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/urbacodon.jpg",
+		"bodyShape": "small theropod",
+		"length": 1
+	},
+	{
+		"name": "Utahraptor",
+		"meaning": "'Utah plunderer'",
+		"diet": "carnivorous",
+		"timespan": "112-100",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/utah.jpg",
+		"bodyShape": "large theropod",
+		"length": 6
+	},
+	{
+		"name": "Valdosaurus",
+		"meaning": "'Wealden lizard'",
+		"diet": "herbivorous",
+		"timespan": "142-121",
+		"location": "England, Niger, Romania, United Kingdom",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Valdosaurus.jpg",
+		"bodyShape": "small ornithopod",
+		"length": 3
+	},
+	{
+		"name": "Velociraptor",
+		"meaning": "'quick plunderer'",
+		"diet": "carnivorous",
+		"timespan": "74-70",
+		"location": "Mongolia",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/veloc.jpg",
+		"bodyShape": "small theropod",
+		"length": 1.8
+	},
+	{
+		"name": "Vulcanodon",
+		"meaning": "'volcano tooth'",
+		"diet": "herbivorous",
+		"timespan": "205-202",
+		"location": "Zimbabwe",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Vulcanodon.jpg",
+		"bodyShape": "sauropod",
+		"length": 6.5
+	},
+	{
+		"name": "Yandusaurus",
+		"meaning": "'Yandu lizard'",
+		"diet": "herbivorous",
+		"timespan": "169-159",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Yandusaurus.jpg",
+		"bodyShape": "small ornithopod",
+		"length": 3
+	},
+	{
+		"name": "Yangchuanosaurus",
+		"meaning": "'Yangchuan lizard'",
+		"diet": "carnivorous",
+		"timespan": "160-144",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/yangchu.jpg",
+		"bodyShape": "large theropod",
+		"length": 10
+	},
+	{
+		"name": "Yimenosaurus",
+		"meaning": "'Yimen lizard'",
+		"diet": "herbivorous",
+		"timespan": "195-190",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Yimenosaurus.jpg",
+		"bodyShape": "prosauropod",
+		"length": 9
+	},
+	{
+		"name": "Yingshanosaurus",
+		"meaning": "'Mt. Ying lizard'",
+		"diet": "herbivorous",
+		"timespan": "159-142",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Yingshanosaurus.jpg",
+		"length": 0
+	},
+	{
+		"name": "Yinlong",
+		"meaning": "'hidden dragon'",
+		"diet": "herbivorous",
+		"timespan": "159-154",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Yinlong.jpg",
+		"bodyShape": "ceratopsian",
+		"length": 1.2
+	},
+	{
+		"name": "Yuanmousaurus",
+		"meaning": "'Yuanmou (area where the type locality is) lizard'",
+		"diet": "herbivorous",
+		"timespan": "180-159",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Yuanmousaurus.jpg",
+		"bodyShape": "sauropod",
+		"length": 17
+	},
+	{
+		"name": "Yunnanosaurus",
+		"meaning": "'Yunnan lizard'",
+		"diet": "omnivorous",
+		"timespan": "205-190",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Yunnanosaurus.jpg",
+		"bodyShape": "prosauropod",
+		"length": 7
+	},
+	{
+		"name": "Yutyrannus",
+		"meaning": "'feathered tyrant'",
+		"diet": "carnivorous",
+		"timespan": "125",
+		"location": "China",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/yutyrannus.jpg",
+		"bodyShape": "large theropod",
+		"length": 7.5
+	},
+	{
+		"name": "Zalmoxes",
+		"meaning": "'Zalmoxes (Dacian deity)'",
+		"diet": "herbivorous",
+		"timespan": "69",
+		"location": "Romania",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Zalmoxes.jpg",
+		"bodyShape": "small ornithopod",
+		"length": 3
+	},
+	{
+		"name": "Zephyrosaurus",
+		"meaning": "'west wind lizard'",
+		"diet": "herbivorous",
+		"timespan": "120-110",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/zephyro.jpg",
+		"bodyShape": "small ornithopod",
+		"length": 1.8
+	},
+	{
+		"name": "Zuniceratops",
+		"meaning": "'Meaning of name'",
+		"diet": "herbivorous",
+		"timespan": "94-89",
+		"location": "USA",
+		"img": "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/Zuniceratops.jpg",
+		"length": 0
+	}
+]

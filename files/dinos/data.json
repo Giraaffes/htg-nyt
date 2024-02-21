@@ -1,0 +1,3162 @@
+[
+	{
+		"name": "Abelisaurus",
+		"nameMeaning": "\"Abels øgle\" (efter Roberto Abel)",
+		"diet": "kødædende",
+		"timespan": "74-70",
+		"locations": "Argentina",
+		"imageName": "abeli.jpg",
+		"type": "large theropod",
+		"length": 9
+	},
+	{
+		"name": "Achelousaurus",
+		"nameMeaning": "\"Acheloos' øgle\" (Acheloos er en flodgud i græsk mytologi)",
+		"diet": "planteædende",
+		"timespan": "83-70",
+		"locations": "USA",
+		"imageName": "achelou.jpg",
+		"type": "ceratopsian",
+		"length": 6
+	},
+	{
+		"name": "Achillobator",
+		"nameMeaning": "\"Achilleus' helt\"",
+		"diet": "kødædende",
+		"timespan": "99-84",
+		"locations": "Mongoliet",
+		"imageName": "Achillobator.jpg",
+		"type": "large theropod",
+		"length": 5
+	},
+	{
+		"name": "Acrocanthosaurus",
+		"nameMeaning": "\"højrygget øgle\"",
+		"diet": "kødædende",
+		"timespan": "115-105",
+		"locations": "Canada og USA",
+		"imageName": "acrocantho.jpg",
+		"type": "large theropod",
+		"length": 12
+	},
+	{
+		"name": "Aegyptosaurus",
+		"nameMeaning": "\"egyptisk øgle\"",
+		"diet": "planteædende",
+		"timespan": "98-93",
+		"locations": "Egypten",
+		"imageName": "aegypto.jpg",
+		"type": "sauropod",
+		"length": 15
+	},
+	{
+		"name": "Afrovenator",
+		"nameMeaning": "\"Afrikansk jæger\"",
+		"diet": "kødædende",
+		"timespan": "132-121",
+		"locations": "Niger",
+		"imageName": "afrovenator.jpg",
+		"type": "large theropod",
+		"length": 9
+	},
+	{
+		"name": "Agilisaurus",
+		"nameMeaning": "\"smidig øgle\"",
+		"diet": "planteædende",
+		"timespan": "169-159",
+		"locations": "Kina",
+		"imageName": "Agilisaurus.jpg",
+		"type": "small ornithischian",
+		"length": 1.5
+	},
+	{
+		"name": "Alamosaurus",
+		"nameMeaning": "\"Alamo-øgle\" (efter Ojo Alamo, en geoglogisk formation i New Mexico)",
+		"diet": "planteædende",
+		"timespan": "70-66",
+		"locations": "USA",
+		"imageName": "alamo.jpg",
+		"type": "sauropod",
+		"length": 21
+	},
+	{
+		"name": "Albertaceratops",
+		"nameMeaning": "\"Alberta-hornet ansigt\" (Alberta er en canadisk provins)",
+		"diet": "planteædende",
+		"timespan": "80-75",
+		"locations": "Canada og USA",
+		"imageName": "albertaceratops.jpg",
+		"type": "ceratopsian",
+		"length": 7
+	},
+	{
+		"name": "Albertosaurus",
+		"nameMeaning": "\"Alberta-øgle\" (Alberta er en canadisk provins)",
+		"diet": "kødædende",
+		"timespan": "76-74",
+		"locations": "Canada",
+		"imageName": "albert.jpg",
+		"type": "large theropod",
+		"length": 9
+	},
+	{
+		"name": "Alectrosaurus",
+		"nameMeaning": "\"ørne-øgle\"",
+		"diet": "kødædende",
+		"timespan": "90-70",
+		"locations": "Kina og Mongoliet",
+		"imageName": "alectro.jpg",
+		"type": "large theropod",
+		"length": 5
+	},
+	{
+		"name": "Alioramus",
+		"nameMeaning": "\"anden [evolutionær] gren\"",
+		"diet": "kødædende",
+		"timespan": "71-66",
+		"locations": "Mongoliet",
+		"imageName": "Alioramus.jpg",
+		"type": "large theropod",
+		"length": 6
+	},
+	{
+		"name": "Allosaurus",
+		"nameMeaning": "\"anden øgle\"",
+		"diet": "kødædende",
+		"timespan": "152-145",
+		"locations": "Portugal og USA",
+		"imageName": "allo.jpg",
+		"type": "large theropod",
+		"length": 12
+	},
+	{
+		"name": "Alvarezsaurus",
+		"nameMeaning": "\"Alvarez' øgle\" (efter Don Gregorio Alvarez)",
+		"diet": "kødædende",
+		"timespan": "89-85",
+		"locations": "Argentina",
+		"imageName": "alvarez.jpg",
+		"type": "small theropod",
+		"length": 2
+	},
+	{
+		"name": "Amargasaurus",
+		"nameMeaning": "\"Amarga-øgle\" (efter La Amarga, en geologisk formation i Argentina)",
+		"diet": "planteædende",
+		"timespan": "132-127",
+		"locations": "Argentina",
+		"imageName": "Amargasaurus.jpg",
+		"type": "sauropod",
+		"length": 12
+	},
+	{
+		"name": "Ammosaurus",
+		"nameMeaning": "\"sand-øgle\"",
+		"diet": "planteædende",
+		"timespan": "195-180",
+		"locations": "USA",
+		"imageName": "ammo.jpg",
+		"type": "prosauropod",
+		"length": 5
+	},
+	{
+		"name": "Ampelosaurus",
+		"nameMeaning": "\"vingårds-øgle\"",
+		"diet": "planteædende",
+		"timespan": "71-66",
+		"locations": "Frankrig",
+		"imageName": "Ampelosaurus.jpg",
+		"type": "sauropod",
+		"length": 15
+	},
+	{
+		"name": "Amygdalodon",
+		"nameMeaning": "\"mandel-tand\"",
+		"diet": "planteædende",
+		"timespan": "177-169",
+		"locations": "Argentina",
+		"imageName": "Amygdalodon.jpg",
+		"type": "sauropod",
+		"length": 15
+	},
+	{
+		"name": "Anchiceratops",
+		"nameMeaning": "\"næsten hornet ansigt\"",
+		"diet": "planteædende",
+		"timespan": "74-70",
+		"locations": "Canada",
+		"imageName": "anchi2.jpg",
+		"type": "ceratopsian",
+		"length": 6
+	},
+	{
+		"name": "Anchisaurus",
+		"nameMeaning": "\"næsten øgle\"",
+		"diet": "planteædende",
+		"timespan": "190",
+		"locations": "USA",
+		"imageName": "anchi.jpg",
+		"type": "prosauropod",
+		"length": 2
+	},
+	{
+		"name": "Ankylosaurus",
+		"nameMeaning": "\"sammensmeltet øgle\"",
+		"diet": "planteædende",
+		"timespan": "68-66",
+		"locations": "Canada og USA",
+		"imageName": "ankylosaurus.jpg",
+		"type": "armoured dinosaur",
+		"length": 8
+	},
+	{
+		"name": "Anserimimus",
+		"nameMeaning": "\"gåse-efterligner\"",
+		"diet": "kødædende",
+		"timespan": "84-66",
+		"locations": "Mongoliet",
+		"imageName": "anseri.jpg",
+		"type": "large theropod",
+		"length": 3.5
+	},
+	{
+		"name": "Antarctosaurus",
+		"nameMeaning": "\"ikke-nordlig øgle\"",
+		"diet": "planteædende",
+		"timespan": "84",
+		"locations": "Argentina, Chile og Uruguay",
+		"imageName": "antarcto.jpg",
+		"type": "sauropod",
+		"length": 18
+	},
+	{
+		"name": "Apatosaurus",
+		"nameMeaning": "\"vildledende øgle\"",
+		"diet": "planteædende",
+		"timespan": "152-145",
+		"locations": "USA",
+		"imageName": "apatosaurus-art.jpg",
+		"type": "sauropod",
+		"length": 21
+	},
+	{
+		"name": "Aragosaurus",
+		"nameMeaning": "\"Aragonien-øgle\" (Aragonien er en provins i Spanien) ",
+		"diet": "planteædende",
+		"timespan": "132-121",
+		"locations": "Spanien",
+		"imageName": "Aragosaurus.jpg",
+		"type": "sauropod",
+		"length": 18
+	},
+	{
+		"name": "Aralosaurus",
+		"nameMeaning": "\"Aral-øgle\" (efter Aralsøen i det central Asien)",
+		"diet": "planteædende",
+		"timespan": "94-84",
+		"locations": "Kazakhstan",
+		"imageName": "Aralosaurus.jpg",
+		"type": "large ornithopod",
+		"length": 8
+	},
+	{
+		"name": "Archaeoceratops",
+		"nameMeaning": "\"ældgammelt hornet ansigt\"",
+		"diet": "planteædende",
+		"timespan": "121-99",
+		"locations": "Kina",
+		"imageName": "Archaeoceratops.jpg",
+		"type": "ceratopsian",
+		"length": 1.3
+	},
+	{
+		"name": "Archaeopteryx",
+		"nameMeaning": "\"ældgammel vinge\"",
+		"diet": "kødædende",
+		"timespan": "149-145",
+		"locations": "Tyskland",
+		"imageName": "archaeopteryx.jpg",
+		"type": "small theropod",
+		"length": 0.5
+	},
+	{
+		"name": "Archaeornithomimus",
+		"nameMeaning": "\"ældgammel fugle-efterligner\"",
+		"diet": "kødædende",
+		"timespan": "95-70",
+		"locations": "Kina og Uzbekistan",
+		"imageName": "archaeorn.jpg",
+		"type": "small theropod",
+		"length": 3.5
+	},
+	{
+		"name": "Argentinosaurus",
+		"nameMeaning": "\"Argentina-øgle\"",
+		"diet": "planteædende",
+		"timespan": "90",
+		"locations": "Argentina",
+		"imageName": "argent.jpg",
+		"type": "sauropod",
+		"length": 35
+	},
+	{
+		"name": "Arrhinoceratops",
+		"nameMeaning": "\"uden-næse-hornet ansigt\"",
+		"diet": "planteædende",
+		"timespan": "72-67",
+		"locations": "Canada",
+		"imageName": "Arrhinoceratops.jpg",
+		"type": "ceratopsian",
+		"length": 6
+	},
+	{
+		"name": "Atlascopcosaurus",
+		"nameMeaning": "\"Atlas Copco-øgle\" (Atlas Copco er et svensk firma)",
+		"diet": "planteædende",
+		"timespan": "121-97",
+		"locations": "Australien",
+		"imageName": "Atlascopcosaurus.jpg",
+		"type": "small ornithopod",
+		"length": 3
+	},
+	{
+		"name": "Aucasaurus",
+		"nameMeaning": "\"Auca-øgle\" (efter Auca Mahuevo, en arkæologisk fundplads i Argentina)",
+		"diet": "kødædende",
+		"timespan": "84-71",
+		"locations": "Argentina",
+		"imageName": "Aucasaurus.jpg",
+		"type": "large theropod",
+		"length": 5
+	},
+	{
+		"name": "Austrosaurus",
+		"nameMeaning": "\"sydlig øgle\"",
+		"diet": "planteædende",
+		"timespan": "112-99",
+		"locations": "Australien",
+		"imageName": "Austrosaurus.jpg",
+		"type": "sauropod",
+		"length": 15
+	},
+	{
+		"name": "Avaceratops",
+		"nameMeaning": "\"Avas hornede ansigt\" (efter Ava Cole)",
+		"diet": "planteædende",
+		"timespan": "80-75",
+		"locations": "USA",
+		"imageName": "Avaceratops.jpg",
+		"type": "ceratopsian",
+		"length": 2.3
+	},
+	{
+		"name": "Avimimus",
+		"nameMeaning": "\"fugle-efterligner\"",
+		"diet": "altædende",
+		"timespan": "80-75",
+		"locations": "Kina og Mongoliet",
+		"imageName": "avim.jpg",
+		"type": "small theropod",
+		"length": 1.5
+	},
+	{
+		"name": "Bactrosaurus",
+		"nameMeaning": "\"kølle-øgle\"",
+		"diet": "planteædende",
+		"timespan": "84-71",
+		"locations": "Kina",
+		"imageName": "Bactrosaurus.jpg",
+		"type": "large ornithopod",
+		"length": 6
+	},
+	{
+		"name": "Bagaceratops",
+		"nameMeaning": "\"lille hornet ansigt\"",
+		"diet": "planteædende",
+		"timespan": "85-80",
+		"locations": "Mongoliet",
+		"imageName": "Bagaceratops.jpg",
+		"type": "ceratopsian",
+		"length": 1
+	},
+	{
+		"name": "Bambiraptor",
+		"nameMeaning": "\"Bambi-røver\" (efter Disney-karakteren)",
+		"diet": "kødædende",
+		"timespan": "84-71",
+		"locations": "USA",
+		"imageName": "Bambiraptor.jpg",
+		"type": "small theropod",
+		"length": 1
+	},
+	{
+		"name": "Barapasaurus",
+		"nameMeaning": "\"stor-benet øgle\"",
+		"diet": "planteædende",
+		"timespan": "185-170",
+		"locations": "Indien",
+		"imageName": "barapa.jpg",
+		"type": "sauropod",
+		"length": 14
+	},
+	{
+		"name": "Barosaurus",
+		"nameMeaning": "\"tung øgle\"",
+		"diet": "planteædende",
+		"timespan": "155-145",
+		"locations": "Tanzania og USA",
+		"imageName": "baro.jpg",
+		"type": "sauropod",
+		"length": 24
+	},
+	{
+		"name": "Baryonyx",
+		"nameMeaning": "\"tung klo\"",
+		"diet": "kødædende",
+		"timespan": "125",
+		"locations": "England og Spanien",
+		"imageName": "bary.jpg",
+		"type": "large theropod",
+		"length": 10
+	},
+	{
+		"name": "Becklespinax",
+		"nameMeaning": "\"Beckles' ryggrad\" (efter Samuel Husbands Beckles)",
+		"diet": "kødædende",
+		"timespan": "142-132",
+		"locations": "England",
+		"imageName": "Becklespinax.jpg",
+		"type": "large theropod",
+		"length": 5
+	},
+	{
+		"name": "Beipiaosaurus",
+		"nameMeaning": "\"Beipiao-øgle\" (Beipiao er en by i Kina)",
+		"diet": "altædende",
+		"timespan": "127-121",
+		"locations": "Kina",
+		"imageName": "Beipiaosaurus.jpg",
+		"type": "small theropod",
+		"length": 2
+	},
+	{
+		"name": "Bellusaurus",
+		"nameMeaning": "\"fin øgle\"",
+		"diet": "planteædende",
+		"timespan": "180-159",
+		"locations": "Kina",
+		"imageName": "Bellusaurus.jpg",
+		"type": "sauropod",
+		"length": 5
+	},
+	{
+		"name": "Borogovia",
+		"nameMeaning": "bare \"borogove\" (et fantasivæsen fra Lewis Carrolls poesi)",
+		"diet": "kødædende",
+		"timespan": "84-66",
+		"locations": "Mongoliet",
+		"imageName": "Borogovia.jpg",
+		"type": "small theropod",
+		"length": 1.5
+	},
+	{
+		"name": "Brachiosaurus",
+		"nameMeaning": "\"arm-øgle\"",
+		"diet": "planteædende",
+		"timespan": "155-140",
+		"locations": "Algeriet, Portugal, Tanzania og USA",
+		"imageName": "brach.jpg",
+		"type": "sauropod",
+		"length": 30
+	},
+	{
+		"name": "Brachylophosaurus",
+		"nameMeaning": "\"kortkammet øgle\"",
+		"diet": "planteædende",
+		"timespan": "89-88",
+		"locations": "Canada og USA",
+		"imageName": "Brachylophosaurus.jpg",
+		"type": "large ornithopod",
+		"length": 7
+	},
+	{
+		"name": "Brachytrachelopan",
+		"nameMeaning": "\"korthalset Pan\" (Pan er hyrdeguden i græsk mytologi)",
+		"diet": "planteædende",
+		"timespan": "150",
+		"locations": "Argentina",
+		"imageName": "Brachytrachelopan.jpg",
+		"type": "sauropod",
+		"length": 10
+	},
+	{
+		"name": "Buitreraptor",
+		"nameMeaning": "\"grib-røver\"",
+		"diet": "kødædende",
+		"timespan": "99-90",
+		"locations": "Argentina",
+		"imageName": "Buitreraptor.jpg",
+		"type": "small theropod",
+		"length": 1.3
+	},
+	{
+		"name": "Camarasaurus",
+		"nameMeaning": "\"kammer-øgle\"",
+		"diet": "planteædende",
+		"timespan": "150-140",
+		"locations": "USA",
+		"imageName": "camara.jpg",
+		"type": "sauropod",
+		"length": 23
+	},
+	{
+		"name": "Camptosaurus",
+		"nameMeaning": "\"bøjet øgle\"",
+		"diet": "planteædende",
+		"timespan": "155-145",
+		"locations": "England og USA",
+		"imageName": "campto.jpg",
+		"type": "large ornithopod",
+		"length": 5
+	},
+	{
+		"name": "Carcharodontosaurus",
+		"nameMeaning": "\"skarptandet øgle\"",
+		"diet": "kødædende",
+		"timespan": "99-94",
+		"locations": "Algeriet, Egypten og Marokko",
+		"imageName": "carcharodontosaurus.jpg",
+		"type": "large theropod",
+		"length": 12.5
+	},
+	{
+		"name": "Carnotaurus",
+		"nameMeaning": "\"kødædende tyr\"",
+		"diet": "kødædende",
+		"timespan": "69-71",
+		"locations": "Argentina",
+		"imageName": "carnotaurus.jpg",
+		"type": "large theropod",
+		"length": 8
+	},
+	{
+		"name": "Caudipteryx",
+		"nameMeaning": "\"halefjer\"",
+		"diet": "altædende",
+		"timespan": "125-122",
+		"locations": "Kina",
+		"imageName": "caudip.jpg",
+		"type": "small theropod",
+		"length": 1
+	},
+	{
+		"name": "Cedarpelta",
+		"nameMeaning": "\"Cedar-skjold\" (efter Cedar Mountain Formation, en geologisk formation i Utah)",
+		"diet": "planteædende",
+		"timespan": "142-127",
+		"locations": "USA",
+		"imageName": "Cedarpelta.jpg",
+		"type": "armoured dinosaur",
+		"length": 10
+	},
+	{
+		"name": "Centrosaurus",
+		"nameMeaning": "\"skarpspidset øgle\"",
+		"diet": "planteædende",
+		"timespan": "76-74",
+		"locations": "Canada",
+		"imageName": "centro.jpg",
+		"type": "ceratopsian",
+		"length": 6
+	},
+	{
+		"name": "Ceratosaurus",
+		"nameMeaning": "\"hornet øgle\"",
+		"diet": "kødædende",
+		"timespan": "153-148",
+		"locations": "Portugal og USA",
+		"imageName": "cerato.jpg",
+		"type": "large theropod",
+		"length": 6
+	},
+	{
+		"name": "Cetiosauriscus",
+		"nameMeaning": "\"hval-agtig øgle\"",
+		"diet": "planteædende",
+		"timespan": "175-160",
+		"locations": "England",
+		"imageName": "cetios.jpg",
+		"type": "sauropod",
+		"length": 15
+	},
+	{
+		"name": "Cetiosaurus",
+		"nameMeaning": "\"hval-øgle\"",
+		"diet": "planteædende",
+		"timespan": "170-160",
+		"locations": "England",
+		"imageName": "cetio.jpg",
+		"type": "sauropod",
+		"length": 18
+	},
+	{
+		"name": "Chaoyangsaurus",
+		"nameMeaning": "\"Chaoyang-øgle\" (Chaoyang er en by i Kina)",
+		"diet": "planteædende",
+		"timespan": "152-145",
+		"locations": "Kina",
+		"imageName": "Chaoyangsaurus.jpg",
+		"type": "ceratopsian",
+		"length": 1.1
+	},
+	{
+		"name": "Chasmosaurus",
+		"nameMeaning": "\"kløft-øgle\"",
+		"diet": "planteædende",
+		"timespan": "76-74",
+		"locations": "Canada",
+		"imageName": "chasmo.jpg",
+		"type": "ceratopsian",
+		"length": 5
+	},
+	{
+		"name": "Chindesaurus",
+		"nameMeaning": "\"Chinde-øgle\" (efter Chinde Point, et sted i Arizona)",
+		"diet": "kødædende",
+		"timespan": "227-210",
+		"locations": "USA",
+		"imageName": "Chindesaurus.jpg",
+		"type": "early dinosaur",
+		"length": 4
+	},
+	{
+		"name": "Chinshakiangosaurus",
+		"nameMeaning": "\"Chinshakiang-øgle\" (Chinshakiang = Yangtze-floden i Kina)",
+		"diet": "planteædende",
+		"timespan": "159-142",
+		"locations": "Kina",
+		"imageName": "Chinshakiangosaurus.jpg",
+		"type": "sauropod",
+		"length": 11
+	},
+	{
+		"name": "Chirostenotes",
+		"nameMeaning": "\"smal-håndet\"",
+		"diet": "altædende",
+		"timespan": "79-67",
+		"locations": "Canada",
+		"imageName": "Chirostenotes.jpg",
+		"type": "small theropod",
+		"length": 1.7
+	},
+	{
+		"name": "Chubutisaurus",
+		"nameMeaning": "\"Chubut-øgle\" (Chubut er en argentinsk provins)",
+		"diet": "planteædende",
+		"timespan": "112-99",
+		"locations": "Argentina",
+		"imageName": "Chubutisaurus.jpg",
+		"type": "sauropod",
+		"length": 23
+	},
+	{
+		"name": "Chungkingosaurus",
+		"nameMeaning": "\"Chongqing-øgle\" (Chongqing er en by i Kina)",
+		"diet": "planteædende",
+		"timespan": "159-142",
+		"locations": "Kina",
+		"imageName": "Chungkingosaurus.jpg",
+		"type": "armoured dinosaur",
+		"length": 4
+	},
+	{
+		"name": "Citipati",
+		"nameMeaning": "\"ligbåls-hersker\"",
+		"diet": "altædende",
+		"timespan": "81-75",
+		"locations": "Mongoliet",
+		"imageName": "Citipati.jpg",
+		"type": "small theropod",
+		"length": 2.1
+	},
+	{
+		"name": "Coelophysis",
+		"nameMeaning": "\"hul form\"",
+		"diet": "kødædende",
+		"timespan": "225-190",
+		"locations": "Sydafrika, USA og Zimbabwe",
+		"imageName": "coelo.jpg",
+		"type": "small theropod",
+		"length": 2
+	},
+	{
+		"name": "Coelurus",
+		"nameMeaning": "\"hul hale\"",
+		"diet": "kødædende",
+		"timespan": "155-145",
+		"locations": "USA",
+		"imageName": "coelurus.jpg",
+		"type": "small theropod",
+		"length": 1.8
+	},
+	{
+		"name": "Coloradisaurus",
+		"nameMeaning": "\"Colorados-øgle\" (efter Los Colorados, en geologisk formation i Argentina)",
+		"diet": "altædende",
+		"timespan": "221-210",
+		"locations": "Argentina",
+		"imageName": "Coloradisaurus.jpg",
+		"type": "prosauropod",
+		"length": 4
+	},
+	{
+		"name": "Compsognathus",
+		"nameMeaning": "\"pæn kæbe\"",
+		"diet": "kødædende",
+		"timespan": "145-140",
+		"locations": "Frankrig og Tyskland",
+		"imageName": "Compsognathus.jpg",
+		"type": "small theropod",
+		"length": 0.7
+	},
+	{
+		"name": "Conchoraptor",
+		"nameMeaning": "\"konkylie-røver\"",
+		"diet": "kødædende",
+		"timespan": "81-76",
+		"locations": "Mongoliet",
+		"imageName": "Conchoraptor.jpg",
+		"type": "small theropod",
+		"length": 1.5
+	},
+	{
+		"name": "Confuciusornis",
+		"nameMeaning": "\"Kong Fuzi-fugl\" (efter den kinesiske filosof Kong Fuzi)",
+		"diet": "kødædende",
+		"timespan": "127-121",
+		"locations": "Kina",
+		"imageName": "Confuciusornis.jpg",
+		"type": "small theropod",
+		"length": 0.3
+	},
+	{
+		"name": "Corythosaurus",
+		"nameMeaning": "\"Korintisk hjelm-øgle\"",
+		"diet": "planteædende",
+		"timespan": "76-74",
+		"locations": "Canada og USA",
+		"imageName": "coryth.jpg",
+		"type": "large ornithopod",
+		"length": 10
+	},
+	{
+		"name": "Cryolophosaurus",
+		"nameMeaning": "\"frossen kam-øgle\"",
+		"diet": "kødædende",
+		"timespan": "170",
+		"locations": "Antarctica",
+		"imageName": "cryolopho.jpg",
+		"type": "large theropod",
+		"length": 8
+	},
+	{
+		"name": "Dacentrurus",
+		"nameMeaning": "\"spids hale\"",
+		"diet": "planteædende",
+		"timespan": "154-150",
+		"locations": "England, Frankrig og Portugal",
+		"imageName": "dacentr.jpg",
+		"type": "armoured dinosaur",
+		"length": 6
+	},
+	{
+		"name": "Daspletosaurus",
+		"nameMeaning": "\"skræmmende øgle\"",
+		"diet": "kødædende",
+		"timespan": "76-74",
+		"locations": "Canada",
+		"imageName": "daspelet.jpg",
+		"type": "large theropod",
+		"length": 9
+	},
+	{
+		"name": "Datousaurus",
+		"nameMeaning": "\"stor-hovedet-øgle\"",
+		"diet": "planteædende",
+		"timespan": "170",
+		"locations": "Kina",
+		"imageName": "datou.jpg",
+		"type": "sauropod",
+		"length": 15
+	},
+	{
+		"name": "Deinocheirus",
+		"nameMeaning": "\"frygtindgydende hånd\"",
+		"diet": "altædende",
+		"timespan": "70-66",
+		"locations": "Mongoliet",
+		"imageName": "deinoc.jpg",
+		"type": "large theropod",
+		"length": 10
+	},
+	{
+		"name": "Deinonychus",
+		"nameMeaning": "\"frygtindgydende klo\"",
+		"diet": "kødædende",
+		"timespan": "115-108",
+		"locations": "USA",
+		"imageName": "deinonychus.jpg",
+		"type": "small theropod",
+		"length": 3.4
+	},
+	{
+		"name": "Deltadromeus",
+		"nameMeaning": "\"delta-løber\"",
+		"diet": "kødædende",
+		"timespan": "99-94",
+		"locations": "Marokko",
+		"imageName": "Deltadromeus.jpg",
+		"type": "large theropod",
+		"length": 8.1
+	},
+	{
+		"name": "Dicraeosaurus",
+		"nameMeaning": "\"gaflet øgle\"",
+		"diet": "planteædende",
+		"timespan": "150-135",
+		"locations": "Tanzania",
+		"imageName": "Dicraeosaurus.jpg",
+		"type": "sauropod",
+		"length": 20
+	},
+	{
+		"name": "Dilophosaurus",
+		"nameMeaning": "\"to-kammet øgle\"",
+		"diet": "kødædende",
+		"timespan": "190",
+		"locations": "USA",
+		"imageName": "dilopho.jpg",
+		"type": "large theropod",
+		"length": 6
+	},
+	{
+		"name": "Diplodocus",
+		"nameMeaning": "\"dobbel-bue\"",
+		"diet": "planteædende",
+		"timespan": "152-145",
+		"locations": "USA",
+		"imageName": "diplodocus.jpg",
+		"type": "sauropod",
+		"length": 26
+	},
+	{
+		"name": "Dracorex",
+		"nameMeaning": "\"dragekonge\"",
+		"diet": "planteædende",
+		"timespan": "66",
+		"locations": "USA",
+		"imageName": "Dracorex.jpg",
+		"type": "pachycephalosaur",
+		"length": 4
+	},
+	{
+		"name": "Dreadnoughtus",
+		"nameMeaning": "\"frygter intet\"",
+		"diet": "planteædende",
+		"timespan": "76-70",
+		"locations": "Argentina",
+		"imageName": "dreadnoughtus-c.jpg",
+		"type": "sauropod",
+		"length": 26
+	},
+	{
+		"name": "Dromaeosaurus",
+		"nameMeaning": "\"løbende øgle\"",
+		"diet": "kødædende",
+		"timespan": "76-74",
+		"locations": "Canada og USA",
+		"imageName": "droma.jpg",
+		"type": "small theropod",
+		"length": 1.8
+	},
+	{
+		"name": "Dromiceiomimus",
+		"nameMeaning": "\"emu-efterligner\"",
+		"diet": "altædende",
+		"timespan": "74-70",
+		"locations": "Canada",
+		"imageName": "dromic.jpg",
+		"type": "large theropod",
+		"length": 3.5
+	},
+	{
+		"name": "Dryosaurus",
+		"nameMeaning": "\"ege-øgle\"",
+		"diet": "planteædende",
+		"timespan": "155-140",
+		"locations": "Tanzania og USA",
+		"imageName": "dryo.jpg",
+		"type": "small ornithopod",
+		"length": 4
+	},
+	{
+		"name": "Dryptosaurus",
+		"nameMeaning": "\"sønderrivende øgle\"",
+		"diet": "kødædende",
+		"timespan": "84-66",
+		"locations": "USA",
+		"imageName": "drypto.jpg",
+		"type": "large theropod",
+		"length": 6.4
+	},
+	{
+		"name": "Dubreuillosaurus",
+		"nameMeaning": "\"Dubreuil øgle\" (efter André Dubreuil)",
+		"diet": "kødædende",
+		"timespan": "169-164",
+		"locations": "Frankrig",
+		"imageName": "Dubreuillosaurus.jpg",
+		"type": "large ornithopod",
+		"length": 6
+	},
+	{
+		"name": "Edmontonia",
+		"nameMeaning": "bare \"Edmonton\" (en by i Canada)",
+		"diet": "planteædende",
+		"timespan": "76-74",
+		"locations": "Canada",
+		"imageName": "Edmontonia.jpg",
+		"type": "armoured dinosaur",
+		"length": 4
+	},
+	{
+		"name": "Edmontosaurus",
+		"nameMeaning": "\"Edmonton-øgle\" (Edmonton er en by i Canada)",
+		"diet": "planteædende",
+		"timespan": "76-66",
+		"locations": "Canada",
+		"imageName": "edmonto.jpg",
+		"type": "large ornithopod",
+		"length": 13
+	},
+	{
+		"name": "Einiosaurus",
+		"nameMeaning": "\"bison-øgle\"",
+		"diet": "planteædende",
+		"timespan": "74",
+		"locations": "USA",
+		"imageName": "Einiosaurus.jpg",
+		"type": "ceratopsian",
+		"length": 6
+	},
+	{
+		"name": "Elaphrosaurus",
+		"nameMeaning": "\"flåde-øgle\"",
+		"diet": "kødædende",
+		"timespan": "154-151",
+		"locations": "Tanzania",
+		"imageName": "Elaphrosaurus.jpg",
+		"type": "large theropod",
+		"length": 6.2
+	},
+	{
+		"name": "Emausaurus",
+		"nameMeaning": "\"EMAU-øgle\" (EMAU = Ernst-Moritz-Arndt-Universität)",
+		"diet": "planteædende",
+		"timespan": "190-180",
+		"locations": "Tyskland",
+		"imageName": "Emausaurus.jpg",
+		"type": "armoured dinosaur",
+		"length": 2
+	},
+	{
+		"name": "Eolambia",
+		"nameMeaning": "\"daggry-Lambeosaur\" (Lambeosaur betyder \"Lambes øgle\", efter Lawrence Lambe)",
+		"diet": "planteædende",
+		"timespan": "99-94",
+		"locations": "USA",
+		"imageName": "Eolambia.jpg",
+		"type": "large theropod",
+		"length": 9
+	},
+	{
+		"name": "Eoraptor",
+		"nameMeaning": "\"tidlig røver\"",
+		"diet": "kødædende",
+		"timespan": "228",
+		"locations": "Argentina",
+		"imageName": "eor.jpg",
+		"type": "small theropod",
+		"length": 1.7
+	},
+	{
+		"name": "Eotyrannus",
+		"nameMeaning": "\"daggrys-tyrran\"",
+		"diet": "kødædende",
+		"timespan": "127-121",
+		"locations": "England",
+		"imageName": "Eotyrannus.jpg",
+		"type": "large theropod",
+		"length": 5
+	},
+	{
+		"name": "Equijubus",
+		"nameMeaning": "\"hestemanke\"",
+		"diet": "planteædende",
+		"timespan": "127-99",
+		"locations": "Kina",
+		"imageName": "Equijubus.jpg",
+		"type": "large ornithopod",
+		"length": 7
+	},
+	{
+		"name": "Erketu",
+		"nameMeaning": "bare \"Erketü\" (andet navn for Tengri, en Mongolsk gud)",
+		"diet": "planteædende",
+		"timespan": "96-89",
+		"locations": "Mongoliet",
+		"imageName": "Erketu.jpg",
+		"type": "sauropod",
+		"length": 15
+	},
+	{
+		"name": "Erlikosaurus",
+		"nameMeaning": "\"Erliks øgle\" (Erlik er dødsguden i tyrkisk mytologi)",
+		"diet": "altædende",
+		"timespan": "99-89",
+		"locations": "Mongoliet",
+		"imageName": "Erlikosaurus.jpg",
+		"type": "small theropod",
+		"length": 3.4
+	},
+	{
+		"name": "Euhelopus",
+		"nameMeaning": "\"sand sump-fod\"",
+		"diet": "planteædende",
+		"timespan": "154-142",
+		"locations": "Kina",
+		"imageName": "Euhelopus.jpg",
+		"type": "sauropod",
+		"length": 10
+	},
+	{
+		"name": "Euoplocephalus",
+		"nameMeaning": "\"vel-pansret hoved\"",
+		"diet": "planteædende",
+		"timespan": "76-70",
+		"locations": "Canada og USA",
+		"imageName": "euoplo.jpg",
+		"type": "armoured dinosaur",
+		"length": 7
+	},
+	{
+		"name": "Europasaurus",
+		"nameMeaning": "\"Europa-øgle\"",
+		"diet": "planteædende",
+		"timespan": "154-151",
+		"locations": "Tyskland",
+		"imageName": "Europasaurus.jpg",
+		"type": "sauropod",
+		"length": 6.2
+	},
+	{
+		"name": "Eustreptospondylus",
+		"nameMeaning": "\"vel-bøjet hvirvel\"",
+		"diet": "kødædende",
+		"timespan": "165",
+		"locations": "England",
+		"imageName": "Eustreptospondylus.jpg",
+		"type": "large theropod",
+		"length": 7
+	},
+	{
+		"name": "Fukuiraptor",
+		"nameMeaning": "\"Fukui-røver\" (Fukui er en by i Japan)",
+		"diet": "kødædende",
+		"timespan": "121-99",
+		"locations": "Japan",
+		"imageName": "Fukuiraptor.jpg",
+		"type": "large theropod",
+		"length": 4.2
+	},
+	{
+		"name": "Fukuisaurus",
+		"nameMeaning": "\"Fukui-øgle\" (Fukui er en by i Japan)",
+		"diet": "planteædende",
+		"timespan": "121-99",
+		"locations": "Japan",
+		"imageName": "Fukuisaurus.jpg",
+		"type": "large ornithopod",
+		"length": 4.7
+	},
+	{
+		"name": "Gallimimus",
+		"nameMeaning": "\"kyllinge-efterligner\"",
+		"diet": "altædende",
+		"timespan": "74-70",
+		"locations": "Mongoliet",
+		"imageName": "gallim.jpg",
+		"type": "large theropod",
+		"length": 6
+	},
+	{
+		"name": "Gargoyleosaurus",
+		"nameMeaning": "\"gargoil-øgle\"",
+		"diet": "planteædende",
+		"timespan": "154-142",
+		"locations": "USA",
+		"imageName": "Gargoyleosaurus.jpg",
+		"type": "armoured dinosaur",
+		"length": 4
+	},
+	{
+		"name": "Garudimimus",
+		"nameMeaning": "\"Garuda-efterligner\" (Garuda er en hinduistisk gud)",
+		"diet": "altædende",
+		"timespan": "99-89",
+		"locations": "Mongoliet",
+		"imageName": "Garudimimus.jpg",
+		"type": "large theropod",
+		"length": 4.7
+	},
+	{
+		"name": "Gasosaurus",
+		"nameMeaning": "\"gas-øgle\"",
+		"diet": "kødædende",
+		"timespan": "170-160",
+		"locations": "Kina",
+		"imageName": "gaso.jpg",
+		"type": "small theropod",
+		"length": 4
+	},
+	{
+		"name": "Gasparinisaura",
+		"nameMeaning": "\"Gasparinis øgle\" (efter Zulma Brandoni de Gasparini)",
+		"diet": "planteædende",
+		"timespan": "86-71",
+		"locations": "Argentina",
+		"imageName": "Gasparinisaura.jpg",
+		"type": "small ornithopod",
+		"length": 0.8
+	},
+	{
+		"name": "Gastonia",
+		"nameMeaning": "bare \"Gaston\" (efter Robert Gaston)",
+		"diet": "planteædende",
+		"timespan": "142-127",
+		"locations": "USA",
+		"imageName": "Gastonia.jpg",
+		"type": "armoured dinosaur",
+		"length": 4.6
+	},
+	{
+		"name": "Giganotosaurus",
+		"nameMeaning": "\"kæmpe sydlig øgle\"",
+		"diet": "kødædende",
+		"timespan": "112-90",
+		"locations": "Argentina",
+		"imageName": "giganoto.jpg",
+		"type": "large theropod",
+		"length": 12.5
+	},
+	{
+		"name": "Gilmoreosaurus",
+		"nameMeaning": "\"Gilmores øgle\" (efter Charles Whitney Gilmore)",
+		"diet": "planteædende",
+		"timespan": "76-70",
+		"locations": "Kina",
+		"imageName": "gilmore.jpg",
+		"type": "large ornithopod",
+		"length": 6
+	},
+	{
+		"name": "Giraffatitan",
+		"nameMeaning": "\"giraf-titan\"",
+		"diet": "planteædende",
+		"timespan": "154-142",
+		"locations": "Tanzania",
+		"imageName": "Giraffatitan.jpg",
+		"type": "sauropod",
+		"length": 23
+	},
+	{
+		"name": "Gobisaurus",
+		"nameMeaning": "\"Gobi-øgle\" (efter Gobi-ørkenen i Mongoliet)",
+		"diet": "planteædende",
+		"timespan": "121-99",
+		"locations": "Kina",
+		"imageName": "Gobisaurus.jpg",
+		"type": "armoured dinosaur",
+		"length": 5
+	},
+	{
+		"name": "Gorgosaurus",
+		"nameMeaning": "\"frygtelig øgle\"",
+		"diet": "kødædende",
+		"timespan": "80-73",
+		"locations": "Canada og USA",
+		"imageName": "Gorgosaurus.jpg",
+		"type": "large theropod",
+		"length": 8.6
+	},
+	{
+		"name": "Goyocephale",
+		"nameMeaning": "\"dekoreret hoved\"",
+		"diet": "planteædende",
+		"timespan": "81-75",
+		"locations": "Mongoliet",
+		"imageName": "Goyocephale.jpg",
+		"type": "pachycephalosaur",
+		"length": 2
+	},
+	{
+		"name": "Graciliceratops",
+		"nameMeaning": "\"slankt hornet ansigt\"",
+		"diet": "planteædende",
+		"timespan": "99-84",
+		"locations": "Mongoliet",
+		"imageName": "Graciliceratops.jpg",
+		"type": "ceratopsian",
+		"length": 2
+	},
+	{
+		"name": "Gryposaurus",
+		"nameMeaning": "\"krog-næset øgle\"",
+		"diet": "planteædende",
+		"timespan": "86-71",
+		"locations": "Canada og USA",
+		"imageName": "Gryposaurus.jpg",
+		"type": "large ornithopod",
+		"length": 10
+	},
+	{
+		"name": "Guaibasaurus",
+		"nameMeaning": "\"Guaiba øgle\" (efter Rio Guaiba)",
+		"diet": "planteædende",
+		"timespan": "221-210",
+		"locations": "Brazilien",
+		"imageName": "Guaibasaurus.jpg",
+		"type": "prosauropod",
+		"length": 1.8
+	},
+	{
+		"name": "Guanlong",
+		"nameMeaning": "\"kronet drage\"",
+		"diet": "kødædende",
+		"timespan": "159-154",
+		"locations": "Kina",
+		"imageName": "Guanlong.jpg",
+		"type": "small theropod",
+		"length": 3
+	},
+	{
+		"name": "Hadrosaurus",
+		"nameMeaning": "\"stor øgle\"",
+		"diet": "planteædende",
+		"timespan": "78-74",
+		"locations": "USA",
+		"imageName": "hadro.jpg",
+		"type": "large ornithopod",
+		"length": 9
+	},
+	{
+		"name": "Hagryphus",
+		"nameMeaning": "\"Ha-grif\" (Ha er den egyptiske gud af den vestlige ørken)",
+		"diet": "altædende",
+		"timespan": "76",
+		"locations": "USA",
+		"imageName": "Hagryphus.jpg",
+		"type": "small theropod",
+		"length": 3
+	},
+	{
+		"name": "Haplocanthosaurus",
+		"nameMeaning": "\"simpel-rygget øgle\"",
+		"diet": "planteædende",
+		"timespan": "154-142",
+		"locations": "USA",
+		"imageName": "Haplocanthosaurus.jpg",
+		"type": "sauropod",
+		"length": 21.5
+	},
+	{
+		"name": "Harpymimus",
+		"nameMeaning": "\"harpy-efterligner\" (en harpy er en dødsånd i græsk mytologi)",
+		"diet": "altædende",
+		"timespan": "121-99",
+		"locations": "Mongoliet",
+		"imageName": "Harpymimus.jpg",
+		"type": "small theropod",
+		"length": 2
+	},
+	{
+		"name": "Herrerasaurus",
+		"nameMeaning": "\"Herreras øgle\" (efter Victorino Herrera)",
+		"diet": "kødædende",
+		"timespan": "228",
+		"locations": "Argentina",
+		"imageName": "herrera.jpg",
+		"type": "early dinosaur",
+		"length": 3
+	},
+	{
+		"name": "Hesperosaurus",
+		"nameMeaning": "\"vestlig øgle\"",
+		"diet": "planteædende",
+		"timespan": "154-142",
+		"locations": "USA",
+		"imageName": "Hesperosaurus.jpg",
+		"type": "armoured dinosaur",
+		"length": 6
+	},
+	{
+		"name": "Heterodontosaurus",
+		"nameMeaning": "\"anderledes tænder-øgle\"",
+		"diet": "planteædende",
+		"timespan": "205",
+		"locations": "Lesotho og Sydafrika",
+		"imageName": "hetero.jpg",
+		"type": "small ornithischian",
+		"length": 1.2
+	},
+	{
+		"name": "Heyuannia",
+		"nameMeaning": "bare \"Heyuan\" (en by i Kina)",
+		"diet": "altædende",
+		"timespan": "72-68",
+		"locations": "Mongoliet",
+		"imageName": "heyuannia.jpg",
+		"type": "small theropod",
+		"length": 2
+	},
+	{
+		"name": "Homalocephale",
+		"nameMeaning": "\"jævnt hoved\"",
+		"diet": "planteædende",
+		"timespan": "72-68",
+		"locations": "Mongoliet",
+		"imageName": "Homalocephale.jpg",
+		"type": "pachycephalosaur",
+		"length": 1.5
+	},
+	{
+		"name": "Huayangosaurus",
+		"nameMeaning": "\"Huayang-øgle\" (Huayang er en kinesisk provins)",
+		"diet": "planteædende",
+		"timespan": "170-160",
+		"locations": "Kina",
+		"imageName": "huayango.jpg",
+		"type": "armoured dinosaur",
+		"length": 4.5
+	},
+	{
+		"name": "Hylaeosaurus",
+		"nameMeaning": "\"skov-øgle\"",
+		"diet": "planteædende",
+		"timespan": "150-135",
+		"locations": "England",
+		"imageName": "hylaeo.jpg",
+		"type": "armoured dinosaur",
+		"length": 5
+	},
+	{
+		"name": "Hypacrosaurus",
+		"nameMeaning": "\"næsten-højeste øgle\"",
+		"diet": "planteædende",
+		"timespan": "70",
+		"locations": "Canada og USA",
+		"imageName": "Hypacrosaurus.jpg",
+		"type": "large ornithopod",
+		"length": 9
+	},
+	{
+		"name": "Hypsilophodon",
+		"nameMeaning": "\"høj-kammet tand\"",
+		"diet": "planteædende",
+		"timespan": "125",
+		"locations": "England og Spanien",
+		"imageName": "hypsil.jpg",
+		"type": "small ornithopod",
+		"length": 2.3
+	},
+	{
+		"name": "Iguanodon",
+		"nameMeaning": "\"iguana-tand\"",
+		"diet": "planteædende",
+		"timespan": "140-110",
+		"locations": "Belgien og England",
+		"imageName": "iguano.jpg",
+		"type": "large ornithopod",
+		"length": 10
+	},
+	{
+		"name": "Indosuchus",
+		"nameMeaning": "\"indisk krokodile\"",
+		"diet": "kødædende",
+		"timespan": "71-66",
+		"locations": "Indien",
+		"imageName": "Indosuchus.jpg",
+		"type": "large theropod",
+		"length": 7
+	},
+	{
+		"name": "Irritator",
+		"nameMeaning": "\"irriterende\"",
+		"diet": "kødædende",
+		"timespan": "112-99",
+		"locations": "Brazilien",
+		"imageName": "Irritator.jpg",
+		"type": "large theropod",
+		"length": 6.5
+	},
+	{
+		"name": "Isisaurus",
+		"nameMeaning": "\"ISI-øgle\" (ISI er Indian Statistical Institute)",
+		"diet": "planteædende",
+		"timespan": "71-66",
+		"locations": "Indien",
+		"imageName": "Isisaurus.jpg",
+		"type": "sauropod",
+		"length": 18
+	},
+	{
+		"name": "Janenschia",
+		"nameMeaning": "bare \"Janensch\" (efter Werner Janensch)",
+		"diet": "planteædende",
+		"timespan": "154-151",
+		"locations": "Tanzania",
+		"imageName": "Janenschia.jpg",
+		"type": "sauropod",
+		"length": 20
+	},
+	{
+		"name": "Jaxartosaurus",
+		"nameMeaning": "\"Jaxartes-øgle\" (Jaxartes er en flod i det centrale Asien)",
+		"diet": "planteædende",
+		"timespan": "94-84",
+		"locations": "Kazakhstan",
+		"imageName": "Jaxartosaurus.jpg",
+		"type": "large ornithopod",
+		"length": 9
+	},
+	{
+		"name": "Jingshanosaurus",
+		"nameMeaning": "\"Jingshan-øgle\" (Jingshan er en by i Kina)",
+		"diet": "planteædende",
+		"timespan": "205-190",
+		"locations": "Kina",
+		"imageName": "Jingshanosaurus.jpg",
+		"type": "prosauropod",
+		"length": 5
+	},
+	{
+		"name": "Jinzhousaurus",
+		"nameMeaning": "\"Jinzhou-øgle\" (Jinzhou er en by i Kina)",
+		"diet": "planteædende",
+		"timespan": "127-121",
+		"locations": "Kina",
+		"imageName": "Jinzhousaurus.jpg",
+		"type": "large ornithopod",
+		"length": 7
+	},
+	{
+		"name": "Jobaria",
+		"nameMeaning": "bare \"Jobar\" (et mytisk væsen if. Tuareg-folket i Afrika)",
+		"diet": "planteædende",
+		"timespan": "132-94",
+		"locations": "Niger",
+		"imageName": "Jobaria.jpg",
+		"type": "sauropod",
+		"length": 21
+	},
+	{
+		"name": "Juravenator",
+		"nameMeaning": "\"Jura-jæger\" (efter Jura-bjergene)",
+		"diet": "kødædende",
+		"timespan": "154-151",
+		"locations": "Tyskland",
+		"imageName": "Juravenator.jpg",
+		"type": "small theropod",
+		"length": 0.8
+	},
+	{
+		"name": "Kentrosaurus",
+		"nameMeaning": "\"spids øgle\"",
+		"diet": "planteædende",
+		"timespan": "155-150",
+		"locations": "Tanzania",
+		"imageName": "kentro.jpg",
+		"type": "armoured dinosaur",
+		"length": 5
+	},
+	{
+		"name": "Khaan",
+		"nameMeaning": "\"hersker\"",
+		"diet": "altædende",
+		"timespan": "81-75",
+		"locations": "Mongoliet",
+		"imageName": "Khaan.jpg",
+		"type": "small theropod",
+		"length": 1.8
+	},
+	{
+		"name": "Kotasaurus",
+		"nameMeaning": "\"Kota-øgle\" (efter Kota Formation, en geologisk formation i Indien)",
+		"diet": "planteædende",
+		"timespan": "205-180",
+		"locations": "Indien",
+		"imageName": "Kotasaurus.jpg",
+		"type": "sauropod",
+		"length": 9
+	},
+	{
+		"name": "Kritosaurus",
+		"nameMeaning": "\"nobel øgle\"",
+		"diet": "planteædende",
+		"timespan": "78-74",
+		"locations": "Argentina og USA",
+		"imageName": "krito.jpg",
+		"type": "large ornithopod",
+		"length": 8
+	},
+	{
+		"name": "Lambeosaurus",
+		"nameMeaning": "\"Lambes øgle\" (efter Lawrence Lambe)",
+		"diet": "planteædende",
+		"timespan": "76-74",
+		"locations": "Canada",
+		"imageName": "lambeo.jpg",
+		"type": "large ornithopod",
+		"length": 9
+	},
+	{
+		"name": "Lapparentosaurus",
+		"nameMeaning": "\"Lapparents øgle\" (efter Albert-Félix de Lapparent)",
+		"diet": "planteædende",
+		"timespan": "169-164",
+		"locations": "Madagascar",
+		"imageName": "Lapparentosaurus.jpg",
+		"type": "sauropod",
+		"length": 10
+	},
+	{
+		"name": "Leaellynasaura",
+		"nameMeaning": "\"Leaellyns øgle\" (efter Leaellyn Rich)",
+		"diet": "planteædende",
+		"timespan": "115-110",
+		"locations": "Australien",
+		"imageName": "Leaellynasaura.jpg",
+		"type": "small ornithopod",
+		"length": 2
+	},
+	{
+		"name": "Leptoceratops",
+		"nameMeaning": "\"slankt hornet ansigt\"",
+		"diet": "planteædende",
+		"timespan": "67-66",
+		"locations": "Canada og USA",
+		"imageName": "Leptoceratops.jpg",
+		"type": "ceratopsian",
+		"length": 3
+	},
+	{
+		"name": "Lesothosaurus",
+		"nameMeaning": "\"Lesotho-øgle\"",
+		"diet": "planteædende",
+		"timespan": "213-200",
+		"locations": "Lesotho",
+		"imageName": "lesotho.jpg",
+		"type": "small ornithischian",
+		"length": 1
+	},
+	{
+		"name": "Liaoceratops",
+		"nameMeaning": "\"Liaoning-hornet ansigt\" (Liaoning er en kinesisk provins)",
+		"diet": "planteædende",
+		"timespan": "127-121",
+		"locations": "Kina",
+		"imageName": "Liaoceratops.jpg",
+		"type": "ceratopsian",
+		"length": 0.5
+	},
+	{
+		"name": "Ligabuesaurus",
+		"nameMeaning": "\"Ligabue-øgle\" (efter Giancarlo Ligabue)",
+		"diet": "planteædende",
+		"timespan": "121-99",
+		"locations": "Argentina",
+		"imageName": "Ligabuesaurus.jpg",
+		"type": "sauropod",
+		"length": 24
+	},
+	{
+		"name": "Liliensternus",
+		"nameMeaning": "bare \"Lilienstern\" (efter Hugo Rühle von Lilienstern)",
+		"diet": "kødædende",
+		"timespan": "205-202",
+		"locations": "Frankrig og Tyskland",
+		"imageName": "Liliensternus.jpg",
+		"type": "small theropod",
+		"length": 5
+	},
+	{
+		"name": "Lophorhothon",
+		"nameMeaning": "\"kammet næse\"",
+		"diet": "planteædende",
+		"timespan": "84-71",
+		"locations": "USA",
+		"imageName": "Lophorhothon.jpg",
+		"type": "large ornithopod",
+		"length": 4.5
+	},
+	{
+		"name": "Lophostropheus",
+		"nameMeaning": "\"kammet hvirvel\"",
+		"diet": "kødædende",
+		"timespan": "203-196",
+		"locations": "Frankrig",
+		"imageName": "lophostropheus.jpg",
+		"type": "large theropod",
+		"length": 6.2
+	},
+	{
+		"name": "Lufengosaurus",
+		"nameMeaning": "\"Lufeng-øgle\" (Lufeng er en by i Kina)",
+		"diet": "planteædende",
+		"timespan": "200-195",
+		"locations": "Kina",
+		"imageName": "lufengos.jpg",
+		"type": "prosauropod",
+		"length": 6
+	},
+	{
+		"name": "Lurdusaurus",
+		"nameMeaning": "\"tung øgle\"",
+		"diet": "planteædende",
+		"timespan": "121-112",
+		"locations": "Niger",
+		"imageName": "Lurdusaurus.jpg",
+		"type": "large ornithopod",
+		"length": 9
+	},
+	{
+		"name": "Lycorhinus",
+		"nameMeaning": "\"ulvesnude\"",
+		"diet": "planteædende",
+		"timespan": "205-195",
+		"locations": "Sydafrika",
+		"imageName": "Lycorhinus.jpg",
+		"type": "small ornithischian",
+		"length": 1.2
+	},
+	{
+		"name": "Magyarosaurus",
+		"nameMeaning": "\"Magyar-øgle\" (en Magyar = en Ungarer)",
+		"diet": "planteædende",
+		"timespan": "71-66",
+		"locations": "Romanien",
+		"imageName": "Magyarosaurus.jpg",
+		"type": "sauropod",
+		"length": 5
+	},
+	{
+		"name": "Maiasaura",
+		"nameMeaning": "\"god mor-øgle\"",
+		"diet": "planteædende",
+		"timespan": "80-75",
+		"locations": "USA",
+		"imageName": "maia.jpg",
+		"type": "large ornithopod",
+		"length": 9
+	},
+	{
+		"name": "Majungasaurus",
+		"nameMeaning": "\"Mahajunga-øgle\" (Mahajunga er en by i Madagascar)",
+		"diet": "kødædende",
+		"timespan": "84-71",
+		"locations": "Madagascar",
+		"imageName": "Majungatholus.jpg",
+		"type": "large theropod",
+		"length": 6
+	},
+	{
+		"name": "Malawisaurus",
+		"nameMeaning": "\"Malawi-øgle\"",
+		"diet": "planteædende",
+		"timespan": "121-112",
+		"locations": "Malawi",
+		"imageName": "Malawisaurus.jpg",
+		"type": "sauropod",
+		"length": 9
+	},
+	{
+		"name": "Mamenchisaurus",
+		"nameMeaning": "\"heste-bæk-øgle\"",
+		"diet": "planteædende",
+		"timespan": "155-145",
+		"locations": "Kina",
+		"imageName": "mamench.jpg",
+		"type": "sauropod",
+		"length": 22
+	},
+	{
+		"name": "Mapusaurus",
+		"nameMeaning": "\"land-øgle\"",
+		"diet": "kødædende",
+		"timespan": "99-94",
+		"locations": "Argentina",
+		"imageName": "Mapusaurus.jpg",
+		"type": "large theropod",
+		"length": 13
+	},
+	{
+		"name": "Marshosaurus",
+		"nameMeaning": "\"Marsh-øgle\" (efter Othniel Charles Marsh)",
+		"diet": "kødædende",
+		"timespan": "154-142",
+		"locations": "USA",
+		"imageName": "Marshosaurus.jpg",
+		"type": "large theropod",
+		"length": 6
+	},
+	{
+		"name": "Masiakasaurus",
+		"nameMeaning": "\"ondskabsfuld øgle\"",
+		"diet": "kødædende",
+		"timespan": "84-71",
+		"locations": "Madagascar",
+		"imageName": "Masiakasaurus.jpg",
+		"type": "small theropod",
+		"length": 2
+	},
+	{
+		"name": "Massospondylus",
+		"nameMeaning": "\"kæmpe hvirvler\"",
+		"diet": "altædende",
+		"timespan": "208-204",
+		"locations": "Lesotho, Sydafrika og Zimbabwe",
+		"imageName": "massospon.jpg",
+		"type": "prosauropod",
+		"length": 4
+	},
+	{
+		"name": "Maxakalisaurus",
+		"nameMeaning": "\"Maxakali-øgle\" (Maxakali er en stamme i Brazilien)",
+		"diet": "planteædende",
+		"timespan": "80",
+		"locations": "Brazilien",
+		"imageName": "Maxakalisaurus.jpg",
+		"type": "sauropod",
+		"length": 13
+	},
+	{
+		"name": "Megalosaurus",
+		"nameMeaning": "\"stor øgle\"",
+		"diet": "kødædende",
+		"timespan": "166",
+		"locations": "England",
+		"imageName": "megalosaurus.jpg",
+		"type": "large theropod",
+		"length": 6
+	},
+	{
+		"name": "Melanorosaurus",
+		"nameMeaning": "\"sort bjerg-øgle\"",
+		"diet": "altædende",
+		"timespan": "227-221",
+		"locations": "Sydafrika",
+		"imageName": "Melanorosaurus.jpg",
+		"type": "prosauropod",
+		"length": 12
+	},
+	{
+		"name": "Metriacanthosaurus",
+		"nameMeaning": "\"moderat-rygget øgle\"",
+		"diet": "kødædende",
+		"timespan": "159-154",
+		"locations": "England",
+		"imageName": "Metriacanthosaurus.jpg",
+		"type": "large theropod",
+		"length": 8.2
+	},
+	{
+		"name": "Microceratus",
+		"nameMeaning": "\"lille hornet\"",
+		"diet": "planteædende",
+		"timespan": "86-66",
+		"locations": "Kina og Mongoliet",
+		"imageName": "microceratus.jpg",
+		"type": "ceratopsian",
+		"length": 0.5
+	},
+	{
+		"name": "Micropachycephalosaurus",
+		"nameMeaning": "\"lille tyk-hovedet øgle\"",
+		"diet": "planteædende",
+		"timespan": "84-71",
+		"locations": "Kina",
+		"imageName": "Micropachycephalosaurus.jpg",
+		"type": "ceratopsian",
+		"length": 0.6
+	},
+	{
+		"name": "Microraptor",
+		"nameMeaning": "\"lille røver\"",
+		"diet": "kødædende",
+		"timespan": "125-122",
+		"locations": "Kina",
+		"imageName": "Microraptor.jpg",
+		"type": "small theropod",
+		"length": 0.8
+	},
+	{
+		"name": "Minmi",
+		"nameMeaning": "bare \"Minmi\" (efter Minmi Crossing i Australien)",
+		"diet": "planteædende",
+		"timespan": "121-112",
+		"locations": "Australien",
+		"imageName": "Minmi.jpg",
+		"type": "armoured dinosaur",
+		"length": 3
+	},
+	{
+		"name": "Monolophosaurus",
+		"nameMeaning": "\"enkelt-kammet øgle\"",
+		"diet": "kødædende",
+		"timespan": "180-159",
+		"locations": "Kina",
+		"imageName": "Monolophosaurus.jpg",
+		"type": "large theropod",
+		"length": 5.7
+	},
+	{
+		"name": "Mononykus",
+		"nameMeaning": "\"enkel klo\"",
+		"diet": "nok kødædende",
+		"timespan": "81-68",
+		"locations": "Kina og Mongoliet",
+		"imageName": "Mononykus.jpg",
+		"type": "small theropod",
+		"length": 1
+	},
+	{
+		"name": "Mussaurus",
+		"nameMeaning": "\"musse-øgle\"",
+		"diet": "planteædende",
+		"timespan": "221-210",
+		"locations": "Argentina",
+		"imageName": "muss.jpg",
+		"type": "prosauropod",
+		"length": 3
+	},
+	{
+		"name": "Muttaburrasaurus",
+		"nameMeaning": "\"Muttaburra-øgle\" (Muttaburra er en by i Australien)",
+		"diet": "planteædende",
+		"timespan": "110-100",
+		"locations": "Australien",
+		"imageName": "muttab.jpg",
+		"type": "large ornithopod",
+		"length": 7
+	},
+	{
+		"name": "Nanshiungosaurus",
+		"nameMeaning": "\"Nanxiong-øgle\" (Nanxiong er en by i Kina)",
+		"diet": "altædende",
+		"timespan": "84-71",
+		"locations": "Kina",
+		"imageName": "Nanshiungosaurus.jpg",
+		"type": "large theropod",
+		"length": 4.4
+	},
+	{
+		"name": "Nedoceratops",
+		"nameMeaning": "\"utilstrækkeligt hornet ansigt\"",
+		"diet": "planteædende",
+		"timespan": "66",
+		"locations": "USA",
+		"imageName": "Diceratops.jpg",
+		"type": "ceratopsian",
+		"length": 7
+	},
+	{
+		"name": "Nemegtosaurus",
+		"nameMeaning": "\"Nemegt-øgle\" (Nemegt er en geologisk formation i Mongoliet)",
+		"diet": "planteædende",
+		"timespan": "72-68",
+		"locations": "Mongoliet",
+		"imageName": "Nemegtosaurus.jpg",
+		"type": "sauropod",
+		"length": 13
+	},
+	{
+		"name": "Neovenator",
+		"nameMeaning": "\"ny jæger\"",
+		"diet": "kødædende",
+		"timespan": "127-121",
+		"locations": "England",
+		"imageName": "Neovenator.jpg",
+		"type": "large theropod",
+		"length": 7.4
+	},
+	{
+		"name": "Neuquensaurus",
+		"nameMeaning": "\"Neuquén-øgle\" (Neuquén er en by i Argentina)",
+		"diet": "planteædende",
+		"timespan": "71-66",
+		"locations": "Argentina",
+		"imageName": "Neuquenosaurus.jpg",
+		"type": "sauropod",
+		"length": 15
+	},
+	{
+		"name": "Nigersaurus",
+		"nameMeaning": "\"Niger-øgle\"",
+		"diet": "planteædende",
+		"timespan": "121-99",
+		"locations": "Algeriet, Niger og Tunesien",
+		"imageName": "Nigersaurus.jpg",
+		"type": "sauropod",
+		"length": 15
+	},
+	{
+		"name": "Nipponosaurus",
+		"nameMeaning": "\"Japansk øgle\"",
+		"diet": "planteædende",
+		"timespan": "89-84",
+		"locations": "Rusland",
+		"imageName": "Nipponosaurus.jpg",
+		"type": "large ornithopod",
+		"length": 6
+	},
+	{
+		"name": "Noasaurus",
+		"nameMeaning": "\"nordvestlig Argentina-øgle\"",
+		"diet": "kødædende",
+		"timespan": "84-66",
+		"locations": "Argentina",
+		"imageName": "Noasaurus.jpg",
+		"type": "small theropod",
+		"length": 1
+	},
+	{
+		"name": "Nodosaurus",
+		"nameMeaning": "\"knoppet øgle\"",
+		"diet": "planteædende",
+		"timespan": "110-100",
+		"locations": "USA",
+		"imageName": "nodo.jpg",
+		"type": "armoured dinosaur",
+		"length": 5
+	},
+	{
+		"name": "Nomingia",
+		"nameMeaning": "bare \"Nomingiin\" (efter Nomingiin Gobi, et sted i Gobi-ørkenen i Mongoliet)",
+		"diet": "altædende",
+		"timespan": "72-68",
+		"locations": "Mongoliet",
+		"imageName": "Nomingia.jpg",
+		"type": "small theropod",
+		"length": 1.6
+	},
+	{
+		"name": "Nothronychus",
+		"nameMeaning": "\"dovendyrs-agtig klo\"",
+		"diet": "altædende",
+		"timespan": "94-89",
+		"locations": "USA",
+		"imageName": "Nothronychus.jpg",
+		"type": "large theropod",
+		"length": 5.3
+	},
+	{
+		"name": "Nqwebasaurus",
+		"nameMeaning": "\"Nqweba-øgle\" (Nqweba = Kirkwood, en geologisk formation i Sydafrika)",
+		"diet": "kødædende",
+		"timespan": "159-132",
+		"locations": "Sydafrika",
+		"imageName": "Nqwebasaurus.jpg",
+		"type": "small theropod",
+		"length": 1
+	},
+	{
+		"name": "Omeisaurus",
+		"nameMeaning": "\"Omei-øgle\"",
+		"diet": "planteædende",
+		"timespan": "169-159",
+		"locations": "Kina",
+		"imageName": "Omeisaurus.jpg",
+		"type": "sauropod",
+		"length": 20
+	},
+	{
+		"name": "Opisthocoelicaudia",
+		"nameMeaning": "\"opisthocøl hale\" (dens halehvirvler er 'opisthocøle')",
+		"diet": "planteædende",
+		"timespan": "72-68",
+		"locations": "Mongoliet",
+		"imageName": "Opisthocoelicaudia.jpg",
+		"type": "sauropod",
+		"length": 12
+	},
+	{
+		"name": "Ornitholestes",
+		"nameMeaning": "\"fugle-røver\"",
+		"diet": "kødædende",
+		"timespan": "150-144",
+		"locations": "USA",
+		"imageName": "ornithol.jpg",
+		"type": "small theropod",
+		"length": 2
+	},
+	{
+		"name": "Ornithomimus",
+		"nameMeaning": "\"fugle-efterligner\"",
+		"diet": "altædende",
+		"timespan": "74-66",
+		"locations": "Canada og USA",
+		"imageName": "ornithom.jpg",
+		"type": "large theropod",
+		"length": 4
+	},
+	{
+		"name": "Orodromeus",
+		"nameMeaning": "\"bjerg-løber\"",
+		"diet": "planteædende",
+		"timespan": "74",
+		"locations": "USA",
+		"imageName": "orodro.jpg",
+		"type": "small ornithopod",
+		"length": 2
+	},
+	{
+		"name": "Oryctodromeus",
+		"nameMeaning": "\"gravende løber\"",
+		"diet": "planteædende",
+		"timespan": "99-94",
+		"locations": "USA",
+		"imageName": "oryctodromeus.jpg",
+		"type": "small ornithopod",
+		"length": 2.1
+	},
+	{
+		"name": "Othnielia",
+		"nameMeaning": "bare \"Othniel\" (efter Othniel Marsh)",
+		"diet": "planteædende",
+		"timespan": "154-142",
+		"locations": "USA",
+		"imageName": "Othnielia.jpg",
+		"type": "small ornithischian",
+		"length": 1.4
+	},
+	{
+		"name": "Ouranosaurus",
+		"nameMeaning": "\"modig varan-øgle\"",
+		"diet": "planteædende",
+		"timespan": "115-100",
+		"locations": "Niger",
+		"imageName": "ourano.jpg",
+		"type": "large ornithopod",
+		"length": 7
+	},
+	{
+		"name": "Oviraptor",
+		"nameMeaning": "\"æggetyv\"",
+		"diet": "altædende",
+		"timespan": "85-75",
+		"locations": "Mongoliet",
+		"imageName": "oviraps.jpg",
+		"type": "small theropod",
+		"length": 2
+	},
+	{
+		"name": "Pachycephalosaurus",
+		"nameMeaning": "\"tyk-hovedet øgle\"",
+		"diet": "planteædende",
+		"timespan": "69-66",
+		"locations": "Canada og USA",
+		"imageName": "pachycephalosaurus.jpg",
+		"type": "pachycephalosaur",
+		"length": 3
+	},
+	{
+		"name": "Pachyrhinosaurus",
+		"nameMeaning": "\"tyk-næset øgle\"",
+		"diet": "planteædende",
+		"timespan": "76-74",
+		"locations": "Canada",
+		"imageName": "pachyr.jpg",
+		"type": "ceratopsian",
+		"length": 6
+	},
+	{
+		"name": "Panoplosaurus",
+		"nameMeaning": "\"fuldt-pansret øgle\"",
+		"diet": "planteædende",
+		"timespan": "79-75",
+		"locations": "Canada og USA",
+		"imageName": "Panoplosaurus.jpg",
+		"type": "armoured dinosaur",
+		"length": 7
+	},
+	{
+		"name": "Pantydraco",
+		"nameMeaning": "\"Pant-y-ffynnon-drage\" (Pant-y-ffynnon er et sted i Wales)",
+		"diet": "planteædende",
+		"timespan": "94-89",
+		"locations": "Wales",
+		"imageName": "pantydraco.jpg",
+		"type": "prosauropod",
+		"length": 3
+	},
+	{
+		"name": "Paralititan",
+		"nameMeaning": "\"tidevands-kæmpe\"",
+		"diet": "planteædende",
+		"timespan": "99-94",
+		"locations": "Egypten",
+		"imageName": "Paralititan.jpg",
+		"type": "sauropod",
+		"length": 28
+	},
+	{
+		"name": "Parasaurolophus",
+		"nameMeaning": "\"ligesom Saurolophus\" (Saurolophus betyder 'øgle-kam')",
+		"diet": "planteædende",
+		"timespan": "77-73",
+		"locations": "Canada og USA",
+		"imageName": "parasaurolophus.jpg",
+		"type": "large ornithopod",
+		"length": 9
+	},
+	{
+		"name": "Parksosaurus",
+		"nameMeaning": "\"Parks' øgle\" (efter William Parks)",
+		"diet": "planteædende",
+		"timespan": "76-74",
+		"locations": "Canada",
+		"imageName": "parkso.jpg",
+		"type": "small ornithopod",
+		"length": 3
+	},
+	{
+		"name": "Patagosaurus",
+		"nameMeaning": "\"Patagonien-øgle\" (Patagonien er et område i Sydamerika)",
+		"diet": "planteædende",
+		"timespan": "164-159",
+		"locations": "Argentina",
+		"imageName": "Patagosaurus.jpg",
+		"type": "sauropod",
+		"length": 18
+	},
+	{
+		"name": "Patagotitan",
+		"nameMeaning": "\"Patagonien-titan\" (Patagonien er et område i Sydamerika)",
+		"diet": "planteædende",
+		"timespan": "101",
+		"locations": "Argentina",
+		"imageName": "patagotitan-mef-c.jpg",
+		"type": "sauropod",
+		"length": 37.5
+	},
+	{
+		"name": "Pelecanimimus",
+		"nameMeaning": "\"pelikan-efterligner\"",
+		"diet": "kødædende",
+		"timespan": "127-121",
+		"locations": "Spanien",
+		"imageName": "Pelicanimimus.jpg",
+		"type": "small theropod",
+		"length": 2.5
+	},
+	{
+		"name": "Pelorosaurus",
+		"nameMeaning": "\"mønstrøs øgle\"",
+		"diet": "planteædende",
+		"timespan": "125",
+		"locations": "England",
+		"imageName": "pelo.jpg",
+		"type": "sauropod",
+		"length": 25
+	},
+	{
+		"name": "Pentaceratops",
+		"nameMeaning": "\"fem-hornet ansigt\"",
+		"diet": "planteædende",
+		"timespan": "76-74",
+		"locations": "USA",
+		"imageName": "Pentaceratops.jpg",
+		"type": "ceratopsian",
+		"length": 6.8
+	},
+	{
+		"name": "Piatnitzkysaurus",
+		"nameMeaning": "\"Piatnitzkys øgle\" (efter Alejandro Matveievich Piatnitzky)",
+		"diet": "kødædende",
+		"timespan": "164-159",
+		"locations": "Argentina",
+		"imageName": "Piatnitzkysaurus.jpg",
+		"type": "large theropod",
+		"length": 4.2
+	},
+	{
+		"name": "Pinacosaurus",
+		"nameMeaning": "\"planke-øgle\"",
+		"diet": "planteædende",
+		"timespan": "81-75",
+		"locations": "Kina og Mongoliet",
+		"imageName": "Pinacosaurus.jpg",
+		"type": "armoured dinosaur",
+		"length": 5
+	},
+	{
+		"name": "Plateosaurus",
+		"nameMeaning": "\"flad øgle\"",
+		"diet": "planteædende",
+		"timespan": "210",
+		"locations": "Frankrig, Tyskland og Schweiz",
+		"imageName": "plateo.jpg",
+		"type": "prosauropod",
+		"length": 7
+	},
+	{
+		"name": "Podokesaurus",
+		"nameMeaning": "\"hurtigfodet øgle\"",
+		"diet": "kødædende",
+		"timespan": "195-180",
+		"locations": "USA",
+		"imageName": "Podokesaurus.jpg",
+		"type": "small theropod",
+		"length": 0.9
+	},
+	{
+		"name": "Poekilopleuron",
+		"nameMeaning": "\"varierede ribben\"",
+		"diet": "kødædende",
+		"timespan": "169-164",
+		"locations": "Frankrig",
+		"imageName": "Poekilopleuron.jpg",
+		"type": "large theropod",
+		"length": 9
+	},
+	{
+		"name": "Polacanthus",
+		"nameMeaning": "\"mange torne\"",
+		"diet": "planteædende",
+		"timespan": "125",
+		"locations": "England",
+		"imageName": "polac.jpg",
+		"type": "armoured dinosaur",
+		"length": 5
+	},
+	{
+		"name": "Prenocephale",
+		"nameMeaning": "\"skrånende hoved\"",
+		"diet": "planteædende",
+		"timespan": "80-66",
+		"locations": "Mongoliet",
+		"imageName": "Prenocephale.jpg",
+		"type": "pachycephalosaur",
+		"length": 2.4
+	},
+	{
+		"name": "Probactrosaurus",
+		"nameMeaning": "\"før Bactrosaurus\" (Bactrosaurus betyder \"kølle-øgle\")",
+		"diet": "planteædende",
+		"timespan": "121-99",
+		"locations": "Kina",
+		"imageName": "Probactrosaurus.jpg",
+		"type": "large ornithopod",
+		"length": 6
+	},
+	{
+		"name": "Proceratosaurus",
+		"nameMeaning": "\"før Ceratosaurus\" (Ceratosaurus betyder \"hornet øgle\")",
+		"diet": "kødædende",
+		"timespan": "169-164",
+		"locations": "England",
+		"imageName": "Proceratosaurus.jpg",
+		"type": "small theropod",
+		"length": 4.1
+	},
+	{
+		"name": "Procompsognathus",
+		"nameMeaning": "\"før Compsognathus\" (Compsognathus betyder \"pæn kæbe\")",
+		"diet": "kødædende",
+		"timespan": "221-210",
+		"locations": "Tyskland",
+		"imageName": "Procompsognathus.jpg",
+		"type": "small theropod",
+		"length": 1
+	},
+	{
+		"name": "Prosaurolophus",
+		"nameMeaning": "\"før Saurolophus\" (Saurolophus betyder \"øgle-kam\")",
+		"diet": "planteædende",
+		"timespan": "77-75",
+		"locations": "Canada og USA",
+		"imageName": "Prosaurolophus.jpg",
+		"type": "large ornithopod",
+		"length": 7.6
+	},
+	{
+		"name": "Protarchaeopteryx",
+		"nameMeaning": "\"før Archaeopteryx\" (Archaeopteryx betyder \"ældgammel vinge\")",
+		"diet": "kødædende",
+		"timespan": "122-120",
+		"locations": "Kina",
+		"imageName": "Protarchaeopteryx.jpg",
+		"type": "small theropod",
+		"length": 2
+	},
+	{
+		"name": "Protoceratops",
+		"nameMeaning": "\"første Ceratops\" (Ceratops betyder \"hornet ansigt\")",
+		"diet": "planteædende",
+		"timespan": "74-70",
+		"locations": "Kina og Mongoliet",
+		"imageName": "proto.jpg",
+		"type": "ceratopsian",
+		"length": 1.8
+	},
+	{
+		"name": "Protohadros",
+		"nameMeaning": "\"første Hadrosaur\" (Hadrosaur betyder \"kraftig øgle\")",
+		"diet": "planteædende",
+		"timespan": "99-94",
+		"locations": "USA",
+		"imageName": "Protohadros.jpg",
+		"type": "large ornithopod",
+		"length": 6
+	},
+	{
+		"name": "Psittacosaurus",
+		"nameMeaning": "\"papegøje-øgle\"",
+		"diet": "planteædende",
+		"timespan": "120-100",
+		"locations": "Kina, Mongoliet og Rusland",
+		"imageName": "psittaco.jpg",
+		"type": "ceratopsian",
+		"length": 2
+	},
+	{
+		"name": "Puertasaurus",
+		"nameMeaning": "\"Puertas øgle\" (efter Pablo Puerta)",
+		"diet": "planteædende",
+		"timespan": "76-70",
+		"locations": "Argentina",
+		"imageName": "puertasaurus-c.jpg",
+		"type": "sauropod",
+		"length": 30
+	},
+	{
+		"name": "Pyroraptor",
+		"nameMeaning": "\"ild-røver\"",
+		"diet": "kødædende",
+		"timespan": "84-71",
+		"locations": "Frankrig og Spanien",
+		"imageName": "pyroraptor.jpg",
+		"type": "small theropod",
+		"length": 2.4
+	},
+	{
+		"name": "Quaesitosaurus",
+		"nameMeaning": "\"ekstraordinær øgle\"",
+		"diet": "planteædende",
+		"timespan": "86-84",
+		"locations": "Mongoliet",
+		"imageName": "Quaesitosaurus.jpg",
+		"type": "sauropod",
+		"length": 23
+	},
+	{
+		"name": "Rajasaurus",
+		"nameMeaning": "\"konge-øgle\"",
+		"diet": "kødædende",
+		"timespan": "72-66",
+		"locations": "Indien",
+		"imageName": "rajasaurus.jpg",
+		"type": "large theropod",
+		"length": 6.6
+	},
+	{
+		"name": "Rebbachisaurus",
+		"nameMeaning": "\"Rebbach-øgle\" (efter Aït Rebbach)",
+		"diet": "planteædende",
+		"timespan": "112-99",
+		"locations": "Marokko",
+		"imageName": "Rebbachisaurus.jpg",
+		"type": "sauropod",
+		"length": 20
+	},
+	{
+		"name": "Rhabdodon",
+		"nameMeaning": "\"stang-tand\"",
+		"diet": "planteædende",
+		"timespan": "76-70",
+		"locations": "Østrig, Frankrig, Romanien og Spanien",
+		"imageName": "rhab.jpg",
+		"type": "large ornithopod",
+		"length": 4
+	},
+	{
+		"name": "Rhoetosaurus",
+		"nameMeaning": "\"Rhoetus-øgle\" (Rhoetus er gud i græsk mytologi)",
+		"diet": "planteædende",
+		"timespan": "177-169",
+		"locations": "Australien",
+		"imageName": "Rhoetosaurus.jpg",
+		"type": "sauropod",
+		"length": 15
+	},
+	{
+		"name": "Rinchenia",
+		"nameMeaning": "bare \"Rinchen\" (efter Byambyn Rinchen)",
+		"diet": "altædende",
+		"timespan": "72-68",
+		"locations": "Mongoliet",
+		"imageName": "Rinchenia.jpg",
+		"type": "small theropod",
+		"length": 2.5
+	},
+	{
+		"name": "Riojasaurus",
+		"nameMeaning": "\"La Rioja-øgle\" (La Rioja er en argentinsk provins)",
+		"diet": "planteædende",
+		"timespan": "221-210",
+		"locations": "Argentina",
+		"imageName": "Riojasaurus.jpg",
+		"type": "prosauropod",
+		"length": 5.2
+	},
+	{
+		"name": "Rugops",
+		"nameMeaning": "\"rynke-ansigt\"",
+		"diet": "kødædende",
+		"timespan": "95",
+		"locations": "Niger",
+		"imageName": "Rugops.jpg",
+		"type": "large theropod",
+		"length": 7
+	},
+	{
+		"name": "Saichania",
+		"nameMeaning": "\"den smukke\"",
+		"diet": "planteædende",
+		"timespan": "80",
+		"locations": "Mongoliet",
+		"imageName": "saich.jpg",
+		"type": "armoured dinosaur",
+		"length": 6.6
+	},
+	{
+		"name": "Saltasaurus",
+		"nameMeaning": "\"Salta-øgle\" (Salta er en by i Argentina)",
+		"diet": "planteædende",
+		"timespan": "70-66",
+		"locations": "Argentina",
+		"imageName": "salta.jpg",
+		"type": "sauropod",
+		"length": 12
+	},
+	{
+		"name": "Sarcosaurus",
+		"nameMeaning": "\"kød-øgle\"",
+		"diet": "kødædende",
+		"timespan": "202-195",
+		"locations": "England",
+		"imageName": "Sarcosaurus.jpg",
+		"type": "small theropod",
+		"length": 3
+	},
+	{
+		"name": "Saurolophus",
+		"nameMeaning": "\"rillet øgle\"",
+		"diet": "planteædende",
+		"timespan": "74-70",
+		"locations": "Canada og Mongoliet",
+		"imageName": "sauro.jpg",
+		"type": "large ornithopod",
+		"length": 9
+	},
+	{
+		"name": "Sauropelta",
+		"nameMeaning": "\"øgle-skjold\"",
+		"diet": "planteædende",
+		"timespan": "121-94",
+		"locations": "USA",
+		"imageName": "Sauropelta.jpg",
+		"type": "armoured dinosaur",
+		"length": 6.5
+	},
+	{
+		"name": "Saurophaganax",
+		"nameMeaning": "\"kongen af øgle-ædere\"",
+		"diet": "kødædende",
+		"timespan": "154-142",
+		"locations": "USA",
+		"imageName": "Saurophaganax.jpg",
+		"type": "large theropod",
+		"length": 12
+	},
+	{
+		"name": "Saurornithoides",
+		"nameMeaning": "\"fugle-agtig øgle\"",
+		"diet": "kødædende",
+		"timespan": "85-80",
+		"locations": "Mongoliet",
+		"imageName": "saurorn.jpg",
+		"type": "small theropod",
+		"length": 3
+	},
+	{
+		"name": "Scelidosaurus",
+		"nameMeaning": "\"lem-øgle\"",
+		"diet": "planteædende",
+		"timespan": "208-194",
+		"locations": "England",
+		"imageName": "scelid.jpg",
+		"type": "armoured dinosaur",
+		"length": 4
+	},
+	{
+		"name": "Scutellosaurus",
+		"nameMeaning": "\"lille skjold-øgle\"",
+		"diet": "planteædende",
+		"timespan": "205-202",
+		"locations": "USA",
+		"imageName": "Scutellosaurus.jpg",
+		"type": "armoured dinosaur",
+		"length": 1.2
+	},
+	{
+		"name": "Secernosaurus",
+		"nameMeaning": "\"adskildt øgle\"",
+		"diet": "planteædende",
+		"timespan": "71-66",
+		"locations": "Argentina",
+		"imageName": "Secernosaurus.jpg",
+		"type": "large ornithopod",
+		"length": 3
+	},
+	{
+		"name": "Segisaurus",
+		"nameMeaning": "\"Segi-øgle\" (efter Tsegi Canyon i Arizona)",
+		"diet": "kødædende",
+		"timespan": "195-180",
+		"locations": "USA",
+		"imageName": "Segisaurus.jpg",
+		"type": "small theropod",
+		"length": 1.5
+	},
+	{
+		"name": "Segnosaurus",
+		"nameMeaning": "\"langsom øgle\"",
+		"diet": "kødædende",
+		"timespan": "97-88",
+		"locations": "Mongoliet",
+		"imageName": "segno.jpg",
+		"type": "large theropod",
+		"length": 4
+	},
+	{
+		"name": "Shamosaurus",
+		"nameMeaning": "\"ørken-øgle\"",
+		"diet": "planteædende",
+		"timespan": "121-99",
+		"locations": "Mongoliet",
+		"imageName": "Shamosaurus.jpg",
+		"type": "armoured dinosaur",
+		"length": 5
+	},
+	{
+		"name": "Shanag",
+		"nameMeaning": "bare \"Shanag\" (en slags danser i den buddhistiske Cham-dans)",
+		"diet": "kødædende",
+		"timespan": "126-142",
+		"locations": "Mongoliet",
+		"imageName": "shanag.jpg",
+		"type": "small theropod",
+		"length": 0.5
+	},
+	{
+		"name": "Shantungosaurus",
+		"nameMeaning": "\"Shandong-øgle\" (Shandong er en kinesisk provins)",
+		"diet": "planteædende",
+		"timespan": "78-74",
+		"locations": "Kina",
+		"imageName": "shantung.jpg",
+		"type": "large ornithopod",
+		"length": 15
+	},
+	{
+		"name": "Shunosaurus",
+		"nameMeaning": "\"Sichuan-øgle\" (Sichuan er en kinesisk provins)",
+		"diet": "planteædende",
+		"timespan": "170-160",
+		"locations": "Kina",
+		"imageName": "shuno.jpg",
+		"type": "sauropod",
+		"length": 10
+	},
+	{
+		"name": "Shuvuuia",
+		"nameMeaning": "\"fugl\"",
+		"diet": "altædende",
+		"timespan": "75-81",
+		"locations": "Mongoliet",
+		"imageName": "Shuvuuia.jpg",
+		"type": "small theropod",
+		"length": 0.6
+	},
+	{
+		"name": "Silvisaurus",
+		"nameMeaning": "\"skov-øgle\"",
+		"diet": "planteædende",
+		"timespan": "121-112",
+		"locations": "USA",
+		"imageName": "Silvisaurus.jpg",
+		"type": "armoured dinosaur",
+		"length": 4
+	},
+	{
+		"name": "Sinocalliopteryx",
+		"nameMeaning": "\"kinesisk smuk fjer\"",
+		"diet": "kødædende",
+		"timespan": "125",
+		"locations": "Kina",
+		"imageName": "sinocalliopteryx.jpg",
+		"type": "small theropod",
+		"length": 2.4
+	},
+	{
+		"name": "Sinornithosaurus",
+		"nameMeaning": "\"kinesisk fugle-øgle\"",
+		"diet": "kødædende",
+		"timespan": "122-120",
+		"locations": "Kina",
+		"imageName": "Sinornithosaurus.jpg",
+		"type": "small theropod",
+		"length": 2
+	},
+	{
+		"name": "Sinosauropteryx",
+		"nameMeaning": "\"kinesisk øgle-vinge\"",
+		"diet": "kødædende",
+		"timespan": "122-120",
+		"locations": "Kina",
+		"imageName": "Sinosauropteryx.jpg",
+		"type": "small theropod",
+		"length": 1
+	},
+	{
+		"name": "Sinovenator",
+		"nameMeaning": "\"kinesisk jæger\"",
+		"diet": "kødædende",
+		"timespan": "127-121",
+		"locations": "Kina",
+		"imageName": "Sinvenator.jpg",
+		"type": "small theropod",
+		"length": 1
+	},
+	{
+		"name": "Sinraptor",
+		"nameMeaning": "\"kinesisk røver\"",
+		"diet": "kødædende",
+		"timespan": "169-142",
+		"locations": "Kina",
+		"imageName": "Sinraptor.jpg",
+		"type": "large theropod",
+		"length": 7.6
+	},
+	{
+		"name": "Sonidosaurus",
+		"nameMeaning": "\"Sonid-øgle\" (Sonid er et område i Mongoliet)",
+		"diet": "planteædende",
+		"timespan": "89-66",
+		"locations": "Kina",
+		"imageName": "Sonidosaurus.jpg",
+		"type": "sauropod",
+		"length": 9
+	},
+	{
+		"name": "Spinosaurus",
+		"nameMeaning": "\"rygrad-øgle\"",
+		"diet": "kødædende",
+		"timespan": "99-94",
+		"locations": "Egypten og Marokko",
+		"imageName": "spinosaurus.jpg",
+		"type": "large theropod",
+		"length": 14
+	},
+	{
+		"name": "Staurikosaurus",
+		"nameMeaning": "\"Sydkorsets øgle\"",
+		"diet": "kødædende",
+		"timespan": "227-221",
+		"locations": "Brazilien",
+		"imageName": "Staurikosaurus.jpg",
+		"type": "early dinosaur",
+		"length": 2
+	},
+	{
+		"name": "Stegoceras",
+		"nameMeaning": "\"horn-tag\"",
+		"diet": "planteædende",
+		"timespan": "76-74",
+		"locations": "Canada og USA",
+		"imageName": "stegoceras.jpg",
+		"type": "pachycephalosaur",
+		"length": 2.4
+	},
+	{
+		"name": "Stegosaurus",
+		"nameMeaning": "\"tag-øgle\"",
+		"diet": "planteædende",
+		"timespan": "152-145",
+		"locations": "USA",
+		"imageName": "stego.jpg",
+		"type": "armoured dinosaur",
+		"length": 9
+	},
+	{
+		"name": "Stenopelix",
+		"nameMeaning": "\"smal bækken\"",
+		"diet": "planteædende",
+		"timespan": "127-121",
+		"locations": "Tyskland",
+		"imageName": "Stenopelix.jpg",
+		"type": "ceratopsian",
+		"length": 1.5
+	},
+	{
+		"name": "Struthiomimus",
+		"nameMeaning": "\"struds-efterligner\"",
+		"diet": "altædende",
+		"timespan": "76-74",
+		"locations": "Canada",
+		"imageName": "struthio.jpg",
+		"type": "small theropod",
+		"length": 4
+	},
+	{
+		"name": "Struthiosaurus",
+		"nameMeaning": "\"struds-øgle\"",
+		"diet": "planteædende",
+		"timespan": "83-75",
+		"locations": "Østrig, Frankrig, Romanien og Spanien",
+		"imageName": "Struthiosaurus.jpg",
+		"type": "armoured dinosaur",
+		"length": 2.5
+	},
+	{
+		"name": "Stygimoloch",
+		"nameMeaning": "\"Styx-dæmon\" (Styx er en underjordisk flod i græsk mytologi)",
+		"diet": "planteædende",
+		"timespan": "67-66",
+		"locations": "USA",
+		"imageName": "Stygimoloch.jpg",
+		"type": "pachycephalosaur",
+		"length": 3
+	},
+	{
+		"name": "Styracosaurus",
+		"nameMeaning": "\"spids øgle\"",
+		"diet": "planteædende",
+		"timespan": "76-70",
+		"locations": "Canada og USA",
+		"imageName": "styrac.jpg",
+		"type": "ceratopsian",
+		"length": 5.5
+	},
+	{
+		"name": "Suchomimus",
+		"nameMeaning": "\"krokodile-efterligner\"",
+		"diet": "kødædende",
+		"timespan": "121-112",
+		"locations": "Niger",
+		"imageName": "Suchomimus.jpg",
+		"type": "large theropod",
+		"length": 11
+	},
+	{
+		"name": "Supersaurus",
+		"nameMeaning": "\"super-øgle\"",
+		"diet": "planteædende",
+		"timespan": "154-142",
+		"locations": "USA",
+		"imageName": "Supersaurus.jpg",
+		"type": "sauropod",
+		"length": 35
+	},
+	{
+		"name": "Talarurus",
+		"nameMeaning": "\"vidje-hale\"",
+		"diet": "planteædende",
+		"timespan": "99-89",
+		"locations": "Mongoliet",
+		"imageName": "Talarurus.jpg",
+		"type": "armoured dinosaur",
+		"length": 6
+	},
+	{
+		"name": "Tanius",
+		"nameMeaning": "\"Tan\" (efter Tan Xichou)",
+		"diet": "planteædende",
+		"timespan": "89-66",
+		"locations": "Kina",
+		"imageName": "Tanius.jpg",
+		"type": "large ornithopod",
+		"length": 7
+	},
+	{
+		"name": "Tarbosaurus",
+		"nameMeaning": "\"foruroligende øgle\"",
+		"diet": "kødædende",
+		"timespan": "74-70",
+		"locations": "Kina og Mongoliet",
+		"imageName": "tarbo.jpg",
+		"type": "large theropod",
+		"length": 10
+	},
+	{
+		"name": "Tarchia",
+		"nameMeaning": "\"den smarte\"",
+		"diet": "planteædende",
+		"timespan": "75-70",
+		"locations": "Mongoliet",
+		"imageName": "tarchia-ml.jpg",
+		"type": "armoured dinosaur",
+		"length": 5.5
+	},
+	{
+		"name": "Telmatosaurus",
+		"nameMeaning": "\"sump-øgle\"",
+		"diet": "planteædende",
+		"timespan": "84-66",
+		"locations": "Frankrig, Romanien og Spanien",
+		"imageName": "Telmatosaurus.jpg",
+		"type": "large ornithopod",
+		"length": 5
+	},
+	{
+		"name": "Tenontosaurus",
+		"nameMeaning": "\"sene-øgle\"",
+		"diet": "planteædende",
+		"timespan": "120-110",
+		"locations": "Canada og USA",
+		"imageName": "tenonto.jpg",
+		"type": "large ornithopod",
+		"length": 7
+	},
+	{
+		"name": "Thecodontosaurus",
+		"nameMeaning": "\"tandsokkel-øgle\"",
+		"diet": "altædende",
+		"timespan": "227-205",
+		"locations": "England",
+		"imageName": "Thecodontosaurus.jpg",
+		"type": "prosauropod",
+		"length": 2.5
+	},
+	{
+		"name": "Therizinosaurus",
+		"nameMeaning": "\"le-øgle\"",
+		"diet": "nok planteædende",
+		"timespan": "85-70",
+		"locations": "Mongoliet",
+		"imageName": "theriz.jpg",
+		"type": "large theropod",
+		"length": 9.5
+	},
+	{
+		"name": "Thescelosaurus",
+		"nameMeaning": "\"vidunderlig øgle\"",
+		"diet": "planteædende",
+		"timespan": "76-66",
+		"locations": "Canada og USA",
+		"imageName": "thescelo.jpg",
+		"type": "small ornithopod",
+		"length": 3.5
+	},
+	{
+		"name": "Torosaurus",
+		"nameMeaning": "\"tyre-øgle\"",
+		"diet": "planteædende",
+		"timespan": "70-66",
+		"locations": "Canada og USA",
+		"imageName": "toro.jpg",
+		"type": "ceratopsian",
+		"length": 7.5
+	},
+	{
+		"name": "Torvosaurus",
+		"nameMeaning": "\"brutal øgle\"",
+		"diet": "kødædende",
+		"timespan": "155-144",
+		"locations": "USA",
+		"imageName": "torvo.jpg",
+		"type": "large theropod",
+		"length": 10
+	},
+	{
+		"name": "Triceratops",
+		"nameMeaning": "\"tre-hornet ansigt\"",
+		"diet": "planteædende",
+		"timespan": "68-66",
+		"locations": "USA",
+		"imageName": "triceratops.jpg",
+		"type": "ceratopsian",
+		"length": 9
+	},
+	{
+		"name": "Troodon",
+		"nameMeaning": "\"sårende tand\"",
+		"diet": "kødædende",
+		"timespan": "74-66",
+		"locations": "USA",
+		"imageName": "troo.jpg",
+		"type": "small theropod",
+		"length": 2
+	},
+	{
+		"name": "Tsagantegia",
+		"nameMeaning": "bare \"Tsagan Teg\" (et område i Gobi-ørkenen i Mongoliet)",
+		"diet": "planteædende",
+		"timespan": "99-84",
+		"locations": "Mongoliet",
+		"imageName": "Tsagantegia.jpg",
+		"type": "armoured dinosaur",
+		"length": 6.5
+	},
+	{
+		"name": "Tsintaosaurus",
+		"nameMeaning": "\"Qingdao-øgle\" (Qingdao er en kinesisk provins)",
+		"diet": "planteædende",
+		"timespan": "84-71",
+		"locations": "Kina",
+		"imageName": "Tsintaosaurus.jpg",
+		"type": "large ornithopod",
+		"length": 12
+	},
+	{
+		"name": "Tuojiangosaurus",
+		"nameMeaning": "\"Tuo Jiang-øgle\" (Tuo Jiang er en flod i Kina)",
+		"diet": "planteædende",
+		"timespan": "157-154",
+		"locations": "Kina",
+		"imageName": "tuojiang.jpg",
+		"type": "armoured dinosaur",
+		"length": 7
+	},
+	{
+		"name": "Tylocephale",
+		"nameMeaning": "\"opsvulmet hoved\"",
+		"diet": "planteædende",
+		"timespan": "75-72",
+		"locations": "Mongoliet",
+		"imageName": "Tylocephale.jpg",
+		"type": "pachycephalosaur",
+		"length": 1.4
+	},
+	{
+		"name": "Tyrannosaurus",
+		"nameMeaning": "\"tyran-øgle\"",
+		"diet": "kødædende",
+		"timespan": "68-66",
+		"locations": "Canada og USA",
+		"imageName": "tyran.jpg",
+		"type": "large theropod",
+		"length": 12
+	},
+	{
+		"name": "Tyrannotitan",
+		"nameMeaning": "\"tyran-titan\"",
+		"diet": "kødædende",
+		"timespan": "101",
+		"locations": "Argentina",
+		"imageName": "tyrannotitan-c.jpg",
+		"type": "large theropod",
+		"length": 12
+	},
+	{
+		"name": "Udanoceratops",
+		"nameMeaning": "\"Udans hornede ansigt\" (efter Udan Sayr, et område i mongoliet)",
+		"diet": "planteædende",
+		"timespan": "81-75",
+		"locations": "Mongoliet",
+		"imageName": "Udanoceratops.jpg",
+		"type": "ceratopsian",
+		"length": 4
+	},
+	{
+		"name": "Unenlagia",
+		"nameMeaning": "\"halv-fugl\"",
+		"diet": "kødædende",
+		"timespan": "94-86",
+		"locations": "Argentina",
+		"imageName": "Unenlagia.jpg",
+		"type": "small theropod",
+		"length": 2.4
+	},
+	{
+		"name": "Urbacodon",
+		"nameMeaning": "\"URBAC-tand\" (forkortelse: Uzbekisk, Russisk, Britisk, Amerikansk and Canadisk)",
+		"diet": "kødædende",
+		"timespan": "95",
+		"locations": "Uzbekistan",
+		"imageName": "urbacodon.jpg",
+		"type": "small theropod",
+		"length": 1
+	},
+	{
+		"name": "Utahraptor",
+		"nameMeaning": "\"Utah-røver\"",
+		"diet": "kødædende",
+		"timespan": "112-100",
+		"locations": "USA",
+		"imageName": "utah.jpg",
+		"type": "large theropod",
+		"length": 6
+	},
+	{
+		"name": "Valdosaurus",
+		"nameMeaning": "\"Weald-øgle\" (Weald er et sted i England)",
+		"diet": "planteædende",
+		"timespan": "142-121",
+		"locations": "England, Niger og Romanien",
+		"imageName": "Valdosaurus.jpg",
+		"type": "small ornithopod",
+		"length": 3
+	},
+	{
+		"name": "Velociraptor",
+		"nameMeaning": "\"hurtig røver\"",
+		"diet": "kødædende",
+		"timespan": "74-70",
+		"locations": "Mongoliet",
+		"imageName": "veloc.jpg",
+		"type": "small theropod",
+		"length": 1.8
+	},
+	{
+		"name": "Vulcanodon",
+		"nameMeaning": "\"vulkan-tand\"",
+		"diet": "planteædende",
+		"timespan": "205-202",
+		"locations": "Zimbabwe",
+		"imageName": "Vulcanodon.jpg",
+		"type": "sauropod",
+		"length": 6.5
+	},
+	{
+		"name": "Yandusaurus",
+		"nameMeaning": "\"Yandu-øgle\" (Yandu er et gammelt navn for Zigong, en by i Kina)",
+		"diet": "planteædende",
+		"timespan": "169-159",
+		"locations": "Kina",
+		"imageName": "Yandusaurus.jpg",
+		"type": "small ornithopod",
+		"length": 3
+	},
+	{
+		"name": "Yangchuanosaurus",
+		"nameMeaning": "\"Yangchuan-øgle\" (Yongchuan er et distrikt i Kina)",
+		"diet": "kødædende",
+		"timespan": "160-144",
+		"locations": "Kina",
+		"imageName": "yangchu.jpg",
+		"type": "large theropod",
+		"length": 10
+	},
+	{
+		"name": "Yimenosaurus",
+		"nameMeaning": "\"Yimen-øgle\" (efter Yimen County, et område i Kina)",
+		"diet": "planteædende",
+		"timespan": "195-190",
+		"locations": "Kina",
+		"imageName": "Yimenosaurus.jpg",
+		"type": "prosauropod",
+		"length": 9
+	},
+	{
+		"name": "Yingshanosaurus",
+		"nameMeaning": "\"Yingshan-øgle\" (efter Yingshan County, et område i Kina)",
+		"diet": "planteædende",
+		"timespan": "159-142",
+		"locations": "Kina",
+		"imageName": "Yingshanosaurus.jpg",
+		"type": "armoured dinosaur",
+		"length": 4.5
+	},
+	{
+		"name": "Yinlong",
+		"nameMeaning": "\"skjult drage\"",
+		"diet": "planteædende",
+		"timespan": "159-154",
+		"locations": "Kina",
+		"imageName": "Yinlong.jpg",
+		"type": "ceratopsian",
+		"length": 1.2
+	},
+	{
+		"name": "Yuanmousaurus",
+		"nameMeaning": "\"Yuanmou-øgle\" (efter Yuanmou County, et område i Kina)",
+		"diet": "planteædende",
+		"timespan": "180-159",
+		"locations": "Kina",
+		"imageName": "Yuanmousaurus.jpg",
+		"type": "sauropod",
+		"length": 17
+	},
+	{
+		"name": "Yunnanosaurus",
+		"nameMeaning": "\"Yunnan-øgle\" (Yunnan er en kinesisk provins)",
+		"diet": "altædende",
+		"timespan": "205-190",
+		"locations": "Kina",
+		"imageName": "Yunnanosaurus.jpg",
+		"type": "prosauropod",
+		"length": 7
+	},
+	{
+		"name": "Yutyrannus",
+		"nameMeaning": "\"fjerklædt tyran\"",
+		"diet": "kødædende",
+		"timespan": "125",
+		"locations": "Kina",
+		"imageName": "yutyrannus.jpg",
+		"type": "large theropod",
+		"length": 7.5
+	},
+	{
+		"name": "Zalmoxes",
+		"nameMeaning": "bare \"Zalmoxes\" (en Dakisk gud)",
+		"diet": "planteædende",
+		"timespan": "69",
+		"locations": "Romanien",
+		"imageName": "Zalmoxes.jpg",
+		"type": "small ornithopod",
+		"length": 3
+	},
+	{
+		"name": "Zephyrosaurus",
+		"nameMeaning": "\"vestenvinds-øgle\"",
+		"diet": "planteædende",
+		"timespan": "120-110",
+		"locations": "USA",
+		"imageName": "zephyro.jpg",
+		"type": "small ornithopod",
+		"length": 1.8
+	},
+	{
+		"name": "Zuniceratops",
+		"nameMeaning": "\"Zuni-hornet ansigt\" (efter Zuni-folket i New Mexico)",
+		"diet": "planteædende",
+		"timespan": "94-89",
+		"locations": "USA",
+		"imageName": "Zuniceratops.jpg",
+		"type": "ceratopsian",
+		"length": 3.3
+	}
+]

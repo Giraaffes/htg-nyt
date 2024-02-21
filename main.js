@@ -194,6 +194,7 @@ const urlPathRegex = /\/[^?]*/g;
 server.use(bodyParser.raw({ type: "*/*", limit: "100mb" }));
 server.use(async (req, res) => {
 	req.url = decodeURI(req.url); // I really hope this doesn't cause any trouble
+	console.log(req.url);
 
 	let paramsStr = (req.url.match(/(?<=\?).+/) || [""])[0];
 	let params = new URLSearchParams(paramsStr);
@@ -229,6 +230,11 @@ server.use(async (req, res) => {
 		maxRedirects: 0,
 		validateStatus: () => true
 	});
+
+	if (inspirRes.status == 404) {
+		res.sendFile(`${__dirname}/files/not_found.html`);
+		return;
+	}
 
 	let redirectUrl = inspirRes.headers.location;
 	if (redirectUrl) {

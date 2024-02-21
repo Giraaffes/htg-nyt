@@ -112,6 +112,8 @@ const tagChanges = {
 	"eksistens": "interview",
 	"wtf": "useriøst",
 	"valg": "quiz",
-	"+": "lang",
+	"xpert": "lang",
 	"rejser": "transport"
 };
+
+// What??? so the "+" tag apparently means that you must be logged in to view the article
