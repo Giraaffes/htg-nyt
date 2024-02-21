@@ -74,7 +74,7 @@
 			let dinoData = await fetch("/custom/dinos/data.json");
 			dinoData = await dinoData.json();
 			
-			let dinoIndex = 7; //Math.floor(Math.random() * dinoData.length);
+			let dinoIndex = Math.floor(Math.random() * dinoData.length);
 			let dino = dinoData[dinoIndex];
 
 			$("#dinoImage img").attr("src", `/custom/dinos/img/${dino.imageName}`);
