@@ -291,40 +291,66 @@ let variableExtraFields = $(([
 ]).map(e => e[0]));
 variableExtraFields.removeAttr("disabled").removeAttr("id").removeClass("widget-input").hide();
 
+ // This code is so bad
+let saveArticleOnChangeExtras = false;
+
 let commentCheckbox = addCheckField(
 	"checkbox", "Kommentar", "widget[widgetType]", "comment", "extra-comment"
-).appendTo(extraTypeDiv).on("change", () => {
+).appendTo(extraTypeDiv).on("change", async () => {
 	variableExtraFields.hide();
-	if (commentCheckbox.is(":checked")) {
+
+	let enabled = commentCheckbox.is(":checked");
+	if (enabled) {
 		extraTitleField.show();
 		emailField.show();
 		extraTextField.show();
 		//questionCheckbox.prop("checked", false);
 		linkCheckbox.prop("checked", false);
 	}
+
+	if (saveArticleOnChangeExtras) {
+		await saveArticle(false, true);
+		$.notify(enabled ? "Artikel kan nu kommenteres" : "Artikel kan ikke længere kommenteres", "success");
+	}
 });
+
 /*let questionCheckbox = addCheckField(
 	"checkbox", "Afstemning", "widget[widgetType]", "questionnaire", "extra-question"
-).appendTo(extraTypeDiv).on("change", () => {
+).appendTo(extraTypeDiv).on("change", async () => {
 	variableExtraFields.hide();
-	if (questionCheckbox.is(":checked")) {
+	
+	let enabled = commentCheckbox.is(":checked");
+	if (enabled) {
 		extraTitleField.show();
 		emailField.show();
 		questionElementsDiv.show();
 		commentCheckbox.prop("checked", false);
 		linkCheckbox.prop("checked", false);
 	}
+
+	if (saveArticleOnChangeExtras) {
+		await saveArticle(false, true);
+		$.notify(enabled ? "[tekst her]" : "[tekst her]", "success");
+	}
 });*/
+
 let linkCheckbox = addCheckField(
 	"checkbox", "Link", "widget[widgetType]", "link", "extra-link"
-).appendTo(extraTypeDiv).on("change", () => {
+).appendTo(extraTypeDiv).on("change", async () => {
 	variableExtraFields.hide();
-	if (linkCheckbox.is(":checked")) {
+
+	let enabled = linkCheckbox.is(":checked");
+	if (enabled) {
 		extraTitleField.show();
 		extraLinkTextField.show();
 		extraLinkField.show();
 		commentCheckbox.prop("checked", false);
 		//questionCheckbox.prop("checked", false);
+	}
+
+	if (saveArticleOnChangeExtras) {
+		await saveArticle(false, true);
+		$.notify(enabled ? "Link tilføjet til artikel" : "Link fjernet fra artikel", "success");
 	}
 });
 
@@ -336,6 +362,7 @@ if (selectedWidgetIndex == 2) {
 } else if (selectedWidgetIndex == 3) {
 	linkCheckbox.prop("checked", true).trigger("change");
 }
+saveArticleOnChangeExtras = true;
 
 // Question extra type (not the best code in the whole world)
 /*async function addQuestionChoice() {
