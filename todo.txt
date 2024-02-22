@@ -1,9 +1,8 @@
-[ ] Some glitch with new article dates
-
 [X] Make header and navbar fixed on editor and edit article pages
 [ ] Standard redaktør support
 [ ] Fix several other pages
-[ ] Fix new thingies in articles
+[X] Fix new thingies in articles
+[ ] Implement question extra
 [X] Custom tags
 [X] 	And no tags in url
 [X] Auto save

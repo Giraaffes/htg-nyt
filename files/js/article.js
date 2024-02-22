@@ -69,3 +69,28 @@ if (dateElement.length == 1) {
 $(".style-body p, .style-illustration p").each((_, e) => {
 	$(e).html($(e).text());
 });
+
+
+// Extra stuff
+$("#contactModal button.close i").removeClass("fa-x").addClass("fa-xmark").css("font-size", "1.4rem");
+$("#submitBtn").text("INDSEND")
+
+$(() => {
+	$("#submitBtn").off().on("click", async () => {
+		let formData = new FormData($("#contact-form")[0]);
+		let message = formData.get("contactMessage");
+		formData.set("contactMessage", 
+			`${message}\n\n(Kommentar til artiklen "${title.text()}" på ${location.origin + location.pathname})`
+		);
+
+		let res = await fetch("/contact/articleContact", {method: "POST", body: formData});
+		let jsonRes = await res.json();
+
+		if (jsonRes.status == "success") {
+			$.notify("Kommentar indsendt!", "success");
+			$("#contactModal").hide();
+		} else {
+			$.notify("Beskedfeltet må ikke være tomt", "error");
+		}
+	});
+});

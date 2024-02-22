@@ -58,6 +58,7 @@ $(".arrow-button i").removeClass("fa-chevron-circle-left").addClass("fa-chevron-
 
 // Footer
 $("#footer-section-1 h4:first").text("Høje-Taastrup Gymnasium");
+$("#footer-section-2 p:contains(Marie Ellitsgaard larsen)").text("Marie Ellitsgaard Larsen"); // lol
 
 let redaktører = $("#footer-section-2 h4:eq(0)").nextUntil("#footer-section-2 h4:eq(1)")
 if (redaktører) {

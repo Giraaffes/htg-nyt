@@ -1,3 +1,8 @@
+.notifyjs-container { 
+	font-size: 24px; 
+	padding: 10px;
+}
+
 .navigation {
 	margin: 15px;
 	padding: 0;
@@ -90,11 +95,14 @@
 	top: 0;
 }
 
-.arrow-button {
+.check-btn > a {
 	width: 3.5rem;
 	height: 3.5rem;
-	background-color: #000000 !important;
 	transition: none;
+}
+
+.arrow-button {
+	background-color: #000000 !important;
 }
 
 .arrow-button:hover {
@@ -106,10 +114,11 @@
 	background-color: #555555 !important;
 }
 
-.arrow-button i {
+.check-btn > a i {
 	font-size: 70%;
 	color: #ffffff !important;
 }
+
 
 button.green-submit-btn {
 	padding: 0;
@@ -131,6 +140,7 @@ button.green-submit-btn:active {
 button.green-submit-btn i {
 	font-size: 70%;
 }
+
 
 #footer-logos {
 	margin-top: 10px;

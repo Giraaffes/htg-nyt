@@ -97,19 +97,80 @@ body {
 }
 
 
+.phone-button:hover {
+	background-color: #47855d !important;
+	cursor: pointer;
+}
+
+.phone-button:active {
+	background-color: #509568 !important;
+}
+
+#contactModal {
+	overflow: hidden;
+	max-width: unset;
+	width: 100vw;
+	height: 100vh;
+}
+
+.modal-dialog {
+	top: 85px !important;
+	left: 15px !important;
+	margin: 0 !important;
+	border-radius: 15px;
+}
+
+.modal.fade .modal-dialog {
+	transform: translate(0, -50px) !important;
+}
+
+.modal.show .modal-dialog {
+	transform: none !important;
+}
+
+.modal-dialog::before {
+	content: unset !important;
+}
+
+.modal-content {
+	margin: 0 !important;
+}
+
+#contactMessage {
+	resize: none;
+}
+
+.link-button, #submitBtn {
+	background-color: #67a86e !important;
+	margin-bottom: 0;
+	border: unset;
+}
+
+.link-button:hover, #submitBtn:hover {
+	background-color: #77b17e !important;
+}
+
+.link-button:active, #submitBtn:active {
+	background-color: #87ba8d !important;
+}
+
+
 @media (max-width: 650px) {
 	.navigation, .check-btn {
 		margin-top: 0px;
 	}
 
-	.arrow-button, .openbtn {
+	.check-btn {
+		flex-direction: column;
+	}
+
+	.check-btn > .arrow-button, .openbtn {
 		border-radius: 0;
 		width: 60px;
 		height: 60px;
-		/*line-height: 60px;*/
 	}
 
-	.arrow-button i, .openbtn i {
+	.check-btn > .arrow-button i, .openbtn i {
 		font-size: 50%;
 	}
 }

@@ -1,8 +1,3 @@
-.notifyjs-container { 
-	font-size: 24px; 
-	padding: 10px;
-}
-
 .nav-item { 
 	transition: background-color 0.15s ease-in; 
 }
@@ -127,6 +122,15 @@ span {
 	background-color: #16371c;
 }
 
+.question-choice {
+	display: flex;
+	gap: 5px;
+}
+
+.question-choice > * {
+	border-radius: 8px !important;
+}
+
 
 .header, .sidebar {
 	position: fixed;
@@ -222,7 +226,7 @@ span {
 	max-width: unset;
 }
 
-.form-data > *, .element-content > *, #cropImagePreview > * {
+.form-data > *, .element-content > *, .sub-form-data > *, #cropImagePreview > * {
 	position: static !important;
 	margin-bottom: 5px;
 }
@@ -232,7 +236,7 @@ span {
 	margin-bottom: 12px;
 }
 
-.form-data textarea, .form-data input[type=text], .form-data input[type=datetime-local] {
+.form-data textarea, .form-data input[type=text], .form-data input[type=email], .form-data input[type=datetime-local] {
 	padding: 7px 10px;
 	resize: none;
 	border: 1px solid #676774;

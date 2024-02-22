@@ -4,10 +4,6 @@ if (!isChefredaktør) throw Error("Ignorer denne fejl :)");
 const pageUuid = window.location.pathname.match(/[\w-]+$/)[0];
 
 
-// TODO
-$("#widgets-container").remove();
-
-
 // Saving
 const autoSaveInterval = 1 * 60 * 1000;
 const maxFailedAttempts = 3;
@@ -85,6 +81,10 @@ function addCheckField(type, html, name, value, id) {
 	return $([input[0], field[0]]);
 }
 
+function addTextInput(type, placeholder, name) {
+	return $(`<input type="${type}" placeholder="${placeholder}" name="${name}">`);
+}
+
 
 // Nav menu
 let skolebladNav = $(".sidebar .nav-item:first");
@@ -125,7 +125,7 @@ let firstDiv = $("#hideable-menu > div:eq(0)");
 let middleDiv = $("#hideable-menu > div:eq(1)");
 let actionButtonsDiv = $("<div></div>").addClass("action-buttons").appendTo("#hideable-menu");
 $("#hideable-menu > div").removeAttr("style").css("width", i => 
-	(["40%", "15rem", "12rem"])[i]
+	(["40%", "18rem", "12rem"])[i]
 );
 
 // Mezzio fix 10/2/24, 16/2/24
@@ -262,6 +262,128 @@ authorSelectDiv.find("input").on("change", async e => {
 		$.notify("Artiklens skribent kunne ikke ændres", "error");
 	}
 });
+
+
+// Extra
+let extraDiv = $("<div></div>").addClass("form-data");
+extraDiv.appendTo(middleDiv).append("<h5>Ekstra</h5>");
+
+let extraTypeDiv = $("<div></div>").addClass("custom-select-div check-toolbar");
+extraTypeDiv.appendTo(extraDiv);
+
+let extraTitleField = addTextInput("text", "Overskrift", "widget[headline]").appendTo(extraDiv);
+extraTitleField.val($("input[name='widget[headline]']:not(:disabled)").val());
+
+let emailField = $("#contactEmail").appendTo(extraDiv);
+emailField.attr("placeholder", "Email til kontakt");
+
+let extraTextField = $("input[name='widget[textarea]']:eq(2)").appendTo(extraDiv);
+extraTextField.attr("placeholder", "Hjælpetekst til læseren");
+
+let extraLinkTextField = $("input[name='widget[linkText]']").appendTo(extraDiv);
+let extraLinkField = $("input[name='widget[link]']").appendTo(extraDiv);
+
+let questionElementsDiv = $("<div></div>").appendTo(extraDiv); // Implemented further down
+questionElementsDiv.addClass("sub-form-data").css("margin-top", "12px");
+
+let variableExtraFields = $(([
+	extraTitleField, emailField, extraTextField, extraLinkTextField, extraLinkField, questionElementsDiv
+]).map(e => e[0]));
+variableExtraFields.removeAttr("disabled").removeAttr("id").removeClass("widget-input").hide();
+
+let commentCheckbox = addCheckField(
+	"checkbox", "Kommentar", "widget[widgetType]", "comment", "extra-comment"
+).appendTo(extraTypeDiv).on("change", () => {
+	variableExtraFields.hide();
+	if (commentCheckbox.is(":checked")) {
+		extraTitleField.show();
+		emailField.show();
+		extraTextField.show();
+		//questionCheckbox.prop("checked", false);
+		linkCheckbox.prop("checked", false);
+	}
+});
+/*let questionCheckbox = addCheckField(
+	"checkbox", "Afstemning", "widget[widgetType]", "questionnaire", "extra-question"
+).appendTo(extraTypeDiv).on("change", () => {
+	variableExtraFields.hide();
+	if (questionCheckbox.is(":checked")) {
+		extraTitleField.show();
+		emailField.show();
+		questionElementsDiv.show();
+		commentCheckbox.prop("checked", false);
+		linkCheckbox.prop("checked", false);
+	}
+});*/
+let linkCheckbox = addCheckField(
+	"checkbox", "Link", "widget[widgetType]", "link", "extra-link"
+).appendTo(extraTypeDiv).on("change", () => {
+	variableExtraFields.hide();
+	if (linkCheckbox.is(":checked")) {
+		extraTitleField.show();
+		extraLinkTextField.show();
+		extraLinkField.show();
+		commentCheckbox.prop("checked", false);
+		//questionCheckbox.prop("checked", false);
+	}
+});
+
+let selectedWidgetIndex = $(".widget-selector:checked").index(".widget-selector");
+if (selectedWidgetIndex == 2) {
+	commentCheckbox.prop("checked", true).trigger("change");
+} else if (selectedWidgetIndex == 4) {
+	//questionCheckbox.prop("checked", true).trigger("change");
+} else if (selectedWidgetIndex == 3) {
+	linkCheckbox.prop("checked", true).trigger("change");
+}
+
+// Question extra type (not the best code in the whole world)
+/*async function addQuestionChoice() {
+	let choice = $("<div></div>").addClass("question-choice");
+	choice.insertBefore(questionElementsDiv.children().last());
+
+	let choiceIndex = choice.index(".question-choice");
+	let choiceTextField = addTextInput("text", "Valgmulighed", "widget[questionnaire][]").appendTo(choice);
+	choiceTextField.val(`Valgmulighed ${choiceIndex + 1}`);
+
+	addButton(faIcon("trash-can"), () => {
+		choice.remove();
+	}).appendTo(choice);
+}
+
+let questionTypeDiv = $("<div></div>").addClass("custom-select-div check-toolbar").appendTo(questionElementsDiv);
+let multipleCheckbox = addCheckField(
+	"radio", "Multiple choice", "widget[isMultiQuestion]", "true", "extra-question-multiple"
+).appendTo(questionTypeDiv);
+let ranglisteCheckbox = addCheckField(
+	"radio", "Rangliste", "widget[isRanking]", "true", "extra-question-rangliste"
+).appendTo(questionTypeDiv);
+
+multipleCheckbox.on("change", () => {
+	ranglisteCheckbox.prop("checked", false);
+});
+ranglisteCheckbox.on("change", () => {
+	multipleCheckbox.prop("checked", false);
+});
+
+if ($("input[name='widget[isRanking]']:first").is(":checked")) {
+	ranglisteCheckbox.prop("checked", true);
+} else {
+	multipleCheckbox.prop("checked", true);
+}
+
+let newChoiceButtonDiv = $("<div></div>").appendTo(questionElementsDiv).css({
+	"display": "flex",
+	"justify-content": "center"
+});
+addButton(`<b>+</b> Valgmulighed`, addQuestionChoice).css({"border-radius": "20px"}).appendTo(newChoiceButtonDiv);
+
+addQuestionChoice().then(addQuestionChoice);
+
+$("input[name='widget[isMultiQuestion]']:first, input[name='widget[isRanking]']:first").remove();*/
+
+//$("#widgets-container > div:last").remove();
+$("#widgets-container").remove();
 
 
 // Save, preview and view article buttons
