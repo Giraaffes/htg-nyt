@@ -228,7 +228,8 @@ server.use(async (req, res) => {
 		validateStatus: () => true
 	});
 
-	if (inspirRes.status == 404) {
+	let articleNotFound = (inspirRes.headers.location || "").endsWith("/e9a");
+	if (inspirRes.status == 404 || articleNotFound) {
 		res.sendFile(`${__dirname}/files/not_found.html`);
 		return;
 	}
