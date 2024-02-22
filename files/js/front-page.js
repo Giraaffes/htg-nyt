@@ -143,10 +143,10 @@ if (activeCtgName == "nyt" || activeCtgName == "lærerigt") {
 }
 
 $(".article-listing").each((_, article) => {
-	let title = $(article).find("h5");
+	let title = $(article).find("h5:first");
 	title.text(title.text().replaceAll("⧸", "/"));
 	
-	let anchor = $(article).find("a");
+	let anchor = $(article).find("a:first");
 	anchor.attr("href", anchor.attr("href").replaceAll(/%e2%a7%b8/gi, "%2F"));
 });
 
