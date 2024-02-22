@@ -7,4 +7,4 @@
 [X] Custom tags
 [X] 	And no tags in url
 [X] Auto save
-[ ] Fix slashes breaking article name ("ASF/SAFE")
+[X] Fix slashes breaking article name ("ASF/SAFE")

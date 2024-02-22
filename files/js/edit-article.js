@@ -15,6 +15,7 @@ const maxFailedAttempts = 3;
 let doNotSave = false;
 async function saveArticle(keepAlive, silent) {
 	let formData = new FormData($("#magazines-articles-form")[0]);
+	formData.set("title", formData.get("title").replaceAll("/", "⧸"));
 
 	let res = await fetch(window.location.href, {
 			method: "POST",
@@ -108,6 +109,7 @@ let logoutNav = $(".sidebar .nav-item:last .nav-link").prepend(
 // Editor general
 $(".alert, .content-buttons").remove();
 
+$("#title").val($("#title").val().replaceAll("⧸", "/"));
 $("#title").on("keyup change clear", () => {
 	$("title").text(`Rediger "${$("#title").val() || "[Unavngivet]"}"`);
 }).trigger("change");

@@ -142,6 +142,14 @@ if (activeCtgName == "nyt" || activeCtgName == "lærerigt") {
 	});
 }
 
+$(".article-listing").each((_, article) => {
+	let title = $(article).find("h5");
+	title.text(title.text().replaceAll("⧸", "/"));
+	
+	let anchor = $(article).find("a");
+	anchor.attr("href", anchor.attr("href").replaceAll(/%e2%a7%b8/gi, "%2F"));
+});
+
 // Remove global articles
 $(".article-anchor").each((_, a) => {
 	let isLocal = $(a).attr("href").startsWith("/artikel/");

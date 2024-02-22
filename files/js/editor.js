@@ -212,6 +212,10 @@ dataTable = $("#table").DataTable({
 	searching: true,
 	columnDefs: [
 		{
+			target: 0, render: (data, type, row) => {
+				return data.replaceAll("⧸", "/");
+			}
+		}, {
 			target: 1, render: (data, type, row) => {
 				if (data == "-") {
 					// This character will most likely always be sorted last

@@ -1,6 +1,9 @@
 $(".authorContainer").insertAfter(".post-title");
 $(".top-box h3").text("HTG-NYT");
-$("title").text(`Preview "${$(".post-title h2").text()}"`)
+
+let title = $(".post-title h2");
+title.text(title.text().replaceAll("⧸", "/"));
+$("title").text(`Preview "${title.text()}"`);
 
 // No!!!!
 $(".removeContent").remove();

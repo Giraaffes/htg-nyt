@@ -1,5 +1,7 @@
 // Title
-$("title").text($(".post-title h2").text());
+let title = $(".post-title h2");
+title.text(title.text().replaceAll("⧸", "/"));
+$("title").text(title.text());
 
 
 // Headline and subheadline (fix and activity dates)

@@ -194,12 +194,11 @@ const urlPathRegex = /\/[^?]*/g;
 server.use(bodyParser.raw({ type: "*/*", limit: "100mb" }));
 server.use(async (req, res) => {
 	req.url = decodeURI(req.url); // I really hope this doesn't cause any trouble
-	console.log(req.url);
+	req.url = req.url.replaceAll(/%2f/gi, "⧸");
 
 	let paramsStr = (req.url.match(/(?<=\?).+/) || [""])[0];
 	let params = new URLSearchParams(paramsStr);
 	let typeParam = (params.get("type") || "").trim();
-
 	if (req.path == "/") {
 		if (typeParam) {
 			let newCategoryName = remapCategoryNames[params.get("type")];
@@ -217,9 +216,7 @@ server.use(async (req, res) => {
 	let originalPath = req.path; // Since this value is changed automatically below
 	req.url = unmapAllPaths(req.url, /^[^?]+/g);
 
-	// Not sure if this is necessary
 	delete req.headers.host;
-
 	let inspirRes = await axios({
 		method: req.method,
 		url: `https://www.inspir.dk${req.url}`,
