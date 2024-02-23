@@ -22,7 +22,7 @@ if (startDateElement.length == 1 && endDateElement.length == 1) {
 	let formattedStartDate = formatDate(startDate);
 	let formattedEndDate = formatDate(endDate);
 	if (formattedStartDate.date == formattedEndDate.date) {
-		dateStr = `${formattedStartDate.date} // kl. ${formattedStartDate.time} - ${formattedEndDate.time}`;
+		dateStr = `${formattedStartDate.date}, kl. ${formattedStartDate.time} - ${formattedEndDate.time}`;
 	} else {
 		dateStr = `${formattedStartDate.date} - ${formattedEndDate.date}`;
 	}
