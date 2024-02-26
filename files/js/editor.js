@@ -170,7 +170,7 @@ function addDeleteButton(row) {
 }
 
 // Mezzio fix 16/2/24 (remove priority column)
-$("#table tr > :nth-child(3)").remove();
+$("#table tr > :nth-child(1)").remove();
 
 $("#table thead tr:eq(0) th:eq(-1)").text("Handlinger").before("<th>Oprettelsesdato</th><th>Kategori</th><th>Synlighed</th>");
 $("#table thead tr:eq(1) th:eq(-1)").before("<th></th><th></th><th></th>");
