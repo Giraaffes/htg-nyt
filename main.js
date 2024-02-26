@@ -263,7 +263,7 @@ server.use(async (req, res) => {
 
 
 server.use((err, req, res, next) => {
-  console.error(err);
+  console.error((new Date()).toString(), err.toString());
   res.status(500).send("<title>Fejl</title>Beklager, der opstod en fejl...").end();
 })
 
