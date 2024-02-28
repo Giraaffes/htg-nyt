@@ -40,7 +40,7 @@ function overlayOnWhite(rgbaStr) {
 	let [ r, g, b, a ] = rgbaStr.match(/[\d\.]+/g);
 	a = parseFloat(a);
 
-	// Lerp r, g, b and white by alpha
+	// Lerp (r, g, b) and white by alpha
 	r = Math.floor(r * a + 255 * (1 - a));
 	g = Math.floor(g * a + 255 * (1 - a));
 	b = Math.floor(b * a + 255 * (1 - a));
@@ -56,7 +56,7 @@ activeColor = overlayOnWhite(activeColor);
 $(".headline-content, #filterList button.active").css("background-color", activeColor);
 
 // Nav dividers
-$("#filterList button").each((_, ctg) => {
+$("#filterList button:not(:last)").each((_, ctg) => {
 	let div = $("<div></div>").addClass("categories-divider").insertAfter($(ctg));
 	if ($(ctg).is(".active") || $(ctg).nextAll("button:first").is(".active")) {
 		div.addClass("active").css("background-color", activeColor);

@@ -158,7 +158,11 @@
 
 @media (max-width: 500px) {
 	#filterList button:not(.active) span {
-		font-size: 2.2vw;
+		font-size: 2.2vw !important;
+	}
+
+	#filters-text {
+		font-size: 5vw !important;
 	}
 
 	.article-headline {
@@ -169,7 +173,7 @@
 		font-size: 4vw !important;
 	}
 
-	.grey-box {
+	.grey-box, #dynamic-filters > button {
 		font-size: 3.6vw !important;
 	}
 }
