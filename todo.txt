@@ -1,9 +1,6 @@
-[X] Make header and navbar fixed on editor and edit article pages
 [ ] Standard redaktør support
 [ ] Fix several other pages
-[X] Fix new thingies in articles
 [ ] Implement question extra
-[X] Custom tags
-[X] 	And no tags in url
-[X] Auto save
-[X] Fix slashes breaking article name ("ASF/SAFE")
+
+[ ] Hide past activities
+[ ] Wrong login redirect fix
