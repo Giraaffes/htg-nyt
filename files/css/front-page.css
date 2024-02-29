@@ -165,7 +165,7 @@
 		font-size: 5vw !important;
 	}
 
-	.article-headline {
+	.article-listing h5:not(.grey-box) {
 		font-size: 4.25vw !important;
 	}
 
