@@ -139,14 +139,11 @@ function pageHook(path, html) {
 }
 
 
-const baseDomains = ["htg-nyt.dk", "htgnyt.dk"];
-
 server.use((req, res, next) => {
-	console.log(req, req.headers);
-	if (baseDomains.includes(req.hostname)) {
-		res.redirect(301, `http://www.${req.hostname}${req.originalUrl}`);
-	/*} else if (req.protocol == "https") {
-		res.redirect(301, `http://${req.hostname}${req.originalUrl}`);*/
+	let referer = req.headers.referer;
+	let apexDomainMatch = referer.match(/^https?:\/\/(htg-?nyt\.dk)[^\.]*$/);
+	if (apexDomainMatch) {
+		res.redirect(301, `http://www.${apexDomainMatch[1]}${req.originalUrl}`);
 	} else {
 		next();
 	}
