@@ -77,7 +77,7 @@ const pageInjects = {
 	"/forhåndsvis-artikel/": "preview-article"
 };
 
-const oldDomainHrefRegex = /(?<=href=")https:\/\/(?:www)?\.inspir\.dk/g;
+const oldDomainHrefRegex = /(?<=href=")https?:\/\/(?:www)?\.inspir\.dk/g;
 const urlPathHrefRegex = /(?<=href=")[^?"]*/g;
 const backToPathHrefRegex = /(?<=href="[^"]+backTo=)[^&"]*/g;
 const jQueryScriptRegex = /<script[^>]+src="[^"]+code\.jquery\.com.+?<\/script>/s;
@@ -143,7 +143,9 @@ const baseDomains = ["htg-nyt.dk", "htgnyt.dk"];
 
 server.use((req, res, next) => {
 	if (baseDomains.includes(req.hostname)) {
-		res.redirect(301, `https://www.${req.hostname}${req.originalUrl}`);
+		res.redirect(301, `http://www.${req.hostname}${req.originalUrl}`);
+	} else if (req.protocol == "https") {
+		res.redirect(301, `http://${req.hostname}${req.originalUrl}`);
 	} else {
 		next();
 	}
@@ -188,7 +190,7 @@ const remapCategoryNames = {
 	"aktiviteter": "calendar"
 };
 
-const oldDomainRegex = /https:\/\/(?:www)?\.inspir\.dk/g;
+const oldDomainRegex = /https?:\/\/(?:www)?\.inspir\.dk/g;
 const urlPathRegex = /\/[^?]*/g;
 
 server.use(bodyParser.raw({ type: "*/*", limit: "100mb" }));
