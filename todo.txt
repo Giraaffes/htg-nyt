@@ -4,3 +4,4 @@
 
 [ ] Hide past activities
 [ ] Wrong login redirect fix
+[ ] Tag outline color corresponding to category color
