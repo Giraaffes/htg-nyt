@@ -166,7 +166,7 @@
 	}
 
 	.article-listing h5:not(.grey-box) {
-		font-size: 4.25vw !important;
+		font-size: 4.25vw !important; 
 	}
 
 	.article-body p {
