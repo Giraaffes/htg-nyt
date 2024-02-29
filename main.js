@@ -140,6 +140,7 @@ function pageHook(path, html) {
 
 
 server.use((req, res, next) => {
+	console.log(req.headers);
 	let referer = req.headers.referer;
 	let apexDomainMatch = referer.match(/^https?:\/\/(htg-?nyt\.dk)[^\.]*$/);
 	if (apexDomainMatch) {
