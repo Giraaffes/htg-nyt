@@ -143,7 +143,7 @@ const baseDomains = ["htg-nyt.dk", "htgnyt.dk"];
 
 server.use((req, res, next) => {
 	if (baseDomains.includes(req.hostname)) {
-		res.redirect(301, `http://www.${req.hostname}${req.originalUrl}`);
+		res.redirect(301, `http://${req.hostname}${req.originalUrl}`);
 	} else {
 		next();
 	}
