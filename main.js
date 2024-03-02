@@ -267,7 +267,7 @@ server.use(async (req, res) => {
 	}
 
 	let contentType = inspirRes.headers["content-type"];
-	if (req.method == "GET" && contentType && contentType.startsWith("text/html")) {
+	if (!redirectUrl && req.method == "GET" && contentType && contentType.startsWith("text/html")) {
 		let encodingMatch = contentType.match(/charset=([^;]+)/);
 		let encoding = encodingMatch ? encodingMatch[1] : "utf8";
 		

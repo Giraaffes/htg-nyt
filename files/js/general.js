@@ -23,7 +23,7 @@ const loggedInNavItems = [
 ];
 const loggedOutNavItems = [
 	{name: "Log ind", icon: "right-to-bracket", href: "/login", addRedirect: true},
-	{name: "Registrer", icon: "user-plus", href: "/register/school-list/e9a"}
+	//{name: "Registrer", icon: "user-plus", href: "/register/school-list/e9a"}
 ]
 
 const addBackRedirects = (location.pathname == "/" || location.pathname.startsWith("/artikel/"));
@@ -106,19 +106,24 @@ const categoryChanges = {
 const keepTags = [
 	"intro", "aktuelt", "debat", "kultur", "sundhed", "miljø", "krea", 
 	"sprog", "tur", "spil", "fest", "sport", "hygge", "ferie", "historie",
-	"politik", "kunst", "musik", "demokrati"
+	"politik", "kunst", "musik"
 ];
 const tagChanges = {
-	"samfund": "samfundet",
 	
 	// random
 	"interesse": "anmeldelse",
 	"hall of fame": "personale",
 	"eksistens": "interview",
-	"wtf": "useriøst",
+	"wtf": "joke interview",
 	"valg": "quiz",
 	"xpert": "lang",
-	"rejser": "transport"
+	"rejser": "transport",
+
+	// Fag
+	"lær!": "dansk",
+	"samfund": "samf",
+	"fag": "mat"
+	// + historie^
 };
 
 // What??? so the "+" tag apparently means that you must be logged in to view the article

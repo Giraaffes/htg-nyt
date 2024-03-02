@@ -1,6 +1,8 @@
 $("input[name=\"query\"]").attr("placeholder", "E-MAIL");
 $("input[type=\"submit\"]").val("LOG IND");
 
+$(".check-toolbar:contains(Opret dig her)").remove();
+
 $(() => {
 	let url_ = new URL(location);
 	if (url_.searchParams.has("incorrect")) {
