@@ -1,0 +1,25 @@
+.row {
+	justify-content: center;;
+}
+
+.profile-form {
+	max-width: 500px;
+	margin: 0;
+}
+
+.avatar-input {
+	position: static;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#avatarImage {
+	height: unset;
+	padding: unset;
+}
+
+.username {
+	display: block;
+	margin: 0;
+	text-align: center;
+}

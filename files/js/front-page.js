@@ -36,30 +36,35 @@ $(() => {
 });
 
 // Colors
-function overlayOnWhite(rgbaStr) {
-	let [ r, g, b, a ] = rgbaStr.match(/[\d\.]+/g);
+function overlayOn(colorStr, bgrStr) {
+	let [ r1, g1, b1, a ] = colorStr.match(/[\d\.]+/g);
 	a = parseFloat(a);
 
+	let [ r2, g2, b2 ] = bgrStr.match(/[\d\.]+/g);
+
 	// Lerp (r, g, b) and white by alpha
-	r = Math.floor(r * a + 255 * (1 - a));
-	g = Math.floor(g * a + 255 * (1 - a));
-	b = Math.floor(b * a + 255 * (1 - a));
+	let r = Math.floor(r1 * a + r2 * (1 - a));
+	let g = Math.floor(g1 * a + g2 * (1 - a));
+	let b = Math.floor(b1 * a + b2 * (1 - a));
 
 	return `rgb(${r}, ${g}, ${b})`;
 }
 
-let bgrColor = $("#mediaContainer > div:first").css("background-color");
-$("#filterList button:not(.active)").css("background-color", bgrColor);
+let ctgColor = $("#mediaContainer > div:first").css("background-color");
+$("#filterList button:not(.active)").css("background-color", ctgColor);
 
-let activeColor = $(".headline-content").css("background-color");
-activeColor = overlayOnWhite(activeColor);
-$(".headline-content, #filterList button.active").css("background-color", activeColor);
+let opaqueCtgColor = $(".headline-content").css("background-color");
+let activeCtgColor = overlayOn(opaqueCtgColor, "rgb(255, 255, 255)");
+$(".headline-content, #filterList button.active").css("background-color", activeCtgColor);
+
+let darkenedCtgColor = overlayOn(opaqueCtgColor, "rgb(0, 0, 0)");
+$("#dynamic-filters button").css("border-color", darkenedCtgColor);
 
 // Nav dividers
 $("#filterList button:not(:last)").each((_, ctg) => {
 	let div = $("<div></div>").addClass("categories-divider").insertAfter($(ctg));
 	if ($(ctg).is(".active") || $(ctg).nextAll("button:first").is(".active")) {
-		div.addClass("active").css("background-color", activeColor);
+		div.addClass("active").css("background-color", activeCtgColor);
 	}
 });
 
@@ -125,6 +130,7 @@ $("div:has(> .grey-box)").each((_, tagsDiv) => {
 	sortAlphabetically($(tagsDiv).find(".grey-box"));
 });
 
+
 // Articles
 if (activeCtgName != "nyt") {
 	$(".article-anchor").each((_, a) => {
@@ -136,7 +142,7 @@ if ($(".article-listing").length == 0) {
 	$(".headline-content").parent().append("<span id=\"no-articles\">Der er ingen artikler her (endnu?)</span>")
 }
 
-if (activeCtgName == "nyt" || activeCtgName == "lærerigt") {
+if (activeCtgName == "nyt" || activeCtgName == "fagligt") {
 	$(".article-listing").each((_, article) => {
 		$(article).find(".article-tags").appendTo($(article).find(".article-container > div:eq(0)"));
 	});
@@ -155,3 +161,16 @@ $(".article-anchor").each((_, a) => {
 	let isLocal = $(a).attr("href").startsWith("/artikel/");
 	if (!isLocal) $(a).closest(".article-listing").remove();
 });
+
+// Remove past activites
+if (activeCtgName == "aktiviteter") {
+	$(".article-author").each((_, dateEl) => {
+		let [ d, m, y ] = $(dateEl).text().match(/\d+/g);
+		d = parseInt(d); m = parseInt(m) - 1; y = parseInt("20" + y);
+
+		let nowDate = new Date();
+		if (nowDate.getDate() > d || nowDate.getMonth() > m || nowDate.getFullYear() > y) {
+			$(dateEl).closest(".article-listing").remove();
+		}
+	});
+}

@@ -1,7 +1,10 @@
 [ ] Standard redaktør support
-[ ] Fix several other pages
+[X] Fix several other pages
 [ ] Implement question extra
 
-[ ] Hide past activities
-[ ] Wrong login redirect fix
-[ ] Tag outline color corresponding to category color
+[X] Hide past activities
+[X] Wrong login redirect fix
+[X] Tag outline color corresponding to category color
+[ ] Update 404
+
+[ ] Activites warning that it will sometimes be incorrect

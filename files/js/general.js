@@ -1,3 +1,7 @@
+// Top school name
+$("#school-title").unwrap().text("Høje-Taastrup Gymnasium");
+
+
 // Page icons
 $("link[rel=apple-touch-icon]").attr("href", "/custom/img/icon_180.png");
 $("link[rel=icon][sizes=32x32]").attr("href", "/custom/img/icon_32.png");
@@ -11,9 +15,9 @@ function faIcon(iconName) {
 
 const loggedInNavItems = [
 	{name: "Hovedmenu", icon: "house", href: "/hovedmenu"},
-	{name: "Min profil", icon: "user", href: "/account/details"},
+	{name: "Min profil", icon: "user", href: "/profil"},
 	{name: "Klassen", icon: "users", href: "/klassen"},
-	{name: "Udvalg", icon: "school", href: "/councils/list"},
+	{name: "Udvalg", icon: "school", href: "/udvalg"},
 	{name: "Redaktør", icon: "layer-group", href: "/redaktør"},
 	{name: "Log ud", icon: "right-from-bracket", href: "/user/logout", addRedirect: true}
 ];
@@ -83,14 +87,14 @@ const categoryChanges = {
 		icon: "face-laugh", color: "red",
 		title: "Alt det sjove", nav: "Sjovt"
 	}, "hack": {
-		oldTitle: "Hacks", name: "lærerigt", 
+		oldTitle: "Hacks", name: "fagligt", 
 		icon: "graduation-cap", color: "blue",
-		title: "Lærerige artikler", nav: "Lærerigt"
-	}, "folk": {
+		title: "Faglige artikler", nav: "Fagligt"
+	}, /*"folk": {
 		oldTitle: "Folk", name: "folk", 
 		icon: "user", color: "yellow",
 		title: "Folk", nav: "Folk"
-	}, "calendar": {
+	}, */"calendar": {
 		oldTitle: "Kalender", name: "aktiviteter", 
 		icon: "calendar-alt", color: "grey",
 		title: "Aktiviteter", nav: "Aktiviteter"

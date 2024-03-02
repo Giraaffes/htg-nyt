@@ -3,6 +3,12 @@
 	padding: 10px;
 }
 
+#school-title {
+	text-align: center;
+	margin-left: 0;
+}
+
+
 .navigation {
 	margin: 15px;
 	padding: 0;

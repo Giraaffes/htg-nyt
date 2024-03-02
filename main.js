@@ -19,7 +19,10 @@ const remapPaths = [
 	{from: "admin/articles/overview/9e106940-5c97-11ee-b9bf-d56e49dc725a", to: "redaktør"},
 	{from: "admin/articles/overview", to: "redaktør"},
 	{from: "admin/articles/edit/", to: "rediger-artikel/"},
-	{from: "admin/articles/preview-article/", to: "forhåndsvis-artikel/"}
+	{from: "admin/articles/preview-article/", to: "forhåndsvis-artikel/"},
+	{from: "account/details", to: "profil"},
+	{from: "councils/list", to: "udvalg"},
+	{from: "klassen/arsbog/", to: "person/"}
 ];
 
 function remapAllPaths(string, pathRegex) {
@@ -56,14 +59,20 @@ function unmapAllPaths(string, pathRegex) {
 
 
 function redirectHook(req, redirectUrl) {
-	if (
-		req.method == "POST" && req.path == "/user/login" || 
-		req.method == "GET" && req.path == "/user/logout") 
-	{
+	if (req.method == "POST" && req.path == "/user/login") {
+		if (redirectUrl.startsWith("/login")) {
+			let paramsStr = (req.url.match(/(?<=\?).+/) || [""])[0];
+			let params = new URLSearchParams(paramsStr);
+			params.set("incorrect", "true");
+			return `/login?${decodeURIComponent(params.toString())}`;
+		} else {
+			return req.query["backTo"] || "/";
+		}
+	} else if (req.method == "GET" && req.path == "/user/logout") {
 		return req.query["backTo"] || "/";
+	} else {
+		return redirectUrl;
 	}
-
-	return redirectUrl;
 }
 
 
@@ -74,7 +83,11 @@ const pageInjects = {
 	"/artikel/": "article",
 	"/redaktør": "editor",
 	"/rediger-artikel/": "edit-article",
-	"/forhåndsvis-artikel/": "preview-article"
+	"/forhåndsvis-artikel/": "preview-article",
+	"/profil": "profile",
+	"/udvalg": "udvalg",
+	"/klassen": "class",
+	"/person/": "person"
 };
 
 const oldDomainHrefRegex = /(?<=href=")https?:\/\/(?:www)?\.inspir\.dk/g;
@@ -83,9 +96,20 @@ const backToPathHrefRegex = /(?<=href="[^"]+backTo=)[^&"]*/g;
 const jQueryScriptRegex = /<script[^>]+src="[^"]+code\.jquery\.com.+?<\/script>/s;
 const datatablesScriptRegex = /<script[^>]+src="[^"]+cdn\.datatables\.net.+?<\/script>/s;
 
-/*function insertInString(str, insertStr, pos) {
-	return `${str.slice(0, pos)}${insertStr}${str.slice(pos)}`;
-}*/
+function lastMatch(str, matchStr) {
+	let regex = RegExp(matchStr);
+	let match, lastMatch;
+	while ((match = regex.exec(str)) != null) {
+		lastMatch = match;
+	}
+	return lastMatch;
+}
+
+function inject(str, regex, last, insertStr) {
+	let match = last ? lastMatch(str, regex) : str.match(regex);
+	let afterMatchIndex = match.index + match[0].length;
+	return `${str.slice(0, afterMatchIndex)}${insertStr}${str.slice(afterMatchIndex)}`;
+}
 
 function pageHook(path, html) {
 	let newHtml = html;
@@ -95,21 +119,21 @@ function pageHook(path, html) {
 	newHtml = remapAllPaths(newHtml, backToPathHrefRegex);
 
 	// It's assumed that there is always a script last in body - else shit will break
-	let injectScriptsAfter = /<\/script>(?=\s*<\/body>)/;
+	let injectScriptsRegex = /<\/script>(?=\s*<\/body>)/;
 
 	let jQueryScriptMatch = newHtml.match(jQueryScriptRegex);
-	if (jQueryScriptMatch) injectScriptsAfter = jQueryScriptMatch[0];
+	if (jQueryScriptMatch) injectScriptsRegex = jQueryScriptRegex;
 
 	let datatablesScript = newHtml.match(datatablesScriptRegex);
 	if (datatablesScript) {
 		newHtml = newHtml
 			.replace(datatablesScript[0], "")
 			.replace(jQueryScriptMatch[0], `$&${datatablesScript[0]}`);
-			injectScriptsAfter	 = datatablesScript[0];
+		injectScriptsRegex = datatablesScriptRegex;
 	}
 
-	newHtml = newHtml.replace(/>(?=\s*<\/head>)/, 
-		`$&<link rel="stylesheet" href="/custom/css/general.css">`
+	newHtml = inject(newHtml, />(?=\s*<\/head>)/g, true,
+		`<link rel="stylesheet" href="/custom/css/general.css">`
 	);
 
 	let injectName = pageInjects[path];
@@ -123,16 +147,16 @@ function pageHook(path, html) {
 		// Hardcoded for editor page
 		newHtml = newHtml.replace(/(?<=<script>\s*)initDataTable\(\);/, "");
 
-		newHtml = newHtml.replace(injectScriptsAfter, 
-			`$&<script src="/custom/js/${injectName}.js"></script>`
+		newHtml = inject(newHtml, injectScriptsRegex, false,
+			`<script src="/custom/js/${injectName}.js"></script>`
 		);
-		newHtml = newHtml.replace(/>(?=\s*<\/head>)/, 
-			`$&<link rel="stylesheet" href="/custom/css/${injectName}.css">`
+		newHtml = inject(newHtml, />(?=\s*<\/head>)/g, true,
+			`<link rel="stylesheet" href="/custom/css/${injectName}.css">`
 		);
 	}
 
-	newHtml = newHtml.replace(injectScriptsAfter, 
-		`$&<script src="/custom/js/general.js"></script>`, 
+	newHtml = inject(newHtml, injectScriptsRegex, false,
+		`<script src="/custom/js/general.js"></script>`
 	);
 
 	return newHtml;
@@ -183,7 +207,7 @@ server.get(/\/custom(\/.+)/, (req, res) => {
 const remapCategoryNames = {
 	"nyt": "new",
 	"sjovt": "faq",
-	"lærerigt": "hack",
+	"fagligt": "hack",
 	"mødesteder": "meeting",
 	"aktiviteter": "calendar"
 };
@@ -229,7 +253,7 @@ server.use(async (req, res) => {
 	});
 
 	let articleNotFound = (inspirRes.headers.location || "").endsWith("/e9a");
-	if (inspirRes.status == 404 || articleNotFound) {
+	if (inspirRes.status == 404 || inspirRes.status == 500 || articleNotFound) {
 		res.sendFile(`${__dirname}/files/not_found.html`);
 		return;
 	}
