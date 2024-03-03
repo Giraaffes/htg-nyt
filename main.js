@@ -166,8 +166,8 @@ function pageHook(path, html) {
 const baseDomains = ["htg-nyt.dk", "htgnyt.dk"];
 
 server.use((req, res, next) => {
-	if (baseDomains.includes(req.hostname)) {
-		res.redirect(301, `http://www.${req.hostname}${req.originalUrl}`);
+	if (req.hostname.endsWith("htg-nyt.dk") || req.hostname == "htgnyt.dk") {
+		res.redirect(301, `http://www.htgnyt.dk${req.originalUrl}`);
 	} else {
 		next();
 	}

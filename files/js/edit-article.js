@@ -460,7 +460,7 @@ function deleteArticle() {
 		body: formData,
 	}).then(res => res.json()).then(data => {
 		if (data.status == "success") {
-			window.close();
+			window.location.replace("/redaktør");
 		} else {
 			$.notify("Kunne ikke slette artikel", "error");
 		}
@@ -728,21 +728,16 @@ function waitForWindowFocus() {
 }
 
 async function loadNewElement(element) {
-	let elementIndex = $("#form-inputs").children(":not(.new-element-buttons)").index(element) + 1;
-
 	let inputs = element.find("input, textarea");
-	let elementType = inputs.first().attr("name").match(/content\[([a-z-]+)/)[1];
-	let elementName = `${elementType}${elementIndex}`;
-
 	inputs.each((_, input) => {
-		$(input).attr("name",
-			$(input).attr("name").replace(/(?<=^content\[)[^\]]+/, elementName)
-		);
-		// Code could be better but this is an important fix right now
-		if ($(input).attr("name").match(/^content\[[^\]]+\]$/)) {
-			$(input).attr("name", $(input).attr("name") + "[value]");
+		let name = $(input).attr("name");
+		if (name.match(/^content\[[^\]]+\]$/)) {
+			$(input).attr("name", name + "[value]");
 		}
 	});
+	
+	let elementType = inputs.first().attr("name").match(/content\[([a-z\-]+)/)[1];
+	let elementIndex = $("#form-inputs").children(":not(.new-element-buttons)").index(element) + 1;
 
 	let res = await fetch(window.location.href)
 	let html = await res.text();
@@ -754,12 +749,27 @@ async function loadNewElement(element) {
 	element.append(`<input type="hidden" name="${uuidDataName}" value="${uuid}">`);
 }
 
+function reindexElements() {
+	$("#form-inputs > :not(.new-element-buttons)").each((i, el) => {
+		$(el).find("*[name^='content[']").each((_, input) => {
+			let name = $(input).attr("name");
+			$(input).attr("name", name.replace(/\d+/, i + 1));
+		});
+	});
+}
+
+let addingElement = false;
 function addNewElementButtons(removeOnAdd) {
 	let wrapper = $("<div></div>").addClass("new-element-buttons");
 	$("<span>Tilføj element her:&nbsp;&nbsp;</span>").appendTo(wrapper);
 
 	for (let { text, name } of elementTypes) {
 		let button = addButton(text, async () => {
+			if (addingElement) {
+				$.notify("Vent venligst et øjeblik eller genindlæs siden...");
+				return;
+			}
+
 			addMagazineInput(name); // Built-in function
 			let insertedElement = $("#form-inputs .form-data:last")
 			insertedElement.removeAttr("id").insertAfter(wrapper);
@@ -771,9 +781,11 @@ function addNewElementButtons(removeOnAdd) {
 				fileInput.trigger("click");
 
 				await waitForWindowFocus();
-				if (fileInput[0].files.length == 0) insertedElement.remove();
-
-				doNotSave = true;
+				if (fileInput[0].files.length == 0) {
+					insertedElement.remove();
+				} else {
+					doNotSave = true;
+				}
 				return;
 			}
 
@@ -785,14 +797,19 @@ function addNewElementButtons(removeOnAdd) {
 			renameFormData(insertedElement);
 			insertedElement[0].scrollIntoView({ block: "start", inline: "nearest", behavior: "smooth" });
 
+			addingElement = true;
+			doNotSave = true;
 			let elementWasAdded = await saveArticle(false, true);
 			if (elementWasAdded) {
 				await loadNewElement(insertedElement);
+				reindexElements();
 			} else {
 				insertedElement.remove();
 				newNewElementButtons.remove();
 				$.notify("Kunne ikke tilføje element", "error");
 			}
+			doNotSave = false;
+			addingElement = false;
 		});
 		wrapper.append(button);
 	}
@@ -845,6 +862,7 @@ $(async () => {
 
 		await saveArticle(false, true);
 		await loadNewElement(metadataElement);
+		reindexElements();
 		updateMetadata();
 		await saveArticle(false, true);
 	} else {

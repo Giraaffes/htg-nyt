@@ -1,10 +1,8 @@
 [~] Standard redaktør support
-[X] Fix several other pages
-[ ] Implement question extra
-
-[X] Hide past activities
-[X] Wrong login redirect fix
-[X] Tag outline color corresponding to category color
-[X] Update 404
 
 [ ] Activites warning that it will sometimes be incorrect
+[ ] Make thumbnails smaller
+[?] Redirect from htg-nyt.dk to htgnyt.dk
+[X] Fix glitch when creating new elements
+[ ] Implement question extra
+[ ] Change some text sizes om front page
