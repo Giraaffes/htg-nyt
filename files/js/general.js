@@ -104,7 +104,7 @@ const categoryChanges = {
 
 // Used on front page and edit article
 const keepTags = [
-	"intro", "aktuelt", "debat", "kultur", "sundhed", "miljø", "krea", 
+	/*"intro", */"aktuelt", "debat", "kultur", "sundhed", "miljø", "krea", 
 	"sprog", "tur", "spil", "fest", "sport", "hygge", "ferie", "historie",
 	"politik", "kunst", "musik"
 ];
@@ -118,6 +118,7 @@ const tagChanges = {
 	"valg": "quiz",
 	"xpert": "lang",
 	"rejser": "transport",
+	"intro": "hjælp",
 
 	// Fag
 	"lær!": "dansk",
