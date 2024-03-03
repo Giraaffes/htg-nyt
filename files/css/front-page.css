@@ -175,7 +175,7 @@
 }
 
 .headline-content .activities-notice:hover::after {
-	content: "Dobbeltjek altid datoer på htg.dk eller på Lectio!";
+	content: "Dobbeltjek altid datoer på Lectio eller på htg.dk!";
 	position: absolute;
 	bottom: 100%;
 	margin-bottom: 8px;
