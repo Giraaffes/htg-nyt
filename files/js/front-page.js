@@ -179,6 +179,6 @@ if (activeCtgName == "aktiviteter") {
 // Activites notice
 if (activeCtgName == "aktiviteter") {
 	$(".headline-content").addClass("activities-headline").append(
-		$("<h1>Bemærk!</h1>").addClass("activities-notice").attr("title", "Tjek altid datoer på htg.dk eller på Lectio!")
+		$("<h1></h1>").html(`Bemærk! ${faIcon("hand-pointer")}`).addClass("activities-notice")
 	);
 }

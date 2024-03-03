@@ -164,9 +164,34 @@
 .headline-content .activities-notice {
 	margin-right: 15px;
 	font-size: 65%;
-	color: #eeeeee;
-	border-bottom: 2px dotted #eeeeee;
+	color: #eaeaea;
+	border-bottom: 1px dotted #eaeaea;
 	height: 70%;
+	position: relative;
+}
+
+.headline-content .activities-notice:hover {
+	cursor: default;
+}
+
+.headline-content .activities-notice:hover::after {
+	content: "Dobbeltjek altid datoer på htg.dk eller på Lectio!";
+	position: absolute;
+	bottom: 100%;
+	margin-bottom: 8px;
+	right: 0;
+	width: max-content;
+	
+	font-family: 'Barlow Condensed', sans-serif;
+	font-weight: 300;
+	font-size: 1.25rem;
+	text-align: right;
+	padding: 5px;
+	background-color: #000000aa;
+}
+
+.headline-content .activities-notice i {
+	font-size: 90%;
 }
 
 
