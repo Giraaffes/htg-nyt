@@ -543,6 +543,8 @@ function addElementButtons(element) {
 				if ($("#form-inputs .form-data").length == 0) {
 					addNewElementButtons(true).prependTo("#form-inputs");
 				}
+
+				reindexElements();
 			} else {
 				$.notify("Element kunne ikke slettes - prøv at genindlæse siden", "error");
 			}
