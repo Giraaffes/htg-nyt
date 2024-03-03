@@ -161,3 +161,8 @@ button.green-submit-btn i {
 #footer-sections > div {
 	flex-shrink: 1;
 }
+
+#footer-section-2 a:hover {
+	color: white;
+	text-decoration: underline;
+}

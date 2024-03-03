@@ -67,6 +67,7 @@ $("#footer-section-2 p:contains(Marie Ellitsgaard larsen)").text("Marie Ellitsga
 $("#footer-section-2 h4:contains(Freelancers), #footer-section-2 p:contains(-)").remove();
 $("#footer-section-2 h4:contains(Webudvkling)").text("Webudvikling"); // lol
 $("#footer-section-2 a:contains(MEZZIO)").after("<p>Flap</p>");
+$("#footer-section-2 p:contains(MEZZIO)").unwrap();
 
 let redaktører = $("#footer-section-2 h4:eq(0)").nextUntil("#footer-section-2 h4:eq(1)")
 if (redaktører) {
@@ -76,6 +77,7 @@ if (redaktører) {
 	$(sortedElements).insertAfter("#footer-section-2 h4:eq(0)");
 }
 
+$("#footer-logos img").slice(0, 4).remove();
 $("#footer-logos").nextAll("br").remove();
 
 
