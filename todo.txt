@@ -5,4 +5,4 @@
 [X] Redirect from htg-nyt.dk to htgnyt.dk
 [X] Fix glitch when creating new elements
 [ ] Implement question extra
-[ ] Change some text sizes om front page
+[?] Change some text sizes om front page
