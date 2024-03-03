@@ -664,7 +664,7 @@ const renameHeaders = {
 	"RUBRIK": "Rubrik",
 	"MANCHET": "Manchet",
 	"VIDEO": "Video",
-	"THUMBNAIL": "Billede",
+	"LISTE-ILL": "Billede",
 	"SoMe": "Sociale medier",
 	"Pic": "Billede",
 	"Tekst": "Brødtekst"

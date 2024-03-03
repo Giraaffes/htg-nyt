@@ -229,6 +229,7 @@ span {
 .form-data > *, .element-content > *, .sub-form-data > *, #cropImagePreview > * {
 	position: static !important;
 	margin-bottom: 5px;
+	margin-left: 0 !important;
 }
 
 .form-data h5 {
