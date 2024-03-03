@@ -181,10 +181,11 @@
 	margin-bottom: 8px;
 	right: 0;
 	width: max-content;
+	max-width: 90vw;
 	
 	font-family: 'Barlow Condensed', sans-serif;
 	font-weight: 300;
-	font-size: 1.1rem;
+	font-size: 1.15rem;
 	text-align: right;
 	padding: 5px;
 	background-color: #000000aa;
