@@ -2,7 +2,7 @@
 
 [ ] Activites warning that it will sometimes be incorrect
 [ ] Make thumbnails smaller
-[?] Redirect from htg-nyt.dk to htgnyt.dk
+[X] Redirect from htg-nyt.dk to htgnyt.dk
 [X] Fix glitch when creating new elements
 [ ] Implement question extra
 [ ] Change some text sizes om front page
