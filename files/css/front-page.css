@@ -156,6 +156,20 @@
 }
 
 
+.activities-headline {
+	display: flex;
+	justify-content: space-between;
+}
+
+.headline-content .activities-notice {
+	margin-right: 15px;
+	font-size: 65%;
+	color: #eeeeee;
+	border-bottom: 2px dotted #eeeeee;
+	height: 70%;
+}
+
+
 @media (max-width: 500px) {
 	#filterList button:not(.active) span {
 		font-size: 2.2vw !important;
