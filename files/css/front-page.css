@@ -53,7 +53,7 @@
 	font-family: "Aboreto", cursive;
 	font-weight: 600;
 	opacity: 0.9;
-	font-size: 60%;
+	font-size: 65%; /* 60% */
 }
 
 #filterList button.active {
@@ -198,7 +198,7 @@
 
 @media (max-width: 500px) {
 	#filterList button:not(.active) span {
-		font-size: 2.2vw !important;
+		font-size: 2.8vw !important; /* 2.2vw */
 	}
 
 	#filters-text {
@@ -215,5 +215,9 @@
 
 	.grey-box, #dynamic-filters > button {
 		font-size: 3.4vw !important;
+	}
+	
+	.headline-content .activities-notice {
+		font-size: 50%;
 	}
 }
