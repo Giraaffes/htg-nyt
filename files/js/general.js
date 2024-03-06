@@ -89,7 +89,7 @@ const categoryChanges = {
 		icon: "newspaper", color: "green",
 		title: "Nyheder", nav: "Nyheder"
 	}, "faq": {
-		oldTitle: "FAQ", name: "sjovt", 
+		oldTitle: "SERIØST..?", name: "sjovt", 
 		icon: "face-laugh", color: "red",
 		title: "Alt det sjove", nav: "Sjovt"
 	}, "hack": {
