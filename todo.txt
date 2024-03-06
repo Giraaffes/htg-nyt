@@ -1,5 +1,5 @@
 [~] Standard redaktør support
 
-[ ] Activites warning that it will sometimes be incorrect
+[X] Activites warning that it will sometimes be incorrect
 [ ] Make thumbnails smaller automatically
 [ ] Implement question extra

@@ -77,20 +77,22 @@
 	font-size: 90%;
 }
 
-#dynamic-filters button:not(.active):hover {
-	background-color: #dddddd;
-}
-
 #dynamic-filters button:not(.active):active {
 	background-color: #cccccc;
 }
 
-#dynamic-filters button.active:hover {
-	background-color: #444444;
-}
-
 #dynamic-filters button.active:active {
 	background-color: #777777;
+}
+
+@media (min-width: 500px) {
+	#dynamic-filters button:not(.active):hover {
+		background-color: #dddddd;
+	}
+
+	#dynamic-filters button.active:hover {
+		background-color: #444444;
+	}
 }
 
 
@@ -196,6 +198,25 @@
 }
 
 
+.bgr-top, .bgr-bottom {
+	position: fixed;
+	width: 500px;
+	height: 50px;
+	left: calc(50vw - 250px);
+	z-index: -1000;
+}
+
+.bgr-top {
+	top: 0;
+}
+
+.bgr-bottom {
+	background-color: #999999;
+	bottom: 0;
+}
+
+
+/* Probably quite a bad way of doing it */
 @media (max-width: 500px) {
 	#filterList button:not(.active) span {
 		font-size: 2.8vw !important; /* 2.2vw */
@@ -213,11 +234,19 @@
 		font-size: 4vw !important;
 	}
 
-	.grey-box, #dynamic-filters > button {
+	.grey-box {
 		font-size: 3.4vw !important;
+	}
+
+	#dynamic-filters > button {
+		font-size: 3.6vw !important;
+	}
+
+	.headline-content > :first-child {
+		font-size: 5vw !important;
 	}
 	
 	.headline-content .activities-notice {
-		font-size: 55%;
+		font-size: 3vw !important;
 	}
 }

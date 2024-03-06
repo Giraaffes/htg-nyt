@@ -120,7 +120,7 @@ const tagChanges = {
 	"interesse": "anmeldelse",
 	"hall of fame": "personale",
 	"eksistens": "interview",
-	"wtf": "useriøst",
+	//"wtf": "useriøst",
 	"valg": "quiz",
 	"xpert": "lang",
 	"rejser": "transport",

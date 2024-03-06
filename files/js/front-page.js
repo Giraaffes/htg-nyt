@@ -182,3 +182,9 @@ if (activeCtgName == "aktiviteter") {
 		$("<h1></h1>").html(`Bemærk! ${faIcon("hand-pointer")}`).addClass("activities-notice")
 	);
 }
+
+
+// Background fix
+let bgrTop = $("<div></div>").addClass("bgr-top").addClass(`${activeColorName}-color`);
+let bgrBottom = $("<div></div>").addClass("bgr-bottom");
+$("body").prepend(bgrTop).append(bgrBottom);
