@@ -202,7 +202,7 @@
 	position: fixed;
 	width: 500px;
 	height: 300px;
-	left: calc(50vw - 250px);
+	left: calc(50% - 250px);
 	z-index: -1000;
 }
 
