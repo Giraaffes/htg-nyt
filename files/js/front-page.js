@@ -185,6 +185,6 @@ if (activeCtgName == "aktiviteter") {
 
 
 // Background fix
-let bgrTop = $("<div></div>").addClass("bgr-top").addClass(`${activeColorName}-color`);
+let bgrTop = $("<div></div>").addClass("bgr-top").addClass(`${activeCtgChanges.color}-color`);
 let bgrBottom = $("<div></div>").addClass("bgr-bottom");
 $("body").prepend(bgrTop).append(bgrBottom);
