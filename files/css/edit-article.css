@@ -263,6 +263,10 @@ span {
 	gap: 15px;
 }
 
+.content-colors input, .content-colors label {
+	z-index: 0;
+}
+
 
 .element-wrapper {
 	display: flex;
