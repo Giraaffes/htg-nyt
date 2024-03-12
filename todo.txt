@@ -4,3 +4,4 @@
 [ ] Make thumbnails smaller automatically
 [ ] Implement question extra
 [ ] Color checkbox label id reindex
+[ ] Constant error in console

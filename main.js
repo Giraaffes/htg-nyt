@@ -163,7 +163,7 @@ function pageHook(path, html) {
 }
 
 
-const baseDomains = ["htg-nyt.dk", "htgnyt.dk"];
+/*const baseDomains = ["htg-nyt.dk", "htgnyt.dk"];
 
 server.use((req, res, next) => {
 	if (req.hostname.endsWith("htg-nyt.dk") || req.hostname == "htgnyt.dk") {
@@ -171,7 +171,7 @@ server.use((req, res, next) => {
 	} else {
 		next();
 	}
-});
+});*/
 
 
 server.post("/github-push", (req, res) => {
