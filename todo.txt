@@ -2,6 +2,6 @@
 
 [X] Activites warning that it will sometimes be incorrect
 [ ] Make thumbnails smaller automatically
-[ ] Implement question extra
+[~] Implement question extra
 [ ] Color checkbox label id reindex
 [ ] Constant error in console

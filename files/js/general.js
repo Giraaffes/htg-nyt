@@ -80,6 +80,10 @@ if (redaktører) {
 $("#footer-logos img").slice(0, 4).remove();
 $("#footer-logos").nextAll("br").remove();
 
+if ($("#article-footer").length == 1) {
+	$("body").append($("<div></div>").addClass("bgr-bottom"));
+}
+
 
 // General constants
 // Used on front page, redaktør overview and edit article 

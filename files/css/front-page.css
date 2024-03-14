@@ -157,6 +157,11 @@
 	margin: 0;
 }
 
+.article-container .article-views {
+	text-align: left;
+	color: gray;
+}
+
 
 .activities-headline {
 	display: flex;
@@ -195,24 +200,6 @@
 
 .headline-content .activities-notice i {
 	font-size: 75%;
-}
-
-
-.bgr-top, .bgr-bottom {
-	position: fixed;
-	width: 500px;
-	height: 300px;
-	left: calc(50% - 250px);
-	z-index: -1000;
-}
-
-.bgr-top {
-	top: 0;
-}
-
-.bgr-bottom {
-	background-color: #999999;
-	bottom: 0;
 }
 
 

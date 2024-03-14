@@ -175,6 +175,13 @@ if (activeCtgName == "aktiviteter") {
 	});
 }
 
+// Article views? (det skal nok ikke hedde "visninger")
+/*$(".article-listing").each((_, article) => {
+	$(article).find(".article-subheadline").after(
+		$(`<p>${Math.floor(Math.random()*100)} visninger</p>`).addClass("article-views")
+	);
+})*/
+
 
 // Activites notice
 if (activeCtgName == "aktiviteter") {
@@ -184,7 +191,6 @@ if (activeCtgName == "aktiviteter") {
 }
 
 
-// Background fix
+// Top background fix
 let bgrTop = $("<div></div>").addClass("bgr-top").addClass(`${activeCtgChanges.color}-color`);
-let bgrBottom = $("<div></div>").addClass("bgr-bottom");
-$("body").prepend(bgrTop).append(bgrBottom);
+$("body").prepend(bgrTop);
