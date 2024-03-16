@@ -10,6 +10,39 @@ const axios = require("axios");
 const server = express();
 
 
+// Github webhook
+server.post("/github-push", (req, res) => {
+	if (!req.headers["x-github-hook-id"] == "457630844") return;
+	res.status(200).end();
+
+	exec("git pull", (error, stdout, stderr) => {
+		console.log(stdout);
+		process.exit();
+	});
+});
+
+
+// Custom resources
+function fileExists(filePath) {
+	try {
+		fs.accessSync(filePath, fs.constants.R_OK);
+		return true;
+	} catch {
+		return false;
+	}
+}
+
+server.get(/\/custom(\/.+)/, (req, res) => {
+	let filePath = `${__dirname}/files/${req.params[0]}`;
+	if (fileExists(filePath)) {
+		res.sendFile(filePath);
+	} else {
+		res.status(404).send("404 not found").end();
+	}
+});
+
+
+// Remapping
 // Order matters
 const remapPaths = [
 	{from: "user/login", to: "login"},
@@ -58,24 +91,7 @@ function unmapAllPaths(string, pathRegex) {
 }
 
 
-function redirectHook(req, redirectUrl) {
-	if (req.method == "POST" && req.path == "/user/login") {
-		if (redirectUrl.startsWith("/login")) {
-			let paramsStr = (req.url.match(/(?<=\?).+/) || [""])[0];
-			let params = new URLSearchParams(paramsStr);
-			params.set("incorrect", "true");
-			return `/login?${decodeURIComponent(params.toString())}`;
-		} else {
-			return req.query["backTo"] || "/";
-		}
-	} else if (req.method == "GET" && req.path == "/user/logout") {
-		return req.query["backTo"] || "/";
-	} else {
-		return redirectUrl;
-	}
-}
-
-
+// Injects
 const pageInjects = {
 	"/login": "login",
 	"/hovedmenu": "homepage",
@@ -163,47 +179,7 @@ function pageHook(path, html) {
 }
 
 
-/*const baseDomains = ["htg-nyt.dk", "htgnyt.dk"];
-
-server.use((req, res, next) => {
-	if (req.hostname.endsWith("htg-nyt.dk") || req.hostname == "htgnyt.dk") {
-		res.redirect(301, `http://www.htgnyt.dk${req.originalUrl}`);
-	} else {
-		next();
-	}
-});*/ 
-
-
-server.post("/github-push", (req, res) => {
-	if (!req.headers["x-github-hook-id"] == "457630844") return;
-	res.status(200).end();
-
-	exec("git pull", (error, stdout, stderr) => {
-		console.log(stdout);
-		process.exit();
-	});
-});
-
-
-function fileExists(filePath) {
-	try {
-		fs.accessSync(filePath, fs.constants.R_OK);
-		return true;
-	} catch {
-		return false;
-	}
-}
-
-server.get(/\/custom(\/.+)/, (req, res) => {
-	let filePath = `${__dirname}/files/${req.params[0]}`;
-	if (fileExists(filePath)) {
-		res.sendFile(filePath);
-	} else {
-		res.status(404).send("404 not found").end();
-	}
-});
-
-
+// URL params
 const remapCategoryNames = {
 	"nyt": "new",
 	"sjovt": "faq",
@@ -212,30 +188,49 @@ const remapCategoryNames = {
 	"aktiviteter": "calendar"
 };
 
+function paramsHook(req, params) {
+	let typeParam = params.get("type") || "";
+	if (req.path == "/") {
+		if (typeParam) {
+			let newCategoryName = remapCategoryNames[typeParam];
+			if (newCategoryName) params.set("type", newCategoryName);
+		} else {
+			params.set("type", "new");
+		}
+	}
+}
+
+
+// Redirects
+function redirectHook(req, redirectUrl, params) {
+	if (req.method == "POST" && req.path == "/user/login") {
+		if (redirectUrl.startsWith("/user/login")) {
+			params.set("incorrect", "true");
+			return `/user/login?${decodeURIComponent(params.toString())}`;
+		} else {
+			return req.query["backTo"] || "/";
+		}
+	} else if (req.method == "GET" && req.path == "/user/logout") {
+		return req.query["backTo"] || "/";
+	} else {
+		return redirectUrl;
+	}
+}
+
+
+// Main handler
 const oldDomainRegex = /https?:\/\/(?:www)?\.inspir\.dk/g;
 const urlPathRegex = /\/[^?]*/g;
 
 server.use(bodyParser.raw({ type: "*/*", limit: "100mb" }));
 server.use(async (req, res) => {
-	req.url = decodeURI(req.url); // I really hope this doesn't cause any trouble
+	req.url = decodeURI(req.url);
 	req.url = req.url.replaceAll(/%2f/gi, "⧸");
 
 	let paramsStr = (req.url.match(/(?<=\?).+/) || [""])[0];
 	let params = new URLSearchParams(paramsStr);
-	let typeParam = (params.get("type") || "").trim();
-	if (req.path == "/") {
-		if (typeParam) {
-			let newCategoryName = remapCategoryNames[params.get("type")];
-			if (newCategoryName) params.set("type", newCategoryName);
-		} else {
-			params.set("type", "new");
-		}
-	} else if (req.path == "/redaktør" && !typeParam) {
-		params.set("type", "local");
-	}
-	if (paramsStr != params.toString()) {
-		req.url = req.url.replace(/(?:\?.*)?$/, "?" + params.toString());
-	}
+	paramsHook(req, params);
+	req.url = `${req.path}${params.size > 0 ? ("?" + params.toString()) : ""}`;
 
 	let originalPath = req.path; // Since this value is changed automatically below
 	req.url = unmapAllPaths(req.url, /^[^?]+/g);
@@ -252,8 +247,10 @@ server.use(async (req, res) => {
 		validateStatus: () => true
 	});
 
-	let articleNotFound = (inspirRes.headers.location || "").endsWith("/e9a");
-	if (inspirRes.status == 404 || inspirRes.status == 500 || articleNotFound) {
+	if (
+		inspirRes.status == 404 || inspirRes.status == 500 || 
+		(inspirRes.headers.location || "").endsWith("/e9a")
+	) {
 		res.sendFile(`${__dirname}/files/not_found.html`);
 		return;
 	}
@@ -261,8 +258,10 @@ server.use(async (req, res) => {
 	let redirectUrl = inspirRes.headers.location;
 	if (redirectUrl) {
 		redirectUrl = redirectUrl.replace(oldDomainRegex, "");
-		redirectUrl = remapAllPaths(redirectUrl, urlPathRegex);
-		redirectUrl = redirectHook(req, redirectUrl);
+		redirectUrl = redirectHook(req, redirectUrl, params);
+		if (redirectUrl.startsWith("/")) {
+			redirectUrl = remapAllPaths(redirectUrl, urlPathRegex);
+		}
 		inspirRes.headers.location = encodeURI(redirectUrl);
 	}
 
@@ -276,6 +275,7 @@ server.use(async (req, res) => {
 		inspirRes.data = Buffer.from(newHtml, encoding);
 	}
 
+	// To fix a glitch where nginx complains when both transfer-encoding and content-length are sent
 	delete inspirRes.headers["transfer-encoding"];
 
 	res.statusMessage = inspirRes.statusText;
@@ -286,12 +286,14 @@ server.use(async (req, res) => {
 });
 
 
+// Error handling
 server.use((err, req, res, next) => {
-  console.error((new Date()).toString(), err.toString());
+  console.error((new Date()).toLocaleString(), err);
   res.status(500).send("<title>Fejl</title>Beklager, der opstod en fejl...").end();
 })
 
 
+// Server listen
 server.listen(process.env.PORT || 8000, "127.0.0.1", () => {
 	console.log("Ready");
 });

@@ -655,7 +655,7 @@ $("#form-inputs .form-data").each((_, element) => {
 
 // Renaming
 const renameHeaders = {
-	"Static filters": "Kategori",
+	"SEKTIONER": "Kategori",
 	"Dynamic filters": "Tags (maks. 2)",
 	"DATE": "Startdato",
 	"END DATE": "Slutdato",
