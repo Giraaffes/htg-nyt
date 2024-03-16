@@ -2,6 +2,10 @@ body {
 	margin: 0;
 }
 
+#wrapper {
+	min-height: unset;
+}
+
 .top-box, .post-headline, #article-footer {
 	margin: 0;
 }
