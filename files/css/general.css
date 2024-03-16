@@ -13,6 +13,41 @@
 }
 
 
+.custom-tooltip {
+	position: relative;
+}
+
+.custom-tooltip:hover {
+	cursor: default;
+}
+
+.custom-tooltip:hover::after {
+	content: attr(data-msg);
+	position: absolute;
+	margin-bottom: 8px;
+	right: 0;
+	width: max-content;
+	max-width: min(90vw, 500px);
+	z-index: 1000;
+	
+	font-family: "Barlow Condensed", "Source Sans Pro", sans-serif;
+	font-weight: 400;
+	font-size: 1.15rem;
+	text-align: right;
+	padding: 5px;
+	color: #eaeaea;
+	background-color: #000000bb;
+}
+
+.custom-tooltip.up:hover::after {
+	bottom: 100%;
+}
+
+.custom-tooltip.down:hover::after {
+	top: 100%;
+}
+
+
 .navigation {
 	margin: 15px;
 	padding: 0;

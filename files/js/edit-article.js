@@ -422,12 +422,12 @@ let previewButton = addButton("Forhåndsvis artikel", () => {
 });
 actionButtonsDiv.append(previewButton);
 
-let viewArticleButton = addButton("Læs artikel", () => {
+let viewArticleButton = addButton("Læs artikel"/*, () => {
 	if (!$("#magazines-articles-form").hasClass("public")) return;
 
 	let articlePath = $("#title").val().toLowerCase().replaceAll(" ", "_");
 	window.open(`/artikel/${encodeURIComponent(articlePath)}`, "_blank");
-}).addClass("read-button");
+}*/).addClass("read-button custom-tooltip down").attr("data-msg", "Pga. Inspiratorium virker denne knap ikke længere...");
 actionButtonsDiv.append(viewArticleButton);
 
 $("<p></p>").text(
@@ -885,3 +885,7 @@ $("#dynamic-filters").closest(".form-data").css("margin-bottom", "0");
 // Crop image translations
 $(".modal h5:contains(Crop the image)").text("Beskær billede");
 $(".modal button:contains(Cancel)").text("Annuller");
+
+
+// Fix (???)
+$("div:has(> #form-inputs)").removeAttr("style");

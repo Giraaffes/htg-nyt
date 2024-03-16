@@ -63,7 +63,7 @@ h3 {
 #sort-info {
 	margin-bottom: 0;
 	color: #666666;
-	text-decoration: underline;
+	border-bottom: 1px dotted #666666;
 }
 
 #update-order {

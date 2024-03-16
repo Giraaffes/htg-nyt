@@ -55,7 +55,7 @@ newArticleButton.text("+ Ny artikel");
 
 // Update order button
 let updateOrderButton = newArticleButton.clone().insertAfter(newArticleButton);
-updateOrderButton.attr("id", "update-order").text("Opdater rækkefølge (dette kan tage lang tid)");
+updateOrderButton.attr("id", "update-order").text("Opdater rækkefølge (kan tage lang tid)");
 updateOrderButton.removeAttr("href").on("click", () => {
 	$.notify("Opdaterer...", "warn");
 
@@ -85,7 +85,7 @@ updateOrderButton.removeAttr("href").on("click", () => {
 	})();
 });
 
-$("<p id=\"sort-info\"><- Hvad? Hold musen over mig</p>").insertAfter(updateOrderButton).attr("title",
+$("<p id=\"sort-info\"><- Hvad? Hold musen over mig</p>").addClass("custom-tooltip down").insertAfter(updateOrderButton).attr("data-msg",
 	"Normalt står artikler inde på skolebladet i rækkefølge efter hvornår de sidst blev ændret.\nTryk for at sortere alle artikler efter deres oprettelsesdato (som det burde være).\nRækkefølgen bliver dog gal igen så snart en ældre artikel ændres :/"
 );
 
@@ -126,9 +126,11 @@ function addVisibilityButtons(row) {
 	});
 }
 
-function addReadArticleButton(row) {
-	let articlePath = $(row).find("td:eq(0)").text().trim().toLowerCase().replaceAll(" ", "_");
-	let articleUrl = `/artikel/${encodeURIComponent(articlePath)}`;
+function addReadArticleButton(row, oldArticleUrl) {
+	// Ugh...
+	//let articlePath = $(row).find("td:eq(0)").text().trim().toLowerCase().replaceAll(" ", "_");
+	let articleId = oldArticleUrl.match(/[\w_]+$/)[0];
+	let articleUrl = `/artikel/${articleId}`;
 
 	let readArticleButton = $(`<a href="${articleUrl}" target="_blank">Læs artikel</a>`).addClass("btn btn-info read-button");
 	readArticleButton.appendTo($(row).find("td:eq(5) .action-buttons-wrapper"));
@@ -186,9 +188,10 @@ $("#table tbody tr").each((i, row) => {
 
 	let actionButtonsDiv = $("<div></div>").addClass("action-buttons-wrapper")
 	$(row).find("td:eq(5)").append(actionButtonsDiv);
+	let oldArticleUrl = $(row).find("td:eq(5) button.generate-link").attr("data-url");
 	$(row).find("td:eq(5) button").remove();
 
-	addReadArticleButton(row);
+	addReadArticleButton(row, oldArticleUrl);
 
 	let editLinkNode = $(row).find(".edit-a");
 	let editLink = editLinkNode.attr("href")
