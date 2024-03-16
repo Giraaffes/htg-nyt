@@ -2,3 +2,4 @@
 [~] Implement question extra
 [ ] Color checkbox label id reindex
 [?] Constant error in console
+[ ] Fix remove past activites

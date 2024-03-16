@@ -162,8 +162,8 @@ $(".article-anchor").each((_, a) => {
 	if (!isLocal) $(a).closest(".article-listing").remove();
 });
 
-// Remove past activites
-if (activeCtgName == "aktiviteter") {
+// Remove past activites (broken, fix later)
+/*if (activeCtgName == "aktiviteter") {
 	$(".article-author").each((_, dateEl) => {
 		let [ d, m, y ] = $(dateEl).text().match(/\d+/g);
 		d = parseInt(d); m = parseInt(m) - 1; y = parseInt("20" + y);
@@ -173,7 +173,7 @@ if (activeCtgName == "aktiviteter") {
 			$(dateEl).closest(".article-listing").remove();
 		}
 	});
-}
+}*/
 
 // Article views? (det skal nok ikke hedde "visninger")
 /*$(".article-listing").each((_, article) => {
