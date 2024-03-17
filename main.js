@@ -103,7 +103,7 @@ function unmapAllPaths(string, pathRegex) {
 
 
 // Article views
-const frontPageRegex = /^https?:\/\/(?:www)?.htg\-?nyt.dk$\//;
+const frontPageRegex = /^https?:\/\/(?:www)?.htg\-?nyt.dk\/$/;
 const hashResetInterval = 24 * 60 * 60 * 1000; // daily
 
 let accessHashes = [];
