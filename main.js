@@ -135,21 +135,23 @@ server.get("/artikel/:article", async (req, res, next) => {
   if (!connectedToDatabase) return next();
 
 	let referer = req.headers["referer"];
-	console.log(referer);
 	if (!referer || !referer.match(frontPageRegex)) return next();
-	console.log("register");
 
 	let articleId = req.params["article"];
 	let identifier = ([req.ip, articleId, req.headers["user-agent"] || ""]).join();
 	let accessHash = crypto.createHash('md5').update(identifier).digest('hex');
 	if (!accessHashes.includes(accessHash)) {
 		accessHashes.push(accessHash);
-		console.log(await queryDatabase(
-			`INSERT IGNORE INTO articles VALUES ("${articleId}", 0, NULL);`
-		));
-		console.log(await queryDatabase(
-			`UPDATE articles SET views = views + 1 WHERE id = "${articleId}";`
-		));
+		try {
+			await queryDatabase(
+				`INSERT IGNORE INTO articles VALUES ("${articleId}", 0, NULL);`
+			);
+			await queryDatabase(
+				`UPDATE articles SET views = views + 1 WHERE id = "${articleId}";`
+			);
+		} catch (err) {
+			console.error("Error when registering view:", err);
+		}
 	}
 
 	next();
