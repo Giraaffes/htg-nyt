@@ -3,11 +3,21 @@ require("express-async-errors");
 const fs = require("fs");
 const { exec } = require('child_process');
 
+const crypto = require('crypto');
+const mySQL = require('mysql');
+
+const mySQLConn = mySQL.createConnection({
+  host: "localhost",
+  user: "root",
+	database: "htgnyt"
+});
+
 const express = require("express");
 const bodyParser = require("body-parser")
 const axios = require("axios");
 
 const server = express();
+
 
 
 // Github webhook
@@ -43,7 +53,7 @@ server.get(/\/custom(\/.+)/, (req, res) => {
 
 
 // Remapping
-// Order matters
+// Order matters here
 const remapPaths = [
 	{from: "user/login", to: "login"},
 	{from: "", to: "hovedmenu"},
@@ -91,6 +101,58 @@ function unmapAllPaths(string, pathRegex) {
 }
 
 
+// Article views
+const frontPageRegex = /^https?:\/\/(?:www)?.htg\-?nyt.dk$\//;
+const hashResetInterval = 2 * 60 * 60 * 1000; // 2hr
+
+let accessHashes = [];
+let connectedToDatabase = false;
+mySQLConn.connect((err) => {
+	if (err) return;
+
+	connectedToDatabase = true;
+	setInterval(() => {
+		accessHashes = [];
+	}, hashResetInterval);
+
+	console.log("Connected to database");
+});
+
+function queryDatabase(query) {
+	return new Promise((res, rej) => {
+		mySQLConn.query(query, (err, results, fields) => {
+			if (err) {
+				rej(err);
+			} else {
+				res({results, fields});
+			}
+		});
+	});
+}
+
+server.get("/artikel/:article", async (req, res, next) => {
+  if (!connectedToDatabase) return next();
+
+	let referer = req.headers["referer"];
+	if (!referer || !referer.match(frontPageRegex)) return next();
+
+	let articleId = req.params["article"];
+	let identifier = ([req.ip, articleId, req.headers["user-agent"] || ""]).join();
+	let accessHash = crypto.createHash('md5').update(identifier).digest('hex');
+	if (!accessHashes.includes(accessHash)) {
+		accessHashes.push(accessHash);
+		await queryDatabase(
+			`INSERT IGNORE INTO articles VALUES ("${articleId}", 0, NULL);`
+		);
+		await queryDatabase(
+			`UPDATE articles SET views = views + 1 WHERE id = "${articleId}";`
+		);
+	}
+
+	next();
+});
+
+
 // Injects
 const pageInjects = {
 	"/login": "login",
@@ -109,8 +171,12 @@ const pageInjects = {
 const oldDomainHrefRegex = /(?<=href=")https?:\/\/(?:www)?\.inspir\.dk/g;
 const urlPathHrefRegex = /(?<=href=")[^?"]*/g;
 const backToPathHrefRegex = /(?<=href="[^"]+backTo=)[^&"]*/g;
+
 const jQueryScriptRegex = /<script[^>]+src="[^"]+code\.jquery\.com.+?<\/script>/s;
 const datatablesScriptRegex = /<script[^>]+src="[^"]+cdn\.datatables\.net.+?<\/script>/s;
+
+const articleHrefRegex = /(?<=href="\/artikel\/)[\w_]+/g;
+const articleAnchorRegex = /<a\s+class="article-anchor"\s+href="\/artikel\/([\w_]+)".+?>/g;
 
 function lastMatch(str, matchStr) {
 	let regex = RegExp(matchStr);
@@ -127,13 +193,15 @@ function inject(str, regex, last, insertStr) {
 	return `${str.slice(0, afterMatchIndex)}${insertStr}${str.slice(afterMatchIndex)}`;
 }
 
-function pageHook(path, html) {
+async function pageHook(path, html) {
 	let newHtml = html;
 
+	// Path remapping
 	newHtml = newHtml.replaceAll(oldDomainHrefRegex, "");
 	newHtml = remapAllPaths(newHtml, urlPathHrefRegex);
 	newHtml = remapAllPaths(newHtml, backToPathHrefRegex);
 
+	// Injects
 	// It's assumed that there is always a script last in body - else shit will break
 	let injectScriptsRegex = /<\/script>(?=\s*<\/body>)/;
 
@@ -174,6 +242,19 @@ function pageHook(path, html) {
 	newHtml = inject(newHtml, injectScriptsRegex, false,
 		`<script src="/custom/js/general.js"></script>`
 	);
+
+	// Article views
+	let articleIds = newHtml.match(articleHrefRegex);
+	if (connectedToDatabase) {
+		console.log(await queryDatabase(
+			`SELECT id, views FROM articles WHERE id IN (${articleIds.map(e => `"${e}"`).join(", ")});`
+		));
+	}
+
+	/*newHtml.replaceAll(articleAnchorRegex, (tag, articleId) => {
+		console.log(tag, articleId);
+		return `${tag}<p class="article-views"></p>`;
+	});*/
 
 	return newHtml;
 }
@@ -271,7 +352,7 @@ server.use(async (req, res) => {
 		let encoding = encodingMatch ? encodingMatch[1] : "utf8";
 		
 		let html = inspirRes.data.toString(encoding)
-		let newHtml = pageHook(originalPath, html);
+		let newHtml = await pageHook(originalPath, html);
 		inspirRes.data = Buffer.from(newHtml, encoding);
 	}
 
