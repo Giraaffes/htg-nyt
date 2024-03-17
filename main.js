@@ -194,7 +194,7 @@ function inject(str, regex, last, insertStr) {
 	return `${str.slice(0, afterMatchIndex)}${insertStr}${str.slice(afterMatchIndex)}`;
 }
 
-async function pageHook(res, path, html) {
+async function pageHook(req, path, html) {
 	let newHtml = html;
 
 	// Path remapping
@@ -245,7 +245,7 @@ async function pageHook(res, path, html) {
 	);
 
 	// Article views
-	if (path == "/" && res.query["type"] != "aktiviteter" && connectedToDatabase) {
+	if (path == "/" && req.query["type"] != "aktiviteter" && connectedToDatabase) {
 		let articleIds = newHtml.match(articleHrefRegex);
 		let { results } = await queryDatabase(
 			`SELECT id, views FROM articles WHERE id IN (${articleIds.map(e => `"${e}"`).join(", ")});`
@@ -353,7 +353,7 @@ server.use(async (req, res) => {
 		let encoding = encodingMatch ? encodingMatch[1] : "utf8";
 		
 		let html = inspirRes.data.toString(encoding)
-		let newHtml = await pageHook(res, originalPath, html);
+		let newHtml = await pageHook(req, originalPath, html);
 		inspirRes.data = Buffer.from(newHtml, encoding);
 	}
 
