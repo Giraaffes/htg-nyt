@@ -134,8 +134,10 @@ function queryDatabase(query) {
 server.get("/artikel/:article", async (req, res, next) => {
   if (!connectedToDatabase) return next();
 
+	console.log(referer);
 	let referer = req.headers["referer"];
 	if (!referer || !referer.match(frontPageRegex)) return next();
+	console.log(register);
 
 	let articleId = req.params["article"];
 	let identifier = ([req.ip, articleId, req.headers["user-agent"] || ""]).join();
@@ -143,12 +145,12 @@ server.get("/artikel/:article", async (req, res, next) => {
 	if (!accessHashes.includes(accessHash)) {
 		accessHashes.push(accessHash);
 		try {
-			await queryDatabase(
+			console.log(await queryDatabase(
 				`INSERT IGNORE INTO articles VALUES ("${articleId}", 0, NULL);`
-			);
-			await queryDatabase(
+			));
+			console.log(await queryDatabase(
 				`UPDATE articles SET views = views + 1 WHERE id = "${articleId}";`
-			);
+			));
 		} catch (err) {
 			console.error("Error when registering view:", err);
 		}
