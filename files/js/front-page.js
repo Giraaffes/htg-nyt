@@ -159,8 +159,7 @@ $(".article-listing").each((_, article) => {
 	if (views.length == 0) {
 		views = $("<p>? visninger</p>").addClass("article-views");
 	}
-	let subheadline = $(article).find("p:first")
-	views.prepend(faIcon("eye") + " ").insertAfter(subheadline);
+	views.prepend(faIcon("eye") + " ").insertAfter(title.next());
 });
 
 // Remove global articles
