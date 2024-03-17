@@ -156,9 +156,9 @@ $(".article-listing").each((_, article) => {
 	anchor.attr("href", anchor.attr("href").replaceAll(/%e2%a7%b8/gi, "%2F"));
 
 	let views = $(article).find(".article-views");
-	if (views.length == 0) {
+	/*if (views.length == 0) {
 		views = $("<p>? visninger</p>").addClass("article-views");
-	}
+	}*/
 	views.prepend(faIcon("eye") + " ").insertAfter(title.next());
 });
 
