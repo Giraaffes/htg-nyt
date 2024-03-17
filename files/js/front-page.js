@@ -162,6 +162,10 @@ $(".article-listing").each((_, article) => {
 	views.prepend(faIcon("eye") + " ").insertAfter(title.next());
 });
 
+$(".folk-article-section .article-text").each((_, toUnwrap) => {
+	$(toUnwrap).children().unwrap();
+});
+
 // Remove global articles
 $(".article-anchor").each((_, a) => {
 	let isLocal = $(a).attr("href").startsWith("/artikel/");

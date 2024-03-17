@@ -166,6 +166,14 @@
 	font-size: 75%;
 }
 
+.folk-article-section {
+	gap: 5px;
+}
+
+.folk-article-subheadline {
+	margin: 0 !important;
+}
+
 
 .activities-headline {
 	display: flex;

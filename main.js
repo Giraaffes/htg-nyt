@@ -245,16 +245,16 @@ async function pageHook(path, html) {
 	);
 
 	// Article views
-	if (!connectedToDatabase) return newHtml;
-
-	let articleIds = newHtml.match(articleHrefRegex);
-	let { results } = await queryDatabase(
-		`SELECT id, views FROM articles WHERE id IN (${articleIds.map(e => `"${e}"`).join(", ")});`
-	);
-	newHtml = newHtml.replaceAll(articleAnchorRegex, (tag, articleId) => {
-		let views = results.filter(e => e.id == articleId)[0].views;
-		return `${tag}<p class="article-views">${views} visning${views == 1 ? "" : "er"}</p>`;
-	});
+	if (path == "/" && connectedToDatabase) {
+		let articleIds = newHtml.match(articleHrefRegex);
+		let { results } = await queryDatabase(
+			`SELECT id, views FROM articles WHERE id IN (${articleIds.map(e => `"${e}"`).join(", ")});`
+		);
+		newHtml = newHtml.replaceAll(articleAnchorRegex, (tag, articleId) => {
+			let views = results.filter(e => e.id == articleId)[0].views;
+			return `${tag}<p class="article-views">${views} visning${views == 1 ? "" : "er"}</p>`;
+		});
+	}
 
 	return newHtml;
 }
