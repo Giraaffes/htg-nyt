@@ -4,7 +4,7 @@ const fs = require("fs");
 const { exec } = require('child_process');
 
 const crypto = require('crypto');
-const mySQL = require('mysql');
+const mySQL = require('mysql2');
 
 const mySQLConn = mySQL.createConnection({
   host: "localhost",
