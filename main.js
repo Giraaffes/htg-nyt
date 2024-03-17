@@ -9,8 +9,8 @@ const mySQL = require('mysql2');
 const mySQLConn = mySQL.createConnection({
   host: "localhost",
   user: "root",
-	database: "htgnyt",
-	password: ""
+	password: "",
+	database: "htgnyt"
 });
 
 const express = require("express");
@@ -104,12 +104,12 @@ function unmapAllPaths(string, pathRegex) {
 
 // Article views
 const frontPageRegex = /^https?:\/\/(?:www)?.htg\-?nyt.dk$\//;
-const hashResetInterval = 2 * 60 * 60 * 1000; // 2hr
+const hashResetInterval = 24 * 60 * 60 * 1000; // daily
 
 let accessHashes = [];
 let connectedToDatabase = false;
 mySQLConn.connect((err) => {
-	if (err) return console.log(err);
+	if (err) return;
 
 	connectedToDatabase = true;
 	setInterval(() => {
@@ -245,17 +245,16 @@ async function pageHook(path, html) {
 	);
 
 	// Article views
-	let articleIds = newHtml.match(articleHrefRegex);
-	if (connectedToDatabase) {
-		console.log(await queryDatabase(
-			`SELECT id, views FROM articles WHERE id IN (${articleIds.map(e => `"${e}"`).join(", ")});`
-		));
-	}
+	if (!connectedToDatabase) return newHtml;
 
-	/*newHtml.replaceAll(articleAnchorRegex, (tag, articleId) => {
-		console.log(tag, articleId);
-		return `${tag}<p class="article-views"></p>`;
-	});*/
+	let articleIds = newHtml.match(articleHrefRegex);
+	let { results } = await queryDatabase(
+		`SELECT id, views FROM articles WHERE id IN (${articleIds.map(e => `"${e}"`).join(", ")});`
+	);
+	newHtml = newHtml.replaceAll(articleAnchorRegex, (tag, articleId) => {
+		let views = results.filter(e => e.id == articleId)[0].views;
+		return `${tag}<p class="article-views">${views} visning${views == 1 ? "" : "er"}</p>`;
+	});
 
 	return newHtml;
 }

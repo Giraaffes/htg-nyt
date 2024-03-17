@@ -162,6 +162,10 @@
 	color: gray;
 }
 
+.article-container .article-views i {
+	font-size: 75%;
+}
+
 
 .activities-headline {
 	display: flex;

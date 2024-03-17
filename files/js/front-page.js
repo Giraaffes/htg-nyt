@@ -154,6 +154,13 @@ $(".article-listing").each((_, article) => {
 	
 	let anchor = $(article).find("a:first");
 	anchor.attr("href", anchor.attr("href").replaceAll(/%e2%a7%b8/gi, "%2F"));
+
+	let subheadline = $(article).find("p:first");
+	$(article).find(".article-views").prepend(faIcon("eye")).insertAfter(subheadline);
+});
+
+$(".article-views").each((_, viewsTag) => {
+	$(viewsTag)
 });
 
 // Remove global articles
@@ -174,13 +181,6 @@ $(".article-anchor").each((_, a) => {
 		}
 	});
 }*/
-
-// Article views? (det skal nok ikke hedde "visninger")
-/*$(".article-listing").each((_, article) => {
-	$(article).find(".article-subheadline").after(
-		$(`<p>${Math.floor(Math.random()*100)} visninger</p>`).addClass("article-views")
-	);
-})*/
 
 
 // Activites notice
