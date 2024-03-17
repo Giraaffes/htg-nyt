@@ -134,10 +134,10 @@ function queryDatabase(query) {
 server.get("/artikel/:article", async (req, res, next) => {
   if (!connectedToDatabase) return next();
 
-	console.log(referer);
 	let referer = req.headers["referer"];
+	console.log(referer);
 	if (!referer || !referer.match(frontPageRegex)) return next();
-	console.log(register);
+	console.log("register");
 
 	let articleId = req.params["article"];
 	let identifier = ([req.ip, articleId, req.headers["user-agent"] || ""]).join();
