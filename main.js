@@ -9,7 +9,8 @@ const mySQL = require('mysql2');
 const mySQLConn = mySQL.createConnection({
   host: "localhost",
   user: "root",
-	database: "htgnyt"
+	database: "htgnyt",
+	password: ""
 });
 
 const express = require("express");
@@ -108,7 +109,7 @@ const hashResetInterval = 2 * 60 * 60 * 1000; // 2hr
 let accessHashes = [];
 let connectedToDatabase = false;
 mySQLConn.connect((err) => {
-	if (err) console.log(err);
+	if (err) return console.log(err);
 
 	connectedToDatabase = true;
 	setInterval(() => {
