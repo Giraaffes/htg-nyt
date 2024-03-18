@@ -251,9 +251,11 @@ async function pageHook(req, path, html) {
 	// Article views
 	if (path == "/" && req.query["type"] != "aktiviteter" && connectedToDatabase) {
 		let articleIds = newHtml.match(articleHrefRegex);
+		let articleIdsStr = articleIds.map(e => `"${e}"`).join(", ");
 		let { results } = await queryDatabase(
-			`SELECT id, views FROM articles WHERE id IN (${articleIds.map(e => `"${e}"`).join(", ")});`
+			`SELECT id, views FROM articles WHERE id IN (${articleIdsStr});`
 		);
+
 		newHtml = newHtml.replaceAll(articleAnchorRegex, (tag, articleId) => {
 			let entry = results.filter(e => e.id == articleId)[0];
 			let views = entry ? entry.views : 0;
@@ -374,7 +376,9 @@ server.use(async (req, res) => {
 
 // Error handling
 server.use((err, req, res, next) => {
-  console.error((new Date()).toLocaleString(), err);
+	let timeStr = (new Date()).toLocaleString({timeZone: "Europe/Copenhagen"});
+  console.error(timeStr, req.url, err);
+
   res.status(500).send("<title>Fejl</title>Beklager, der opstod en fejl...").end();
 })
 

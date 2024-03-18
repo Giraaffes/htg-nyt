@@ -578,19 +578,19 @@ function fixAnswerElement(element) {
 	colorsDiv.appendTo(contentDiv);
 	$(`<span>
 			<label style="background-color: #a0873266"></label>
-			<input class="content-color-btn" style="accent-color: #a0873266;" type="checkbox" name="content[blabla][color]" value="#a0873266">
+			<input class="content-color-btn" style="accent-color: #a0873266;" type="checkbox" name="content[answer100][color]" value="#a0873266">
 		</span>`).appendTo(colorsDiv);
 	$(`<span>
 			<label style="background-color: #96555566"></label>
-			<input class="content-color-btn" style="accent-color: #96555566;" type="checkbox" name="content[blabla][color]" value="#96555566">
+			<input class="content-color-btn" style="accent-color: #96555566;" type="checkbox" name="content[answer100][color]" value="#96555566">
 		</span>`).appendTo(colorsDiv);
 	$(`<span>
 			<label style="background-color: #145a7366"></label>
-			<input class="content-color-btn" style="accent-color: #145a7366;" type="checkbox" name="content[blabla][color]" value="#145a7366">
+			<input class="content-color-btn" style="accent-color: #145a7366;" type="checkbox" name="content[answer100][color]" value="#145a7366">
 		</span>`).appendTo(colorsDiv);
 	$(`<span>
 			<label style="background-color: #466e6466"></label>
-			<input class="content-color-btn" style="accent-color: #466e6466;" type="checkbox" name="content[blabla][color]" value="#466e6466">
+			<input class="content-color-btn" style="accent-color: #466e6466;" type="checkbox" name="content[answer100][color]" value="#466e6466">
 		</span>`).appendTo(colorsDiv);
 	
 	colorsDiv.find("input").each((_, clr) => {
