@@ -173,17 +173,18 @@ $(".article-anchor").each((_, a) => {
 });
 
 // Remove past activites (broken, fix later)
-/*if (activeCtgName == "aktiviteter") {
+if (activeCtgName == "aktiviteter") {
 	$(".article-author").each((_, dateEl) => {
 		let [ d, m, y ] = $(dateEl).text().match(/\d+/g);
 		d = parseInt(d); m = parseInt(m) - 1; y = parseInt("20" + y);
-
-		let nowDate = new Date();
-		if (nowDate.getDate() > d || nowDate.getMonth() > m || nowDate.getFullYear() > y) {
+		
+		let nowDate = new Date(new Date().toDateString());
+		let articleDate = new Date(y, m, d);
+		if (nowDate > articleDate) {
 			$(dateEl).closest(".article-listing").remove();
 		}
 	});
-}*/
+}
 
 
 // Activites notice
