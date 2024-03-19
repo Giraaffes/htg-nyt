@@ -4,6 +4,7 @@ body {
 
 #wrapper {
 	min-height: unset;
+	box-shadow: 0 0 6px #00000018;
 }
 
 .top-box, .post-headline, #article-footer {
