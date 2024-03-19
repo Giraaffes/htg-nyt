@@ -1,5 +1,3 @@
 [ ] Make thumbnails smaller automatically
 [~] Implement question extra (or remove the commented out code)
-[X] Color checkbox label id reindex
 [?] Constant error in console
-[X] Fix remove past activites

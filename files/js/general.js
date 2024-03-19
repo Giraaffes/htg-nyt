@@ -134,7 +134,8 @@ const tagChanges = {
 	// Fag
 	"lær!": "dansk",
 	"samfund": "samf",
-	"fag": "mat"
+	"fag": "mat",
+	"scene": "samling"
 	// + historie^
 };
 
