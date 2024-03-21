@@ -29,6 +29,10 @@ span, h1, p {
 	text-decoration: underline;
 }
 
+.profile-name input[type=text] {
+	font-family: 'Barlow Condensed', sans-serif;
+}
+
 #preview-avatar {
 	margin-bottom: 2rem;
 }

@@ -179,9 +179,8 @@
 }
 
 
-.activities-headline {
-	display: flex;
-	justify-content: space-between;
+.headline-content div:has(> .activities-notice) {
+	margin-right: 0.5rem;
 }
 
 .headline-content .activities-notice {
@@ -190,6 +189,7 @@
 	color: #eaeaea;
 	border-bottom: 1px dotted #eaeaea;
 	height: 70%;
+	margin: 0 0.5rem;
 }
 
 .headline-content .activities-notice i {

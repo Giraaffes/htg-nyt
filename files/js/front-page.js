@@ -192,10 +192,10 @@ if (activeCtgName == "aktiviteter") {
 
 // Activites notice
 if (activeCtgName == "aktiviteter") {
-	$(".headline-content").addClass("activities-headline").append(
-		$("<h1></h1>").html(`Bemærk! ${faIcon("hand-pointer")}`).addClass("activities-notice custom-tooltip up").attr("data-msg", 
-			"Dobbeltjek altid datoer på Lectio eller på htg.dk!"
-		)
+	$(".headline-content").append(
+		$("<div></div>").append(
+			$("<h1></h1>").html(`Bemærk! ${faIcon("hand-pointer")}`).addClass("activities-notice")
+		).addClass("custom-tooltip up").attr("data-msg", "Dobbeltjek altid datoer på Lectio eller på htg.dk!")
 	);
 }
 
