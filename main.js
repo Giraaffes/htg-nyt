@@ -344,7 +344,7 @@ server.use(async (req, res) => {
 	});
 
 	if (
-		inspirRes.status == 404 || inspirRes.status == 500 || 
+		(inspirRes.status >= 400 && inspirRes.status < 600) || 
 		(inspirRes.headers.location || "").endsWith("/e9a")
 	) {
 		res.sendFile(`${__dirname}/files/not_found.html`);
