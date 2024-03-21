@@ -68,6 +68,9 @@ $("#filterList button:not(:last)").each((_, ctg) => {
 	}
 });
 
+// Mezzio fix 21/3/24
+$("#region-container").remove();
+
 
 // Tag filters
 if ($("#dynamic-filters button").length > 0) {
