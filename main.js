@@ -57,7 +57,7 @@ server.get(/\/custom(\/.+)/, (req, res) => {
 // Order matters here
 const remapPaths = [
 	{from: "user/login", to: "login"},
-	{from: "", to: "hovedmenu"},
+	/*{from: "", to: "hovedmenu"},*/
 	{from: "e9a/htg/", to: "artikel/"},
 	{from: "e9a/htg", to: ""},
 	{from: "admin/articles/overview/9e106940-5c97-11ee-b9bf-d56e49dc725a", to: "redaktør"},
@@ -66,7 +66,9 @@ const remapPaths = [
 	{from: "admin/articles/preview-article/", to: "forhåndsvis-artikel/"},
 	{from: "account/details", to: "profil"},
 	{from: "councils/list", to: "udvalg"},
-	{from: "klassen/arsbog/", to: "person/"}
+	{from: "klassen/arsbog/", to: "person/"},
+	{from: "register/step-three/", to: "registrer/"},
+	{from: "register/school-list/e9a", to: "registrer"}
 ];
 
 function remapAllPaths(string, pathRegex) {
@@ -170,7 +172,9 @@ const pageInjects = {
 	"/profil": "profile",
 	"/udvalg": "udvalg",
 	"/klassen": "class",
-	"/person/": "person"
+	"/person/": "person",
+	"/registrer": "register-1",
+	"/registrer/": "register-2"
 };
 
 const oldDomainHrefRegex = /(?<=href=")https?:\/\/(?:www)?\.inspir\.dk/g;
@@ -291,13 +295,17 @@ function paramsHook(req, params) {
 
 // Redirects
 function redirectHook(req, redirectUrl, params) {
-	if (req.method == "POST" && req.path == "/user/login") {
+	if (redirectUrl == "/page") {
+		return "/";
+	} else if (req.method == "POST" && req.path == "/user/login") {
 		if (redirectUrl.startsWith("/user/login")) {
 			params.set("incorrect", "true");
 			return `/user/login?${decodeURIComponent(params.toString())}`;
 		} else {
 			return req.query["backTo"] || "/";
 		}
+	} else if (req.method == "POST" && req.path.startsWith("/register/step-three/")) {
+		return "/";
 	} else if (req.method == "GET" && req.path == "/user/logout") {
 		return req.query["backTo"] || "/";
 	} else {

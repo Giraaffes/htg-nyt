@@ -1,14 +1,22 @@
 // This page is really weird
 
 $("title").text("Min profil | HTG-NYT");
-$(".avatar-input").insertAfter("#preview-avatar");
+
 $(".username").insertBefore("#preview-avatar");
-$(".form-container div:last").css("height", "15px"); // Wtf??
-$("#council-list p").each((_, p) => $(p).unwrap());
-//$("div:has(> #address-input), div:has(> #email)").remove();
+
+$(".profile-name").prepend("<h1>Rediger navn</h1>");
 $(".icon-row").remove();
-$(".profile-name + br").remove();
+$("#council-container").remove();
 
-$(".profile-name").prepend("<h1>Mit navn</h1>");
+$(".profile-name + br").after(
+	$(".avatar-input").prepend("<h1>Vælg profilbillede</h1>")
+);
 
-$(".arrow-button")
+$(".green-submit-btn").removeClass("green-submit-btn").attr("id", "save-button").appendTo(
+	$(".profile-name")
+).text("Gem navn");
+
+$(".form-container div:last").css("height", "15px"); // Wtf??
+
+$(".modal-title").text("Beskær billedet");
+$(".modal-footer button:contains(Cancel)").text("Annuller");

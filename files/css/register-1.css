@@ -1,0 +1,28 @@
+.signingHeadline {
+	margin: 0;
+}
+
+.subheadline {
+	color: white;
+	font-weight: 400;
+	margin-top: 5px;
+	font-size: 1.25rem;
+}
+
+
+#classForm {
+	gap: 5px;
+}
+
+#classForm label {
+	font-size: 1.15rem;
+}
+
+#classForm label:hover {
+	cursor: pointer;
+	background-color: #ddd;
+}
+
+#classForm label:active {
+	background-color: #ccc;
+}
