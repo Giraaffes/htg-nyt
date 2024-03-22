@@ -255,6 +255,8 @@ async function pageHook(req, path, html) {
 	// Article views
 	if (path == "/" && req.query["type"] != "aktiviteter" && connectedToDatabase) {
 		let articleIds = newHtml.match(articleHrefRegex);
+		if (!articleIds) return newHtml; // I should make a function to avoid this
+
 		let articleIdsStr = articleIds.map(e => `"${e}"`).join(", ");
 		let { results } = await queryDatabase(
 			`SELECT id, views FROM articles WHERE id IN (${articleIdsStr});`
