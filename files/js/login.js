@@ -1,7 +1,7 @@
 $("input[name=\"query\"]").attr("placeholder", "E-MAIL");
 $("input[type=\"submit\"]").val("LOG IND");
 
-$(".check-toolbar:contains(Opret dig her)").remove();
+$(".check-toolbar:contains(Opret dig her), #findMagazine").remove();
 
 $(() => {
 	let url_ = new URL(location);

@@ -1,3 +1,2 @@
 [ ] Make thumbnails smaller automatically
 [~] Implement question extra (or remove the commented out code)
-[X] Constant error in console
