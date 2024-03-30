@@ -335,7 +335,6 @@ let linkCheckbox = addCheckField(
 let selectedWidgetIndex = $(".widget-selector:checked").index(".widget-selector");
 if (selectedWidgetIndex == 2) {
 	commentCheckbox.prop("checked", true).trigger("change");
-} else if (selectedWidgetIndex == 4) {
 } else if (selectedWidgetIndex == 3) {
 	linkCheckbox.prop("checked", true).trigger("change");
 }
