@@ -132,6 +132,7 @@ const tagChanges = {
 	"rejser": "transport",
 	"intro": "hjælp",
 	"aktuelt": "horoskop",
+	"ord": "rangliste",
 
 	// Fag
 	"lær!": "dansk",
