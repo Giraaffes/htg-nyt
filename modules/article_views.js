@@ -50,7 +50,7 @@ exports.router.get("/artikel/:article", async (req, res, next) => {
 
 
 function getArticleId(article) {
-	return $(article).find(".article-anchor").attr("href").match(/\/artikel\/([\w_]+)/)[1];
+	return article.find(".article-anchor").attr("href").match(/\/artikel\/([\w_]+)/)[1];
 }
 
 exports.pageHook = (async (req, $) => {
@@ -58,14 +58,14 @@ exports.pageHook = (async (req, $) => {
 		req.path == "/" && req.query["type"] != "aktiviteter" && database.isConnected()
 	)) return;
 	
-	let articleIds = $(".article-listing").toArray().map(getArticleId);
+	let articleIds = $(".article-listing").toArray().map(article => getArticleId($(article)));
 	let articleIdsStr = articleIds.map(id => `"${id}"`).join(", ");
 	let { articleEntries } = await database.query(
 		`SELECT id, views FROM articles WHERE id IN (${articleIdsStr});`
 	);
 
 	$(".article-listing").each((_, article) => {
-		let articleId = getArticleId(article);
+		let articleId = getArticleId($(article));
 		let articleEntry = articleEntries.filter(e => e.id == articleId)[0];
 		let views = articleEntry ? articleEntry.views : 0;
 
