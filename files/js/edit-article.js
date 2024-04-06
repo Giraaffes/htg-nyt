@@ -96,11 +96,6 @@ backNav.html(backNav.html().replace("forside", "Gem og luk"));
 backNav.find("i").removeClass("fa-newspaper").addClass("fa-circle-left");
 backNav.find(".nav-link").attr("href", "/redaktør");
 
-/*let mainMenuNav = skolebladNav.clone().insertBefore(skolebladNav);
-mainMenuNav.html(mainMenuNav.html().replace("læs htg-nyt", "Hovedmenu"));
-mainMenuNav.find("i").removeClass("fa-newspaper").addClass("fa-house");
-mainMenuNav.find(".nav-link").attr("href", "/hovedmenu");*/
-
 let logoutNav = $(".sidebar .nav-item:last .nav-link").prepend(
 	"<i class=\"fas fa-right-from-bracket\" aria-hidden=\"true\"></i>"
 );
@@ -262,85 +257,6 @@ authorSelectDiv.find("input").on("change", async e => {
 		$.notify("Artiklens skribent kunne ikke ændres", "error");
 	}
 });
-
-
-// Extra
-let extraDiv = $("<div></div>").addClass("form-data");
-extraDiv.appendTo(middleDiv).append("<h5>Ekstra</h5>");
-
-let extraTypeDiv = $("<div></div>").addClass("custom-select-div check-toolbar");
-extraTypeDiv.appendTo(extraDiv);
-
-let extraTitleField = addTextInput("text", "Overskrift", "widget[headline]").appendTo(extraDiv);
-extraTitleField.val($("input[name='widget[headline]']:not(:disabled)").val());
-
-let emailField = $("#contactEmail").appendTo(extraDiv);
-emailField.attr("placeholder", "Email til kontakt");
-
-let extraTextField = $("input[name='widget[textarea]']:eq(2)").appendTo(extraDiv);
-extraTextField.attr("placeholder", "Hjælpetekst til læseren");
-
-let extraLinkTextField = $("input[name='widget[linkText]']").appendTo(extraDiv);
-let extraLinkField = $("input[name='widget[link]']").appendTo(extraDiv);
-
-let questionElementsDiv = $("<div></div>").appendTo(extraDiv); // Implemented further down
-questionElementsDiv.addClass("sub-form-data").css("margin-top", "12px");
-
-let variableExtraFields = $(([
-	extraTitleField, emailField, extraTextField, extraLinkTextField, extraLinkField, questionElementsDiv
-]).map(e => e[0]));
-variableExtraFields.removeAttr("disabled").removeAttr("id").removeClass("widget-input").hide();
-
- // This code is so bad
-let saveArticleOnChangeExtras = false;
-
-let commentCheckbox = addCheckField(
-	"checkbox", "Kommentar", "widget[widgetType]", "comment", "extra-comment"
-).appendTo(extraTypeDiv).on("change", async () => {
-	variableExtraFields.hide();
-
-	let enabled = commentCheckbox.is(":checked");
-	if (enabled) {
-		extraTitleField.show();
-		emailField.show();
-		extraTextField.show();
-		linkCheckbox.prop("checked", false);
-	}
-
-	if (saveArticleOnChangeExtras) {
-		await saveArticle(false, true);
-		$.notify(enabled ? "Artikel kan nu kommenteres" : "Artikel kan ikke længere kommenteres", "success");
-	}
-});
-
-let linkCheckbox = addCheckField(
-	"checkbox", "Link", "widget[widgetType]", "link", "extra-link"
-).appendTo(extraTypeDiv).on("change", async () => {
-	variableExtraFields.hide();
-
-	let enabled = linkCheckbox.is(":checked");
-	if (enabled) {
-		extraTitleField.show();
-		extraLinkTextField.show();
-		extraLinkField.show();
-		commentCheckbox.prop("checked", false);
-	}
-
-	if (saveArticleOnChangeExtras) {
-		await saveArticle(false, true);
-		$.notify(enabled ? "Link tilføjet til artikel" : "Link fjernet fra artikel", "success");
-	}
-});
-
-let selectedWidgetIndex = $(".widget-selector:checked").index(".widget-selector");
-if (selectedWidgetIndex == 2) {
-	commentCheckbox.prop("checked", true).trigger("change");
-} else if (selectedWidgetIndex == 3) {
-	linkCheckbox.prop("checked", true).trigger("change");
-}
-saveArticleOnChangeExtras = true;
-
-$("#widgets-container").remove();
 
 
 // Save, preview and view article buttons
