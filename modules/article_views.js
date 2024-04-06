@@ -60,9 +60,9 @@ exports.pageHook = (async (req, $) => {
 	
 	let articleIds = $(".article-listing").toArray().map(article => getArticleId($(article)));
 	let articleIdsStr = articleIds.map(id => `"${id}"`).join(", ");
-	let { articleEntries } = await database.query(
+	let articleEntries = (await database.query(
 		`SELECT id, views FROM articles WHERE id IN (${articleIdsStr});`
-	);
+	)).results;
 
 	$(".article-listing").each((_, article) => {
 		let articleId = getArticleId($(article));
