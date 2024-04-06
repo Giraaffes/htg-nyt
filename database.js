@@ -22,7 +22,7 @@ exports.isConnected = function() {
 	return isMySQLConnected;
 };
 
-exports.queryDatabase = function(query) {
+exports.query = function(query) {
 	return new Promise((res, rej) => {
 		mySQLConn.query(query, (err, results, fields) => {
 			if (err) {
