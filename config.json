@@ -12,5 +12,5 @@
 		"database": "htgnyt"
 	},
 	"githubWebhookId": "457630844",
-	"defaultPort": 80
+	"port": 8000
 }
