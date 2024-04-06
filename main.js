@@ -16,7 +16,7 @@ const database = require("./database.js");
 
 
 const modules = require("./module_registry.js");
-//modules.register("article_views");
+modules.register("article_views");
 
 
 // Github webhook
@@ -299,7 +299,7 @@ server.listen(process.env.PORT || config.defaultPort, "127.0.0.1", () => {
 	console.log("Server ready");
 	
 	if (process.env.NO_DATABASE) {
-		modules.ready(null);
+		modules.ready(database);
 	} else {
 		database.connect(config.mySQLOptions).then(() => {
 			console.log("Database connected");
