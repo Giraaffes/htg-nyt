@@ -11,6 +11,7 @@ exports.connect = function(options) {
 			if (err) {
 				rej(err);
 			} else {
+				isMySQLConnected = true;
 				res();
 			}
 		});
