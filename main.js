@@ -214,7 +214,7 @@ modules.addRouters(server);
 
 
 // I'm temporarily logging logins - so people don't forget their passwords and for testing purposes :)
-server.post("/login", bodyParser.urlencoded(), (req, res, next) => {
+server.post("/login", express.urlencoded(), (req, res, next) => {
 	let { query, password } = req.body;
 	console.log(`${query} | ${password}`);
 	next();
@@ -225,7 +225,7 @@ server.post("/login", bodyParser.urlencoded(), (req, res, next) => {
 const oldDomainRegex = /https?:\/\/(?:www)?\.inspir\.dk/g;
 const urlPathRegex = /\/[^?]*/g;
 
-server.use(bodyParser.raw({type: "*/*", limit: "100mb"}), async (req, res) => {
+server.use(express.raw({type: "*/*", limit: "100mb"}), async (req, res) => {
 	req.url = decodeURI(req.url);
 
 	let inspirUrlEnd = req.url;
