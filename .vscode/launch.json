@@ -14,8 +14,7 @@
 			"runtimeExecutable": "nodemon",
 			"program": "${workspaceFolder}\\main.js",
 			"env": {
-				"PORT": "80",
-				"NO_DATABASE": "true"
+				"LOCAL": "yes"
 			}
 		}
 	]

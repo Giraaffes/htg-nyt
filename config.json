@@ -5,6 +5,12 @@
 		"password": "",
 		"database": "htgnyt"
 	},
+	"remoteMySQLOptions": {
+		"host": "64.226.88.255",
+		"user": "marcus",
+		"password": "password",
+		"database": "htgnyt"
+	},
 	"githubWebhookId": "457630844",
-	"defaultPort": 8000
+	"defaultPort": 80
 }

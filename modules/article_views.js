@@ -23,7 +23,7 @@ const frontPageRegex = /^https?:\/\/(?:www)?.htg\-?nyt.dk\/(?:\?|$)/;
 exports.router = express.Router();
 
 exports.router.get("/artikel/:article", async (req, res, next) => {
-  if (!database.isConnected()) return next();
+  if (process.env.LOCAL || !database.isConnected()) return next();
 
 	let referer = req.headers["referer"];
 	if (!referer || !referer.match(frontPageRegex)) return next();
