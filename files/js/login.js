@@ -1,4 +1,5 @@
-$("input[name=\"query\"]").attr("placeholder", "E-MAIL");
+$("input[name=\"query\"]").attr("placeholder", "E-MAIL")
+$("input[name=\"password\"]").attr("placeholder", "Password");
 $("input[type=\"submit\"]").val("LOG IND");
 
 $(".check-toolbar:contains(Opret dig her), #findMagazine").remove();

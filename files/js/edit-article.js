@@ -322,6 +322,7 @@ $("#retningContainer, #niveauContainer").prependTo("#magazines-articles-form");
 $("#withoutAuthor").remove();
 $("#fixed-menu div:first input").prependTo("#magazines-articles-form").hide();
 $("#fixed-menu").remove();
+$("#widgets-container").remove();
 
 
 // Reorder things a bit

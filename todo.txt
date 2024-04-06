@@ -1,1 +1,3 @@
 [ ] Make thumbnails smaller automatically
+[ ] Remove metadata?
+[ ] Creation date -> publication date

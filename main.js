@@ -3,27 +3,25 @@ require("express-async-errors");
 const fs = require("fs");
 const { exec } = require('child_process');
 
-const crypto = require('crypto');
-const mySQL = require('mysql2');
-
-const mySQLConn = mySQL.createConnection({
-  host: "localhost",
-  user: "root",
-	password: "",
-	database: "htgnyt"
-});
-
 const express = require("express");
-const bodyParser = require("body-parser")
+const bodyParser = require("body-parser");
 const axios = require("axios");
+const cheerio = require("cheerio");
+
+const config = require("./config.json");
+
 
 const server = express();
+const database = require("./database.js");
 
+
+const modules = require("./module_registry.js");
+//modules.register("article_views");
 
 
 // Github webhook
 server.post("/github-push", (req, res) => {
-	if (!req.headers["x-github-hook-id"] == "457630844") return;
+	if (!req.headers["x-github-hook-id"] == config.githubWebhookId) return;
 	res.status(200).end();
 
 	exec("git pull", (error, stdout, stderr) => {
@@ -33,7 +31,7 @@ server.post("/github-push", (req, res) => {
 });
 
 
-// Custom resources
+// Resources
 function fileExists(filePath) {
 	try {
 		fs.accessSync(filePath, fs.constants.R_OK);
@@ -43,7 +41,7 @@ function fileExists(filePath) {
 	}
 }
 
-server.get(/\/custom(\/.+)/, (req, res) => {
+server.get(/\/custom(\/.+)/, (req, res) => { // Could I use express.static()?
 	let filePath = `${__dirname}/files/${req.params[0]}`;
 	if (fileExists(filePath)) {
 		res.sendFile(filePath);
@@ -53,11 +51,9 @@ server.get(/\/custom(\/.+)/, (req, res) => {
 });
 
 
-// Remapping
-// Order matters here
-const remapPaths = [
+// Path remapping
+const remapPaths = [ // Order matters here
 	{from: "user/login", to: "login"},
-	/*{from: "", to: "hovedmenu"},*/
 	{from: "e9a/htg/", to: "artikel/"},
 	{from: "e9a/htg", to: ""},
 	{from: "admin/articles/overview/9e106940-5c97-11ee-b9bf-d56e49dc725a", to: "redaktør"},
@@ -104,181 +100,11 @@ function unmapAllPaths(string, pathRegex) {
 }
 
 
-// Article views
-const frontPageRegex = /^https?:\/\/(?:www)?.htg\-?nyt.dk\/(?:\?|$)/;
-const hashResetInterval = 24 * 60 * 60 * 1000; // daily
-
-let accessHashes = [];
-let connectedToDatabase = false;
-mySQLConn.connect((err) => {
-	if (err) return;
-
-	connectedToDatabase = true;
-	setInterval(() => {
-		accessHashes = [];
-	}, hashResetInterval);
-
-	console.log("Connected to database");
-});
-
-function queryDatabase(query) {
-	return new Promise((res, rej) => {
-		mySQLConn.query(query, (err, results, fields) => {
-			if (err) {
-				rej(err);
-			} else {
-				res({results, fields});
-			}
-		});
-	});
-}
-
-server.get("/artikel/:article", async (req, res, next) => {
-  if (!connectedToDatabase) return next();
-
-	let referer = req.headers["referer"];
-	if (!referer || !referer.match(frontPageRegex)) return next();
-
-	let articleId = req.params["article"];
-	let identifier = ([req.ip, articleId, req.headers["user-agent"] || ""]).join();
-	let accessHash = crypto.createHash('md5').update(identifier).digest('hex');
-	if (!accessHashes.includes(accessHash)) {
-		accessHashes.push(accessHash);
-		try {
-			await queryDatabase(
-				`INSERT IGNORE INTO articles VALUES ("${articleId}", 0, NULL);`
-			);
-			await queryDatabase(
-				`UPDATE articles SET views = views + 1 WHERE id = "${articleId}";`
-			);
-		} catch (err) {
-			console.error("Error when registering view:", err);
-		}
-	}
-
-	next();
-});
-
-
-// Page hook (remap href paths, inject custom scripts/styles, display article views)
-const pageInjects = {
-	"/login": "login",
-	"/hovedmenu": "homepage",
-	"/": "front-page",
-	"/artikel/": "article",
-	"/redaktør": "editor",
-	"/rediger-artikel/": "edit-article",
-	"/forhåndsvis-artikel/": "preview-article",
-	"/profil": "profile",
-	"/udvalg": "udvalg",
-	"/klassen": "class",
-	"/person/": "person",
-	"/registrer": "register-1",
-	"/registrer/": "register-2"
-};
-
-const oldDomainHrefRegex = /(?<=href=")https?:\/\/(?:www)?\.inspir\.dk/g;
-const urlPathHrefRegex = /(?<=href=")[^?"]*/g;
-const backToPathHrefRegex = /(?<=href="[^"]+backTo=)[^&"]*/g;
-
-const jQueryScriptRegex = /<script[^>]+src="[^"]+code\.jquery\.com.+?<\/script>/s;
-const datatablesScriptRegex = /<script[^>]+src="[^"]+cdn\.datatables\.net.+?<\/script>/s;
-
-const articleHrefRegex = /(?<=href="\/artikel\/)[\w_]+/g;
-const articleAnchorRegex = /<a\s+class="article-anchor"\s+href="\/artikel\/([\w_]+)".+?>/g;
-
-function lastMatch(str, matchStr) {
-	let regex = RegExp(matchStr);
-	let match, lastMatch;
-	while ((match = regex.exec(str)) != null) {
-		lastMatch = match;
-	}
-	return lastMatch;
-}
-
-function inject(str, regex, last, insertStr) {
-	let match = last ? lastMatch(str, regex) : str.match(regex);
-	let afterMatchIndex = match.index + match[0].length;
-	return `${str.slice(0, afterMatchIndex)}${insertStr}${str.slice(afterMatchIndex)}`;
-}
-
-async function pageHook(req, path, html) {
-	let newHtml = html;
-
-	// Path remapping
-	newHtml = newHtml.replaceAll(oldDomainHrefRegex, "");
-	newHtml = remapAllPaths(newHtml, urlPathHrefRegex);
-	newHtml = remapAllPaths(newHtml, backToPathHrefRegex);
-
-	// Injects
-	// It's assumed that there is always a script last in body - else shit will break
-	let injectScriptsRegex = /<\/script>(?=\s*<\/body>)/;
-
-	let jQueryScriptMatch = newHtml.match(jQueryScriptRegex);
-	if (jQueryScriptMatch) injectScriptsRegex = jQueryScriptRegex;
-
-	let datatablesScript = newHtml.match(datatablesScriptRegex);
-	if (datatablesScript) {
-		newHtml = newHtml
-			.replace(datatablesScript[0], "")
-			.replace(jQueryScriptMatch[0], `$&${datatablesScript[0]}`);
-		injectScriptsRegex = datatablesScriptRegex;
-	}
-
-	newHtml = inject(newHtml, />(?=\s*<\/head>)/g, true,
-		`<link rel="stylesheet" href="/custom/css/general.css">`
-	);
-
-	let injectName = pageInjects[path];
-	if (!injectName) {
-		let subpathInjectKey = Object.keys(pageInjects).find(k => 
-			k != "/" && k.endsWith("/") && path.startsWith(k)
-		);
-		if (subpathInjectKey) injectName = pageInjects[subpathInjectKey];
-	}
-	if (injectName) {
-		// Hardcoded for editor page
-		newHtml = newHtml.replace(/(?<=<script>\s*)initDataTable\(\);/, "");
-
-		newHtml = inject(newHtml, injectScriptsRegex, false,
-			`<script src="/custom/js/${injectName}.js"></script>`
-		);
-		newHtml = inject(newHtml, />(?=\s*<\/head>)/g, true,
-			`<link rel="stylesheet" href="/custom/css/${injectName}.css">`
-		);
-	}
-
-	newHtml = inject(newHtml, injectScriptsRegex, false,
-		`<script src="/custom/js/general.js"></script>`
-	);
-
-	// Article views
-	if (path == "/" && req.query["type"] != "aktiviteter" && connectedToDatabase) {
-		let articleIds = newHtml.match(articleHrefRegex);
-		if (!articleIds) return newHtml; // I should make a function to avoid this
-
-		let articleIdsStr = articleIds.map(e => `"${e}"`).join(", ");
-		let { results } = await queryDatabase(
-			`SELECT id, views FROM articles WHERE id IN (${articleIdsStr});`
-		);
-
-		newHtml = newHtml.replaceAll(articleAnchorRegex, (tag, articleId) => {
-			let entry = results.filter(e => e.id == articleId)[0];
-			let views = entry ? entry.views : 0;
-			return `${tag}<p class="article-views">${views} visning${views == 1 ? "" : "er"}</p>`;
-		});
-	}
-
-	return newHtml;
-}
-
-
 // URL params
 const remapCategoryNames = {
 	"nyt": "new",
 	"sjovt": "faq",
 	"fagligt": "hack",
-	"mødesteder": "meeting",
 	"aktiviteter": "calendar"
 };
 
@@ -316,6 +142,77 @@ function redirectHook(req, redirectUrl, params) {
 }
 
 
+// HTML
+const pageInjects = {
+	"/login": "login",
+	"/hovedmenu": "homepage",
+	"/": "front-page",
+	"/artikel/": "article",
+	"/redaktør": "editor",
+	"/rediger-artikel/": "edit-article",
+	"/forhåndsvis-artikel/": "preview-article",
+	"/profil": "profile",
+	"/udvalg": "udvalg",
+	"/klassen": "class",
+	"/person/": "person",
+	"/registrer": "register-1",
+	"/registrer/": "register-2"
+};
+
+const oldDomainHrefRegex = /(?<=href=")https?:\/\/(?:www)?\.inspir\.dk/g;
+const urlPathHrefRegex = /(?<=href=")[^?"]*/g;
+const backToPathHrefRegex = /(?<=href="[^"]+backTo=)[^&"]*/g;
+
+async function pageHook(req, html) {
+	// Path remapping (is done before parsing html cause I can't be bothered to change it lol)
+	let remappedHtml = html;
+	remappedHtml = remappedHtml.replaceAll(oldDomainHrefRegex, "");
+	remappedHtml = remapAllPaths(remappedHtml, urlPathHrefRegex);
+	remappedHtml = remapAllPaths(remappedHtml, backToPathHrefRegex);
+
+	// Parse HTML
+	let $ = cheerio.load(remappedHtml);
+	let jQueryScript = $("body script[src*='code.jquery.com']");
+	let datatablesScript = $("body script[src*='cdn.datatables.net']");
+
+	// Fixes to redaktør page
+	if (req.path == "/redaktør") {
+		datatablesScript.insertAfter(jQueryScript);
+		$("body script").each((_, script) => {
+			$(script).html($(script).html().replace(/^\s*initDataTable\(\);?/, ""));
+		});
+	}
+
+	// Injects
+	let lastHead = $("head").last(); // Yes, there can be multiple heads cause these pages are so weird
+	let lastRequiredScript = $("body script[src*='code.jquery.com'], body script[src*='cdn.datatables.net']").last();
+
+	lastHead.append(`<link rel="stylesheet" href="/custom/css/general.css">`);
+	lastRequiredScript.after(`<script src="/custom/js/general.js"></script>`);
+
+	let injectName = pageInjects[req.path];
+	if (!injectName) {
+		let subpathInjectKey = Object.keys(pageInjects).find(k => 
+			k != "/" && k.endsWith("/") && req.path.startsWith(k)
+		);
+		if (subpathInjectKey) injectName = pageInjects[subpathInjectKey];
+	}
+	if (injectName) {
+		lastHead.append(`<link rel="stylesheet" href="/custom/css/${injectName}.css">`);
+		lastRequiredScript.next().after(`<script src="/custom/js/${injectName}.js"></script>`);
+	}
+
+	// Module hooks
+	await modules.callPageHooks(req, $);
+
+	return $.html();
+}
+
+
+// Module handlers
+modules.addRouters(server);
+
+
 // Main handler
 const oldDomainRegex = /https?:\/\/(?:www)?\.inspir\.dk/g;
 const urlPathRegex = /\/[^?]*/g;
@@ -323,20 +220,21 @@ const urlPathRegex = /\/[^?]*/g;
 server.use(bodyParser.raw({ type: "*/*", limit: "100mb" }));
 server.use(async (req, res) => {
 	req.url = decodeURI(req.url);
-	req.url = req.url.replaceAll(/%2f/gi, "⧸");
 
-	let paramsStr = (req.url.match(/(?<=\?).+/) || [""])[0];
+	let inspirUrlEnd = req.url;
+	inspirUrlEnd = inspirUrlEnd.replaceAll(/%2f/gi, "⧸");
+
+	let paramsStr = (inspirUrlEnd.match(/(?<=\?).+/) || [""])[0];
 	let params = new URLSearchParams(paramsStr);
 	paramsHook(req, params);
-	req.url = `${req.path}${params.size > 0 ? ("?" + params.toString()) : ""}`;
+	inspirUrlEnd = `${req.path}${params.size > 0 ? ("?" + params.toString()) : ""}`;
 
-	let originalPath = req.path; // Since this value is changed automatically below
-	req.url = unmapAllPaths(req.url, /^[^?]+/g);
+	inspirUrlEnd = unmapAllPaths(inspirUrlEnd, /^[^?]+/g);
 
 	delete req.headers.host;
 	let inspirRes = await axios({
 		method: req.method,
-		url: `https://www.inspir.dk${req.url}`,
+		url: `https://www.inspir.dk${inspirUrlEnd}`,
 		headers: req.headers,
 		data: req.body,
 		responseType: "arraybuffer",
@@ -364,16 +262,19 @@ server.use(async (req, res) => {
 	}
 
 	let contentType = inspirRes.headers["content-type"];
-	if (!redirectUrl && req.method == "GET" && contentType && contentType.startsWith("text/html")) {
+	if (
+		!redirectUrl && req.method == "GET" && 
+		contentType && contentType.startsWith("text/html")
+	) {
 		let encodingMatch = contentType.match(/charset=([^;]+)/);
 		let encoding = encodingMatch ? encodingMatch[1] : "utf8";
 		
 		let html = inspirRes.data.toString(encoding)
-		let newHtml = await pageHook(req, originalPath, html);
+		let newHtml = await pageHook(req, html);
 		inspirRes.data = Buffer.from(newHtml, encoding);
 	}
 
-	// To fix a glitch where nginx complains when both transfer-encoding and content-length are sent
+	// To fix a glitch (i think) where nginx complains when both transfer-encoding and content-length are sent
 	delete inspirRes.headers["transfer-encoding"];
 
 	res.statusMessage = inspirRes.statusText;
@@ -384,7 +285,7 @@ server.use(async (req, res) => {
 });
 
 
-// Error handling
+// Error handler
 server.use((err, req, res, next) => {
 	let timeStr = (new Date()).toLocaleString({timeZone: "Europe/Copenhagen"});
   console.error(timeStr, req.url, err);
@@ -393,7 +294,19 @@ server.use((err, req, res, next) => {
 })
 
 
-// Server listen
-server.listen(process.env.PORT || 8000, "127.0.0.1", () => {
-	console.log("Ready");
+// Start app
+server.listen(process.env.PORT || config.defaultPort, "127.0.0.1", () => {
+	console.log("Server ready");
+	
+	if (process.env.NO_DATABASE) {
+		modules.ready(null);
+	} else {
+		database.connect(config.mySQLOptions).then(() => {
+			console.log("Database connected");
+			modules.ready(database);
+		}).catch((err) => {
+			console.error("Failed to connect to database :(");
+			throw err;
+		});
+	}
 });

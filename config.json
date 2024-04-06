@@ -1,0 +1,10 @@
+{
+	"mySQLOptions": {
+		"host": "localhost",
+		"user": "root",
+		"password": "",
+		"database": "htgnyt"
+	},
+	"githubWebhookId": "457630844",
+	"defaultPort": 8000
+}
