@@ -1,11 +1,11 @@
 {
-	"mySQLOptions": {
+	"dbOptions": {
 		"host": "localhost",
 		"user": "root",
 		"password": "",
 		"database": "htgnyt"
 	},
-	"remoteMySQLOptions": {
+	"dbRemoteOptions": {
 		"host": "64.226.88.255",
 		"user": "marcus",
 		"password": "password",

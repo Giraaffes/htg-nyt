@@ -125,14 +125,15 @@ function paramsHook(req, params) {
 function redirectHook(req, redirectUrl, params) {
 	if (redirectUrl == "/page") {
 		return "/";
-	} else if (req.method == "POST" && req.path == "/user/login") {
-		if (redirectUrl.startsWith("/user/login")) {
+	} else if (req.method == "POST" && req.path == "/login") {
+		if (redirectUrl.startsWith("/login")) {
 			params.set("incorrect", "true");
-			return `/user/login?${decodeURIComponent(params.toString())}`;
+			return `/login?${decodeURIComponent(params.toString())}`;
 		} else {
+			console.log(req.query["backTo"]);
 			return req.query["backTo"] || "/";
 		}
-	} else if (req.method == "POST" && req.path.startsWith("/register/step-three/")) {
+	} else if (req.method == "POST" && req.path.startsWith("/registrer/")) {
 		return "/";
 	} else if (req.method == "GET" && req.path == "/user/logout") {
 		return req.query["backTo"] || "/";
@@ -305,7 +306,7 @@ server.use((err, req, res, next) => {
 server.listen(process.env.LOCAL ? 80 : config.port, "127.0.0.1", () => {
 	console.log("Server ready");
 
-	database.connect(process.env.LOCAL ? config.remoteMySQLOptions : config.mySQLOptions).then(() => {
+	database.connect(process.env.LOCAL ? config.dbRemoteOptions : config.dbOptions).then(() => {
 		console.log("Database connected");
 		modules.ready(database);
 	}).catch((err) => {

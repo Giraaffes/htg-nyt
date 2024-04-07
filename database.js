@@ -1,17 +1,17 @@
 const mySQL = require('mysql2');
 
-let isMySQLConnected = false;
-let mySQLConn;
+let isConnected = false;
+let connection;
 
 
 exports.connect = function(options) {
 	return new Promise((res, rej) => {
-		mySQLConn = mySQL.createConnection(options);
-		mySQLConn.connect((err) => {
+		connection = mySQL.createConnection(options);
+		connection.connect((err) => {
 			if (err) {
 				rej(err);
 			} else {
-				isMySQLConnected = true;
+				isConnected = true;
 				res();
 			}
 		});
@@ -19,12 +19,12 @@ exports.connect = function(options) {
 };
 
 exports.isConnected = function() {
-	return isMySQLConnected;
+	return isConnected;
 };
 
 exports.query = function(query) {
 	return new Promise((res, rej) => {
-		mySQLConn.query(query, (err, results, fields) => {
+		connection.query(query, (err, results, fields) => {
 			if (err) {
 				rej(err);
 			} else {
