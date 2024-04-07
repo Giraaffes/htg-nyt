@@ -35,7 +35,7 @@ exports.router.get("/artikel/:article", async (req, res, next) => {
 		accessHashes.push(accessHash);
 		try {
 			await database.query(
-				`INSERT IGNORE INTO articles VALUES ("${articleId}", 0, NULL);`
+				`INSERT IGNORE INTO articles VALUES ("${articleId}", 0, NULL, NULL, NULL);`
 			);
 			await database.query(
 				`UPDATE articles SET views = views + 1 WHERE id = "${articleId}";`
