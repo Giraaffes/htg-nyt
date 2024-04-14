@@ -16,6 +16,7 @@ const database = require("./database.js");
 
 
 const modules = require("./module_registry.js");
+modules.register("articles");
 modules.register("article_views");
 
 
@@ -122,7 +123,7 @@ function paramsHook(req, params) {
 
 
 // Redirects
-function redirectHook(req, redirectUrl, params) {
+function changeRedirect(req, redirectUrl, params) {
 	if (redirectUrl == "/page") {
 		return "/";
 	} else if (req.method == "POST" && req.path == "/login") {
@@ -262,7 +263,7 @@ server.use(express.raw({type: "*/*", limit: "100mb"}), async (req, res) => {
 	let redirectUrl = inspirRes.headers.location;
 	if (redirectUrl) {
 		redirectUrl = redirectUrl.replace(oldDomainRegex, "");
-		redirectUrl = redirectHook(req, redirectUrl, params);
+		redirectUrl = changeRedirect(req, redirectUrl, params);
 		if (redirectUrl.startsWith("/")) {
 			redirectUrl = remapAllPaths(redirectUrl, urlPathRegex);
 		}
@@ -282,7 +283,7 @@ server.use(express.raw({type: "*/*", limit: "100mb"}), async (req, res) => {
 		inspirRes.data = Buffer.from(newHtml, encoding);
 	}
 
-	// To fix a glitch (i think) where nginx complains when both transfer-encoding and content-length are sent
+	// To fix a glitch (I think) where nginx complains when both transfer-encoding and content-length are sent
 	delete inspirRes.headers["transfer-encoding"];
 
 	res.statusMessage = inspirRes.statusText;

@@ -1,5 +1,6 @@
 let onReadyHandlers = [];
 let pageHooks = [];
+let redirectHooks = [];
 let routers = [];
 
 
@@ -23,6 +24,12 @@ exports.callPageHooks = async function(req, $) {
 		await pageHook(req, $);
 	}
 };
+
+exports.callRedirectHooks = function(req, redirectUrl, params) {
+	for (let redirectHook of redirectHooks) {
+		redirectHook(req, redirectUrl, params);
+	}
+}
 
 exports.addRouters = function(server) {
 	for (let router of routers) {

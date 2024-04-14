@@ -1,6 +1,4 @@
-const express = require("express");
 const crypto = require("crypto");
-
 
 const hashResetInterval = 24 * 60 * 60 * 1000; // daily
 
@@ -20,7 +18,7 @@ exports.onReady = ((database_) => {
 
 const frontPageRegex = /^https?:\/\/(?:www)?.htg\-?nyt.dk\/(?:\?|$)/;
 
-exports.router = express.Router();
+exports.router = require("express").Router();
 
 exports.router.get("/artikel/:article", async (req, res, next) => {
   if (process.env.LOCAL || !database.isConnected()) return next();

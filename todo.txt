@@ -1,4 +1,4 @@
 [ ] Make thumbnails smaller automatically
 [ ] Remove metadata?
 [ ] Creation date -> publication date
-[X] Way to test database locally
+[ ] Connect to database BEFORE starting server (so that I can get rid of all the isConnected() guard clauses)
