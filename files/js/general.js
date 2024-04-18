@@ -19,7 +19,7 @@ const loggedInNavItems = [
 	//{name: "Klassen", icon: "users", href: "/klassen"},
 	//{name: "Udvalg", icon: "school", href: "/udvalg"},
 	{name: "Redaktør", icon: "layer-group", href: "/redaktør"},
-	{name: "Min profil", icon: "user", href: "/profil"},
+	//{name: "Min profil", icon: "user", href: "/profil"},
 	{name: "Log ud", icon: "right-from-bracket", href: "/user/logout", addRedirect: true}
 ];
 const loggedOutNavItems = [
