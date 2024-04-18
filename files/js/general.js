@@ -32,7 +32,7 @@ const addBackRedirects = (location.pathname == "/" || location.pathname.startsWi
 function fixNavbar(nav) {
 	nav.find(".language-container").remove();
 
-	let loggedIn = (nav.find(".nav-item:contains(Log ud)").length == 1);
+	let loggedIn = (nav.find(".nav-item:contains(Log out)").length == 1);
 	let navBar = nav.find(".navbar-nav");
 	navBar.children().remove();
 
