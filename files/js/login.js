@@ -2,7 +2,7 @@ $("input[name=\"query\"]").attr("placeholder", "E-MAIL")
 $("input[name=\"password\"]").attr("placeholder", "Password");
 $("input[type=\"submit\"]").val("LOG IND");
 
-$(".check-toolbar:contains(Opret dig her), #findMagazine").remove();
+$(".check-toolbar:contains(OPRET), #findMagazine").remove();
 
 $(() => {
 	let url_ = new URL(location);

