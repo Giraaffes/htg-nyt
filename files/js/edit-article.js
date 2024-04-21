@@ -95,8 +95,8 @@ backNav.html(backNav.html().replace("forside", "Gem og luk"));
 backNav.find("i").removeClass("fa-newspaper").addClass("fa-circle-left");
 backNav.find(".nav-link").attr("href", "/redaktør");
 
-let logoutNav = $(".sidebar .nav-item:last .nav-link").prepend(
-	"<i class=\"fas fa-right-from-bracket\" aria-hidden=\"true\"></i>"
+let logoutNav = $(".sidebar .nav-item:last .nav-link").html(
+	"<i class=\"fas fa-right-from-bracket\" aria-hidden=\"true\"></i>Log ud"
 );
 
 
