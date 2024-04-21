@@ -98,6 +98,7 @@ exports.hooks.push(["GET /redaktør", async (database, req, $, articleUuid) => {
 exports.hooks.push(["POST /admin/articles/change-status/*", async (database, req, $) => {
 	if (!database.isConnected()) return;
 
+	console.log("HI");
 	let { uuid, action } = formDataParser.parse(req);
 	await database.query(`UPDATE articles SET isPublic = ${action == "active"} WHERE uuid = "${uuid}";`);
 }]);

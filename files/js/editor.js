@@ -112,7 +112,7 @@ function addDeleteButton(row) {
 	deleteButton.appendTo($(row).find("td:eq(5) .action-buttons-wrapper"));
 
 	let articleName = $(row).find("td:eq(0)").text().trim();
-	let articleUuid = $(row).data("edit-link").match(/[\w-]+$/)[0];
+	let articleUuid = $(row).data("article-uuid");
 	deleteButton.on("click", event => {
 			if (!window.confirm(`Er du sikker på, at du vil slette artiklen "${articleName}" permanent?`)) return;
 
@@ -135,7 +135,7 @@ function addDeleteButton(row) {
 $("#table thead tr:eq(0) th:eq(-1)").text("Handlinger").before("<th>Synlighed</th>");
 $("#table thead tr:eq(1) th:eq(-1)").before("<th></th><th></th><th></th>");
 $("#table tbody tr").each((_, row) => {
-	let articleUuid = $(row).find("td:eq(-1) button:eq(0)").data("article");
+	let articleUuid = $(row).find(".edit-a").attr("href").match(/[\w\-]+$/)[0];
 	$(row).attr("data-article-uuid", articleUuid);
 	$(row).find("td:eq(-1)").before(`<td></td>`);
 

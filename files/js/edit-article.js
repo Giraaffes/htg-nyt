@@ -210,9 +210,8 @@ visibilitySelectDiv.appendTo(visibilityDiv);
 addCheckField("radio", "Offentlig", "status", "active", "offentlig").appendTo(visibilitySelectDiv);
 addCheckField("radio", "Ikke offentlig", "status", "inactive", "ikke-offentlig").appendTo(visibilitySelectDiv);
 
-let articleVisibility = $("#fixed-menu input[name=\"status\"]:checked").attr("value");
-visibilitySelectDiv.find("input").eq(articleVisibility == "active" ? 0 : 1).prop("checked", true);
-if (articleVisibility == "active") $("#magazines-articles-form").addClass("public");;
+visibilitySelectDiv.find("input").eq(IS_PUBLIC ? 0 : 1).prop("checked", true);
+if (IS_PUBLIC) $("#magazines-articles-form").addClass("public");;
 
 // This is a better way of handling an event for multiple elements - I will do this in the future
 visibilitySelectDiv.find("input").on("change", async e => {
