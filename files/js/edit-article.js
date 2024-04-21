@@ -1,12 +1,9 @@
-const isChefredaktør = ($("input[name=\"status\"]").length > 0);
-if (!isChefredaktør) throw Error("Ignorer denne fejl :)");
-
 const pageUuid = window.location.pathname.match(/[\w-]+$/)[0];
 
 
 // Saving
-const autoSaveInterval = 1 * 60 * 1000;
-const maxFailedAttempts = 3;
+const autoSaveInterval = 20 * 1000; //1 * 60 * 1000;
+const maxFailedAttempts = 1; //3;
 
 let doNotSave = false;
 async function saveArticle(keepAlive, silent) {
@@ -18,18 +15,20 @@ async function saveArticle(keepAlive, silent) {
 			body: formData,
 			keepalive: keepAlive
 	});
+	let success = res.url.endsWith("/redakt%C3%B8r"); // I should actually just check if the redirect url is the login page - then I don't need max failed attempts I think
+
 	if (!silent) {
-			if (res.ok) {
+			if (success) {
 					$.notify("Artikel gemt!", "success");
 			} else {
 					$.notify("Artiklen kunne ikke gemmes :/\nGem eventuelt dine ændringer midlertidigt et andet sted", "error");
 			}
 	}
-	return res.ok;
+	return success;
 }
 
 $(window).on("beforeunload", () => {
-	if (doNotSave) {
+	if (doNotSave) { // Wait what - does this actually do anything? - was I tired when I wrote this?
 		doNotSave = false;
 		return;
 	}
@@ -116,38 +115,39 @@ $("#magazines-articles-form").on("click", event => {
 
 
 // Top section setup
-let firstDiv = $("#hideable-menu > div:eq(0)");
-let middleDiv = $("#hideable-menu > div:eq(1)");
+let leftTopDiv = $("#hideable-menu > div:eq(0)");
+let middleTopDiv = $("#hideable-menu > div:eq(1)");
 let actionButtonsDiv = $("<div></div>").addClass("action-buttons").appendTo("#hideable-menu");
+
 $("#hideable-menu > div").removeAttr("style").css("width", i => 
 	(["40%", "18rem", "12rem"])[i]
 );
-
-// Mezzio fix 10/2/24, 16/2/24
-$("#fixed-menu .form-data:has(#static-filters)").prependTo("#hideable-menu > div:eq(0)")
 $("#hideable-menu").show();
 
 
 // Categories
-let ctgChangeEntries = Object.entries(categoryChanges);
-for (let [ name, ctgChange ] of ctgChangeEntries) {
-	let input = $(`#static-filters #${name}`);
-	let uuid = input.attr("value");
+$(".form-data:has(#static-filters)").remove();
+leftTopDiv.append(
+	$(`<div class="form-data"><h5>Kategori</h5></div>`).append(
+		`<div id="static-filters" class="check-toolbar"></div>`
+	)
+);
 
-	let newCtgRadio = addCheckField("radio",
-		ctgChange.nav, "type", uuid, name
+for (let ctg of categories) {
+	let ctgRadio = addCheckField("radio",
+		ctg.nav, "type", ctg.uuid, ctg.name
 	);
 
 	// I have to do it after load for some reason
 	$(() => {
-		let label = newCtgRadio.eq(1);
-		label.html(`${faIcon(ctgChange.icon)}&nbsp;&nbsp;${label.html()}`)
+		let label = ctgRadio.eq(1);
+		label.html(`${faIcon(ctg.icon)}&nbsp;&nbsp;${label.html()}`)
 	});
 
-	if (input.is(":checked")) newCtgRadio.prop("checked", true);
-	$(newCtgRadio).appendTo("#static-filters");
+	// Have to figure out some way to do this
+	if (ctg.uuid == CATEGORY_UUID) ctgRadio.prop("checked", true);
+	$(ctgRadio).appendTo("#static-filters");
 }
-$("#static-filters :not(.custom-input):not(.custom-field)").remove();
 
 // Also must be done after ready for some reason
 $(() => {
@@ -155,7 +155,8 @@ $(() => {
 		let label = $(e.target).next();
 		
 		// Calendar fix
-		if ($(label).attr("for") == "calendar") {
+		if ($(label).attr("for") == "aktiviteter") {
+			console.log("shown");
 			$("#date-input").show();
 		} else {
 			$("#date-input").hide();
@@ -172,27 +173,23 @@ $(() => {
 
 
 // Tags
-function capitalizeFirstLetter(str) {
-	return `${str.slice(0, 1).toUpperCase()}${str.slice(1).toLowerCase()}`;
-}
-
-let includedTags = keepTags.concat(Object.keys(tagChanges)).sort((tag1, tag2) => 
-	(tagChanges[tag1] || tag1) > (tagChanges[tag2] || tag2) ? 1 : -1	
+$(".form-data:has(#dynamic-filters)").remove();
+leftTopDiv.append(
+	$(`<div class="form-data"><h5>Tags (vælg maks. 2)</h5></div>`).append(
+		`<div id="dynamic-filters" class="check-toolbar"></div>`
+	)
 );
-for (let tagName of includedTags) {
-	let tag = $("#dynamic-filters label").filter((_, oldTag) => 
-		$(oldTag).text().trim().toLowerCase() == tagName
-	).first();
-	let input = $(`#${tag.attr("for")}`);
 
-	let newTagCheckbox = addCheckField("checkbox",
-		capitalizeFirstLetter(tagChanges[tagName] || tagName), 
-		input.attr("name"), input.attr("value"), input.attr("id")
+for (let tag of tags) {
+	let tagId = "tag_" + tag.name.toLowerCase();
+	let tagCheckbox = addCheckField("checkbox",
+		tag.name, "tags[]", tag.uuid, tagId
 	);
-	if (input.is(":checked")) newTagCheckbox.prop("checked", true);
-	$("#dynamic-filters").append(newTagCheckbox);
+
+	// Have to figure out some way to do this
+	if (ACTIVE_TAGS.includes(tag.uuid)) tagCheckbox.prop("checked", true);
+	tagCheckbox.appendTo("#dynamic-filters");
 }
-$("#dynamic-filters :not(.custom-field):not(.custom-input)").remove();
 $("<div></div>").css({"flex": "auto"}).appendTo("#dynamic-filters");
 
 // Prevent page refreshing
@@ -205,7 +202,7 @@ $(() => {
 let isArticleVisible;
 
 let visibilityDiv = $("<div></div>").addClass("form-data");
-visibilityDiv.appendTo(middleDiv).append("<h5>Synlighed</h5>");
+visibilityDiv.appendTo(middleTopDiv).append("<h5>Synlighed</h5>");
 
 let visibilitySelectDiv = $("<div></div>").addClass("custom-select-div check-toolbar");
 visibilitySelectDiv.appendTo(visibilityDiv);
@@ -237,7 +234,7 @@ visibilitySelectDiv.find("input").on("change", async e => {
 
 // Author buttons
 let authorDiv = $("<div></div>").addClass("form-data");
-authorDiv.appendTo(middleDiv).append("<h5>Skribent</h5>");
+authorDiv.appendTo(middleTopDiv).append("<h5>Skribent</h5>");
 
 let authorSelectDiv = $("<div></div>").addClass("custom-select-div check-toolbar");
 authorSelectDiv.appendTo(authorDiv);
@@ -259,6 +256,18 @@ authorSelectDiv.find("input").on("change", async e => {
 });
 
 
+// Publication date
+let dateDiv = $("<div></div>").addClass("form-data");
+dateDiv.appendTo(middleTopDiv).append("<h5>Udgivelsesdato</h5>");
+
+let dateSelect = $(`<input type="datetime-local" name="publicationDate" class="article-input-style">`);
+dateSelect.appendTo(dateDiv);
+
+let publicationDate = PUBLICATION_DATE ? new Date(PUBLICATION_DATE) : getUuid1Date(pageUuid);
+publicationDate.setMinutes(publicationDate.getMinutes() - publicationDate.getTimezoneOffset());
+dateSelect.val(publicationDate.toISOString().slice(0, 16));
+
+
 // Save, preview and view article buttons
 let saveButton = addButton("Gem artikel", saveArticle);
 actionButtonsDiv.append(saveButton);	
@@ -268,12 +277,11 @@ let previewButton = addButton("Forhåndsvis artikel", () => {
 });
 actionButtonsDiv.append(previewButton);
 
-let viewArticleButton = addButton("Læs artikel"/*, () => {
+let viewArticleButton = addButton("Læs artikel", () => {
 	if (!$("#magazines-articles-form").hasClass("public")) return;
 
-	let articlePath = $("#title").val().toLowerCase().replaceAll(" ", "_");
-	window.open(`/artikel/${encodeURIComponent(articlePath)}`, "_blank");
-}*/).addClass("read-button custom-tooltip down").attr("data-msg", "Pga. Inspiratorium virker denne knap ikke længere...");
+	window.open(`/artikel/${ARTICLE_ID || $("#title").val()}`, "_blank");
+}).addClass("read-button");
 actionButtonsDiv.append(viewArticleButton);
 
 $("<p></p>").text(

@@ -1,34 +1,37 @@
 // Categories
-$("#filterList button").unwrap()
-	.filter((_, ctg) => !($(ctg).data("value") in categoryChanges)).remove();
+$("#filterList button").unwrap().filter(
+	(_, btn) => !categories.find(ctg => ctg.oldName == $(btn).data("value"))
+).remove();
 
-let activeCtgName = $("#filterList button.active").data("value");
-let activeCtgChanges = categoryChanges[activeCtgName];
-activeCtgName = activeCtgChanges.name;
+let activeCtgInfo = categories.find(ctg => 
+	ctg.oldName == $("#filterList button.active").data("value")
+);
+let activeCtgName = activeCtgInfo.name;
 
-$(".headline-content h1").text(activeCtgChanges.title);
-$("title").text(`${activeCtgChanges.nav} | HTG-NYT`);
+$(".headline-content h1").text(activeCtgInfo.title);
+$("title").text(`${activeCtgInfo.nav} | HTG-NYT`);
 
 let activeColorName = $("#mediaContainer > div:first").attr("class").slice(0, -6);
-$(`.${activeColorName}-color`).removeClass(`${activeColorName}-color`).addClass(`${activeCtgChanges.color}-color`);
-$(`#${activeColorName}-headline`).attr("id", `${activeCtgChanges.color}-headline`);
+$(`.${activeColorName}-color`).removeClass(`${activeColorName}-color`).addClass(`${activeCtgInfo.color}-color`);
+$(`#${activeColorName}-headline`).attr("id", `${activeCtgInfo.color}-headline`);
 
 // Navs
 function faIcon(iconName) {
 	return `<i class=\"fas fa-${iconName}\" aria-hidden=\"true\"></i>`;
 }
 
-$("#filterList button").each((_, ctg) => {
-	let ctgName = $(ctg).data("value");
-	let changes = categoryChanges[ctgName];
+$("#filterList button").each((_, btn) => {
+	let ctg = categories.find(ctg => 
+		ctg.oldName == $(btn).data("value")
+	);
 
-	$(ctg).contents().remove();
-	let ctgA = $("<a></a>").appendTo($(ctg));
-	ctgA.attr("href", changes.name == "nyt" ? "/" : `/?type=${changes.name}`);
+	$(btn).contents().remove();
+	let ctgA = $("<a></a>").appendTo($(btn));
+	ctgA.attr("href", ctg.name == "nyt" ? "/" : `/?type=${ctg.name}`);
 	ctgA.attr("draggable", "false");
 
-	ctgA.append(faIcon(changes.icon));
-	if (!$(ctg).is(".active")) ctgA.append(`<span>${changes.nav}</span>`);
+	ctgA.append(faIcon(ctg.icon));
+	if (!$(btn).is(".active")) ctgA.append(`<span>${ctg.nav}</span>`);
 });
 
 $(() => {
@@ -61,9 +64,9 @@ let darkenedCtgColor = overlayOn(opaqueCtgColor, "rgb(0, 0, 0)");
 $("#dynamic-filters button").css("border-color", darkenedCtgColor);
 
 // Nav dividers
-$("#filterList button:not(:last)").each((_, ctg) => {
-	let div = $("<div></div>").addClass("categories-divider").insertAfter($(ctg));
-	if ($(ctg).is(".active") || $(ctg).nextAll("button:first").is(".active")) {
+$("#filterList button:not(:last)").each((_, btn) => {
+	let div = $("<div></div>").addClass("categories-divider").insertAfter($(btn));
+	if ($(btn).is(".active") || $(btn).nextAll("button:first").is(".active")) {
 		div.addClass("active").css("background-color", activeCtgColor);
 	}
 });
@@ -84,9 +87,12 @@ if ($("#dynamic-filters button").length > 0) {
 // Custom tags
 $("#dynamic-filters button, .article-listing .grey-box").each((_, filterOrTag) => {
 	let name = $(filterOrTag).text().trim().toLowerCase();
-	if (!keepTags.includes(name) && !tagChanges[name]) $(filterOrTag).remove();
-	name = tagChanges[name] || name;
-	$(filterOrTag).text(name);
+	let tag = tags.find(tag => tag.oldName == name);
+	if (tag) {
+		$(filterOrTag).text(tag.name);
+	} else {
+		$(filterOrTag).remove();
+	}
 });
 
 // Remove (excuse my language but) those random ass tags
@@ -197,5 +203,5 @@ if (activeCtgName == "aktiviteter") {
 
 
 // Top background fix
-let bgrTop = $("<div></div>").addClass("bgr-top").addClass(`${activeCtgChanges.color}-color`);
+let bgrTop = $("<div></div>").addClass("bgr-top").addClass(`${activeCtgInfo.color}-color`);
 $("body").prepend(bgrTop);

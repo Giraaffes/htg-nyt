@@ -96,10 +96,15 @@
 
 .sidepanel .nav-item {
 	margin: 0 !important;
-	padding: 10px 0 !important;
+	padding: 0 0 !important;
 	padding-right: 10px !important;
 
 	user-select: none;
+}
+
+.sidepanel .nav-link {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
 }
 
 .sidepanel .nav-item:hover {

@@ -1,6 +1,3 @@
-let isChefredaktør = ($("button:contains('GLOBAL')").length > 0);
-if (!isChefredaktør) throw Error("Ignorer denne fejl :)");
-
 const skolebladUuid = "9e106940-5c97-11ee-b9bf-d56e49dc725a";
 let dataTable; // Is intialized later
 
@@ -39,8 +36,8 @@ mainMenuNav.html(mainMenuNav.html().replace("læs htg-nyt", "Hovedmenu"));
 mainMenuNav.find("i").removeClass("fa-newspaper").addClass("fa-house");
 mainMenuNav.find(".nav-link").attr("href", "/hovedmenu");*/
 
-let logoutNav = $(".sidebar .nav-item:last .nav-link").prepend(
-	"<i class=\"fas fa-right-from-bracket\" aria-hidden=\"true\"></i>"
+let logoutNav = $(".sidebar .nav-item:last .nav-link").html(
+	"<i class=\"fas fa-right-from-bracket\" aria-hidden=\"true\"></i>Log ud"
 );
 
 
@@ -53,43 +50,6 @@ let newArticleButton = $(".admin-section-title .btn");
 newArticleButton.text("+ Ny artikel");
 
 
-// Update order button
-let updateOrderButton = newArticleButton.clone().insertAfter(newArticleButton);
-updateOrderButton.attr("id", "update-order").text("Opdater rækkefølge (kan tage lang tid)");
-updateOrderButton.removeAttr("href").on("click", () => {
-	$.notify("Opdaterer...", "warn");
-
-	let rows = $("#table tbody tr").toArray();
-	rows.sort((a, b) => {
-			let aTime = dataTable.cell(a, 2).data();
-			let bTime = dataTable.cell(b, 2).data();
-			return aTime - bTime;
-	});
-
-	(async () => {
-			for (let row of rows) {
-					let articleName = $(row).find("td:eq(0)").text().trim();
-					let articleUuid = $(row).attr("data-article-uuid");
-					let currentVisibilityButton = $(row).find("td:eq(4) button.current");
-
-					let formData = new FormData();
-					formData.append("uuid", articleUuid);
-					formData.append("action", (["active", "inactive"])[currentVisibilityButton.index()]);
-					await fetch(`/admin/articles/change-status/${skolebladUuid}`, {
-							method: "POST",
-							body: formData,
-					});
-					await new Promise((res, rej) => { setTimeout(res, 750); });
-					$.notify(`Artiklen "${articleName}" opdateret!`, "success");
-			}
-	})();
-});
-
-$("<p id=\"sort-info\"><- Hvad? Hold musen over mig</p>").addClass("custom-tooltip down").insertAfter(updateOrderButton).attr("data-msg",
-	"Normalt står artikler inde på skolebladet i rækkefølge efter hvornår de sidst blev ændret.\nTryk for at sortere alle artikler efter deres oprettelsesdato (som det burde være).\nRækkefølgen bliver dog gal igen så snart en ældre artikel ændres :/"
-);
-
-
 // Immediate table changes (new columns w/ dates and buttons)
 function addVisibilityButtons(row) {
 	let visButton = $("<button></button>").addClass("btn vis-button");
@@ -99,6 +59,7 @@ function addVisibilityButtons(row) {
 		visButton.clone().text("Ikke offentlig"),
 		//visibilityButton.clone().text("Deaktiveret") // No different
 	);
+	wrapper.children().eq($(row).hasClass("public") ? 0 : 1).addClass("current");
 
 	let articleName = $(row).find("td:eq(0)").text().trim();
 	let articleUuid = $(row).attr("data-article-uuid");
@@ -151,7 +112,7 @@ function addDeleteButton(row) {
 	deleteButton.appendTo($(row).find("td:eq(5) .action-buttons-wrapper"));
 
 	let articleName = $(row).find("td:eq(0)").text().trim();
-	let articleUuid = $(row).data("article-uuid");
+	let articleUuid = $(row).data("edit-link").match(/[\w-]+$/)[0];
 	deleteButton.on("click", event => {
 			if (!window.confirm(`Er du sikker på, at du vil slette artiklen "${articleName}" permanent?`)) return;
 
@@ -171,18 +132,12 @@ function addDeleteButton(row) {
 	});
 }
 
-// Mezzio fix 16/2/24 (remove priority column)
-$("#table tr > :nth-child(1)").remove();
-
-$("#table thead tr:eq(0) th:eq(-1)").text("Handlinger").before("<th>Oprettelsesdato</th><th>Kategori</th><th>Synlighed</th>");
+$("#table thead tr:eq(0) th:eq(-1)").text("Handlinger").before("<th>Synlighed</th>");
 $("#table thead tr:eq(1) th:eq(-1)").before("<th></th><th></th><th></th>");
-$("#table tbody tr").each((i, row) => {
+$("#table tbody tr").each((_, row) => {
 	let articleUuid = $(row).find("td:eq(-1) button:eq(0)").data("article");
 	$(row).attr("data-article-uuid", articleUuid);
-	$(row).find("td:eq(-1)").before(`<td></td><td>...</td><td></td>`);
-
-	let creationDateTime = getUuid1Date(articleUuid).getTime();
-	$(row).find("td:eq(2)").text(creationDateTime);
+	$(row).find("td:eq(-1)").before(`<td></td>`);
 
 	addVisibilityButtons(row);
 
@@ -233,13 +188,13 @@ dataTable = $("#table").DataTable({
 				}, orderSequence: ["desc", "asc"]
 		}, {
 			target: 3, render: (data, type, row) => {
-				let ctgChanges = Object.values(categoryChanges).find(e => e.oldTitle == data);
-				if (data == "-" || !ctgChanges) {
+				let ctg = categories.find(ctg => ctg.uuid == data);
+				if (data == "-" || !ctg) {
 					return type == "sort" ? "末" : (type == "filter" ? "" : "-");
 				} else if (type == "display") {
-					return `<i class="fas fa-${ctgChanges.icon}" aria-hidden="true"></i>&nbsp;&nbsp;${ctgChanges.nav}`;
+					return `<i class="fas fa-${ctg.icon}" aria-hidden="true"></i>&nbsp;&nbsp;${ctg.nav}`;
 				} else if (type == "sort" || type == "filter") {
-					return ctgChanges.nav;
+					return ctg.nav;
 				} else {
 					return data;
 				}
@@ -270,22 +225,3 @@ for (let i = 0; i < 4; i++) {
 	$(`<th class="tableSearch"></th>`).append(input).appendTo(searchFields);
 }
 searchFields.append("<th></th><th></th>");
-
-
-// Table changes which need requests
-$("#table tbody tr").each((i, e) => {
-	let editLink = $(e).data("edit-link")
-	if (!editLink) return;
-
-	fetch(editLink).then(res => res.text()).then(html => {
-			let filtersElement = html.match(/<div id="static-filters".+?<\/div>/s)[0];
-			let category = $(filtersElement).find("input:checked").next("label").text();
-			dataTable.cell($(e).find("td:eq(3)")).data(`${category || "-"}`);
-
-			let formHtml = html.match(/<form[^\n]+id="magazines-articles-form".+?<\/form>/s)[0];
-			let status = $(formHtml).serialize().match(/status=(\w+)/)[1];
-			let visButtonIndex = (status == "active") ? 0 : 1;
-			$(e).find("td:eq(4) button").eq(visButtonIndex).addClass("current");
-			$(e).addClass(status == "active" ? "public" : "private");
-	});
-});

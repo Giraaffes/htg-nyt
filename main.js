@@ -4,7 +4,6 @@ const fs = require("fs");
 const { exec } = require('child_process');
 
 const express = require("express");
-const bodyParser = require("body-parser");
 const axios = require("axios");
 const cheerio = require("cheerio");
 
@@ -17,6 +16,7 @@ const database = require("./database.js");
 
 const modules = require("./module_registry.js");
 modules.register("articles");
+modules.register("article_dates");
 modules.register("article_views");
 
 
@@ -203,15 +203,11 @@ async function pageHook(req, html) {
 		lastRequiredScript.next().after(`<script src="/custom/js/${injectName}.js"></script>`);
 	}
 
-	// Module hooks
-	await modules.callPageHooks(req, $);
+	// Module hooks with page handle
+	await modules.callRequestHooks(database, req, $);
 
 	return $.html();
 }
-
-
-// Module handlers
-modules.addRouters(server);
 
 
 // I'm temporarily logging logins - so people don't forget their passwords and for testing purposes :)
@@ -286,6 +282,8 @@ server.use(express.raw({type: "*/*", limit: "100mb"}), async (req, res) => {
 		let html = inspirRes.data.toString(encoding)
 		let newHtml = await pageHook(req, html);
 		inspirRes.data = Buffer.from(newHtml, encoding);
+	} else if (req.method != "GET") {
+		modules.callRequestHooks(database, req, null);
 	}
 
 	// To fix a glitch (I think) where nginx complains when both transfer-encoding and content-length are sent

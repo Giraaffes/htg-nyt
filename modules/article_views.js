@@ -1,40 +1,36 @@
 const crypto = require("crypto");
 
 const hashResetInterval = 24 * 60 * 60 * 1000; // daily
-
-let database;
 let accessHashes = [];
 
-exports.onReady = ((database_) => {
-	database = database_;
+exports.onReady = ((database) => {
+	if (!database.isConnected()) return;
 
-	if (database.isConnected()) {
-		setInterval(() => {
-			accessHashes = [];
-		}, hashResetInterval);
-	}
+	setInterval(() => {
+		accessHashes = [];
+	}, hashResetInterval);
 });
+
+
+exports.hooks = [];
 
 
 const frontPageRegex = /^https?:\/\/(?:www)?.htg\-?nyt.dk\/(?:\?|$)/;
 
-exports.router = require("express").Router();
-
-exports.router.get("/artikel/:article", async (req, res, next) => {
-  if (process.env.LOCAL || !database.isConnected()) return next();
+exports.hooks.push(["GET /artikel/*", async (database, req, $, articleId) => {
+  if (process.env.LOCAL || !database.isConnected()) return;
 
 	let referer = req.headers["referer"];
-	if (!referer || !referer.match(frontPageRegex)) return next();
+	if (!referer || !referer.match(frontPageRegex)) return;
 
-	let articleId = req.params["article"];
 	let identifier = ([req.ip, articleId, req.headers["user-agent"] || ""]).join();
 	let accessHash = crypto.createHash('md5').update(identifier).digest('hex');
 	if (!accessHashes.includes(accessHash)) {
 		accessHashes.push(accessHash);
 		try {
-			await database.query(
+			/*await database.query(
 				`INSERT IGNORE INTO articles VALUES ("${articleId}", 0, NULL, NULL, NULL);`
-			);
+			);*/
 			await database.query(
 				`UPDATE articles SET views = views + 1 WHERE id = "${articleId}";`
 			);
@@ -42,19 +38,15 @@ exports.router.get("/artikel/:article", async (req, res, next) => {
 			console.error("Error when registering view:", err);
 		}
 	}
-
-	next();
-});
+}]);
 
 
 function getArticleId(article) {
 	return article.find(".article-anchor").attr("href").match(/\/artikel\/([\w_]+)/)[1];
 }
 
-exports.pageHook = (async (req, $) => {
-	if (!(
-		req.path == "/" && req.query["type"] != "aktiviteter" && database.isConnected()
-	)) return;
+exports.hooks.push(["GET /", async (database, req, $) => {
+	if (req.query["type"] == "aktiviteter" || !database.isConnected()) return;
 	
 	let articleIds = $(".article-listing").toArray().map(article => getArticleId($(article)));
 	let articleIdsStr = articleIds.map(id => `"${id}"`).join(", ");
@@ -72,4 +64,4 @@ exports.pageHook = (async (req, $) => {
 			`<p class="article-views">${views} visning${views == 1 ? "" : "er"}</p>`
 		);
 	});
-});
+}]);
