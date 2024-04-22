@@ -81,8 +81,11 @@ exports.hooks.push(["GET /redaktør", async (database, req, $, articleUuid) => {
 
 		let articleId = getArticleId($(tr));
 		let articleData = articles.find(a => a.id == articleId);
+		let articleDate = articleData.date;
+		articleDate.setMinutes(articleDate.getMinutes() - articleDate.getTimezoneOffset());
+		
 		if (articleData) {
-			$(tr).find("td:eq(1)").after(`<td>${articleData.date.getTime()}</td><td>${articleData.category || ""}</td>`);
+			$(tr).find("td:eq(1)").after(`<td>${articleDate.getTime()}</td><td>${articleData.category || ""}</td>`);
 		} else {
 			$(tr).find("td:eq(1)").after(`<td></td><td></td>`);
 		}

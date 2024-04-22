@@ -22,6 +22,7 @@ function capitalize(str) {
 function formatDate(date) {
 	//let weekday = date.toLocaleString("da-DK", {weekday: "long"});
 	// `${weekday} d. ...`
+	date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
 	return capitalize(`${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} kl ${date.getHours()}:${padNum(date.getMinutes(), 2)}`);
 }
 
