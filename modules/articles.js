@@ -49,6 +49,9 @@ exports.hooks.push(["GET /rediger-artikel/*", async (database, req, $, articleUu
 		`SELECT id, date, category, tags, isPublic FROM articles WHERE uuid = "${articleUuid}";`
 	)).results[0] || [];
 	
+	// TODO
+	if (article.date) article.date.setHours(article.date.getHours() - 2);
+	
 	// Need a better way to do this as well
 	$("body").prepend(`<script>
 		const ARTICLE_ID = "${article.id || ""}";
