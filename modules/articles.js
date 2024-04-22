@@ -31,7 +31,6 @@ exports.hooks.push(["POST /rediger-artikel/*", async (database, req, $, articleU
 
 	let { type, tags, status, publicationDate } = formDataParser.parse(req);
 	let dateStr = publicationDate && fecha.format(new Date(publicationDate), "YYYY-MM-DD hh:mm:ss");
-	console.log("save", publicationDate, new Date(publicationDate), dateStr);
 
 	await database.query(
 		`UPDATE articles SET 
@@ -49,7 +48,6 @@ exports.hooks.push(["GET /rediger-artikel/*", async (database, req, $, articleUu
 	let article = (await database.query(
 		`SELECT id, date, category, tags, isPublic FROM articles WHERE uuid = "${articleUuid}";`
 	)).results[0] || [];
-	console.log("open", article.date);
 	
 	// Need a better way to do this as well
 	$("body").prepend(`<script>

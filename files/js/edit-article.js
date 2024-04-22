@@ -263,7 +263,6 @@ let dateSelect = $(`<input type="datetime-local" name="publicationDate" class="a
 dateSelect.appendTo(dateDiv);
 
 let publicationDate = PUBLICATION_DATE ? new Date(PUBLICATION_DATE) : getUuid1Date(pageUuid);
-publicationDate.setMinutes(publicationDate.getMinutes() - publicationDate.getTimezoneOffset());
 dateSelect.val(publicationDate.toISOString().slice(0, 16));
 
 
