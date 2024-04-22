@@ -30,14 +30,8 @@ exports.hooks.push(["POST /rediger-artikel/*", async (database, req, $, articleU
 	if (!database.isConnected()) return;
 
 	let { type, tags, status, publicationDate } = formDataParser.parse(req);
-
-	// TODO
-	let dateStr;
-	if (publicationDate) {
-		publicationDate = new Date(publicationDate);
-		article.date.setHours(article.date.getHours() - 2); // (in Denmark (right now (DST)))
-		let dateStr = fecha.format(publicationDate, "YYYY-MM-DD hh:mm:ss");
-	}
+	let dateStr = publicationDate && fecha.format(new Date(publicationDate), "YYYY-MM-DD hh:mm:ss");
+	console.log("save", publicationDate, new Date(publicationDate), dateStr);
 
 	await database.query(
 		`UPDATE articles SET 
@@ -55,6 +49,7 @@ exports.hooks.push(["GET /rediger-artikel/*", async (database, req, $, articleUu
 	let article = (await database.query(
 		`SELECT id, date, category, tags, isPublic FROM articles WHERE uuid = "${articleUuid}";`
 	)).results[0] || [];
+	console.log("open", article.date);
 	
 	// Need a better way to do this as well
 	$("body").prepend(`<script>

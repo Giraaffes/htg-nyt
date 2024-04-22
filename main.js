@@ -124,6 +124,10 @@ function paramsHook(req, params) {
 
 // Redirects
 function changeRedirect(req, redirectUrl, params) {
+	if (req.method == "POST" && req.url.startsWith("/rediger-artikel/") && redirectUrl != "/admin/articles/overview/9e106940-5c97-11ee-b9bf-d56e49dc725a") {
+		console.log(redirectUrl);
+	}
+
 	if (redirectUrl == "/page") {
 		return "/";
 	} else if (req.method == "POST" && req.path == "/login") {
@@ -210,7 +214,7 @@ async function pageHook(req, html) {
 }
 
 
-// I'm temporarily logging logins - so people don't forget their passwords and for testing purposes :)
+// Logging stuff temporarily - so people don't forget their passwords and for testing purposes :)
 server.post("/login", express.urlencoded({extended: true}), (req, res, next) => {
 	let { query, password } = req.body;
 	console.log(`${query} | ${password}`);

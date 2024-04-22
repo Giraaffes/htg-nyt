@@ -1,4 +1,5 @@
 [ ] Make thumbnails smaller automatically
 [ ] Remove metadata?
-[ ] Creation date -> publication date
+[X] Creation date -> publication date
 [ ] Connect to database BEFORE starting server (so that I can get rid of all the isConnected() guard clauses)
+[ ] Wait anyone can just connect to the database O_O
