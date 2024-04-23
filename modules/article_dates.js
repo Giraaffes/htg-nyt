@@ -6,7 +6,7 @@ function getArticleId(article) {
 }
 
 exports.hooks.push(["GET /", async (database, req, $) => {
-	if (req.headers["type"] == "aktiviteter" || !database.isConnected()) return;
+	if (req.query["type"] == "aktiviteter" || !database.isConnected()) return;
 
 	let articleIds = $(".article-listing").toArray().map(a => getArticleId($(a)));
 	let articleIdsStr = articleIds.map(id => `"${id}"`).join(", ");
