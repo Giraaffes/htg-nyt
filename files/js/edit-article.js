@@ -638,7 +638,7 @@ function addNewElementButtons(removeOnAdd) {
 				if (fileInput[0].files.length == 0) {
 					insertedElement.remove();
 				} else {
-					$.notify("Når denne kasse lukkes vil siden genindlæses", {className: "info", autoHide: false});
+					$.notify("Når denne kasse lukkes vil siden genindlæses efter få sekunder", {className: "info", autoHide: false});
 					doNotSave = true;
 				}
 				return;
