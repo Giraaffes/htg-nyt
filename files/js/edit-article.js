@@ -3,7 +3,7 @@ const pageUuid = window.location.pathname.match(/[\w-]+$/)[0];
 
 // Saving
 const autoSaveInterval = 20 * 1000; //1 * 60 * 1000;
-const maxFailedAttempts = 2; //3;
+const maxFailedAttempts = 1; //3;
 
 let doNotSave = false;
 async function saveArticle(keepAlive, silent) {
@@ -15,7 +15,7 @@ async function saveArticle(keepAlive, silent) {
 			body: formData,
 			keepalive: keepAlive
 	});
-	let success = res.url.endsWith("/redakt%C3%B8r"); // I should actually just check if the redirect url is the login page - then I don't need max failed attempts I think
+	let success = res.url.includes("/login"); // Suppose the check here could be better, but how could there possibly be any problems?
 
 	if (!silent) {
 			if (success) {
