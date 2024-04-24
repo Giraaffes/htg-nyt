@@ -17,10 +17,12 @@ exports.hooks.push(["GET /rediger-artikel/*", async (database, req, $, articleUu
 	if (!req.headers["sec-fetch-user"] || !database.isConnected()) return; // Header check will not be needed in the future
 
 	let id = $("#title").val();
-	let date = fecha.format(getUuid1Date(articleUuid), "YYYY-MM-DD hh:mm:ss");
+	let date = getUuid1Date(articleUuid);
+	date.setHours(date.getHours() +2 ); // TODO 
+	let dateStr = fecha.format(date, "YYYY-MM-DD hh:mm:ss");
 	// Hardcoded fix for quotes in article name - should generally be doing this different
 	await database.query(
-		`INSERT IGNORE INTO articles (id, uuid, date) VALUES ("${id.replaceAll("\"", "\\\"")}", "${articleUuid}", "${date}")`
+		`INSERT IGNORE INTO articles (id, uuid, date) VALUES ("${id.replaceAll("\"", "\\\"")}", "${articleUuid}", "${dateStr}")`
 	);
 }]);
 

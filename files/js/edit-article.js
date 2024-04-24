@@ -3,7 +3,7 @@ const pageUuid = window.location.pathname.match(/[\w-]+$/)[0];
 
 // Saving
 const autoSaveInterval = 20 * 1000; //1 * 60 * 1000;
-const maxFailedAttempts = 1; //3;
+const maxFailedAttempts = 2; //3;
 
 let doNotSave = false;
 async function saveArticle(keepAlive, silent) {
