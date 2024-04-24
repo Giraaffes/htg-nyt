@@ -15,7 +15,7 @@ async function saveArticle(keepAlive, silent) {
 			body: formData,
 			keepalive: keepAlive
 	});
-	let success = res.url.includes("/login"); // Suppose the check here could be better, but how could there possibly be any problems?
+	let success = !res.url.includes("/login"); // Suppose the check here could be better, but how could there possibly be any problems?
 
 	if (!silent) {
 			if (success) {
