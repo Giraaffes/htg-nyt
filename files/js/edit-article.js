@@ -28,10 +28,7 @@ async function saveArticle(keepAlive, silent) {
 }
 
 $(window).on("beforeunload", () => {
-	if (doNotSave) { // Wait what - does this actually do anything? - was I tired when I wrote this?
-		doNotSave = false;
-		return;
-	}
+	if (doNotSave) return;
 
 	saveArticle(true);
 	const time = Date.now();
@@ -41,6 +38,8 @@ $(window).on("beforeunload", () => {
 let failedAttempts = 0;
 $(() => {
 	setInterval(async () => {
+		if (doNotSave) return;
+
 		let success = await saveArticle(false, true)
 		if (success) {
 			failedAttempts = 0;
@@ -48,7 +47,7 @@ $(() => {
 			failedAttempts++;
 		}
 		if (failedAttempts >= maxFailedAttempts) {
-			location.reload(); // Too sudden?
+			location.reload();
 		}
 	}, autoSaveInterval);
 });
