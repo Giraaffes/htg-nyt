@@ -126,7 +126,7 @@ $("#hideable-menu").show();
 
 // Categories
 $(".form-data:has(#static-filters)").remove();
-leftTopDiv.append(
+$("#date-input").before(
 	$(`<div class="form-data"><h5>Kategori</h5></div>`).append(
 		`<div id="static-filters" class="check-toolbar"></div>`
 	)
@@ -173,7 +173,7 @@ $(() => {
 
 // Tags
 $(".form-data:has(#dynamic-filters)").remove();
-leftTopDiv.append(
+$("#date-input").after(
 	$(`<div class="form-data"><h5>Tags (vælg maks. 2)</h5></div>`).append(
 		`<div id="dynamic-filters" class="check-toolbar"></div>`
 	)
