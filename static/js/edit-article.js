@@ -1,9 +1,54 @@
 const pageUuid = window.location.pathname.match(/[\w-]+$/)[0];
 
 
-// Saving
-const autoSaveInterval = 20 * 1000; //1 * 60 * 1000;
-const maxFailedAttempts = 1; //3;
+// (_) General functions
+function faIcon(iconName) {
+	return `<i class=\"fas fa-${iconName}\" aria-hidden=\"true\"></i>`;
+}
+
+function addButton(html, clickCallback) {
+	return $("<button></button>").html(html).on("click", event => {
+		// Prevent page refreshing
+		event.preventDefault();
+		if (clickCallback) clickCallback(event);
+	}).addClass("custom-button");
+}
+function addCheckField(type, html, name, value, id) {
+
+	let input = $(`<input type="${type}" name="${name}" value="${value}" id=${id}>`).addClass("custom-input").hide();
+	let field = $(`<label for="${id}">${html}</label>`).addClass("custom-field");
+	return $([input[0], field[0]]);
+}
+
+function addTextInput(type, placeholder, name) {
+	return $(`<input type="${type}" placeholder="${placeholder}" name="${name}">`);
+}
+
+// https://stackoverflow.com/a/19033868
+function swap(a, b) {
+	var temp = $('<span>').hide();
+	a.before(temp);
+	b.before(a);
+	temp.replaceWith(b);
+};
+
+// https://stackoverflow.com/a/26915856
+function getUuid1Date(uuid) {
+	let splitUuid = uuid.split("-");
+	let time = parseInt(`${splitUuid[2].slice(1)}${splitUuid[1]}${splitUuid[0]}`, 16);
+	var timeMillis = Math.floor((time - 122192928000000000) / 10000);
+	return new Date(timeMillis);
+};
+
+function correctTimezone(date) {
+	date.setMinutes(date.getMinutes() - date.getTimezoneOffset());
+	return date;
+}
+
+
+// (R) Saving
+const autoSaveInterval = 20 * 1000; // was 1 * 60 * 1000;
+const maxFailedAttempts = 1; // was 3;
 
 let doNotSave = false;
 async function saveArticle(keepAlive, silent) {
@@ -50,6 +95,9 @@ $(() => {
 			location.reload();
 		}
 	}, autoSaveInterval);
+
+	// This is to set the publication date immediately after creating a new article
+	if ($("#form-inputs .form-data").length == 0) saveArticle(true, true);
 });
 
 $(document).on("keydown", e => {
@@ -60,31 +108,7 @@ $(document).on("keydown", e => {
 });
 
 
-// General functions
-function faIcon(iconName) {
-	return `<i class=\"fas fa-${iconName}\" aria-hidden=\"true\"></i>`;
-}
-
-function addButton(html, clickCallback) {
-	return $("<button></button>").html(html).on("click", event => {
-		// Prevent page refreshing
-		event.preventDefault();
-		if (clickCallback) clickCallback(event);
-	}).addClass("custom-button");
-}
-
-function addCheckField(type, html, name, value, id) {
-	let input = $(`<input type="${type}" name="${name}" value="${value}" id=${id}>`).addClass("custom-input").hide();
-	let field = $(`<label for="${id}">${html}</label>`).addClass("custom-field");
-	return $([input[0], field[0]]);
-}
-
-function addTextInput(type, placeholder, name) {
-	return $(`<input type="${type}" placeholder="${placeholder}" name="${name}">`);
-}
-
-
-// Nav menu
+// (O) Nav menu
 let skolebladNav = $(".sidebar .nav-item:first");
 skolebladNav.html(skolebladNav.html().replace("htg-nyt", "forside"));
 skolebladNav.find(".nav-link").attr("href", "/");
@@ -99,7 +123,7 @@ let logoutNav = $(".sidebar .nav-item:last .nav-link").html(
 );
 
 
-// Editor general
+// (O) Editor general
 $(".alert, .content-buttons").remove();
 
 $("#title").val($("#title").val().replaceAll("⧸", "/"));
@@ -113,7 +137,8 @@ $("#magazines-articles-form").on("click", event => {
 });
 
 
-// Top section setup
+// SECTION - Top section
+
 let leftTopDiv = $("#hideable-menu > div:eq(0)");
 let middleTopDiv = $("#hideable-menu > div:eq(1)");
 let actionButtonsDiv = $("<div></div>").addClass("action-buttons").appendTo("#hideable-menu");
@@ -124,7 +149,7 @@ $("#hideable-menu > div").removeAttr("style").css("width", i =>
 $("#hideable-menu").show();
 
 
-// Categories
+// (Y) Categories
 $(".form-data:has(#static-filters)").remove();
 $("#date-input").before(
 	$(`<div class="form-data"><h5>Kategori</h5></div>`).append(
@@ -155,7 +180,6 @@ $(() => {
 		
 		// Calendar fix
 		if ($(label).attr("for") == "aktiviteter") {
-			console.log("shown");
 			$("#date-input").show();
 		} else {
 			$("#date-input").hide();
@@ -171,7 +195,7 @@ $(() => {
 });
 
 
-// Tags
+// (Y) Tags
 $(".form-data:has(#dynamic-filters)").remove();
 $("#date-input").after(
 	$(`<div class="form-data"><h5>Tags (vælg maks. 2)</h5></div>`).append(
@@ -197,7 +221,7 @@ $(() => {
 })
 
 
-// Visibility buttons
+// (G) Visibility buttons
 let isArticleVisible;
 
 let visibilityDiv = $("<div></div>").addClass("form-data");
@@ -230,7 +254,7 @@ visibilitySelectDiv.find("input").on("change", async e => {
 });
 
 
-// Author buttons
+// (G) Author buttons
 let authorDiv = $("<div></div>").addClass("form-data");
 authorDiv.appendTo(middleTopDiv).append("<h5>Skribent</h5>");
 
@@ -254,18 +278,18 @@ authorSelectDiv.find("input").on("change", async e => {
 });
 
 
-// Publication date
+// (G) Publication date	
 let dateDiv = $("<div></div>").addClass("form-data");
 dateDiv.appendTo(middleTopDiv).append("<h5>Udgivelsesdato</h5>");
 
-let dateSelect = $(`<input type="datetime-local" name="publicationDate" class="article-input-style">`);
+let dateSelect = $(`<input type="datetime-local" name="publicationDatee" class="article-input-style">`);
 dateSelect.appendTo(dateDiv);
 
-let publicationDate = PUBLICATION_DATE ? new Date(PUBLICATION_DATE) : getUuid1Date(pageUuid);
+let publicationDate = PUBLICATION_DATE ? new Date(PUBLICATION_DATE) : correctTimezone(getUuid1Date(pageUuid));
 dateSelect.val(publicationDate.toISOString().slice(0, 16));
 
 
-// Save, preview and view article buttons
+// (C) Save, preview and view article buttons
 let saveButton = addButton("Gem artikel", saveArticle);
 actionButtonsDiv.append(saveButton);	
 
@@ -286,7 +310,7 @@ $("<p></p>").text(
 ).addClass("info-text").appendTo(actionButtonsDiv)
 
 
-// Fixed save button
+// (C) Fixed save button
 let fixedSaveButton = addButton("Gem artikel (ctrl + S)", saveArticle);
 fixedSaveButton.appendTo(".main-container").addClass("fixed-save-button");
 
@@ -299,7 +323,7 @@ $(document).on("scroll", () => {
 }).trigger("scroll");
 
 
-// Delete button
+// (C) Delete button
 const magazineUuid = $("#magazine-edition-uuid").val();
 function deleteArticle() {
 	if (!window.confirm(`Er du virkelig sikker på, at du vil slette denne artikel permanent?`)) return;
@@ -322,20 +346,21 @@ let deleteButton = addButton("Slet artikel", deleteArticle);
 deleteButton.addClass("delete-button").appendTo(actionButtonsDiv);
 
 
-// Remove previous top section
+// (_) Remove previous top section
 $("#retningContainer, #niveauContainer").prependTo("#magazines-articles-form");
 $("#withoutAuthor").remove();
 $("#fixed-menu div:first input").prependTo("#magazines-articles-form").hide();
 $("#fixed-menu").remove();
 $("#widgets-container").remove();
 
+// !SECTION
 
-// Reorder things a bit
+
+// (_) Reorder things a bit
 let mainDiv = $("#magazines-articles-form > div:last");
 mainDiv.find("> .form-data").slice(2, 4).prependTo(mainDiv);
 
-
-// Video fix
+// (_) Video fix
 let video = $("#article-video-preview");
 let iframe = video.find("iframe");
 if (iframe.length == 1) {
@@ -343,20 +368,73 @@ if (iframe.length == 1) {
 		iframe.css("height", "unset");
 }
 
-// Thumbnail fix
+// (_) Thumbnail fix
 $("#magazines-articles-form > div:last .form-data:eq(3)").removeAttr("style");
 $("#cropPreview").removeAttr("style");	
 
 
-// Article elements
-// https://stackoverflow.com/a/19033868
-function swap(a, b) {
-	var temp = $('<span>').hide();
-	a.before(temp);
-	b.before(a);
-	temp.replaceWith(b);
-};
+// (B) Renaming
+const renameHeaders = {
+	"SEKTIONER": "Kategori",
+	"Dynamic filters": "Tags (maks. 2)",
+	"DATE": "Startdato",
+	"END DATE": "Slutdato",
+	"ADDRESS": "Adresse",
+	"LOCATION": "Lokation",
+	"RUBRIK": "Rubrik",
+	"MANCHET": "Manchet",
+	"VIDEO": "Video",
+	"LISTE-ILL": "Billede",
+	"SoMe": "Sociale medier",
+	"Pic": "Billede",
+	"Tekst": "Brødtekst"
+}
 
+const renamePlaceholders = {
+	"Adresse": ["Adresse"],
+	"Lokation": ["Lokation"],
+	"Video": ["Link til video"],
+	"Brødtekst": ["Brødtekst"],
+	"Mellemrubrik": ["Mellemrubrik"],
+	"Citat": ["Citat"],
+	"Spørgsmål": [null, "Spørgsmålet, der stilles"],
+	"Svar": ["Navn/titel på den, der svarer", "Svar på et spørgsmål"],
+	"Afsluttende link": [null, "Tekst til afsluttende link"],
+	"Sociale medier": ["Indsæt kopieret kode, som skal indlejres (dette kan man finde som valgmulighed på de fleste sociale medier)"]
+}
+
+function renameFormData(formData) {
+	formData.find("h5").each((_, header) => {
+		let headerText = $(header).text();
+		let renameHeaderTo = renameHeaders[headerText];
+		if (renameHeaderTo) {
+			$(header).text(renameHeaderTo);
+			headerText = renameHeaderTo;
+		}
+
+		let renamePlaceholdersEntry = renamePlaceholders[headerText];
+		if (renamePlaceholdersEntry) {
+			let inputs = $(header).nextAll().find("input[type=text], textarea");
+			inputs = inputs.add($(header).nextAll("input[type=text], textarea"));
+			inputs.each((i, input) => {
+				if (renamePlaceholdersEntry[i]) $(input).attr("placeholder", renamePlaceholdersEntry[i]);
+			});
+		}
+	});
+}
+
+$(".form-data").each((_, formData) => {
+	renameFormData($(formData));
+});
+
+// (B) Crop image translations
+$(".modal h5:contains(Crop the image)").text("Beskær billede");
+$(".modal button:contains(Cancel)").text("Annuller");
+
+
+// SECTION - Main section
+
+// (M) Fixing article elements
 function addElementButtons(element) {
 	element.find(".content-span-container, #upArrow, #downArrow, #deleteContent").remove();
 
@@ -505,62 +583,7 @@ $("#form-inputs .form-data").each((_, element) => {
 });
 
 
-// Renaming
-const renameHeaders = {
-	"SEKTIONER": "Kategori",
-	"Dynamic filters": "Tags (maks. 2)",
-	"DATE": "Startdato",
-	"END DATE": "Slutdato",
-	"ADDRESS": "Adresse",
-	"LOCATION": "Lokation",
-	"RUBRIK": "Rubrik",
-	"MANCHET": "Manchet",
-	"VIDEO": "Video",
-	"LISTE-ILL": "Billede",
-	"SoMe": "Sociale medier",
-	"Pic": "Billede",
-	"Tekst": "Brødtekst"
-}
-
-const renamePlaceholders = {
-	"Adresse": ["Adresse"],
-	"Lokation": ["Lokation"],
-	"Video": ["Link til video"],
-	"Brødtekst": ["Brødtekst"],
-	"Mellemrubrik": ["Mellemrubrik"],
-	"Citat": ["Citat"],
-	"Spørgsmål": [null, "Spørgsmålet, der stilles"],
-	"Svar": ["Navn/titel på den, der svarer", "Svar på et spørgsmål"],
-	"Afsluttende link": [null, "Tekst til afsluttende link"],
-	"Sociale medier": ["Indsæt kopieret kode, som skal indlejres (dette kan man finde som valgmulighed på de fleste sociale medier)"]
-}
-
-function renameFormData(formData) {
-	formData.find("h5").each((_, header) => {
-		let headerText = $(header).text();
-		let renameHeaderTo = renameHeaders[headerText];
-		if (renameHeaderTo) {
-			$(header).text(renameHeaderTo);
-			headerText = renameHeaderTo;
-		}
-
-		let renamePlaceholdersEntry = renamePlaceholders[headerText];
-		if (renamePlaceholdersEntry) {
-			let inputs = $(header).nextAll().find("input[type=text], textarea");
-			inputs = inputs.add($(header).nextAll("input[type=text], textarea"));
-			inputs.each((i, input) => {
-				if (renamePlaceholdersEntry[i]) $(input).attr("placeholder", renamePlaceholdersEntry[i]);
-			});
-		}
-	});
-}
-
-$(".form-data").each((_, formData) => {
-	renameFormData($(formData));
-});
-
-
-// Add new article elements
+// (P) Adding new elements
 const elementTypes = [
 	{ text: "Brødtekst", name: "body" },
 	{ text: "Mellemrubrik", name: "middle-heading" },
@@ -677,57 +700,14 @@ elements.each((_, element) => {
 	$(element).after(addNewElementButtons(false));
 });
 
-
-
-// Metadata element
-let metadataElement = $(".form-data:has(h5:contains(Sociale medier))").filter((_, e) => 
-	$(e).find("textarea").val().includes("supercool-htg-nyt-date") // Have to update all the articles if I want this changed
-);
-// (If the only element is the hidden date or if there are no elements at all)
-if (elements.length == metadataElement.length) {
-	addNewElementButtons(true).prependTo("#form-inputs");
+if (elements.length == 0) {
+	addNewElementButtons(true).appendTo("#form-inputs");
 }
 
-// https://stackoverflow.com/a/26915856
-function getUuid1Date(uuid) {
-	let splitUuid = uuid.split("-");
-	let time = parseInt(`${splitUuid[2].slice(1)}${splitUuid[1]}${splitUuid[0]}`, 16);
-	var timeMillis = Math.floor((time - 122192928000000000) / 10000);
-	return new Date(timeMillis);
-};
-
-const articleDateNum = getUuid1Date(pageUuid).getTime();
-function updateMetadata() {
-	let html = `<data value="${articleDateNum}" id="supercool-htg-nyt-date"></data>`;
-	if ($("input#calendar").is(":checked")) {
-		let startDateNum = new Date($("input#date").val()).getTime();
-		html += `<data value="${startDateNum}" id="supercool-htg-nyt-start-date"></data>`;
-		let endDateNum = new Date($("input#endDate").val()).getTime();
-		html += `<data value="${endDateNum}" id="supercool-htg-nyt-end-date"></data>`;
-	}
-	metadataElement.find("textarea").val(html);
-}
-$("#static-filters input, input#date, input#endDate").on("change", updateMetadata);
-
-$(async () => {
-	if (metadataElement.length == 0) {
-		addMagazineInput("socials");
-		metadataElement = $("#form-inputs .form-data:last");
-		metadataElement.removeClass("form-data").hide();
-
-		await saveArticle(false, true);
-		await loadNewElement(metadataElement);
-		reindexElements();
-		updateMetadata();
-		await saveArticle(false, true);
-	} else {
-		metadataElement.removeClass("form-data").hide();
-		metadataElement.next(".new-element-buttons").remove();
-	}
-});
+// !SECTION
 
 
-// Dividers
+// (_) Dividers
 let divider = $("<hr></hr>").addClass("custom-divider");
 divider.clone().insertAfter("#hideable-menu");
 divider.clone().insertBefore("#form-inputs");
@@ -735,10 +715,6 @@ divider.clone().insertBefore("#form-inputs");
 $("#dynamic-filters").closest(".form-data").css("margin-bottom", "0");
 
 
-// Crop image translations
-$(".modal h5:contains(Crop the image)").text("Beskær billede");
-$(".modal button:contains(Cancel)").text("Annuller");
-
-
-// Fix (???)
+// (_) Other thing (idk)
 $("div:has(> #form-inputs)").removeAttr("style");
+

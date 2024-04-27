@@ -1,6 +1,6 @@
 const multipart = require('parse-multipart-data');
 
-exports.parse = function(req) {
+exports.parseFormData = function(req) {
 	let [ _, multipartBoundary ] = req.headers["content-type"].match(/boundary=(.+)$/);
 	let parts = multipart.parse(req.body, multipartBoundary);
 
@@ -24,4 +24,26 @@ exports.parse = function(req) {
 		}
 	}
 	return formData;
+};
+
+function jsFormat(value) {
+	if (typeof value == "number" || typeof value == "boolean") {
+		return value;
+	} else if (value instanceof Date) {
+		return value.getTime();
+	} else if (value instanceof Array) { // Assumes string values
+		return `[${value.map(jsFormat).join(", ")}]`;
+	} else if (!value) {
+		return "null";
+	} else {
+		return `"${value.toString()}"`;
+	}
+}
+
+exports.injectVariables = function($, variables) {
+	let scriptStr = "";
+	for (let [ name, value ] of Object.entries(variables)) {
+		scriptStr += `const ${name} = ${jsFormat(value)};`;
+	}
+	$("body").prepend(`<script>${scriptStr}</script>`);
 }

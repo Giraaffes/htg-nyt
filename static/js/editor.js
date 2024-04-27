@@ -20,10 +20,9 @@ function capitalize(str) {
 }
 
 function formatDate(date) {
-	//let weekday = date.toLocaleString("da-DK", {weekday: "long"});
-	// `${weekday} d. ...`
-	date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
-	return capitalize(`${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} kl ${date.getHours()}:${padNum(date.getMinutes(), 2)}`);
+	let dateStr = `${date.getUTCDate()}/${date.getUTCMonth() + 1}/${date.getUTCFullYear()}`;
+	let timeStr = `${date.getUTCHours()}:${padNum(date.getUTCMinutes(), 2)}`;
+	return capitalize(`${dateStr} kl ${timeStr}`);
 }
 
 
@@ -44,7 +43,7 @@ let logoutNav = $(".sidebar .nav-item:last .nav-link").html(
 
 // Overview general
 $("title").text("Redaktør | HTG-NYT");
-$("h3").text("Skolebladet 'HTG-NYT'");
+$("h3").text("Skolebladet HTG-NYT");
 $(".alert, br, .filter-toolbar").remove();
 
 let newArticleButton = $(".admin-section-title .btn");
@@ -218,7 +217,6 @@ for (let i = 0; i < 4; i++) {
 	let columnTitle = $(column.header()).text().toLowerCase();
 	let input = $(`<input type="text" placeholder="Søg efter ${columnTitle}"></input>`);
 	input.on("keyup change clear", () => {
-		console.log(column, column.search, column.search(), input.val());
 		if (column.search() != input.val()) {
 			column.search(input.val()).draw();
 		}

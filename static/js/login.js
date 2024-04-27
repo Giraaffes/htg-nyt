@@ -1,8 +1,15 @@
+$("title").text("Log ind | HTG-NYT");
+
 $("input[name=\"query\"]").attr("placeholder", "E-MAIL")
 $("input[name=\"password\"]").attr("placeholder", "Password");
 $("input[type=\"submit\"]").val("LOG IND");
 
-$(".check-toolbar:contains(OPRET), #findMagazine").remove();
+$(".check-toolbar:contains(OPRET), #findMagazine, .row > div:first").remove();
+
+$(".col-sm-12").prepend(
+	`<h5 id="title">HTG-NYT</h5>`,
+	`<img id="htg-img" src="https://inspir.dk/uploads/magazines/9e106940-5c97-11ee-b9bf-d56e49dc725a/9e106940-5c97-11ee-b9bf-d56e49dc725a.png">`
+);
 
 $(() => {
 	let url_ = new URL(location);

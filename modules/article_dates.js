@@ -6,13 +6,13 @@ function getArticleId(article) {
 }
 
 exports.hooks.push(["GET /", async (database, req, $) => {
-	if (req.query["type"] == "aktiviteter" || !database.isConnected()) return;
+	if (req.query["type"] == "aktiviteter") return;
 
 	let articleIds = $(".article-listing").toArray().map(a => getArticleId($(a)));
 	let articleIdsStr = articleIds.map(id => `"${id}"`).join(", ");
-	let articles = (await database.query(
+	let articles = await database.query(
 		`SELECT id, date FROM articles WHERE id IN (${articleIdsStr});`
-	)).results;
+	);
 
 	let articleElements = $(".article-listing").toArray();
 	articleElements = articleElements.sort((a1, a2) => {
@@ -23,19 +23,14 @@ exports.hooks.push(["GET /", async (database, req, $) => {
 	for (let articleEl of articleElements) {
 		$(articleEl).appendTo(".col-sm-12");
 	}
-	
-	// $(".article-listing").each((_, article) => {
-	// 	$(article.append)
-	// });
 }]);
 
 
 exports.hooks.push(["GET /artikel/*", async (database, req, $, articleId) => {
-	if (!database.isConnected()) return;
-
-	let articleData = (await database.query(
-		`SELECT date FROM articles WHERE id = "${articleId}";`
-	)).results[0];
+	let articleData = (await database.execute(
+		`SELECT date FROM articles WHERE id = ?;`,
+		[articleId]
+	))[0];
 	if (!articleData) return;
 
 	let dateStr = articleData.date.toLocaleString("da-DK", {day: "numeric", month: "long", year: "numeric"});

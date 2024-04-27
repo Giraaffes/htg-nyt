@@ -30,7 +30,23 @@ exports.query = function(query, logQuery) {
 			if (err) {
 				rej(err);
 			} else {
-				res({results, fields});
+				res(results);
+			}
+		});
+	});
+}
+
+exports.execute = function(query, values) {
+	for (let i = 0; i < values.length; i++) { // I think this is necessary
+		if (values[i] === undefined) values[i] = null;
+	}
+
+	return new Promise((res, rej) => {
+		connection.query(query, values, (err, results, fields) => {
+			if (err) {
+				rej(err);
+			} else {
+				res(results);
 			}
 		});
 	});

@@ -1,5 +1,5 @@
 [ ] Make thumbnails smaller automatically
-[ ] Remove metadata?
-[X] Creation date -> publication date
-[ ] Connect to database BEFORE starting server (so that I can get rid of all the isConnected() guard clauses)
+[ ] Remove metadata
+[X] Connect to database BEFORE starting server (so that I can get rid of all the isConnected() guard clauses)
 [ ] Wait anyone can just connect to the database O_O
+[ ] CommonJS -> ES modules (or whatever it's called)

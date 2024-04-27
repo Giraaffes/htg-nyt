@@ -43,7 +43,7 @@ function fileExists(filePath) {
 }
 
 server.get(/\/custom(\/.+)/, (req, res) => { // Could I use express.static()?
-	let filePath = `${__dirname}/files/${req.params[0]}`;
+	let filePath = `${__dirname}/static/${req.params[0]}`;
 	if (fileExists(filePath)) {
 		res.sendFile(filePath);
 	} else {
@@ -124,10 +124,6 @@ function paramsHook(req, params) {
 
 // Redirects
 function changeRedirect(req, redirectUrl, params) {
-	if (req.method == "POST" && req.url.startsWith("/rediger-artikel/") && redirectUrl != "/admin/articles/overview/9e106940-5c97-11ee-b9bf-d56e49dc725a") {
-		console.log(redirectUrl);
-	}
-
 	if (redirectUrl == "/page") {
 		return "/";
 	} else if (req.method == "POST" && req.path == "/login") {
@@ -150,16 +146,12 @@ function changeRedirect(req, redirectUrl, params) {
 // HTML
 const pageInjects = {
 	"/login": "login",
-	"/hovedmenu": "homepage",
 	"/": "front-page",
 	"/artikel/": "article",
 	"/redaktør": "editor",
 	"/rediger-artikel/": "edit-article",
 	"/forhåndsvis-artikel/": "preview-article",
 	"/profil": "profile",
-	"/udvalg": "udvalg",
-	"/klassen": "class",
-	"/person/": "person",
 	"/registrer": "register-1",
 	"/registrer/": "register-2"
 };
@@ -214,7 +206,7 @@ async function pageHook(req, html) {
 }
 
 
-// Logging stuff temporarily - so people don't forget their passwords and for testing purposes :)
+// Logging stuff - so people don't forget their passwords and for testing purposes :)
 server.post("/login", express.urlencoded({extended: true}), (req, res, next) => {
 	let { query, password } = req.body;
 	console.log(`${query} | ${password}`);
@@ -261,7 +253,7 @@ server.use(express.raw({type: "*/*", limit: "100mb"}), async (req, res) => {
 		(inspirRes.status >= 400 && inspirRes.status < 600) || 
 		(inspirRes.headers.location || "").endsWith("/e9a")
 	) {
-		res.sendFile(`${__dirname}/files/not_found.html`);
+		res.sendFile(`${__dirname}/static/not_found.html`);
 		return;
 	}
 
@@ -311,14 +303,14 @@ server.use((err, req, res, next) => {
 
 
 // Start app
-server.listen(process.env.LOCAL ? 80 : config.port, "127.0.0.1", () => {
-	console.log("Server ready");
-
-	database.connect(process.env.LOCAL ? config.dbRemoteOptions : config.dbOptions).then(() => {
-		console.log("Database connected");
+database.connect(process.env.LOCAL ? config.dbRemoteOptions : config.dbOptions).then(() => {
+	console.log("Database connected");
+	
+	server.listen(process.env.LOCAL ? 80 : config.port, "127.0.0.1", () => {
+		console.log("Server ready");
 		modules.ready(database);
-	}).catch((err) => {
-		console.error("Failed to connect to database :(");
-		console.error(err);
 	});
+}).catch((err) => {
+	console.error("Failed to connect to database :(");
+	console.error(err);
 });

@@ -3,13 +3,15 @@
 		"host": "localhost",
 		"user": "root",
 		"password": "",
-		"database": "htgnyt"
+		"database": "htgnyt",
+		"timezone": "Z"
 	},
 	"dbRemoteOptions": {
 		"host": "64.226.88.255",
 		"user": "marcus",
 		"password": "password",
-		"database": "htgnyt"
+		"database": "htgnyt",
+		"timezone": "Z"
 	},
 	"githubWebhookId": "457630844",
 	"port": 8000
