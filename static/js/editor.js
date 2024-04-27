@@ -184,7 +184,11 @@ dataTable = $("#table").DataTable({
 			}
 		}, {
 				target: 2, render: (data, type, row) => {
-					return type == "display" || type == "filter" ? formatDate(new Date(parseInt(data, 10))) : data;
+					if (!data) {
+						return type == "sort" ? 0 : (type == "filter" ? "" : "-");
+					} else {
+						return type == "display" || type == "filter" ? formatDate(new Date(parseInt(data, 10))) : data;
+					}
 				}, orderSequence: ["desc", "asc"]
 		}, {
 			target: 3, render: (data, type, row) => {

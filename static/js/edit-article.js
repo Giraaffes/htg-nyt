@@ -282,7 +282,7 @@ authorSelectDiv.find("input").on("change", async e => {
 let dateDiv = $("<div></div>").addClass("form-data");
 dateDiv.appendTo(middleTopDiv).append("<h5>Udgivelsesdato</h5>");
 
-let dateSelect = $(`<input type="datetime-local" name="publicationDatee" class="article-input-style">`);
+let dateSelect = $(`<input type="datetime-local" name="publicationDate" class="article-input-style">`);
 dateSelect.appendTo(dateDiv);
 
 let publicationDate = PUBLICATION_DATE ? new Date(PUBLICATION_DATE) : correctTimezone(getUuid1Date(pageUuid));

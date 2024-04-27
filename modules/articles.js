@@ -97,7 +97,9 @@ exports.hooks.push(["GET /redaktør", async (database, req, $, articleUuid) => {
 		let articleDate = articleData.date;
 		
 		if (articleData) {
-			$(tr).find("td:eq(1)").after(`<td>${articleDate.getTime()}</td><td>${articleData.category || ""}</td>`);
+			$(tr).find("td:eq(1)").after(
+				`<td>${articleDate ? articleDate.getTime() : ""}</td><td>${articleData.category || ""}</td>`
+			);
 		} else {
 			$(tr).find("td:eq(1)").after(`<td></td><td></td>`);
 		}
