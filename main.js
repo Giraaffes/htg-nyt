@@ -15,8 +15,8 @@ const database = require("./database.js");
 
 
 const modules = require("./module_registry.js");
-modules.register("article_editing");
-//modules.register("article_page");
+modules.register("editor");
+modules.register("articles");
 modules.register("publication_date");
 modules.register("views");
 
