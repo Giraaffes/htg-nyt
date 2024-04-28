@@ -13,6 +13,7 @@ exports.onReady = (() => {
 exports.hooks = [];
 
 
+// (R) Update views on click
 const frontPageRegex = /^https?:\/\/(?:www)?.htg\-?nyt.dk\/(?:\?|$)/;
 
 exports.hooks.push(["GET /artikel/*", async (database, req, $, articleId) => {
@@ -33,6 +34,7 @@ exports.hooks.push(["GET /artikel/*", async (database, req, $, articleId) => {
 }]);
 
 
+// (O) Display views on front page
 function getArticleId(article) {
 	return article.find(".article-anchor").attr("href").match(/\/artikel\/([\w_]+)/)[1];
 }

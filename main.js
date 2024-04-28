@@ -15,9 +15,10 @@ const database = require("./database.js");
 
 
 const modules = require("./module_registry.js");
-modules.register("articles");
-modules.register("article_dates");
-modules.register("article_views");
+modules.register("article_editing");
+//modules.register("article_page");
+modules.register("publication_date");
+modules.register("views");
 
 
 // Github webhook
