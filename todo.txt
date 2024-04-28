@@ -1,5 +1,5 @@
-[ ] Make thumbnails smaller automatically
-[ ] Remove metadata
+[-] Make thumbnails smaller automatically
+[X] Remove metadata
 [X] Connect to database BEFORE starting server (so that I can get rid of all the isConnected() guard clauses)
 [ ] Wait anyone can just connect to the database O_O
-[ ] CommonJS -> ES modules (or whatever it's called)
+[ ] CommonJS -> ES6 modules (?)

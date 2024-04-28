@@ -1,45 +1,46 @@
-const crypto = require("crypto");
+const { Module } = require("../modules.js");
+const mdl = module.exports = new Module();
 
-const hashResetInterval = 24 * 60 * 60 * 1000; // daily
+
+// (R) Hash resetting
+const hashResetInterval = 24 * 60 * 60 * 1000; // Daily
 let accessHashes = [];
 
-exports.onReady = (() => {
+mdl.onReady(() => {
 	setInterval(() => {
 		accessHashes = [];
 	}, hashResetInterval);
 });
 
 
-exports.hooks = [];
-
-
-// (R) Update views on click
+// (O) Update views on click
+const crypto = require("crypto");
 const frontPageRegex = /^https?:\/\/(?:www)?.htg\-?nyt.dk\/(?:\?|$)/;
 
-exports.hooks.push(["GET /artikel/*", async (database, req, $, articleId) => {
+mdl.hook("GET", "/artikel/:articleId", async (database, req, $) => {
   if (process.env.LOCAL) return;
 
 	let referer = req.headers["referer"];
 	if (!referer || !referer.match(frontPageRegex)) return;
 
-	let identifier = ([req.ip, articleId, req.headers["user-agent"] || ""]).join();
+	let identifier = ([req.ip, req.params.articleId, req.headers["user-agent"] || ""]).join();
 	let accessHash = crypto.createHash('md5').update(identifier).digest('hex');
 	if (!accessHashes.includes(accessHash)) {
 		accessHashes.push(accessHash);
 		await database.execute(
 			`UPDATE articles SET views = views + 1 WHERE id = ?;`,
-			[articleId]
+			[req.params.articleId]
 		);
 	}
-}]);
+});
 
 
-// (O) Display views on front page
+// (Y) Display views on front page
 function getArticleId(article) {
 	return article.find(".article-anchor").attr("href").match(/\/artikel\/([\w_]+)/)[1];
 }
 
-exports.hooks.push(["GET /", async (database, req, $) => {
+mdl.hook("GET", "/", async (database, req, $) => {
 	if (req.query["type"] == "aktiviteter") return;
 	
 	let articleIds = $(".article-listing").toArray().map(article => getArticleId($(article)));
@@ -58,4 +59,4 @@ exports.hooks.push(["GET /", async (database, req, $) => {
 			`<p class="article-views">${views} visning${views == 1 ? "" : "er"}</p>`
 		);
 	});
-}]);
+});

@@ -1,4 +1,5 @@
-exports.hooks = [];
+const { Module } = require("../modules.js");
+const mdl = module.exports = new Module();
 
 
 // (R) Reorder front page
@@ -6,7 +7,7 @@ function getArticleId(article) {
 	return article.find(".article-anchor").attr("href").match(/\/artikel\/([\w_]+)/)[1];
 }
 
-exports.hooks.push(["GET /", async (database, req, $) => {
+mdl.hook("GET", "/", async (database, req, $) => {
 	if (req.query["type"] == "aktiviteter") return;
 
 	let articleIds = $(".article-listing").toArray().map(a => getArticleId($(a)));
@@ -24,14 +25,14 @@ exports.hooks.push(["GET /", async (database, req, $) => {
 	for (let articleEl of articleElements) {
 		$(articleEl).appendTo(".col-sm-12");
 	}
-}]);
+});
 
 
 // (O) Display dates on article
-exports.hooks.push(["GET /artikel/*", async (database, req, $, articleId) => {
+mdl.hook("GET", "/artikel/:articleId", async (database, req, $) => {
 	let articleData = (await database.execute(
 		`SELECT date FROM articles WHERE id = ?;`,
-		[articleId]
+		[req.params.articleId]
 	))[0];
 	if (!articleData) return;
 
@@ -39,4 +40,4 @@ exports.hooks.push(["GET /artikel/*", async (database, req, $, articleId) => {
 		{day: "numeric", month: "long", year: "numeric", timeZone: "UTC"}
 	);
 	$(".authorDisName p").append(`<br><span class="date">${dateStr}</span>`);
-}]);
+});

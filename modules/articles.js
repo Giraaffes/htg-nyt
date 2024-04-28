@@ -1,4 +1,5 @@
-exports.hooks = [];
+const { Module } = require("../modules.js");
+const mdl = module.exports = new Module();
 
 
 // (R) Activites dates and images
@@ -11,10 +12,10 @@ function formatDate(date) {
 	};
 }
 
-exports.hooks.push(["GET /artikel/*", async (database, req, $, articleId) => {
+mdl.hook("GET", "/artikel/:articleId", async (database, req, $) => {
 	let articleData = (await database.execute(
 		`SELECT uuid, startDate, endDate, category FROM articles WHERE id = ?;`,
-		[articleId]
+		[req.params.articleId]
 	))[0];
 	if (!articleData || articleData.category != activitesCtgUuid) return;
 
@@ -33,4 +34,4 @@ exports.hooks.push(["GET /artikel/*", async (database, req, $, articleId) => {
 		<img src="https://inspir.dk/uploads/magazinesArticles/${articleData.uuid}/${articleData.uuid}.png">
 	</div>
 	`);
-}]);
+});

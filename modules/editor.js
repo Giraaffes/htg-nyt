@@ -1,32 +1,24 @@
 const { parseFormData, injectVariables } = require('../util.js');
-
-exports.hooks = [];
+const { Module } = require("../modules.js");
+const mdl = module.exports = new Module();
 
 
 // (G) Article creation
-// https://stackoverflow.com/a/26915856
-function getUuid1Date(uuid) {
-	let splitUuid = uuid.split("-");
-	let time = parseInt(`${splitUuid[2].slice(1)}${splitUuid[1]}${splitUuid[0]}`, 16);
-	var timeMillis = Math.floor((time - 122192928000000000) / 10000);
-	return new Date(timeMillis);
-};
-
-exports.hooks.push(["GET /rediger-artikel/*", async (database, req, $, articleUuid) => {
+mdl.hook("GET", "/rediger-artikel/:articleUuid", async (database, req, $) => {
 	if (!req.headers["sec-fetch-user"]) return;
 
 	let id = $("#title").val(); // This should be failproof as long as people don't use inspir.dk
 	await database.execute(
 		`INSERT IGNORE INTO articles (id, uuid) VALUES (?, ?);`, 
-		[id, articleUuid]
+		[id, req.params.articleUuid]
 	);
-}]);
+});
 
 
 // (Y) Article saving and loading
 const activitesCtgUuid = "436a5cb2-f97d-11ed-801f-7963935a19ec";
 
-exports.hooks.push(["POST /rediger-artikel/*", async (database, req, $, articleUuid) => {
+mdl.hook("POST", "/rediger-artikel/:articleUuid", async (database, req) => {
 	let { 
 		publicationDate: date, type: category, tags, status, 
 		date: startDate, endDate 
@@ -44,14 +36,14 @@ exports.hooks.push(["POST /rediger-artikel/*", async (database, req, $, articleU
 			date = IFNULL(?, date), category = ?, tags = ?, isPublic = IFNULL(?, isPublic),
 			startDate = ?, endDate = ?
 		WHERE uuid = ?;
-		`, [date, category, tagsStr, isPublic, startDate, endDate, articleUuid]
+		`, [date, category, tagsStr, isPublic, startDate, endDate, req.params.articleUuid]
 	);
-}]);
+});
 
-exports.hooks.push(["GET /rediger-artikel/*", async (database, req, $, articleUuid) => {
+mdl.hook("GET", "/rediger-artikel/:articleUuid", async (database, req, $) => {
 	let article = (await database.execute(
 		`SELECT * FROM articles WHERE uuid = ?;`, 
-		[articleUuid]
+		[req.params.articleUuid]
 	))[0] || {};
 	
 	injectVariables($, {
@@ -61,24 +53,24 @@ exports.hooks.push(["GET /rediger-artikel/*", async (database, req, $, articleUu
 		ACTIVE_TAGS: (article.tags || "").split(","),
 		IS_PUBLIC: (article.isPublic == 1)
 	});
-}]);
+});
 
-exports.hooks.push(["POST /admin/articles/change-status/*", async (database, req, $) => {
+mdl.hook("POST", "/admin/articles/change-status/*", async (database, req, $) => {
 	let { uuid: articleUuid, action } = parseFormData(req);
-	let isPublic = action == "active";
+	let isPublic = (action == "active");
 
 	await database.execute(
 		`UPDATE articles SET isPublic = ? WHERE uuid = ?;`,
 		[isPublic, articleUuid]
 	);
-}]);
+});
 
 // (O) Update article info on overview
 function getArticleId(tr) {
 	return tr.find(".generate-link").data("url").match(/[\w_]+$/)[0];
 }
 
-exports.hooks.push(["GET /redaktør", async (database, req, $, articleUuid) => {
+mdl.hook("GET", "/redaktør", async (database, req, $) => {
 	let articleIds = $("#table tbody tr").toArray().map(tr => getArticleId($(tr)));
 	let articleIdsStr = articleIds.map(id => `"${id}"`).join(",");
 	let articles = await database.query(
@@ -110,11 +102,11 @@ exports.hooks.push(["GET /redaktør", async (database, req, $, articleUuid) => {
 
 		if (articleData.isPublic) $(tr).addClass("public");
 	});
-}]);
+});
 
 
 // (R) Article removal
-exports.hooks.push(["POST /admin/articles/delete-article/*", async (database, req, $) => {
+mdl.hook("POST", "/admin/articles/delete-article/*", async (database, req) => {
 	let { uuid: articleUuid } = parseFormData(req);
 	await database.execute(`DELETE FROM articles WHERE uuid = ?;`, [articleUuid]);
-}]);
+});

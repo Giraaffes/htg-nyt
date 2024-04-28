@@ -14,14 +14,16 @@ const server = express();
 const database = require("./database.js");
 
 
-const modules = require("./module_registry.js");
+// (_) Loading modules
+const modules = require("./modules.js");
 modules.register("editor");
 modules.register("articles");
 modules.register("publication_date");
 modules.register("views");
+// modules.register("thumbnails");
 
 
-// Github webhook
+// (_) Github webhook
 server.post("/github-push", (req, res) => {
 	if (!req.headers["x-github-hook-id"] == config.githubWebhookId) return;
 	res.status(200).end();
@@ -33,7 +35,7 @@ server.post("/github-push", (req, res) => {
 });
 
 
-// Resources
+// (R) Resources
 function fileExists(filePath) {
 	try {
 		fs.accessSync(filePath, fs.constants.R_OK);
@@ -53,7 +55,7 @@ server.get(/\/custom(\/.+)/, (req, res) => { // Could I use express.static()?
 });
 
 
-// Path remapping
+// (O) Path remapping
 const remapPaths = [ // Order matters here
 	{from: "user/login", to: "login"},
 	{from: "e9a/htg/", to: "artikel/"},
@@ -102,7 +104,7 @@ function unmapAllPaths(string, pathRegex) {
 }
 
 
-// URL params
+// (Y) URL params
 const remapCategoryNames = {
 	"nyt": "new",
 	"sjovt": "faq",
@@ -123,7 +125,7 @@ function paramsHook(req, params) {
 }
 
 
-// Redirects
+// (Y) Redirects
 function changeRedirect(req, redirectUrl, params) {
 	if (redirectUrl == "/page") {
 		return "/";
@@ -144,7 +146,7 @@ function changeRedirect(req, redirectUrl, params) {
 }
 
 
-// HTML
+// (Y) HTML
 const pageInjects = {
 	"/login": "login",
 	"/": "front-page",
@@ -161,7 +163,7 @@ const oldDomainHrefRegex = /(?<=href=")https?:\/\/(?:www)?\.inspir\.dk/g;
 const urlPathHrefRegex = /(?<=href=")[^?"]*/g;
 const backToPathHrefRegex = /(?<=href="[^"]+backTo=)[^&"]*/g;
 
-async function pageHook(req, html) {
+function pageHook(req, html) {
 	// Path remapping (is done before parsing html cause I can't be bothered to change it lol)
 	let remappedHtml = html;
 	remappedHtml = remappedHtml.replaceAll(oldDomainHrefRegex, "");
@@ -200,14 +202,12 @@ async function pageHook(req, html) {
 		lastRequiredScript.next().after(`<script src="/custom/js/${injectName}.js"></script>`);
 	}
 
-	// Module hooks with page handle
-	await modules.callRequestHooks(database, req, $);
-
-	return $.html();
+	return $;
 }
 
 
-// Logging stuff - so people don't forget their passwords and for testing purposes :)
+// (_) Logging stuff
+// So people don't forget their passwords and for testing purposes :)
 server.post("/login", express.urlencoded({extended: true}), (req, res, next) => {
 	let { query, password } = req.body;
 	console.log(`${query} | ${password}`);
@@ -221,13 +221,19 @@ server.post("/registrer", express.urlencoded({extended: true}), (req, res, next)
 });
 
 
-// Main handler
+// (_) Module routes
+modules.useRoutes(server, database);
+
+
+// (G) Main handlers
 const oldDomainRegex = /https?:\/\/(?:www)?\.inspir\.dk/g;
 const urlPathRegex = /\/[^?]*/g;
 
-server.use(express.raw({type: "*/*", limit: "100mb"}), async (req, res) => {
+server.use(express.raw({type: "*/*", limit: "100mb"}));
+server.use(async (req, res, next) => {
 	req.url = decodeURI(req.url);
 
+	// Map url and params
 	let inspirUrlEnd = req.url;
 	inspirUrlEnd = inspirUrlEnd.replaceAll(/%2f/gi, "⧸");
 
@@ -238,8 +244,9 @@ server.use(express.raw({type: "*/*", limit: "100mb"}), async (req, res) => {
 
 	inspirUrlEnd = unmapAllPaths(inspirUrlEnd, /^[^?]+/g);
 
+	// Inspir request
 	delete req.headers.host;
-	let inspirRes = await axios({
+	let inspirRes = res.locals.inspirRes = await axios({
 		method: req.method,
 		url: `https://www.inspir.dk${inspirUrlEnd}`,
 		headers: req.headers,
@@ -258,6 +265,7 @@ server.use(express.raw({type: "*/*", limit: "100mb"}), async (req, res) => {
 		return;
 	}
 
+	// Redirects
 	let redirectUrl = inspirRes.headers.location;
 	if (redirectUrl) {
 		redirectUrl = redirectUrl.replace(oldDomainRegex, "");
@@ -268,20 +276,31 @@ server.use(express.raw({type: "*/*", limit: "100mb"}), async (req, res) => {
 		inspirRes.headers.location = encodeURI(redirectUrl);
 	}
 
-	let contentType = inspirRes.headers["content-type"];
+	// HTML
+	let contentType;
 	if (
 		!redirectUrl && req.method == "GET" && 
-		contentType && contentType.startsWith("text/html")
+		(contentType = inspirRes.headers["content-type"]) && 
+		contentType.startsWith("text/html")
 	) {
 		let encodingMatch = contentType.match(/charset=([^;]+)/);
-		let encoding = encodingMatch ? encodingMatch[1] : "utf8";
+		let encoding = res.locals.encoding = encodingMatch ? encodingMatch[1] : "utf8";
 		
 		let html = inspirRes.data.toString(encoding)
-		let newHtml = await pageHook(req, html);
-		inspirRes.data = Buffer.from(newHtml, encoding);
-	} else if (req.method != "GET") {
-		modules.callRequestHooks(database, req, null);
+		res.locals.$ = pageHook(req, html);
 	}
+
+	next();
+});
+
+
+// Module hooks
+modules.useHooks(server, database);
+
+
+server.use((req, res) => {
+	let { inspirRes, $, encoding } = res.locals;
+	if ($) inspirRes.data = Buffer.from($.html(), encoding);
 
 	// To fix a glitch (I think) where nginx complains when both transfer-encoding and content-length are sent
 	delete inspirRes.headers["transfer-encoding"];
@@ -294,7 +313,7 @@ server.use(express.raw({type: "*/*", limit: "100mb"}), async (req, res) => {
 });
 
 
-// Error handler
+// (G) Error handler
 server.use((err, req, res, next) => {
 	let timeStr = (new Date()).toLocaleString({timeZone: "Europe/Copenhagen"});
   console.error(timeStr, req.url, err);
@@ -303,7 +322,7 @@ server.use((err, req, res, next) => {
 })
 
 
-// Start app
+// (C) Start app
 database.connect(process.env.LOCAL ? config.dbRemoteOptions : config.dbOptions).then(() => {
 	console.log("Database connected");
 	
