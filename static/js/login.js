@@ -1,6 +1,6 @@
 $("title").text("Log ind | HTG-NYT");
 
-$("input[name=\"query\"]").attr("placeholder", "E-MAIL")
+$("input[name=\"query\"]").attr("placeholder", "E-mail eller lignende")
 $("input[name=\"password\"]").attr("placeholder", "Password");
 $("input[type=\"submit\"]").val("LOG IND");
 

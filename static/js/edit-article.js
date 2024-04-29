@@ -202,7 +202,8 @@ $("#date-input").after(
 	)
 );
 
-for (let tag of tags) {
+let tagsSorted = tags.sort((a, b) => a.name > b.name ? 1 : -1);
+for (let tag of tagsSorted) {
 	let tagId = "tag_" + tag.name.toLowerCase();
 	let tagCheckbox = addCheckField("checkbox",
 		tag.name, "tags[]", tag.uuid, tagId

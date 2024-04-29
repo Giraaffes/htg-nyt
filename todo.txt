@@ -1,3 +1,4 @@
 [ ] Make thumbnails smaller automatically
 [ ] Wait anyone can just connect to the database O_O
 [ ] CommonJS -> ES6 modules (?)
+[ ] Custom tags!

@@ -101,9 +101,9 @@ const categories = [
 		title: "Alt det sjove", nav: "Sjovt",
 		uuid: "d0b44284-ab1d-11ee-9ea8-dd9b09e4a5f2"
 	}, {
-		oldName: "hack", name: "fagligt", 
+		oldName: "hack", name: "lærerigt", 
 		icon: "graduation-cap", color: "blue",
-		title: "Faglige artikler", nav: "Fagligt",
+		title: "Lærerige artikler", nav: "Lærerigt",
 		uuid: "b580e5a6-fed6-11ed-9071-2bb1f6a2097f"
 	}, {
 		oldName: "calendar", name: "aktiviteter", 
@@ -177,5 +177,7 @@ const tags = [
 		oldName: "rejser", name: "Transport", uuid: "8210685c-b51c-11ee-a68f-c1ae82433707"
 	}, {
 		oldName: "tur", name: "Tur", uuid: "a6bd8cd2-f953-11ed-a85e-a97d26a26cee"
+	}, {
+		oldName: "udforsk!", name: "Natur", uuid: "b50ac9aa-b51c-11ee-9e66-73b940407b24"
 	}
 ];

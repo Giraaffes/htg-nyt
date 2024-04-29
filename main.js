@@ -109,7 +109,7 @@ function unmapAllPaths(string, pathRegex) {
 const remapCategoryNames = {
 	"nyt": "new",
 	"sjovt": "faq",
-	"fagligt": "hack",
+	"lærerigt": "hack",
 	"aktiviteter": "calendar",
 	"kantinen": "folk"
 };
