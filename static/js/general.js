@@ -23,7 +23,7 @@ const loggedInNavItems = [
 	{name: "Log ud", icon: "right-from-bracket", href: "/user/logout", addRedirect: true}
 ];
 const loggedOutNavItems = [
-	{name: "Log ind", icon: "right-to-bracket", href: "/login", addRedirect: true},
+	{name: "Log ind", icon: "right-to-bracket", href: "/login", addRedirect: false}, // perhaps no redirect is better
 	//{name: "Registrer", icon: "user-plus", href: "/register/school-list/e9a"}
 ]
 
@@ -110,9 +110,12 @@ const categories = [
 		icon: "calendar-alt", color: "grey",
 		title: "Aktiviteter", nav: "Aktiviteter",
 		uuid: "436a5cb2-f97d-11ed-801f-7963935a19ec"
+	}, {
+		oldName: "folk", name: "kantinen",
+		icon: "utensils",  color: "yellow",
+		title: "Kantinen", nav: "Kantinen",
+		uuid: "354784a2-f97d-11ed-a06d-19a686eff9ad"
 	}
-
-	//"meeting": {name: "kantinen", icon: "utensils", title: "Kantinen"} // ??
 ];
 
 

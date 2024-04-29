@@ -71,8 +71,9 @@ function getArticleId(tr) {
 }
 
 mdl.hook("GET", "/redaktør", async (database, req, $) => {
+	// TODO some better way to do this (in other modules as well)
 	let articleIds = $("#table tbody tr").toArray().map(tr => getArticleId($(tr)));
-	let articleIdsStr = articleIds.map(id => `"${id}"`).join(",");
+	let articleIdsStr = articleIds.length == 0 ? "NULL" : articleIds.map(id => `"${id}"`).join(",");
 	let articles = await database.query(
 		`SELECT id, uuid, date, category, isPublic FROM articles WHERE id IN (${articleIdsStr});`
 	);
@@ -86,15 +87,15 @@ mdl.hook("GET", "/redaktør", async (database, req, $) => {
 
 		let articleId = getArticleId($(tr));
 		let articleData = articles.find(a => a.id == articleId);
-		let articleDate = articleData.date;
-		
-		if (articleData) {
-			$(tr).find("td:eq(1)").after(
-				`<td>${articleDate ? articleDate.getTime() : ""}</td><td>${articleData.category || ""}</td>`
-			);
-		} else {
-			$(tr).find("td:eq(1)").after(`<td></td><td></td>`);
+		if (!articleData) { // TODO
+			$(tr).remove();
+			return;
 		}
+
+		$(tr).find("td:eq(1)").after(`
+			<td>${articleData.date ? articleData.date.getTime() : ""}</td>
+			<td>${articleData.category || ""}</td>
+		`);
 		
 		if ($(tr).find("td:first a").length == 0) {
 			$(tr).find("td:first").contents().wrap(`<a class="edit-a" href="/rediger-artikel/${articleData.uuid}"></a>`);

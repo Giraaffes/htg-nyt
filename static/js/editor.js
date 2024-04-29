@@ -1,3 +1,5 @@
+// TODO structure all this a bit
+
 const skolebladUuid = "9e106940-5c97-11ee-b9bf-d56e49dc725a";
 let dataTable; // Is intialized later
 
@@ -30,11 +32,6 @@ function formatDate(date) {
 let skolebladNav = $(".sidebar .nav-item:first");
 skolebladNav.html(skolebladNav.html().replace("htg-nyt", "forside"));
 skolebladNav.find(".nav-link").attr("href", "/");
-
-/*let mainMenuNav = skolebladNav.clone().insertBefore(skolebladNav);
-mainMenuNav.html(mainMenuNav.html().replace("læs htg-nyt", "Hovedmenu"));
-mainMenuNav.find("i").removeClass("fa-newspaper").addClass("fa-house");
-mainMenuNav.find(".nav-link").attr("href", "/hovedmenu");*/
 
 let logoutNav = $(".sidebar .nav-item:last .nav-link").html(
 	"<i class=\"fas fa-right-from-bracket\" aria-hidden=\"true\"></i>Log ud"
@@ -89,6 +86,7 @@ function addVisibilityButtons(row) {
 
 function addReadArticleButton(row, oldArticleUrl) {
 	// Ugh...
+	// ^ (why ugh?)
 	//let articlePath = $(row).find("td:eq(0)").text().trim().toLowerCase().replaceAll(" ", "_");
 	let articleId = oldArticleUrl.match(/[\w_]+$/)[0];
 	let articleUrl = `/artikel/${articleId}`;
@@ -157,15 +155,23 @@ $("#table tbody tr").each((_, row) => {
 });
 
 
+// Kantinen
+// TODO better way to do this with column indices and such
+let isKantinen = ($(".site-title").text() == "Kantinen På Htg");
+if (isKantinen) {
+	$(".site-title").text("Kantinen");
+	$("#table tr").find("> :eq(1), > :eq(3)").remove();
+};
+
+
 // Initialize DataTable
-// 'categoryChanges' variable from general.js
 // indentation nightmare
 dataTable = $("#table").DataTable({
 	language: {
-		"zeroRecords": "Ingen resultater fundet for denne søgning"
+		"zeroRecords": "Der er ingen artikler her"
 	},
 	ordering: true,
-	order: [[2, 'desc']],
+	order: [[isKantinen ? 1 : 2, 'desc']],
 	paging: false,
 	searching: true,
 	columnDefs: [
@@ -173,7 +179,7 @@ dataTable = $("#table").DataTable({
 			target: 0, render: (data, type, row) => {
 				return data.replaceAll("⧸", "/");
 			}
-		}, {
+		}, !isKantinen && {
 			target: 1, render: (data, type, row) => {
 				if (data == "-") {
 					// This character will most likely always be sorted last
@@ -183,14 +189,14 @@ dataTable = $("#table").DataTable({
 				}
 			}
 		}, {
-				target: 2, render: (data, type, row) => {
+				target: isKantinen ? 1 : 2, render: (data, type, row) => {
 					if (!data) {
 						return type == "sort" ? 0 : (type == "filter" ? "" : "-");
 					} else {
 						return type == "display" || type == "filter" ? formatDate(new Date(parseInt(data, 10))) : data;
 					}
 				}, orderSequence: ["desc", "asc"]
-		}, {
+		}, !isKantinen && {
 			target: 3, render: (data, type, row) => {
 				let ctg = categories.find(ctg => ctg.uuid == data);
 				if (data == "-" || !ctg) {
@@ -204,9 +210,9 @@ dataTable = $("#table").DataTable({
 				}
 			}
 		}, {
-				targets: [4, 5], orderable: false
+			targets: isKantinen ? [0, 1] : [0, 1, 2, 3], width: isKantinen ? "25%" : "17%"
 		}, {
-				targets: [0, 1, 2, 3], width: "17%"
+			targets: isKantinen ? [2, 3] : [4, 5], orderable: false
 		}
 	]
 });
@@ -216,7 +222,7 @@ $("#table tfoot, #table caption, #table_filter, #table_info").remove();
 
 // Search fields
 let searchFields = $("<tr></tr>").appendTo("#table thead");
-for (let i = 0; i < 4; i++) {
+for (let i = 0; i < (isKantinen ? 2 : 4); i++) {
 	let column = dataTable.column(i);
 	let columnTitle = $(column.header()).text().toLowerCase();
 	let input = $(`<input type="text" placeholder="Søg efter ${columnTitle}"></input>`);

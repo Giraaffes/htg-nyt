@@ -138,7 +138,6 @@ $("#magazines-articles-form").on("click", event => {
 
 
 // SECTION - Top section
-
 let leftTopDiv = $("#hideable-menu > div:eq(0)");
 let middleTopDiv = $("#hideable-menu > div:eq(1)");
 let actionButtonsDiv = $("<div></div>").addClass("action-buttons").appendTo("#hideable-menu");
@@ -352,6 +351,22 @@ $("#withoutAuthor").remove();
 $("#fixed-menu div:first input").prependTo("#magazines-articles-form").hide();
 $("#fixed-menu").remove();
 $("#widgets-container").remove();
+
+
+// (_) Kantinen
+// TODO better way to do this
+let isKantinen = ($(".site-title").text() == "Kantinen På Htg");
+if (isKantinen) {
+	$(".site-title").text("Kantinen");
+	leftTopDiv.hide();
+	authorDiv.hide();
+
+	// Erhmmm I will do this server side
+	// $(() => {
+	// 	$("input#kantinen").prop("checked", true);
+	// 	authorDiv.find("input:eq(1)").prop("checked", true);
+	// });
+};
 
 // !SECTION
 

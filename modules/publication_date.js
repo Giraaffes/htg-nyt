@@ -10,18 +10,21 @@ function getArticleId(article) {
 mdl.hook("GET", "/", async (database, req, $) => {
 	if (req.query["type"] == "aktiviteter") return;
 
-	let articleIds = $(".article-listing").toArray().map(a => getArticleId($(a)));
+	let articleElements = $(".article-listing").toArray();
+	if (articleElements.length == 0) return;
+
+	let articleIds = articleElements.map(a => getArticleId($(a)));
 	let articleIdsStr = articleIds.map(id => `"${id}"`).join(", ");
-	let articles = await database.query(
+	let articlesData = await database.query(
 		`SELECT id, date FROM articles WHERE id IN (${articleIdsStr});`
 	);
 
-	let articleElements = $(".article-listing").toArray();
 	articleElements = articleElements.sort((a1, a2) => {
-		let d1 = articles.find(a => a.id == getArticleId($(a1))).date;
-		let d2 = articles.find(a => a.id == getArticleId($(a2))).date;
+		let d1 = articlesData.find(a => a.id == getArticleId($(a1))).date;
+		let d2 = articlesData.find(a => a.id == getArticleId($(a2))).date;
 		return d2 > d1 ? 1 : -1;
 	});
+	
 	for (let articleEl of articleElements) {
 		$(articleEl).appendTo(".col-sm-12");
 	}

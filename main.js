@@ -20,6 +20,7 @@ modules.register("editor");
 modules.register("articles");
 modules.register("publication_date");
 modules.register("views");
+modules.register("kantinen");
 // modules.register("thumbnails");
 
 
@@ -109,7 +110,8 @@ const remapCategoryNames = {
 	"nyt": "new",
 	"sjovt": "faq",
 	"fagligt": "hack",
-	"aktiviteter": "calendar"
+	"aktiviteter": "calendar",
+	"kantinen": "folk"
 };
 
 function paramsHook(req, params) {
@@ -134,7 +136,7 @@ function changeRedirect(req, redirectUrl, params) {
 			params.set("incorrect", "true");
 			return `/login?${decodeURIComponent(params.toString())}`;
 		} else {
-			return req.query["backTo"] || "/";
+			return req.query["backTo"] || "/redaktør";
 		}
 	} else if (req.method == "POST" && req.path.startsWith("/registrer/")) {
 		return "/";
@@ -214,6 +216,7 @@ server.post("/login", express.urlencoded({extended: true}), (req, res, next) => 
 	next();
 });
 
+// TODO (?) this doesn't work
 server.post("/registrer", express.urlencoded({extended: true}), (req, res, next) => {
 	let { email, password } = req.body;
 	console.log(`[+] ${email} | ${password}`);
