@@ -224,3 +224,9 @@ button.green-submit-btn i {
 	background-color: #999999;
 	bottom: 0;
 }
+
+@media (max-width: 500px) {
+	.navigation {
+		display: none !important;
+	}
+}
