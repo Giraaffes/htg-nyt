@@ -1,6 +1,6 @@
 // Categories
 $("#filterList button").unwrap().filter(
-	(_, btn) => !categories.find(ctg => ctg.oldName == $(btn).data("value"))
+	(_, btn) => $(btn).data("value") == "folk" || !categories.find(ctg => ctg.oldName == $(btn).data("value"))
 ).remove();
 
 let activeCtgInfo = categories.find(ctg => 

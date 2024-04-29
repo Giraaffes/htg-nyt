@@ -354,18 +354,15 @@ $("#widgets-container").remove();
 
 
 // (_) Kantinen
-// TODO better way to do this
 let isKantinen = ($(".site-title").text() == "Kantinen På Htg");
 if (isKantinen) {
 	$(".site-title").text("Kantinen");
-	leftTopDiv.hide();
-	authorDiv.hide();
 
-	// Erhmmm I will do this server side
-	// $(() => {
-	// 	$("input#kantinen").prop("checked", true);
-	// 	authorDiv.find("input:eq(1)").prop("checked", true);
-	// });
+	$("input#kantinen").prop("checked", true);
+	leftTopDiv.hide();
+
+	authorDiv.find("input:eq(0)").prop("checked", true);
+	authorDiv.hide(isKantinen);
 };
 
 // !SECTION

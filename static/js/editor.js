@@ -73,7 +73,7 @@ function addVisibilityButtons(row) {
 			}).then(res => {
 				if (res.ok) {
 					$.notify(`Artiklen "${articleName}" blev sat til '${$(btn).text().trim()}'`, "success");
-					$(row).find("td:eq(4) button.current").removeClass("current");
+					$(row).find(".vis-button.current").removeClass("current");
 					$(btn).addClass("current");
 					$(row).removeClass("public private").addClass((["public", "private"])[i]);
 				} else {
@@ -156,7 +156,7 @@ $("#table tbody tr").each((_, row) => {
 
 
 // Kantinen
-// TODO better way to do this with column indices and such
+// TODO better way to do all this with column indices and such
 let isKantinen = ($(".site-title").text() == "Kantinen På Htg");
 if (isKantinen) {
 	$(".site-title").text("Kantinen");
@@ -184,6 +184,8 @@ dataTable = $("#table").DataTable({
 				if (data == "-") {
 					// This character will most likely always be sorted last
 					return type == "sort" ? "末" : (type == "filter" ? "" : data);
+				} else if (type == "display" && data == "Kantinen På Htg") {
+					return "Kantinen";
 				} else {
 					return data;
 				}

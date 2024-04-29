@@ -13,7 +13,7 @@ mdl.route("POST", "/login", (database, req, res, next) => {
 
 
 // (O) Editor changes
-// mdl.hook("GET", "/redaktør", (database, req, $) => {
+// mdl.hook("POST", "/rediger-artikel/:articleUuid", (database, req) => {
 // 	if (!$(".site-title").text() == "Kantinen På Htg") return;
 
 // 	$(".site-title").text("Kantinen");

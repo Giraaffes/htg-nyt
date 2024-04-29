@@ -87,7 +87,7 @@ mdl.hook("GET", "/redaktør", async (database, req, $) => {
 
 		let articleId = getArticleId($(tr));
 		let articleData = articles.find(a => a.id == articleId);
-		if (!articleData) { // TODO
+		if (!articleData) { // TODO what to do when no article data
 			$(tr).remove();
 			return;
 		}
