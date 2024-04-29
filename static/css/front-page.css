@@ -1,3 +1,31 @@
+.top-message {
+	margin: 0;
+	padding: 10px;
+	
+	background: black;
+	color: white;
+	font-family: "Aboreto";
+	font-weight: 300;
+	font-size: 1.1rem;
+	text-align: center;
+}
+
+.top-message br {
+	margin-bottom: 10px;
+}
+
+.top-message a {
+	display: inline;
+	color: white;
+	font-family: inherit;
+	text-decoration: underline;
+}
+
+.top-message a:hover {
+	color: white;
+	opacity: 0.8;
+}
+
 .top-box h3 {
 	text-align: center;
 	margin-left: 0;

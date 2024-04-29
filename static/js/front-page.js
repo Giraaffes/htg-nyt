@@ -202,6 +202,13 @@ if (activeCtgName == "aktiviteter") {
 }
 
 
-// Top background fix
-let bgrTop = $("<div></div>").addClass("bgr-top").addClass(`${activeCtgInfo.color}-color`);
+// Top background thing
+// TODO fix
+let bgrTop = $("<div></div>").addClass("bgr-top").css("background-color", "black");
 $("body").prepend(bgrTop);
+
+
+// Top message
+$(".top-box").prepend(`
+<h3 class="top-message">Husk at køb billetter til Galla snarest muligt, hvis du ved du kommer! 🎉<br>Læs programmet for galla og mere <a href="https://www.htgnyt.dk/artikel/htg_b66ee6f">her</a></h3>
+`);
