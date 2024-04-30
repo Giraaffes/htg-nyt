@@ -56,3 +56,7 @@ $(() => {
 		}
 	});
 });*/
+
+
+// Kantinen date remove
+$(".authorContainer:contains(Af Kantinen På Htg) .date").remove();
