@@ -41,7 +41,7 @@ function getArticleId(article) {
 }
 
 mdl.hook("GET", "/", async (database, req, $) => {
-	if (req.query["type"] == "aktiviteter") return;
+	if (req.query["type"] == "aktiviteter" || req.query["type"] == "kantinen") return;
 	
 	let articleElements = $(".article-listing").toArray();
 	if (articleElements.length == 0) return;
