@@ -60,3 +60,12 @@ $(() => {
 
 // Kantinen date remove
 $(".authorContainer:contains(Af Kantinen På Htg) .date").remove();
+
+
+// OG headers
+$("head").append(`
+<meta property="og:title" content="${title.text()}" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="${url_.origin}${url_.pathname}" />
+<meta property="og:image" content="https://inspir.dk/uploads/magazinesArticles/${ARTICLE_UUID}/${ARTICLE_UUID}.png" />
+`); // TODO remember this when fixing thumbnails

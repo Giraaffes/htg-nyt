@@ -2,3 +2,5 @@
 [ ] Wait anyone can just connect to the database O_O
 [ ] CommonJS -> ES6 modules (?)
 [ ] Custom tags!
+[ ] More intuitive way to format text
+[X] Preview image when sharing article some places

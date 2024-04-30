@@ -1,3 +1,4 @@
+const { injectVariables } = require('../util.js');
 const { Module } = require("../modules.js");
 const mdl = module.exports = new Module();
 
@@ -17,21 +18,25 @@ mdl.hook("GET", "/artikel/:articleId", async (database, req, $) => {
 		`SELECT uuid, startDate, endDate, category FROM articles WHERE id = ?;`,
 		[req.params.articleId]
 	))[0];
-	if (!articleData || articleData.category != activitesCtgUuid) return;
+	if (!articleData) return;
+	
+	injectVariables($, {ARTICLE_UUID: articleData.uuid});
+	
+	if (articleData.category == activitesCtgUuid) {
+		let activityDateStr;
+		let startDateFormatted = formatDate(articleData.startDate);
+		let endDateFormatted = formatDate(articleData.endDate);
+		if (startDateFormatted.date == endDateFormatted.date) {
+			activityDateStr = `${startDateFormatted.date}, kl. ${startDateFormatted.time} - ${endDateFormatted.time}`;
+		} else {
+			activityDateStr = `${startDateFormatted.date} - ${endDateFormatted.date}`;
+		}
+		$("#subheadline").text(activityDateStr);
 
-	let activityDateStr;
-	let startDateFormatted = formatDate(articleData.startDate);
-	let endDateFormatted = formatDate(articleData.endDate);
-	if (startDateFormatted.date == endDateFormatted.date) {
-		activityDateStr = `${startDateFormatted.date}, kl. ${startDateFormatted.time} - ${endDateFormatted.time}`;
-	} else {
-		activityDateStr = `${startDateFormatted.date} - ${endDateFormatted.date}`;
+		$(".post-article").prepend(`
+		<div class="style-illustration">
+			<img src="https://inspir.dk/uploads/magazinesArticles/${articleData.uuid}/${articleData.uuid}.png">
+		</div>
+		`); // TODO remember this when fixing thumbnails
 	}
-	$("#subheadline").text(activityDateStr);
-
-	$(".post-article").prepend(`
-	<div class="style-illustration">
-		<img src="https://inspir.dk/uploads/magazinesArticles/${articleData.uuid}/${articleData.uuid}.png">
-	</div>
-	`);
 });
