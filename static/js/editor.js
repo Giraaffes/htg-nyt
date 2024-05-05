@@ -233,6 +233,11 @@ searchFields.append("<th></th><th></th>");
 
 
 // (P) Mobile fixes
+function parseFormattedDate(str) {
+	let [ d, mo, y, h, m] = str.match(/\d+/g);
+	return new Date(y, parseInt(mo) - 1, d, h, m);
+}
+
 // Ugh I can't be bothered to do this any better..
 // https://stackoverflow.com/a/8876069
 let vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
@@ -268,21 +273,37 @@ if (vw <= 500) {
 	$(".admin-section-title .btn").css("font-size", "11pt");
 	$(".admin-section-title div").remove();
 
+	// $("#table tr:first th:eq(0)").text("Artikler");
+	// $("#table tr:first th:eq(-1)").text("");
+	// $("#table tr:eq(1)").remove();
+	// $("#table tr").find("> :eq(-1)").css("width", "unset");
+	// $("#table tr .action-buttons-wrapper").css("margin", "3px 0").css("height", "unset");
+
+	// dataTable.columns([1, 2, 3, 4]).visible(false);
+	// $("#table tr").find("> :eq(0)").css("width", "35vw");
+	// $("#table tr").find("> :eq(1)").css("width", "55vw");
+	// dataTable.columns.adjust().draw();
+
 	dataTable.destroy();
 	$("#table tr:first th:eq(0)").text("Artikler");
 	$("#table tr:first th:eq(-1)").text("");
 	$("#table tr:eq(1)").remove();
-	$("#table tr").find("> :not(:eq(0)):not(:eq(-1))").remove();
+	$("#table tr").find("> :not(:eq(0)):not(:eq(1)):not(:eq(-1))").remove();
 	$("#table tr").find("> :eq(-1)").css("width", "unset");
 	$("#table tr .action-buttons-wrapper").css("margin", "3px 0").css("height", "unset");
 	dataTable = $("#table").DataTable({
 		language: {
 			"zeroRecords": "Der er ingen artikler her"
 		},
-		ordering: false,
+		columns: [
+			{width: "40%", orderable: false}, 
+			{visible: false, render: (data) => parseFormattedDate(data).getTime()}, 
+			{width: "60%", orderable: false}
+		],
+		ordering: true,
+		order: [[1, 'desc']],
 		paging: false,
-		searching: false,
-		columns: [{width: "40%"}, {width: "60%"}]
+		searching: false
 	});
 	$("#table tfoot, #table caption, #table_filter, #table_info").remove();
 }

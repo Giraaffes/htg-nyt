@@ -676,7 +676,7 @@ function addNewElementButtons(removeOnAdd) {
 				await waitForWindowFocus();
 				if (fileInput[0].files.length == 0) {
 					insertedElement.remove();
-				} else {
+				} else { // TODO do this for thumbnail too
 					$.notify("Når denne kasse lukkes vil siden genindlæses efter få sekunder", {className: "info", autoHide: false});
 					doNotSave = true;
 				}
