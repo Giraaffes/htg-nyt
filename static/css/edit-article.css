@@ -301,3 +301,18 @@ span {
 	width: calc(100% + 60px);
 	left: -30px;
 }
+
+@media (max-width: 500px) {
+	.form-data {
+		max-width: unset;
+	}
+
+	.new-element-buttons {
+		flex-wrap: wrap;
+	}
+
+	.new-element-buttons span {
+		flex: 1 100%;
+		margin-bottom: 7px;
+	}
+}

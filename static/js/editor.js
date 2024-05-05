@@ -230,3 +230,59 @@ for (let i = 0; i < (isKantinen ? 2 : 4); i++) {
 	$(`<th class="tableSearch"></th>`).append(input).appendTo(searchFields);
 }
 searchFields.append("<th></th><th></th>");
+
+
+// (P) Mobile fixes
+// Ugh I can't be bothered to do this any better..
+// https://stackoverflow.com/a/8876069
+let vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+if (vw <= 500) {
+	$(".header-logo").show().css("width", "unset");
+	$(".site-logo").remove();
+	$(".site-title").css("vertical-align", "middle");
+
+	$(".sidebar").css("width", "180px").css("margin-left", "-180px");
+	$(".page-content").css("margin-left", "0");
+
+	setTimeout(() => {
+		$(".sidebar, .page-content").css("transition", "margin-left 0.5s ease-in-out");
+	}, 100);
+
+	let navOpen = false;
+	let navButton = $(faIcon("bars")).css("padding", "15px 20px").prependTo(".site-title");
+	navButton.on("click", () => {
+		navOpen = !navOpen;
+		if (navOpen) {
+			$(".sidebar").css("margin-left", "0");
+			$(".page-content").css("margin-left", "180px");
+			navButton.removeClass("fa-bars").addClass("fa-xmark");
+		} else {
+			$(".sidebar").css("margin-left", "-180px");
+			$(".page-content").css("margin-left", "0");
+			navButton.removeClass("fa-xmark").addClass("fa-bars");
+		}
+	});
+
+	$(".admin-section-title").css("justify-content", "space-between");
+	$(".admin-section-title h3").css("width", "60%");
+	$(".admin-section-title .btn").css("font-size", "11pt");
+	$(".admin-section-title div").remove();
+
+	dataTable.destroy();
+	$("#table tr:first th:eq(0)").text("Artikler");
+	$("#table tr:first th:eq(-1)").text("");
+	$("#table tr:eq(1)").remove();
+	$("#table tr").find("> :not(:eq(0)):not(:eq(-1))").remove();
+	$("#table tr").find("> :eq(-1)").css("width", "unset");
+	$("#table tr .action-buttons-wrapper").css("margin", "3px 0").css("height", "unset");
+	dataTable = $("#table").DataTable({
+		language: {
+			"zeroRecords": "Der er ingen artikler her"
+		},
+		ordering: false,
+		paging: false,
+		searching: false,
+		columns: [{width: "40%"}, {width: "60%"}]
+	});
+	$("#table tfoot, #table caption, #table_filter, #table_info").remove();
+}

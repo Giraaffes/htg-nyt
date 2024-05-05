@@ -412,7 +412,7 @@ const renamePlaceholders = {
 	"Citat": ["Citat"],
 	"Spørgsmål": [null, "Spørgsmålet, der stilles"],
 	"Svar": ["Navn/titel på den, der svarer", "Svar på et spørgsmål"],
-	"Afsluttende link": [null, "Tekst til afsluttende link"],
+	"Link": ["Link", "Tekst til link"],
 	"Sociale medier": ["Indsæt kopieret kode, som skal indlejres (dette kan man finde som valgmulighed på de fleste sociale medier)"]
 }
 
@@ -427,8 +427,9 @@ function renameFormData(formData) {
 
 		let renamePlaceholdersEntry = renamePlaceholders[headerText];
 		if (renamePlaceholdersEntry) {
-			let inputs = $(header).nextAll().find("input[type=text], textarea");
-			inputs = inputs.add($(header).nextAll("input[type=text], textarea"));
+			let inputs = $(header).siblings().find("input[type=text], textarea");
+			inputs = inputs.add($(header).siblings("input[type=text], textarea"));
+			console.log(headerText, inputs);
 			inputs.each((i, input) => {
 				if (renamePlaceholdersEntry[i]) $(input).attr("placeholder", renamePlaceholdersEntry[i]);
 			});
@@ -596,7 +597,7 @@ $("#form-inputs .form-data").each((_, element) => {
 });
 
 
-// (P) Adding new elements
+// (M) Adding new elements
 const elementTypes = [
 	{ text: "Brødtekst", name: "body" },
 	{ text: "Mellemrubrik", name: "middle-heading" },
@@ -731,3 +732,40 @@ $("#dynamic-filters").closest(".form-data").css("margin-bottom", "0");
 // (_) Other thing (idk)
 $("div:has(> #form-inputs)").removeAttr("style");
 
+
+// (P) Mobile fixes
+// Ugh I can't be bothered to do this any better..
+// https://stackoverflow.com/a/8876069
+let vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+if (vw <= 500) {
+	$(".header-logo").show().css("width", "unset");
+	$(".site-logo").remove();
+	$(".site-title").css("vertical-align", "middle");
+
+	$(".sidebar").css("width", "180px").css("margin-left", "-180px");
+	$(".page-content").css("margin-left", "0");
+
+	setTimeout(() => {
+		$(".sidebar, .page-content").css("transition", "margin-left 0.5s ease-in-out");
+	}, 100);
+
+	let navOpen = false;
+	let navButton = $(faIcon("bars")).css("padding", "15px 20px").prependTo(".site-title");
+	navButton.on("click", () => {
+		navOpen = !navOpen;
+		if (navOpen) {
+			$(".sidebar").css("margin-left", "0");
+			$(".page-content").css("margin-left", "180px");
+			navButton.removeClass("fa-bars").addClass("fa-xmark");
+		} else {
+			$(".sidebar").css("margin-left", "-180px");
+			$(".page-content").css("margin-left", "0");
+			navButton.removeClass("fa-xmark").addClass("fa-bars");
+		}
+	});
+
+	$(".fixed-save-button").remove();
+	$("#hideable-menu").css("flex-direction", "column");
+	$("#hideable-menu > div").slice(0, 2).after(`<hr class="custom-divider">`);
+	$("#hideable-menu > div > *").unwrap().css("margin-bottom", "15px");
+}
