@@ -30,8 +30,6 @@ mdl.hook("POST", "/rediger-artikel/:articleUuid", async (database, req) => {
 		startDate = endDate = null;
 	}
 
-	console.log(isPublic);
-
 	// TODO if something errors here, then what should be done?
 	await database.execute(`
 		UPDATE articles SET 
