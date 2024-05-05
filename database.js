@@ -22,9 +22,7 @@ exports.isConnected = function() {
 	return isConnected;
 };
 
-exports.query = function(query, logQuery) {
-	if (logQuery) console.log(query);
-	
+exports.query = function(query) {
 	return new Promise((res, rej) => {
 		connection.query(query, (err, results, fields) => {
 			if (err) {

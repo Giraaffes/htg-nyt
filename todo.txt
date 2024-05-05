@@ -3,4 +3,8 @@
 [ ] CommonJS -> ES6 modules (?)
 [ ] Custom tags!
 [ ] More intuitive way to format text
-[X] Preview image when sharing article some places
+[ ] Preview image when sharing article some places (OG headers)
+[ ] Own user roles
+[X] Dynamically setting announcement
+[ ] Editor on mobile support
+[ ] Profile pages (w/ quotes)

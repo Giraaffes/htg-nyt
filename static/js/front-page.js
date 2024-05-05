@@ -1,4 +1,6 @@
-// Categories
+// SECTION Categories
+
+// (R) General
 $("#filterList button").unwrap().filter(
 	(_, btn) => $(btn).data("value") == "folk" || !categories.find(ctg => ctg.oldName == $(btn).data("value"))
 ).remove();
@@ -15,7 +17,8 @@ let activeColorName = $("#mediaContainer > div:first").attr("class").slice(0, -6
 $(`.${activeColorName}-color`).removeClass(`${activeColorName}-color`).addClass(`${activeCtgInfo.color}-color`);
 $(`#${activeColorName}-headline`).attr("id", `${activeCtgInfo.color}-headline`);
 
-// Navs
+
+// (R) Navs
 function faIcon(iconName) {
 	return `<i class=\"fas fa-${iconName}\" aria-hidden=\"true\"></i>`;
 }
@@ -38,7 +41,7 @@ $(() => {
 	$("#filterList button").off();
 });
 
-// Colors
+// (R) Colors
 function overlayOn(colorStr, bgrStr) {
 	let [ r1, g1, b1, a ] = colorStr.match(/[\d\.]+/g);
 	a = parseFloat(a);
@@ -63,7 +66,7 @@ $(".headline-content, #filterList button.active").css("background-color", active
 let darkenedCtgColor = overlayOn(opaqueCtgColor, "rgb(0, 0, 0)");
 $("#dynamic-filters button").css("border-color", darkenedCtgColor);
 
-// Nav dividers
+// (R) Nav dividers
 $("#filterList button:not(:last)").each((_, btn) => {
 	let div = $("<div></div>").addClass("categories-divider").insertAfter($(btn));
 	if ($(btn).is(".active") || $(btn).nextAll("button:first").is(".active")) {
@@ -71,11 +74,13 @@ $("#filterList button:not(:last)").each((_, btn) => {
 	}
 });
 
-// Mezzio fix 21/3/24
+// (_) Mezzio fix 21/3/24
 $("#region-container").remove();
 
+// !SECTION
+// SECTION Tags
 
-// Tag filters
+// (O) Filter buttons
 if ($("#dynamic-filters button").length > 0) {
 	$("#dynamic-filters > div:first").contents().appendTo("#dynamic-filters");
 	$("#dynamic-filters > div").remove();
@@ -84,7 +89,7 @@ if ($("#dynamic-filters button").length > 0) {
 	$("#dynamic-filters").remove();
 }
 
-// Custom tags
+// (O) Custom tags
 $("#dynamic-filters button, .article-listing .grey-box").each((_, filterOrTag) => {
 	let name = $(filterOrTag).text().trim().toLowerCase();
 	let tag = tags.find(tag => tag.oldName == name);
@@ -95,7 +100,7 @@ $("#dynamic-filters button, .article-listing .grey-box").each((_, filterOrTag) =
 	}
 });
 
-// Remove (excuse my language but) those random ass tags
+// (O) Remove (excuse my language, but) those random-ass tags
 $("#dynamic-filters button").each((_, filterBtn) => {
 	let tag = $(filterBtn).text().toLowerCase().trim();
 	let tagsInArticles = $(".article-listing .grey-box").filter((_, articleTag) => {
@@ -105,7 +110,7 @@ $("#dynamic-filters button").each((_, filterBtn) => {
 	if (tagsInArticles.length == 0) filterBtn.remove();
 });
 
-// Functionality
+// (O) Better functionality
 $(() => {
 	$("#dynamic-filters button").off().on("click", e => {
 		let filterBtn = $(e.currentTarget);
@@ -127,7 +132,7 @@ $(() => {
 	});
 });
 
-// Sort tags
+// (O) Sort tags alphabetically
 function sortAlphabetically(elements) {
 	elements.toArray().sort((e1, e2) => 
 		$(e1).text().trim() > $(e2).text().trim() ? 1 : -1
@@ -139,18 +144,10 @@ $("div:has(> .grey-box)").each((_, tagsDiv) => {
 	sortAlphabetically($(tagsDiv).find(".grey-box"));
 });
 
+// !SECTION
+// SECTION Articles
 
-// Articles
-if (activeCtgName != "nyt") {
-	$(".article-anchor").each((_, a) => {
-		$(a).attr("href", $(a).attr("href") + "?backToCategory=" + activeCtgName);
-	});
-}
-
-if ($(".article-listing").length == 0) {
-	$(".headline-content").parent().append("<span id=\"no-articles\">Der er ingen artikler her (endnu?)</span>")
-}
-
+// (Y) General fixes
 if (activeCtgName == "nyt" || activeCtgName == "lærerigt") {
 	$(".article-listing").each((_, article) => {
 		$(article).find(".article-tags").appendTo($(article).find(".article-container > div:eq(0)"));
@@ -171,13 +168,25 @@ $(".folk-article-section .article-text").each((_, toUnwrap) => {
 	$(toUnwrap).children().unwrap();
 });
 
-// Remove global articles
+// (Y) Add backTo to href's
+if (activeCtgName != "nyt") {
+	$(".article-anchor").each((_, a) => {
+		$(a).attr("href", $(a).attr("href") + "?backToCategory=" + activeCtgName);
+	});
+}
+
+// (Y) No articles found text
+if ($(".article-listing").length == 0) {
+	$(".headline-content").parent().append("<span id=\"no-articles\">Der er ingen artikler her (endnu?)</span>")
+}
+
+// (Y) Remove global articles
 $(".article-anchor").each((_, a) => {
 	let isLocal = $(a).attr("href").startsWith("/artikel/");
 	if (!isLocal) $(a).closest(".article-listing").remove();
 });
 
-// Remove past activites (broken, fix later)
+// (Y) Remove past activites
 if (activeCtgName == "aktiviteter") {
 	$(".article-author").each((_, dateEl) => {
 		let [ d, m, y ] = $(dateEl).text().match(/\d+/g);
@@ -191,8 +200,10 @@ if (activeCtgName == "aktiviteter") {
 	});
 }
 
+// !SECTION
 
-// Activites notice
+
+// (G) Activites notice
 if (activeCtgName == "aktiviteter") {
 	$(".headline-content").append(
 		$("<div></div>").append(
@@ -201,14 +212,15 @@ if (activeCtgName == "aktiviteter") {
 	);
 }
 
+// (G) Announcement
+if (ANNOUNCEMENT) {
+	$(`<h3 class="announcement"></h3>`).html(ANNOUNCEMENT).insertBefore(".top-box");
+}
 
-// Top background thing
-// TODO fix
-let bgrTop = $("<div></div>").addClass("bgr-top").css("background-color", "black");
-$("body").prepend(bgrTop);
-
-
-// Top message
-// $(".top-box").before(`
-// <h3 class="top-message">Husk at køb billetter til Galla snarest muligt, hvis du ved du kommer! 🎉<br>Læs programmet for galla og mere <a href="https://www.htgnyt.dk/artikel/htg_b66ee6f">her</a></h3>
-// `);
+// (G) Top background
+let bgrTop = $("<div></div>").addClass("bgr-top").prependTo("body");
+if (ANNOUNCEMENT) {
+	bgrTop.css("background-color", "black");
+} else {
+	bgrTop.addClass(`${activeCtgInfo.color}-color`);
+}

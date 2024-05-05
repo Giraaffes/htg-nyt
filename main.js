@@ -20,6 +20,7 @@ modules.register("editor");
 modules.register("articles");
 modules.register("publication_date");
 modules.register("views");
+modules.register("announcements");
 // modules.register("kantinen");
 // modules.register("thumbnails");
 

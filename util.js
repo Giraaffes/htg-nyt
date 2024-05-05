@@ -36,7 +36,7 @@ function jsFormat(value) {
 	} else if (!value) {
 		return "null";
 	} else {
-		return `"${value.toString()}"`;
+		return `\`${value.toString()}\``;
 	}
 }
 

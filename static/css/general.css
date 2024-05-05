@@ -211,7 +211,7 @@ button.green-submit-btn i {
 .bgr-top, .bgr-bottom {
 	position: fixed;
 	width: 500px;
-	height: 300px;
+	height: 50vh;
 	left: calc(50% - 250px);
 	z-index: -1000;
 }

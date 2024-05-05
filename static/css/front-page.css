@@ -1,4 +1,4 @@
-.top-message {
+.announcement {
 	margin: 0;
 	padding: 10px;
 	
@@ -10,18 +10,18 @@
 	text-align: center;
 }
 
-.top-message br {
+.announcement br {
 	margin-bottom: 10px;
 }
 
-.top-message a {
+.announcement a {
 	display: inline;
 	color: white;
 	font-family: inherit;
 	text-decoration: underline;
 }
 
-.top-message a:hover {
+.announcement a:hover {
 	color: white;
 	opacity: 0.8;
 }
