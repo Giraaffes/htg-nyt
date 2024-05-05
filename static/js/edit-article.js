@@ -360,7 +360,7 @@ if (isKantinen) {
 	$(".site-title").text("Kantinen");
 
 	$("input#kantinen").prop("checked", true);
-	leftTopDiv.hide();
+	leftTopDiv.add(leftTopDiv.children()).hide(); // Children too bcuz of mobile
 
 	authorDiv.find("input:eq(0)").prop("checked", true);
 	authorDiv.hide(isKantinen);
@@ -768,6 +768,11 @@ if (vw <= 500) {
 
 	$(".fixed-save-button").remove();
 	$("#hideable-menu").css("flex-direction", "column");
-	$("#hideable-menu > div").slice(0, 2).after(`<hr class="custom-divider">`);
+	$("#hideable-menu > div").slice(isKantinen ? 1 : 0, 2).after(`<hr class="custom-divider">`);
 	$("#hideable-menu > div > *").unwrap().css("margin-bottom", "15px");
+
+	$("meta[name=viewport]").remove();
+	$("head").append(`
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	`);
 }

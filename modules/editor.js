@@ -24,6 +24,8 @@ mdl.hook("POST", "/rediger-artikel/:articleUuid", async (database, req) => {
 		date: startDate, endDate 
 	} = parseFormData(req);
 
+	console.log(isPublic);
+
 	let isPublic = status && (status == "active");
 	let tagsStr = tags && tags.join(",");
 	if (category != activitesCtgUuid) { // Is this necessary?
