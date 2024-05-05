@@ -429,7 +429,6 @@ function renameFormData(formData) {
 		if (renamePlaceholdersEntry) {
 			let inputs = $(header).siblings().find("input[type=text], textarea");
 			inputs = inputs.add($(header).siblings("input[type=text], textarea"));
-			console.log(headerText, inputs);
 			inputs.each((i, input) => {
 				if (renamePlaceholdersEntry[i]) $(input).attr("placeholder", renamePlaceholdersEntry[i]);
 			});

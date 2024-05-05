@@ -238,8 +238,8 @@ span {
 }
 
 .form-data textarea, .form-data input[type=text], .form-data input[type=email], .form-data input[type=datetime-local] {
-	padding: 7px 10px;
-	resize: none;
+	padding: unset; /*7px 10px;*/
+	resize: unset; /*none;*/
 	border: 1px solid #676774;
 	font-size: 15px;
 	border-radius: 0;

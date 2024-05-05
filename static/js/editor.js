@@ -83,7 +83,7 @@ function addVisibilityButtons(row) {
 
 function addReadArticleButton(row, oldArticleUrl) {
 	let articleId = oldArticleUrl.match(/[\w_]+$/)[0];
-	let articleUrl = `/artikel/${articleId}`;
+	let articleUrl = `/artikel/${articleId}?backTo=/redaktør`;
 
 	let readArticleButton = $(`<a href="${articleUrl}" target="_blank">Læs artikel</a>`).addClass("btn btn-info read-button");
 	readArticleButton.appendTo($(row).find("td:eq(5) .action-buttons-wrapper"));

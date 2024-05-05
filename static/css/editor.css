@@ -209,6 +209,7 @@ tr:not(.public) .read-button {
 }
 
 .delete-button:hover {
+	color: #ffffff;
 	background-color: #bf2232;
 	border-color: #ad1f2d;
 }
