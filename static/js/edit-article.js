@@ -554,11 +554,14 @@ function fixTextareas(element) {
 			let initialTop = window.scrollY;
 
 			$(textarea).height(5);
-			let newHeight = Math.max($(textarea).prop('scrollHeight'), initialHeight);
+			let newHeight = Math.max($(textarea).prop('scrollHeight') - 10, initialHeight);
 			$(textarea).height(newHeight);
 
 			window.scrollTo({top: initialTop});
-		}).trigger("input");
+		});
+		$(() => {
+			$(textarea).trigger("input");
+		});
 	});
 }
 
