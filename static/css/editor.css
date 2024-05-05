@@ -115,6 +115,14 @@ h3 {
 	display: table-cell !important;
 }
 
+.sorting {
+	transition: background-color 0.15s ease-in-out;
+}
+
+.sorting:hover {
+	background-color: #f5f4f4;
+}
+
 
 a.edit-a {
 	color: black;
@@ -162,6 +170,12 @@ a.edit-a {
 .action-buttons-wrapper {
 	display: flex;
 	gap: 10px;
+	height: 100%;
+}
+
+.action-buttons-wrapper a.btn {
+	display: flex;
+	align-items: center;
 }
 
 tr:not(.public) .read-button {
@@ -174,7 +188,6 @@ tr:not(.public) .read-button {
 	background-color: #36ad5b;
 	border-color: #36ad5b;
 	cursor: default;
-	height: 100%;
 }
 
 .edit-button:hover {

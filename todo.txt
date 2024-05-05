@@ -1,10 +1,11 @@
-[ ] Make thumbnails smaller automatically
+[ ] Make thumbnails smaller automatically + fix that thing with it not updating
 [ ] Wait anyone can just connect to the database O_O
 [ ] CommonJS -> ES6 modules (?)
 [ ] Custom tags!
 [ ] More intuitive way to format text
 [ ] Preview image when sharing article some places (OG headers)
 [ ] Own user roles
-[X] Dynamically setting announcement
+[ ] Way for everyone to set announcement
 [ ] Editor on mobile support
 [ ] Profile pages (w/ quotes)
+[ ] Login remember me

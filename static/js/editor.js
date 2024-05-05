@@ -1,10 +1,8 @@
-// TODO structure all this a bit
-
 const skolebladUuid = "9e106940-5c97-11ee-b9bf-d56e49dc725a";
 let dataTable; // Is intialized later
 
 
-// Util functions
+// (_) Util
 // https://stackoverflow.com/a/26915856
 function getUuid1Date(uuid) {
 	let splitUuid = uuid.split("-");
@@ -28,7 +26,7 @@ function formatDate(date) {
 }
 
 
-// Nav menu
+// (R) Nav menu
 let skolebladNav = $(".sidebar .nav-item:first");
 skolebladNav.html(skolebladNav.html().replace("htg-nyt", "forside"));
 skolebladNav.find(".nav-link").attr("href", "/");
@@ -38,7 +36,7 @@ let logoutNav = $(".sidebar .nav-item:last .nav-link").html(
 );
 
 
-// Overview general
+// (R) Overview general
 $("title").text("Redaktør | HTG-NYT");
 $("h3").text("Skolebladet HTG-NYT");
 $(".alert, br, .filter-toolbar").remove();
@@ -47,14 +45,13 @@ let newArticleButton = $(".admin-section-title .btn");
 newArticleButton.text("+ Ny artikel");
 
 
-// Immediate table changes (new columns w/ dates and buttons)
+// (O) Table changes before initializing
 function addVisibilityButtons(row) {
 	let visButton = $("<button></button>").addClass("btn vis-button");
 	let wrapper = $("<div></div>").addClass("vis-buttons-wrapper");
 	wrapper.appendTo($(row).find("td:eq(4)")).append(
 		visButton.clone().text("Offentlig"),
-		visButton.clone().text("Ikke offentlig"),
-		//visibilityButton.clone().text("Deaktiveret") // No different
+		visButton.clone().text("Ikke offentlig")
 	);
 	wrapper.children().eq($(row).hasClass("public") ? 0 : 1).addClass("current");
 
@@ -85,9 +82,6 @@ function addVisibilityButtons(row) {
 }
 
 function addReadArticleButton(row, oldArticleUrl) {
-	// Ugh...
-	// ^ (why ugh?)
-	//let articlePath = $(row).find("td:eq(0)").text().trim().toLowerCase().replaceAll(" ", "_");
 	let articleId = oldArticleUrl.match(/[\w_]+$/)[0];
 	let articleUrl = `/artikel/${articleId}`;
 
@@ -155,7 +149,7 @@ $("#table tbody tr").each((_, row) => {
 });
 
 
-// Kantinen
+// (O) Kantinen
 // TODO better way to do all this with column indices and such
 let isKantinen = ($(".site-title").text() == "Kantinen På Htg");
 if (isKantinen) {
@@ -164,8 +158,8 @@ if (isKantinen) {
 };
 
 
-// Initialize DataTable
-// indentation nightmare
+// (Y) Initialize DataTable
+// TODO indentation nightmare
 dataTable = $("#table").DataTable({
 	language: {
 		"zeroRecords": "Der er ingen artikler her"
@@ -222,7 +216,7 @@ dataTable = $("#table").DataTable({
 $("#table tfoot, #table caption, #table_filter, #table_info").remove();
 
 
-// Search fields
+// (G) Search fields
 let searchFields = $("<tr></tr>").appendTo("#table thead");
 for (let i = 0; i < (isKantinen ? 2 : 4); i++) {
 	let column = dataTable.column(i);
