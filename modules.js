@@ -32,7 +32,9 @@ exports.useRoutes = function(server, database) {
 exports.useHooks = function(server, database) {
 	for (let {method, path, callback} of hooks) {
 		server[method.toLowerCase()](path, async (req, res, next) => {
-			await callback(database, req, res.locals.$ || null);
+			if (!res.locals.inspirRes.headers.location) {
+				await callback(database, req, res.locals.$ || null);
+			}
 			next();
 		});
 	}
