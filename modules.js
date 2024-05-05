@@ -32,7 +32,8 @@ exports.useRoutes = function(server, database) {
 exports.useHooks = function(server, database) {
 	for (let {method, path, callback} of hooks) {
 		server[method.toLowerCase()](path, async (req, res, next) => {
-			if (!(res.method == "GET" && res.locals.inspirRes.headers.location)) { // TODO should it be like this?
+			let redirectUrl = res.locals.inspirRes.headers.location; // TODO should it be like this?
+			if (!(req.method == "GET" && redirectUrl)) {
 				await callback(database, req, res.locals.$ || null);
 			}
 			next();
