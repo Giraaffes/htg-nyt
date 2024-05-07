@@ -179,5 +179,7 @@ const tags = [
 		oldName: "tur", name: "Tur", uuid: "a6bd8cd2-f953-11ed-a85e-a97d26a26cee"
 	}, {
 		oldName: "udforsk!", name: "Natur", uuid: "b50ac9aa-b51c-11ee-9e66-73b940407b24"
+	}, {
+		oldName: "reporterne", name: "Reportage", uuid: "f03a2432-b51a-11ee-8448-1f36d397d0e6"
 	}
 ];
