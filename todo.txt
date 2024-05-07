@@ -6,6 +6,6 @@
 [ ] Preview image when sharing article some places (OG headers)
 [ ] Own user roles
 [ ] Way for everyone to set announcement
-[X] Editor on mobile support
+[ ] Mobile editor - better add element ui + fix saving on close
 [ ] Profile pages (w/ quotes)
 [ ] Login remember me
