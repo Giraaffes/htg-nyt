@@ -5,7 +5,9 @@ const mdl = module.exports = new Module();
 
 // (G) Article creation
 mdl.hook("GET", "/rediger-artikel/:articleUuid", async (database, req, $) => {
-	if (!req.headers["sec-fetch-user"]) return;
+	if (!$) return; // TODO sec-fetch-user header is not always passed, find a different way to do this
+
+	console.log("Article created");
 
 	let id = $("#title").val(); // This should be failproof as long as people don't use inspir.dk
 	await database.execute(
