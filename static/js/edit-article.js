@@ -776,3 +776,10 @@ if (vw <= 500) {
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	`);
 }
+
+
+// (_) Notice
+// TODO
+$("#cropImagePreview").parent().append(`
+	<p class="info-text" style="text-align: left;">(Nogle gange er billeder meget lang tid om at opdatere. Vi arbejder på det. Ellers kan du prøve at lave en ny artikel.)</p>
+`);
