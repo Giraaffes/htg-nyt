@@ -72,6 +72,11 @@ body {
 	margin-top: 25px;
 }
 
+.post-article a {
+	color: unset;
+	font-family: unset;
+}
+
 .style-illustration:first-child {
 	margin-top: 0;
 }

@@ -10,3 +10,5 @@
 [ ] Profile pages (w/ quotes)
 [ ] Login remember me
 [ ] Display tags on article page
+
+[ ] Ehm when editing it doesn't scroll down when adding a new element anymore?
