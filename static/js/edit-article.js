@@ -313,9 +313,10 @@ $("<p></p>").text(
 // (C) Fixed save button
 let fixedSaveButton = addButton("Gem artikel (ctrl + S)", saveArticle);
 fixedSaveButton.appendTo(".main-container").addClass("fixed-save-button");
+fixedSaveButton.data("xScrollVisible", 200);
 
 $(document).on("scroll", () => {
-	if (scrollY > 200) {
+	if (scrollY > parseInt(fixedSaveButton.data("xScrollVisible"))) {
 		fixedSaveButton.css("opacity", "1");
 	} else {
 		fixedSaveButton.css("opacity", "0");
@@ -767,7 +768,9 @@ if (vw <= 500) {
 		}
 	});
 
-	$(".fixed-save-button").remove();
+	$(".nav-item:first").html($(".nav-item:first").html().replace("Gem og luk", "Luk artikel"));
+	$(".fixed-save-button").data("xScrollVisible", 1100).text("Gem artikel");
+
 	$("#hideable-menu").css("flex-direction", "column");
 	$("#hideable-menu > div").slice(isKantinen ? 1 : 0, 2).after(`<hr class="custom-divider">`);
 	$("#hideable-menu > div > *").unwrap().css("margin-bottom", "15px");

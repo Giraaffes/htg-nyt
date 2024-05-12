@@ -75,7 +75,6 @@ mdl.route("POST", "/rediger-artikel/:articleUuid", express.raw({type: "*/*", lim
 
 	let img = sharp(imgData);
 	img = img.resize(300, 300);
-	await img.toFile("./thumbnail.png");
 
 	let resizedImgData = (await img.toBuffer()).toString("base64");
 	let resizedThumbnail = `data:${mimType};base64,${resizedImgData}`;

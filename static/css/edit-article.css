@@ -324,4 +324,9 @@ span {
 		padding: 0 10px;
 		height: unset;
 	}
+
+	.fixed-save-button {
+		bottom: unset;
+		top: 75px;
+	}
 }
