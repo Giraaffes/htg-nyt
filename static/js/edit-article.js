@@ -383,7 +383,7 @@ if (iframe.length == 1) {
 
 // (_) Thumbnail fix
 $("#magazines-articles-form > div:last .form-data:eq(3)").removeAttr("style");
-$("#cropPreview").removeAttr("style");	
+$("#cropPreview").removeAttr("style").removeAttr("name");
 
 
 // (B) Renaming
@@ -590,6 +590,7 @@ function fixArticleElement(element) {
 	}
 
 	element.find("p:contains(Spørger), p:contains(Svarer)").remove();
+	element.find("img").removeAttr("name");
 
 	fixTextareas(element);
 }
@@ -776,10 +777,3 @@ if (vw <= 500) {
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	`);
 }
-
-
-// (_) Notice
-// TODO
-$("#cropImagePreview").parent().append(`
-	<p class="info-text" style="text-align: left;">(Nogle gange er billeder meget lang tid om at opdatere. Vi arbejder på det. Ellers kan du prøve at lave en ny artikel.)</p>
-`);

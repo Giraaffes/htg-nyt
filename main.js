@@ -22,8 +22,8 @@ modules.register("articles");
 modules.register("publication_date");
 modules.register("views");
 modules.register("announcements");
+modules.register("thumbnails");
 // modules.register("kantinen");
-// modules.register("thumbnails");
 
 
 // (_) Github webhook
@@ -130,6 +130,7 @@ function paramsHook(req, params) {
 
 
 // (Y) Redirects
+ // TODO map redirectUrl before modifying redirect, so this function makes more sense?
 function changeRedirect(req, redirectUrl, params) {
 	if (redirectUrl == "/page") {
 		return "/";
@@ -144,6 +145,8 @@ function changeRedirect(req, redirectUrl, params) {
 		return redirectUrl.startsWith("/register/step-three/") ? redirectUrl : "/";
 	} else if (req.method == "GET" && req.path == "/user/logout") {
 		return req.query["backTo"] || "/";
+	} else if (req.method == "POST" && req.path == "/rediger-artikel") {
+		return redirectUrl.startsWith("/register/step-three/") ? redirectUrl : "/";
 	} else {
 		return redirectUrl;
 	}
@@ -182,7 +185,7 @@ function pageHook(req, html) {
 	jQueryScript.after(notifyScript);
 	let datatablesScript = $("body script[src*='cdn.datatables.net']");
 	jQueryScript.after(datatablesScript);
-
+	
 	// Fixes to redaktør page
 	if (req.path == "/redaktør") {
 		$("body script").each((_, script) => {
@@ -262,7 +265,8 @@ server.use(async (req, res, next) => {
 	inspirUrlEnd = unmapAllPaths(inspirUrlEnd, /^[^?]+/g);
 
 	// Inspir request
-	delete req.headers.host;
+	delete req.headers["host"];
+	delete req.headers["content-length"];
 	let inspirRes = res.locals.inspirRes = await axios({
 		method: req.method,
 		url: `https://www.inspir.dk${inspirUrlEnd}`,
@@ -310,10 +314,8 @@ server.use(async (req, res, next) => {
 	next();
 });
 
-
 // Module hooks
 modules.useHooks(server, database);
-
 
 server.use((req, res) => {
 	let { inspirRes, $, encoding } = res.locals;

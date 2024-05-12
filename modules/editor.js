@@ -71,11 +71,10 @@ function getArticleId(tr) {
 }
 
 mdl.hook("GET", "/redaktør", async (database, req, $) => {
-	// TODO some better way to do this (in other modules as well)
 	let articleIds = $("#table tbody tr").toArray().map(tr => getArticleId($(tr)));
-	let articleIdsStr = articleIds.length == 0 ? "NULL" : articleIds.map(id => `"${id}"`).join(",");
 	let articles = await database.query(
-		`SELECT id, uuid, date, category, isPublic FROM articles WHERE id IN (${articleIdsStr});`
+		`SELECT id, uuid, date, category, isPublic FROM articles WHERE id IN ?;`,
+		[articleIds]
 	);
 
 	let priorityColumn = ($("#table th:contains(Priority)").length == 1);

@@ -1,4 +1,5 @@
-[ ] Make thumbnails smaller automatically + fix that thing with it not updating
+[X] Make thumbnails smaller automatically
+[X] Fix that thing with thumbnails not updating
 [ ] Wait anyone can just connect to the database O_O
 [ ] CommonJS -> ES6 modules (?)
 [ ] Custom tags!
