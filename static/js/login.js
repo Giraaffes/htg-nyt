@@ -11,14 +11,12 @@ $(".col-sm-12").prepend(
 	`<img id="htg-img" src="https://inspir.dk/uploads/magazines/9e106940-5c97-11ee-b9bf-d56e49dc725a/9e106940-5c97-11ee-b9bf-d56e49dc725a.png">`
 );
 
-$(() => {
-	let url_ = new URL(location);
-	if (url_.searchParams.has("incorrect")) {
-		$.notify("Forkert login", {position: "top center"})
+let url_ = new URL(location);
+if (url_.searchParams.has("incorrect")) {
+	$.notify("Forkert login", {position: "top center"})
 
-		url_.searchParams.delete("incorrect")
-		let newParamsStr = decodeURIComponent(url_.searchParams.toString());
-		if (newParamsStr) newParamsStr = "?" + newParamsStr;
-		window.history.replaceState(null, null, `/login${newParamsStr}`);
-	}
-});
+	url_.searchParams.delete("incorrect")
+	let newParamsStr = decodeURIComponent(url_.searchParams.toString());
+	if (newParamsStr) newParamsStr = "?" + newParamsStr;
+	window.history.replaceState(null, null, `/login${newParamsStr}`);
+}
