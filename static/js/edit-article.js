@@ -87,11 +87,7 @@ async function saveArticle(useBeacon, silent) {
 }
 
 $(window).on("beforeunload pagehide", (e) => {
-	if (doNotSave) return;
-
-	saveArticle(true);
-	const time = Date.now();
-	while ((Date.now() - time) < 50) {}
+	if (!doNotSave) saveArticle(true);
 });
 
 let failedAttempts = 0;

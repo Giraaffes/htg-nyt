@@ -7,7 +7,7 @@
 [ ] Own user roles
 [ ] Way for everyone to set announcement
 [ ] Mobile editor - better add element ui
-[-] Mobile editor - fix saving on close
+[?] Mobile editor - fix saving on close (I don't think this is possible :/)
 [ ] Profile pages (w/ quotes)
 [ ] Login remember me
 [ ] Display tags on article page

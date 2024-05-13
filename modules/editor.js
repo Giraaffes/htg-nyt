@@ -19,8 +19,6 @@ mdl.hook("GET", "/rediger-artikel/:articleUuid", async (database, req, $) => {
 let saveQueue = {};
 
 mdl.route("POST", "/rediger-artikel/:articleUuid", async (database, req, res, next) => {
-	console.log("save route");
-
 	let { articleUuid } = req.params;
 	let savePromise = new Promise(res => {
 		saveQueue[articleUuid] = {
@@ -32,11 +30,8 @@ mdl.route("POST", "/rediger-artikel/:articleUuid", async (database, req, res, ne
 });
 
 mdl.route("GET", "/rediger-artikel/:articleUuid", async (database, req, res, next) => {
-	console.log("load route");
-	
 	let { articleUuid } = req.params;
 	if (saveQueue[articleUuid]) await saveQueue[articleUuid].promise;
-	console.log("load allowed");
 	next();
 });
 
@@ -64,13 +59,10 @@ mdl.hook("POST", "/rediger-artikel/:articleUuid", async (database, req) => {
 		WHERE uuid = ?;
 		`, [date, category, tagsStr, isPublic, startDate, endDate, articleUuid]
 	);
-	console.log("save finished");
 	saveQueue[articleUuid].callback();
 });
 
 mdl.hook("GET", "/rediger-artikel/:articleUuid", async (database, req, $) => {
-	console.log("(load hook)");
-	
 	let article = (await database.execute(
 		`SELECT * FROM articles WHERE uuid = ?;`, 
 		[req.params.articleUuid]
