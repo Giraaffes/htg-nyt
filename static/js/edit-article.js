@@ -66,7 +66,6 @@ async function saveArticle(useBeacon, silent) {
 			method: "POST",
 			body: formData
 		});
-		console.log(res);
 		if (res.url.includes("/login")) {
 			window.location = res.url;
 			return false;
@@ -87,7 +86,7 @@ async function saveArticle(useBeacon, silent) {
 	return success;
 }
 
-$(window).on("beforeunload", (e) => {
+$(window).on("beforeunload pagehide", (e) => {
 	if (!doNotSave) saveArticle(true);
 });
 
