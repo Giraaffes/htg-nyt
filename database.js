@@ -26,6 +26,7 @@ function mySQLFormat(value) {
 	if (typeof value == "number" || typeof value == "boolean") {
 		return value;
 	} else if (value instanceof Array) { // Assumes string values
+		if (value.length == 0) value = [null];
 		return `(${value.map(mySQLFormat).join(", ")})`;
 	} else if (!value) {
 		return "NULL";
