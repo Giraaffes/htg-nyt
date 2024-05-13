@@ -44,17 +44,14 @@ mdl.hook("GET", "/", async (database, req, $) => {
 	if (req.query["type"] == "aktiviteter" || req.query["type"] == "kantinen") return;
 	
 	let articleElements = $(".article-listing").toArray();
-	if (articleElements.length == 0) return;
-	
-	let articleIds = articleElements.map(article => getArticleId($(article)));
-	let articleIdsStr = articleIds.map(id => `"${id}"`).join(", ");
 	let articlesData = await database.query(
-		`SELECT id, views FROM articles WHERE id IN (${articleIdsStr});`
+		`SELECT id, views FROM articles WHERE id IN ?;`,
+		[articleElements.map(a => getArticleId($(a)))]
 	);
 
 	$(".article-listing").each((_, article) => {
 		let articleId = getArticleId($(article));
-		let articleData = articlesData.filter(e => e.id == articleId)[0];
+		let articleData = articlesData.find(e => e.id == articleId);
 		let views = articleData ? articleData.views : 0;
 
 		let subheadline = $(article).find("h5:first").next();

@@ -46,4 +46,8 @@ exports.injectVariables = function($, variables) {
 		scriptStr += `const ${name} = ${jsFormat(value)};`;
 	}
 	$("body").prepend(`<script>${scriptStr}</script>`);
-}
+};
+
+exports.wait = function(ms) {
+	return new Promise(res => setTimeout(res, ms));
+};

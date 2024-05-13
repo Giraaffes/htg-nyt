@@ -11,12 +11,9 @@ mdl.hook("GET", "/", async (database, req, $) => {
 	if (req.query["type"] == "aktiviteter") return;
 
 	let articleElements = $(".article-listing").toArray();
-	if (articleElements.length == 0) return;
-
-	let articleIds = articleElements.map(a => getArticleId($(a)));
-	let articleIdsStr = articleIds.map(id => `"${id}"`).join(", ");
 	let articlesData = await database.query(
-		`SELECT id, date FROM articles WHERE id IN (${articleIdsStr});`
+		`SELECT id, date FROM articles WHERE id IN ?;`,
+		[articleElements.map(a => getArticleId($(a)))]
 	);
 
 	articleElements = articleElements.sort((a1, a2) => {

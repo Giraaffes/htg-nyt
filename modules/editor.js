@@ -1,17 +1,41 @@
-const { parseFormData, injectVariables } = require('../util.js');
+const { parseFormData, injectVariables, wait } = require('../util.js');
 const { Module } = require("../modules.js");
 const mdl = module.exports = new Module();
 
 
 // (G) Article creation
 mdl.hook("GET", "/rediger-artikel/:articleUuid", async (database, req, $) => {
-	if (!req.headers["sec-fetch-user"]) return;
+	if (!$) return; // TODO sec-fetch-user header is not always passed, find a different way to do this
 
 	let id = $("#title").val(); // This should be failproof as long as people don't use inspir.dk
 	await database.execute(
 		`INSERT IGNORE INTO articles (id, uuid) VALUES (?, ?);`, 
 		[id, req.params.articleUuid]
 	);
+});
+
+
+// (Y) Save and load timings
+let saveQueue = {};
+
+mdl.route("POST", "/rediger-artikel/:articleUuid", async (database, req, res, next) => {
+	let { articleUuid } = req.params;
+	let savePromise = new Promise(res => {
+		saveQueue[articleUuid] = {
+			callback: res
+		};
+	});
+	saveQueue[articleUuid].promise = savePromise;
+	next();
+});
+
+mdl.route("GET", "/rediger-artikel/:articleUuid", async (database, req, res, next) => {
+	let { articleUuid } = req.params;
+	if (saveQueue[articleUuid]) {
+		// I don't actually think there is any reason for this?
+		await Promise.race([saveQueue[articleUuid].promise, wait(2000)]);
+	}
+	next();
 });
 
 
@@ -30,14 +54,15 @@ mdl.hook("POST", "/rediger-artikel/:articleUuid", async (database, req) => {
 		startDate = endDate = null;
 	}
 
-	// TODO if something errors here, then what should be done?
+	let { articleUuid } = req.params;
 	await database.execute(`
 		UPDATE articles SET 
 			date = IFNULL(?, date), category = ?, tags = ?, isPublic = IFNULL(?, isPublic),
 			startDate = ?, endDate = ?
 		WHERE uuid = ?;
-		`, [date, category, tagsStr, isPublic, startDate, endDate, req.params.articleUuid]
+		`, [date, category, tagsStr, isPublic, startDate, endDate, articleUuid]
 	);
+	saveQueue[articleUuid].callback();
 });
 
 mdl.hook("GET", "/rediger-artikel/:articleUuid", async (database, req, $) => {
@@ -71,11 +96,10 @@ function getArticleId(tr) {
 }
 
 mdl.hook("GET", "/redaktør", async (database, req, $) => {
-	// TODO some better way to do this (in other modules as well)
 	let articleIds = $("#table tbody tr").toArray().map(tr => getArticleId($(tr)));
-	let articleIdsStr = articleIds.length == 0 ? "NULL" : articleIds.map(id => `"${id}"`).join(",");
 	let articles = await database.query(
-		`SELECT id, uuid, date, category, isPublic FROM articles WHERE id IN (${articleIdsStr});`
+		`SELECT id, uuid, date, category, isPublic FROM articles WHERE id IN ?;`,
+		[articleIds]
 	);
 
 	let priorityColumn = ($("#table th:contains(Priority)").length == 1);

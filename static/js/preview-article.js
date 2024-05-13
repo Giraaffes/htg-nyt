@@ -11,8 +11,6 @@ $(".removeContent").remove();
 // Fix embed
 $(".style-socials").html($(".style-socials").text());
 
-// And then I'd like to add a margin to the bottom but I just can't figure out how
-
 // Date
 let dateElement = $("#supercool-htg-nyt-date");
 if (dateElement.length == 1) {

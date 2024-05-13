@@ -116,7 +116,7 @@ function addDeleteButton(row) {
 			}).then(res => res.json()).then(data => {
 					if (data.status == "success") {
 							$(event.target).closest("tr").remove();
-							$.notify(`Artiklen "${articleName}" blev slettet`, "success");
+							$.notify(`Artiklen "${articleName}" blev slettet`, "success"); // TODO too long on mobile
 					} else {
 							$.notify("Kunne ikke slette artikel", "error");
 					}

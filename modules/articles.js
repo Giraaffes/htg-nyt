@@ -15,12 +15,12 @@ function formatDate(date) {
 
 mdl.hook("GET", "/artikel/:articleId", async (database, req, $) => {
 	let articleData = (await database.execute(
-		`SELECT uuid, startDate, endDate, category FROM articles WHERE id = ?;`,
+		`SELECT uuid, startDate, endDate, category, thumbnailVersion FROM articles WHERE id = ?;`,
 		[req.params.articleId]
 	))[0];
 	if (!articleData) return;
 	
-	injectVariables($, {ARTICLE_UUID: articleData.uuid});
+	injectVariables($, {ARTICLE_UUID: articleData.uuid, THUMBNAIL_VERSION: articleData.thumbnailVersion});
 	
 	if (articleData.category == activitesCtgUuid) {
 		let activityDateStr;
@@ -35,7 +35,7 @@ mdl.hook("GET", "/artikel/:articleId", async (database, req, $) => {
 
 		$(".post-article").prepend(`
 		<div class="style-illustration">
-			<img src="https://inspir.dk/uploads/magazinesArticles/${articleData.uuid}/${articleData.uuid}.png">
+			<img src="https://www.htgnyt.dk/thumbnail/${articleData.uuid}_${articleData.thumbnailVersion}.png">
 		</div>
 		`); // TODO remember this when fixing thumbnails
 	}
