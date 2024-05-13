@@ -69,7 +69,9 @@ span {
 	bottom: 25px;
 	right: 25px;
 	width: 180px;
-	transition: opacity 0.2s;
+	transition: opacity 0.2s !important;
+	z-index: 2;
+	box-shadow: 0 0 5px #000000aa;
 }
 
 
