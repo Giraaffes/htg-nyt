@@ -32,6 +32,7 @@ mdl.route("POST", "/rediger-artikel/:articleUuid", async (database, req, res, ne
 mdl.route("GET", "/rediger-artikel/:articleUuid", async (database, req, res, next) => {
 	let { articleUuid } = req.params;
 	if (saveQueue[articleUuid]) {
+		// I don't actually think there is any reason for this?
 		await Promise.race([saveQueue[articleUuid].promise, wait(2000)]);
 	}
 	next();
