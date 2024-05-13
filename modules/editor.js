@@ -1,4 +1,4 @@
-const { parseFormData, injectVariables } = require('../util.js');
+const { parseFormData, injectVariables, wait } = require('../util.js');
 const { Module } = require("../modules.js");
 const mdl = module.exports = new Module();
 
@@ -31,7 +31,9 @@ mdl.route("POST", "/rediger-artikel/:articleUuid", async (database, req, res, ne
 
 mdl.route("GET", "/rediger-artikel/:articleUuid", async (database, req, res, next) => {
 	let { articleUuid } = req.params;
-	if (saveQueue[articleUuid]) await saveQueue[articleUuid].promise;
+	if (saveQueue[articleUuid]) {
+		await Promise.race([saveQueue[articleUuid].promise, wait(2000)]);
+	}
 	next();
 });
 

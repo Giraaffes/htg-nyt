@@ -1,5 +1,6 @@
 [X] Make thumbnails smaller automatically
 [X] Fix that thing with thumbnails not updating
+[ ] Fix the initial request when uploading image slowing it down
 [ ] Wait anyone can just connect to the database O_O
 [ ] Custom tags!
 [ ] More intuitive way to format text

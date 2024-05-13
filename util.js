@@ -47,3 +47,7 @@ exports.injectVariables = function($, variables) {
 	}
 	$("body").prepend(`<script>${scriptStr}</script>`);
 };
+
+exports.wait = function(ms) {
+	return new Promise(res => setTimeout(res, ms));
+};
