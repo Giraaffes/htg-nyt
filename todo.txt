@@ -6,9 +6,12 @@
 [?] Preview image when sharing article some places (OG headers)
 [ ] Own user roles
 [ ] Way for everyone to set announcement
-[ ] Mobile editor - better add element ui + fix saving on close
+[ ] Mobile editor - better add element ui
+[X] Mobile editor - fix saving on close
 [ ] Profile pages (w/ quotes)
 [ ] Login remember me
 [ ] Display tags on article page
 
 [ ] Ehm when editing it doesn't scroll down when adding a new element anymore?
+
+[ ] Dino graphic change

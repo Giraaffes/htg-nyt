@@ -46,4 +46,4 @@ exports.injectVariables = function($, variables) {
 		scriptStr += `const ${name} = ${jsFormat(value)};`;
 	}
 	$("body").prepend(`<script>${scriptStr}</script>`);
-}
+};

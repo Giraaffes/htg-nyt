@@ -15,6 +15,27 @@ mdl.hook("GET", "/rediger-artikel/:articleUuid", async (database, req, $) => {
 });
 
 
+// (Y) Save and load timings
+let saveQueue = {};
+
+mdl.route("POST", "/rediger-artikel/:articleUuid", async (database, req, res, next) => {
+	let { articleUuid } = req.params;
+	let savePromise = new Promise(res => {
+		saveQueue[articleUuid] = {
+			callback: res
+		};
+	});
+	saveQueue[articleUuid].promise = savePromise;
+	next();
+});
+
+mdl.route("GET", "/rediger-artikel/:articleUuid", async (database, req, res, next) => {
+	let { articleUuid } = req.params;
+	if (saveQueue[articleUuid]) await saveQueue[articleUuid].promise;
+	next();
+});
+
+
 // (Y) Article saving and loading
 const activitesCtgUuid = "436a5cb2-f97d-11ed-801f-7963935a19ec";
 
@@ -30,14 +51,15 @@ mdl.hook("POST", "/rediger-artikel/:articleUuid", async (database, req) => {
 		startDate = endDate = null;
 	}
 
-	// TODO if something errors here, then what should be done?
+	let { articleUuid } = req.params;
 	await database.execute(`
 		UPDATE articles SET 
 			date = IFNULL(?, date), category = ?, tags = ?, isPublic = IFNULL(?, isPublic),
 			startDate = ?, endDate = ?
 		WHERE uuid = ?;
-		`, [date, category, tagsStr, isPublic, startDate, endDate, req.params.articleUuid]
+		`, [date, category, tagsStr, isPublic, startDate, endDate, articleUuid]
 	);
+	saveQueue[articleUuid].callback();
 });
 
 mdl.hook("GET", "/rediger-artikel/:articleUuid", async (database, req, $) => {

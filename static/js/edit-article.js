@@ -47,37 +47,48 @@ function correctTimezone(date) {
 
 
 // (R) Saving
-const autoSaveInterval = 20 * 1000; // was 1 * 60 * 1000;
-const maxFailedAttempts = 1; // was 3;
+const autoSaveInterval = 20 * 1000;
+const maxFailedAttempts = 3;
 
 let doNotSave = false;
-async function saveArticle(keepAlive, silent) {
+async function saveArticle(useBeacon, silent) {
 	let formData = new FormData($("#magazines-articles-form")[0]);
 	formData.set("title", formData.get("title").replaceAll("/", "⧸"));
 
-	let res = await fetch(window.location.href, {
+	if (useBeacon) {
+		navigator.sendBeacon(window.location.href, formData);
+		return;
+	}
+
+	let success;
+	try {
+		let res = await fetch(window.location.href, {
 			method: "POST",
-			body: formData,
-			keepalive: keepAlive
-	});
-	let success = !res.url.includes("/login"); // Suppose the check here could be better, but how could there possibly be any problems?
+			body: formData
+		});
+		console.log(res);
+		if (res.url.includes("/login")) {
+			window.location = res.url;
+			return false;
+		} else {
+			success = (res.status < 400);
+		}
+	} catch {
+		success = false;
+	}
 
 	if (!silent) {
-			if (success) {
-					$.notify("Artikel gemt!", "success");
-			} else {
-					$.notify("Artiklen kunne ikke gemmes :/\nGem eventuelt dine ændringer midlertidigt et andet sted", "error");
-			}
+		if (success) {
+			$.notify("Artikel gemt!", "success");
+		} else {
+			$.notify("Artiklen kunne ikke gemmes :/\nGem evt. dine ændringer midlertidigt et andet sted", "error");
+		}
 	}
 	return success;
 }
 
-$(window).on("beforeunload", () => {
-	if (doNotSave) return;
-
-	saveArticle(true);
-	const time = Date.now();
-	while ((Date.now() - time) < 50) {}
+$(window).on("beforeunload", (e) => {
+	if (!doNotSave) saveArticle(true);
 });
 
 let failedAttempts = 0;
@@ -97,7 +108,7 @@ $(() => {
 	}, autoSaveInterval);
 
 	// This is to set the publication date immediately after creating a new article
-	if ($("#form-inputs .form-data").length == 0) saveArticle(true, true);
+	if ($("#form-inputs .form-data").length == 0) saveArticle(false, true);
 });
 
 $(document).on("keydown", e => {
@@ -290,7 +301,7 @@ dateSelect.val(publicationDate.toISOString().slice(0, 16));
 
 
 // (C) Save, preview and view article buttons
-let saveButton = addButton("Gem artikel", saveArticle);
+let saveButton = addButton("Gem artikel", () => { saveArticle(); });
 actionButtonsDiv.append(saveButton);	
 
 let previewButton = addButton("Forhåndsvis artikel", () => {
@@ -311,7 +322,7 @@ $("<p></p>").text(
 
 
 // (C) Fixed save button
-let fixedSaveButton = addButton("Gem artikel (ctrl + S)", saveArticle);
+let fixedSaveButton = addButton("Gem artikel (ctrl + S)", () => { saveArticle(); });
 fixedSaveButton.appendTo(".main-container").addClass("fixed-save-button");
 fixedSaveButton.data("xScrollVisible", 200);
 
@@ -383,8 +394,14 @@ if (iframe.length == 1) {
 }
 
 // (_) Thumbnail fix
-$("#magazines-articles-form > div:last .form-data:eq(3)").removeAttr("style");
-$("#cropPreview").removeAttr("style").removeAttr("name");
+let thumbnailDiv = $("#magazines-articles-form > div:last .form-data:eq(3)");
+thumbnailDiv.removeAttr("style");
+
+let thumbnailImg = thumbnailDiv.find("#cropPreview");
+thumbnailImg.removeAttr("style").removeAttr("name");
+thumbnailImg.on("error", () => {
+	thumbnailImg.remove();
+});
 
 
 // (B) Renaming
