@@ -181,5 +181,7 @@ const tags = [
 		oldName: "udforsk!", name: "Natur", uuid: "b50ac9aa-b51c-11ee-9e66-73b940407b24"
 	}, {
 		oldName: "reporterne", name: "Reportage", uuid: "f03a2432-b51a-11ee-8448-1f36d397d0e6"
+	}, {
+		oldName: "lækkerier", name: "Opskrift", uuid: "9c56b2dc-afa6-11ee-af85-0b17f51c8368"
 	}
 ];
