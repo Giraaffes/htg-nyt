@@ -143,10 +143,6 @@ mdl.hook("GET", "/redaktør", async (database, req, $) => {
 		`SELECT id, uuid, title, author, date, category, isPublic FROM articles;`
 	);
 	for (let a of articles) {
-		// TODO ugh... mysql table import wizard why
-		// a.title = Buffer.from(a.title, "ascii").toString("utf8");
-		a.author = a.author && Buffer.from(a.author, "ascii").toString("utf8");
-
 		$("#table tbody").append($(
 		 `<tr class="${a.isPublic ? "public" : ""}">
 				<td><a class="edit-a" href="/rediger-artikel/${a.uuid}">${a.title}</a></td>
