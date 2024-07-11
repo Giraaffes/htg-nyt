@@ -5,12 +5,13 @@ const mdl = module.exports = new Module();
 
 // (G) Article creation
 mdl.hook("GET", "/rediger-artikel/:articleUuid", async (database, req, $) => {
-	if (!$) return; // TODO sec-fetch-user header is not always passed, find a different way to do this
+	if (!$) return; // TODO sec-fetch-user header is not always passed, find a different way to do this (...I don't know what this comment means anymore)
 
-	let id = $("#title").val(); // This should be failproof as long as people don't use inspir.dk
+	// This should be failproof as long as the article hasn't already been created (on inspir.dk)
+	let id = $("#title").val(); 
 	await database.execute(
-		`INSERT IGNORE INTO articles (id, uuid) VALUES (?, ?);`, 
-		[id, req.params.articleUuid]
+		`INSERT IGNORE INTO articles (id, uuid, title) VALUES (?, ?, ?);`, 
+		[id, req.params.articleUuid, id]
 	);
 });
 
@@ -44,12 +45,13 @@ const activitesCtgUuid = "436a5cb2-f97d-11ed-801f-7963935a19ec";
 
 mdl.hook("POST", "/rediger-artikel/:articleUuid", async (database, req) => {
 	let { 
-		publicationDate: date, type: category, tags, status, 
+		title, publicationDate: date, type: category, tags, status, 
 		date: startDate, endDate 
 	} = parseFormData(req);
 
-	let isPublic = status && (status == "active");
-	let tagsStr = tags && tags.join(",");
+	title = title ? title : null; // falsy -> null
+	let isPublic = (status && status == "active");
+	let tagsStr = (tags && tags.join(","));
 	if (category != activitesCtgUuid) { // Is this necessary?
 		startDate = endDate = null;
 	}
@@ -57,10 +59,10 @@ mdl.hook("POST", "/rediger-artikel/:articleUuid", async (database, req) => {
 	let { articleUuid } = req.params;
 	await database.execute(`
 		UPDATE articles SET 
-			date = IFNULL(?, date), category = ?, tags = ?, isPublic = IFNULL(?, isPublic),
+			title = IFNULL(?, title), date = IFNULL(?, date), category = ?, tags = ?, isPublic = IFNULL(?, isPublic),
 			startDate = ?, endDate = ?
 		WHERE uuid = ?;
-		`, [date, category, tagsStr, isPublic, startDate, endDate, articleUuid]
+		`, [title, date, category, tagsStr, isPublic, startDate, endDate, articleUuid]
 	);
 	saveQueue[articleUuid].callback();
 });
@@ -90,43 +92,71 @@ mdl.hook("POST", "/admin/articles/change-status/*", async (database, req, $) => 
 	);
 });
 
+
 // (O) Update article info on overview
-function getArticleId(tr) {
-	return tr.find(".generate-link").data("url").match(/[\w_]+$/)[0];
-}
+// function getArticleId(tr) {
+// 	return tr.find(".generate-link").data("url").match(/[\w_]+$/)[0];
+// }
 
-mdl.hook("GET", "/redaktør", async (database, req, $) => {
-	let articleIds = $("#table tbody tr").toArray().map(tr => getArticleId($(tr)));
-	let articles = await database.query(
-		`SELECT id, uuid, date, category, isPublic FROM articles WHERE id IN ?;`,
-		[articleIds]
-	);
+// mdl.hook("GET", "/redaktør", async (database, req, $) => {
+// 	let articleIds = $("#table tbody tr").toArray().map(tr => getArticleId($(tr)));
+// 	let articles = await database.query(
+// 		`SELECT id, uuid, date, category, isPublic FROM articles WHERE id IN ?;`,
+// 		[articleIds]
+// 	);
 
-	let priorityColumn = ($("#table th:contains(Priority)").length == 1);
-	if (priorityColumn) $("#table th:first").remove();
+// 	let priorityColumn = ($("#table th:contains(Priority)").length == 1);
+// 	if (priorityColumn) $("#table th:first").remove();
 
-	$("#table th:eq(1)").after("<th>Udgivelsesdato</th><th>Kategori</th>")
-	$("#table tbody tr").each((_, tr) => {
-		if (priorityColumn) $(tr).find("td:first").remove();
+// 	$("#table th:eq(1)").after("<th>Udgivelsesdato</th><th>Kategori</th>")
+// 	$("#table tbody tr").each((_, tr) => {
+// 		if (priorityColumn) $(tr).find("td:first").remove();
 
-		let articleId = getArticleId($(tr));
-		let articleData = articles.find(a => a.id == articleId);
-		if (!articleData) { // TODO what to do when no article data
-			$(tr).remove();
-			return;
-		}
+// 		let articleId = getArticleId($(tr));
+// 		let articleData = articles.find(a => a.id == articleId);
+// 		if (!articleData) { // TODO what to do when no article data
+// 			$(tr).remove();
+// 			return;
+// 		}
 
-		$(tr).find("td:eq(1)").after(`
-			<td>${articleData.date ? articleData.date.getTime() : ""}</td>
-			<td>${articleData.category || ""}</td>
-		`);
+// 		$(tr).find("td:eq(1)").after(`
+// 			<td>${articleData.date ? articleData.date.getTime() : ""}</td>
+// 			<td>${articleData.category || ""}</td>
+// 		`);
 		
-		if ($(tr).find("td:first a").length == 0) {
-			$(tr).find("td:first").contents().wrap(`<a class="edit-a" href="/rediger-artikel/${articleData.uuid}"></a>`);
-		}
+// 		if ($(tr).find("td:first a").length == 0) {
+// 			$(tr).find("td:first").contents().wrap(`<a class="edit-a" href="/rediger-artikel/${articleData.uuid}"></a>`);
+// 		}
 
-		if (articleData.isPublic) $(tr).addClass("public");
-	});
+// 		if (articleData.isPublic) $(tr).addClass("public");
+// 	});
+// });
+
+
+// (O) Display articles in overview
+mdl.hook("GET", "/redaktør", async (database, req, $) => {
+	$("#table th:contains(Priority)").remove();
+	$("#table th:eq(1)").after("<th>Udgivelsesdato</th><th>Kategori</th>");
+	$("#table tbody tr").remove();
+
+	let articles = await database.query(
+		`SELECT id, uuid, title, author, date, category, isPublic FROM articles;`
+	);
+	for (let a of articles) {
+		// TODO ugh... mysql table import wizard why
+		// a.title = Buffer.from(a.title, "ascii").toString("utf8");
+		a.author = a.author && Buffer.from(a.author, "ascii").toString("utf8");
+
+		$("#table tbody").append($(
+		 `<tr class="${a.isPublic ? "public" : ""}">
+				<td><a class="edit-a" href="/rediger-artikel/${a.uuid}">${a.title}</a></td>
+				<td>${a.author || "-"}</td>
+				<td>${a.date ? a.date.getTime() : ""}</td>
+				<td>${a.category || ""}</td>
+				<td><button class="generate-link" data-url="https://inspir.dk/e9a/htg/${a.id}"></button></td>
+			</tr>`) // uhh i need to add authors to database as well...
+		);
+	}
 });
 
 

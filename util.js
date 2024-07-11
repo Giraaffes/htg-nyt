@@ -31,7 +31,7 @@ function jsFormat(value) {
 		return value;
 	} else if (value instanceof Date) {
 		return value.getTime();
-	} else if (value instanceof Array) { // Assumes string values
+	} else if (value instanceof Array) {
 		return `[${value.map(jsFormat).join(", ")}]`;
 	} else if (!value) {
 		return "null";
