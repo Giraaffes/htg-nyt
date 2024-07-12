@@ -1,6 +1,8 @@
 // SECTION Categories
 
 // (R) General
+$(".magazine-image img").attr("src", "/custom/img/banner.png");
+
 $("#filterList button").unwrap().filter(
 	(_, btn) => $(btn).data("value") == "folk" || !categories.find(ctg => ctg.oldName == $(btn).data("value"))
 ).remove();
