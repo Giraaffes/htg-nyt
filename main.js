@@ -28,6 +28,7 @@ modules.register("thumbnails");
 
 // (_) Github webhook
 server.post("/github-push", (req, res) => {
+	console.log(req.headers, req.headers["x-github-hook-id"], config.githubWebhookId)
 	if (!req.headers["x-github-hook-id"] == config.githubWebhookId) return;
 	res.status(200).end();
 
