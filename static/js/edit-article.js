@@ -54,6 +54,7 @@ let doNotSave = false;
 async function saveArticle(useBeacon, silent) {
 	let formData = new FormData($("#magazines-articles-form")[0]);
 	formData.set("title", formData.get("title").replaceAll("/", "⧸"));
+	formData.set("journalistName", $("label[for=with-author]").text());
 
 	if (useBeacon) {
 		navigator.sendBeacon(window.location.href, formData);

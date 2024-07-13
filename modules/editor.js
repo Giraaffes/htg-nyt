@@ -45,24 +45,27 @@ const activitesCtgUuid = "436a5cb2-f97d-11ed-801f-7963935a19ec";
 
 mdl.hook("POST", "/rediger-artikel/:articleUuid", async (database, req) => {
 	let { 
-		title, publicationDate: date, type: category, tags, status, 
+		title, journalistName: author, withoutAuthor, publicationDate: date, type: category, tags, status, 
 		date: startDate, endDate 
 	} = parseFormData(req);
 
 	title = title ? title : null; // falsy -> null
+	author = withoutAuthor == "true" ? null : author;
 	let isPublic = (status && status == "active");
 	let tagsStr = (tags && tags.join(","));
 	if (category != activitesCtgUuid) { // Is this necessary?
 		startDate = endDate = null;
 	}
+	console.log(author);
 
 	let { articleUuid } = req.params;
 	await database.execute(`
 		UPDATE articles SET 
-			title = IFNULL(?, title), date = IFNULL(?, date), category = ?, tags = ?, isPublic = IFNULL(?, isPublic),
+			title = IFNULL(?, title), author = ?, date = IFNULL(?, date), 
+			category = ?, tags = ?, isPublic = IFNULL(?, isPublic),
 			startDate = ?, endDate = ?
 		WHERE uuid = ?;
-		`, [title, date, category, tagsStr, isPublic, startDate, endDate, articleUuid]
+		`, [title, author, date, category, tagsStr, isPublic, startDate, endDate, articleUuid]
 	);
 	saveQueue[articleUuid].callback();
 });
