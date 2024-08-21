@@ -196,7 +196,6 @@ function pageHook(req, html) {
 	// Injects
 	let lastHead = $("head").last(); // Yes, there can be multiple heads cause these pages are so weird
 	let lastRequiredScript = [jQueryScript, datatablesScript, notifyScript].findLast(s => s.length == 1);
-	console.log(lastRequiredScript);
 
 	lastHead.append(`<link rel="stylesheet" href="/custom/css/general.css">`);
 	lastRequiredScript.after(`<script src="/custom/js/general.js"></script>`);
