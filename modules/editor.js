@@ -32,9 +32,9 @@ mdl.route("POST", "/rediger-artikel/:articleUuid", async (database, req, res, ne
 
 mdl.route("GET", "/rediger-artikel/:articleUuid", async (database, req, res, next) => {
 	let { articleUuid } = req.params;
+	await wait(250); // should be enough time
 	if (saveQueue[articleUuid]) {
-		// I don't actually think there is any reason for this?
-		await Promise.race([saveQueue[articleUuid].promise, wait(2000)]);
+		await Promise.race([saveQueue[articleUuid].promise, wait(1750)]); // 2s - constant load time (0.25s)
 	}
 	next();
 });
@@ -43,11 +43,21 @@ mdl.route("GET", "/rediger-artikel/:articleUuid", async (database, req, res, nex
 // (Y) Article saving and loading
 const activitesCtgUuid = "436a5cb2-f97d-11ed-801f-7963935a19ec";
 
-mdl.hook("POST", "/rediger-artikel/:articleUuid", async (database, req) => {
+mdl.hook("POST", "/rediger-artikel/:articleUuid", async (database, req, $, err) => {
+	let { articleUuid } = req.params;
 	let { 
 		title, journalistName: author, withoutAuthor, publicationDate: date, type: category, tags, status, 
 		date: startDate, endDate 
 	} = parseFormData(req);
+
+	let hasDuplicateName = (await database.execute(
+		`SELECT * FROM articles WHERE title = ?;`, [title]
+	)).some(({uuid}) => uuid != articleUuid);
+	if (hasDuplicateName) {
+		err("Duplicate name");
+		delete saveQueue[articleUuid];
+		return;
+	}
 
 	title = title ? title : null; // falsy -> null
 	author = withoutAuthor == "true" ? null : author;
@@ -57,20 +67,16 @@ mdl.hook("POST", "/rediger-artikel/:articleUuid", async (database, req) => {
 		startDate = endDate = null;
 	}
 
-	console.log((new Date()).toLocaleString("en-US", {timeZone: "Europe/Copenhagen"}), "\n-----");
-
-	let { articleUuid } = req.params;
-	console.log(await database.execute(`
+	await database.execute(`
 		UPDATE articles SET 
 			title = IFNULL(?, title), author = ?, date = IFNULL(?, date), 
 			category = ?, tags = ?, isPublic = IFNULL(?, isPublic),
 			startDate = ?, endDate = ?
 		WHERE uuid = ?;
 		`, [title, author, date, category, tagsStr, isPublic, startDate, endDate, articleUuid]
-	), "\n-----");
+	);
 	saveQueue[articleUuid].callback();
-	
-	console.log(([title, author, date, category, tagsStr, isPublic, startDate, endDate, articleUuid]).join("\n"), "\n-----");
+	delete saveQueue[articleUuid];
 });
 
 mdl.hook("GET", "/rediger-artikel/:articleUuid", async (database, req, $) => {

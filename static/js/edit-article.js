@@ -62,16 +62,19 @@ async function saveArticle(useBeacon, silent) {
 	}
 
 	let success;
+	let duplicateNameError = false;
 	try {
 		let res = await fetch(window.location.href, {
 			method: "POST",
 			body: formData
 		});
+		let body = await res.text();
 		if (res.url.includes("/login")) {
 			window.location = res.url;
 			return false;
 		} else {
 			success = (res.status < 400);
+			if (body == "Duplicate name") duplicateNameError = true;
 		}
 	} catch {
 		success = false;
@@ -80,6 +83,8 @@ async function saveArticle(useBeacon, silent) {
 	if (!silent) {
 		if (success) {
 			$.notify("Artikel gemt!", "success");
+		} else if (duplicateNameError) {
+			$.notify("Der findes allerede en artikel med dette navn.\nIntet kan gemmes indtil navnet er ændret (sorry)", "error");
 		} else {
 			$.notify("Artiklen kunne ikke gemmes :/\nGem evt. dine ændringer midlertidigt et andet sted", "error");
 		}
@@ -87,8 +92,13 @@ async function saveArticle(useBeacon, silent) {
 	return success;
 }
 
+// I'm not sure if this breaks anything :( - it's to prevent saving twice on pc (once for each event)
+let alreadySavedOnClose = false;
 $(window).on("beforeunload pagehide", (e) => {
-	if (!doNotSave) saveArticle(true);
+	if (!doNotSave && !alreadySavedOnClose) {
+		alreadySavedOnClose = true;
+		saveArticle(true);
+	}
 });
 
 let failedAttempts = 0;

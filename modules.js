@@ -33,10 +33,13 @@ exports.useHooks = function(server, database) {
 	for (let {method, path, callback} of hooks) {
 		server[method.toLowerCase()](path, async (req, res, next) => {
 			let redirectUrl = res.locals.inspirRes.headers.location;
+			let errored = false;
 			if (!(req.method == "GET" && redirectUrl)) {
-				await callback(database, req, res.locals.$ || null);
+				await callback(database, req, res.locals.$ || null, 
+					(errMsg) => { res.status(500).send(errMsg); errored = true; }
+				);
 			}
-			next();
+			if (!errored) next();
 		});
 	}
 }
