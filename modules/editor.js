@@ -58,14 +58,14 @@ mdl.hook("POST", "/rediger-artikel/:articleUuid", async (database, req) => {
 	}
 
 	let { articleUuid } = req.params;
-	await database.execute(`
+	console.log(await database.execute(`
 		UPDATE articles SET 
 			title = IFNULL(?, title), author = ?, date = IFNULL(?, date), 
 			category = ?, tags = ?, isPublic = IFNULL(?, isPublic),
 			startDate = ?, endDate = ?
 		WHERE uuid = ?;
 		`, [title, author, date, category, tagsStr, isPublic, startDate, endDate, articleUuid]
-	);
+	));
 	saveQueue[articleUuid].callback();
 	
 	console.log("-----\n", ([title, author, date, category, tagsStr, isPublic, startDate, endDate, articleUuid]).join("\n"), "\n-----\n");
