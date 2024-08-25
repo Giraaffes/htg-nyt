@@ -57,6 +57,8 @@ mdl.hook("POST", "/rediger-artikel/:articleUuid", async (database, req) => {
 		startDate = endDate = null;
 	}
 
+	console.log((new Date()).toLocaleString("en-US", {timeZone: "da-DK"}), "\n-----");
+
 	let { articleUuid } = req.params;
 	console.log(await database.execute(`
 		UPDATE articles SET 
@@ -65,10 +67,10 @@ mdl.hook("POST", "/rediger-artikel/:articleUuid", async (database, req) => {
 			startDate = ?, endDate = ?
 		WHERE uuid = ?;
 		`, [title, author, date, category, tagsStr, isPublic, startDate, endDate, articleUuid]
-	));
+	), "\n-----");
 	saveQueue[articleUuid].callback();
 	
-	console.log("-----\n", ([title, author, date, category, tagsStr, isPublic, startDate, endDate, articleUuid]).join("\n"), "\n-----\n");
+	console.log(([title, author, date, category, tagsStr, isPublic, startDate, endDate, articleUuid]).join("\n"), "\n-----");
 });
 
 mdl.hook("GET", "/rediger-artikel/:articleUuid", async (database, req, $) => {
