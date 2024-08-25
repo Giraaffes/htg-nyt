@@ -57,7 +57,7 @@ mdl.hook("POST", "/rediger-artikel/:articleUuid", async (database, req) => {
 		startDate = endDate = null;
 	}
 
-	console.log((new Date()).toLocaleString("en-US", {timeZone: "da-DK"}), "\n-----");
+	console.log((new Date()).toLocaleString("en-US", {timeZone: "Europe/Copenhagen"}), "\n-----");
 
 	let { articleUuid } = req.params;
 	console.log(await database.execute(`
