@@ -68,7 +68,7 @@ mdl.hook("POST", "/rediger-artikel/:articleUuid", async (database, req) => {
 	);
 	saveQueue[articleUuid].callback();
 	
-	console.log("-----\n", ([title, author, date, category, tagsStr, isPublic, startDate, endDate, articleUuid]).join("\n"), "-----\n");
+	console.log("-----\n", ([title, author, date, category, tagsStr, isPublic, startDate, endDate, articleUuid]).join("\n"), "\n-----\n");
 });
 
 mdl.hook("GET", "/rediger-artikel/:articleUuid", async (database, req, $) => {
