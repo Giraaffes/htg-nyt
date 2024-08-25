@@ -56,7 +56,6 @@ mdl.hook("POST", "/rediger-artikel/:articleUuid", async (database, req) => {
 	if (category != activitesCtgUuid) { // Is this necessary?
 		startDate = endDate = null;
 	}
-	console.log(author);
 
 	let { articleUuid } = req.params;
 	await database.execute(`
@@ -68,6 +67,8 @@ mdl.hook("POST", "/rediger-artikel/:articleUuid", async (database, req) => {
 		`, [title, author, date, category, tagsStr, isPublic, startDate, endDate, articleUuid]
 	);
 	saveQueue[articleUuid].callback();
+	
+	console.log("-----\n", ([title, author, date, category, tagsStr, isPublic, startDate, endDate, articleUuid]).join("\n"), "-----\n");
 });
 
 mdl.hook("GET", "/rediger-artikel/:articleUuid", async (database, req, $) => {
