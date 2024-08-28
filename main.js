@@ -186,6 +186,7 @@ function pageHook(req, html) {
 	let datatablesScript = $("body script[src*='cdn.datatables.net']");
 	jQueryScript.after(datatablesScript);
 	let appScript = $("body script[src='/js/app.js']"); // this is so botched
+	let adminScript = $("body script[src='/js/admin.js']"); // this is so botched
 	
 	// Fixes to redaktør page
 	if (req.path == "/redaktør") {
@@ -196,7 +197,7 @@ function pageHook(req, html) {
 
 	// Injects
 	let lastHead = $("head").last(); // Yes, there can be multiple heads cause these pages are so weird
-	let lastRequiredScript = [jQueryScript, datatablesScript, notifyScript, appScript].findLast(s => s.length == 1);
+	let lastRequiredScript = [jQueryScript, datatablesScript, notifyScript, appScript, adminScript].findLast(s => s.length == 1);
 
 	lastHead.append(`<link rel="stylesheet" href="/custom/css/general.css">`);
 	lastRequiredScript.after(`<script src="/custom/js/general.js"></script>`);
