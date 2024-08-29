@@ -170,11 +170,11 @@ dataTable = $("#table").DataTable({
 	searching: true,
 	columnDefs: [
 		{
-			target: 0, render: (data, type, row) => {
+			targets: 0, render: (data, type, row) => {
 				return data.replaceAll("⧸", "/");
 			}
 		}, !isKantinen && {
-			target: 1, render: (data, type, row) => {
+			targets: 1, render: (data, type, row) => {
 				if (data == "-") {
 					// This character will most likely always be sorted last
 					return type == "sort" ? "末" : (type == "filter" ? "" : data);
@@ -185,15 +185,15 @@ dataTable = $("#table").DataTable({
 				}
 			}
 		}, {
-				target: isKantinen ? 1 : 2, render: (data, type, row) => {
-					if (!data) {
-						return type == "sort" ? 0 : (type == "filter" ? "" : "-");
-					} else {
-						return type == "display" || type == "filter" ? formatDate(new Date(parseInt(data, 10))) : data;
-					}
-				}, orderSequence: ["desc", "asc"]
+			targets: isKantinen ? 1 : 2, render: (data, type, row) => {
+				if (!data) {
+					return type == "sort" ? 0 : (type == "filter" ? "" : "-");
+				} else {
+					return type == "display" || type == "filter" ? formatDate(new Date(parseInt(data, 10))) : data;
+				}
+			}, orderSequence: ["desc", "asc"]
 		}, !isKantinen && {
-			target: 3, render: (data, type, row) => {
+			targets: 3, render: (data, type, row) => {
 				let ctg = categories.find(ctg => ctg.uuid == data);
 				if (data == "-" || !ctg) {
 					return type == "sort" ? "末" : (type == "filter" ? "" : "-");

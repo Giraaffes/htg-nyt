@@ -179,25 +179,12 @@ function pageHook(req, html) {
 
 	// Parse HTML and reorder scripts
 	let $ = cheerio.load(remappedHtml);
-
-	let jQueryScript = $("body script[src*='code.jquery.com']");
-	let notifyScript = $("script[src*='notify.min.js']");
-	jQueryScript.after(notifyScript);
-	let datatablesScript = $("body script[src*='cdn.datatables.net']");
-	jQueryScript.after(datatablesScript);
-	let appScript = $("body script[src='/js/app.js']"); // this is so botched
-	let adminScript = $("body script[src='/js/admin.js']"); // this is so botched
 	
-	// Fixes to redaktør page
-	if (req.path == "/redaktør") {
-		$("body script").each((_, script) => {
-			$(script).html($(script).html().replace(/^\s*initDataTable\(\);?/, ""));
-		});
-	}
-
 	// Injects
+	let appScript = $("body script[src='/js/app.js']");
+	let adminScript = $("body script[src='/js/admin.js']");
 	let lastHead = $("head").last(); // Yes, there can be multiple heads cause these pages are so weird
-	let lastRequiredScript = [jQueryScript, datatablesScript, notifyScript, appScript, adminScript].findLast(s => s.length == 1);
+	let lastRequiredScript = [appScript, adminScript].findLast(s => s.length == 1);
 
 	lastHead.append(`<link rel="stylesheet" href="/custom/css/general.css">`);
 	lastRequiredScript.after(`<script src="/custom/js/general.js"></script>`);
@@ -309,8 +296,17 @@ server.use(async (req, res, next) => {
 		let encodingMatch = contentType.match(/charset=([^;]+)/);
 		let encoding = res.locals.encoding = encodingMatch ? encodingMatch[1] : "utf8";
 		
-		let html = inspirRes.data.toString(encoding)
+		let html = inspirRes.data.toString(encoding);
 		res.locals.$ = pageHook(req, html);
+	}
+
+	// Redaktør datatable fix
+	if (
+		req.method == "GET" && req.path == "/js/admin.js"
+	) {
+		let scriptStr = inspirRes.data.toString("utf8");
+		scriptStr = scriptStr.replace(/initDataTable\(\);/, "");
+		inspirRes.data = Buffer.from(scriptStr, "utf8");
 	}
 
 	next();
