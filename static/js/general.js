@@ -65,6 +65,7 @@ $(".arrow-button i").removeClass("fa-chevron-circle-left").addClass("fa-chevron-
 //$("#footer-section-2 h4:contains(Redaktion)").text("Redaktionen");
 $("#footer-section-1 h4:first").text("Høje-Taastrup Gymnasium");
 $("#footer-section-2 p:contains(Marie Ellitsgaard larsen)").text("Marie Ellitsgaard Larsen"); // lol
+$("#footer-section-2 p:contains(Marius)").after("<p>Rebecca Eleonora Johannessen Fels</p>");
 $("#footer-section-2 h4:contains(Freelancers)").next().remove();
 $("#footer-section-2 h4:contains(Freelancers)").remove();
 $("#footer-section-2 h4:contains(Webudvkling)").text("Webudvikling"); // lol

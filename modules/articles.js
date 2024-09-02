@@ -32,11 +32,13 @@ mdl.hook("GET", "/artikel/:articleId", async (database, req, $) => {
 			activityDateStr = `${startDateFormatted.date} - ${endDateFormatted.date}`;
 		}
 		$("#subheadline").text(activityDateStr);
+		
+		$(".authorContainer").remove();
 
 		$(".post-article").prepend(`
-		<div class="style-illustration">
-			<img src="https://www.htgnyt.dk/thumbnail/${articleData.uuid}_${articleData.thumbnailVersion}.png">
-		</div>
-		`); // TODO remember this when fixing thumbnails
+			<div class="style-illustration">
+				<img src="https://www.htgnyt.dk/thumbnail/${articleData.uuid}_${articleData.thumbnailVersion}.png">
+			</div>
+		`);
 	}
 });

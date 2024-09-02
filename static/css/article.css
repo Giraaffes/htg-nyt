@@ -41,6 +41,7 @@ body {
 .authorContainer .date {
 	color: #777777; 
 	font-size: 0.8em;
+	&.no-pic { margin-left: 10px; }
 }
 
 

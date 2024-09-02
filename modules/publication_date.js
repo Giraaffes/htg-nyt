@@ -29,9 +29,11 @@ mdl.hook("GET", "/", async (database, req, $) => {
 
 
 // (O) Display dates on article
+const activitesCtgUuid = "436a5cb2-f97d-11ed-801f-7963935a19ec";
+
 mdl.hook("GET", "/artikel/:articleId", async (database, req, $) => {
 	let articleData = (await database.execute(
-		`SELECT date FROM articles WHERE id = ?;`,
+		`SELECT date, category FROM articles WHERE id = ?;`,
 		[req.params.articleId]
 	))[0];
 	if (!articleData) return;
@@ -39,5 +41,15 @@ mdl.hook("GET", "/artikel/:articleId", async (database, req, $) => {
 	let dateStr = articleData.date.toLocaleString("da-DK", 
 		{day: "numeric", month: "long", year: "numeric", timeZone: "UTC"}
 	);
-	$(".authorDisName p").append(`<br><span class="date">${dateStr}</span>`);
+	if ($(".authorContainer").length == 1) {
+		$(".authorDisName p").append(`<br><span class="date">${dateStr}</span>`);
+	} else if (articleData.category != activitesCtgUuid) {
+		$(".post-headline").after(`
+			<div class="authorContainer">
+				<div class="authorDisName" style="">
+					<p><span class="date no-pic">Udgivet d. ${dateStr}</span></p>
+				</div>
+			</div>
+		`);
+	}
 });
