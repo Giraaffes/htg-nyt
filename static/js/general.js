@@ -98,20 +98,20 @@ const categories = [
 	}, {
 		oldName: "faq", name: "sjovt", 
 		icon: "face-laugh", color: "red",
-		title: "Alt det sjove", nav: "Sjovt",
+		title: "Sjov og hygge", nav: "Hygge",
 		uuid: "d0b44284-ab1d-11ee-9ea8-dd9b09e4a5f2"
 	}, {
 		oldName: "hack", name: "lærerigt", 
 		icon: "graduation-cap", color: "blue",
-		title: "Lærerige artikler", nav: "Lærerigt",
+		title: "Faglige artikler", nav: "Fagligt",
 		uuid: "b580e5a6-fed6-11ed-9071-2bb1f6a2097f"
 	}, {
 		oldName: "calendar", name: "aktiviteter", 
 		icon: "calendar-alt", color: "grey",
-		title: "Aktiviteter", nav: "Aktiviteter",
+		title: "Aktiviteter på HTG", nav: "Aktiviteter",
 		uuid: "436a5cb2-f97d-11ed-801f-7963935a19ec"
 	}, {
-		oldName: "folk", name: "kantinen",
+		oldName: "folk", name: "kantinen", // hopeless lol
 		icon: "utensils",  color: "yellow",
 		title: "Kantinen", nav: "Kantinen",
 		uuid: "354784a2-f97d-11ed-a06d-19a686eff9ad"

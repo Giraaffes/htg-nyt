@@ -28,7 +28,7 @@ if ($(".navbar-nav").length == 0) {
 
 
 // (_) Allow html (sometimes)
-$(".style-body p, .style-illustration p").each((_, e) => {
+$(".style-body p, .style-illustration p, .style-answer p").each((_, e) => {
 	$(e).html($(e).text());
 });
 
