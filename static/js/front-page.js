@@ -86,7 +86,7 @@ $("#region-container").remove();
 if ($("#dynamic-filters button").length > 0) {
 	$("#dynamic-filters > div:first").contents().appendTo("#dynamic-filters");
 	$("#dynamic-filters > div").remove();
-	$("#dynamic-filters").prepend("<span id=\"filters-text\">Filtre:</span>");
+	$("#dynamic-filters").prepend("<span id=\"filters-text\">Vælg tags:</span>");
 } else {
 	$("#dynamic-filters").remove();
 }
