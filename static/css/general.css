@@ -76,6 +76,12 @@
 	background-color: #555555 !important;
 }
 
+@media (max-width: 650px) {
+	.navigation {
+		display: none;
+	}
+}
+
 .sidepanel {
 	transition: 0.3s;
 }
