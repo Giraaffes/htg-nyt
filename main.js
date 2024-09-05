@@ -63,7 +63,7 @@ const remapPaths = [ // Order matters here
 	{from: "user/login", to: "login"},
 	{from: "e9a/htg/", to: "artikel/"},
 	{from: "e9a/htg", to: ""},
-	{from: "admin/articles/overview/9e106940-5c97-11ee-b9bf-d56e49dc725a", to: "redaktør"},
+	{from: "admin/articles/overview/11ee5c97-9e10-6940-b9bf-d56e49dc725a", to: "redaktør"},
 	{from: "admin/articles/overview", to: "redaktør"},
 	{from: "admin/articles/edit/", to: "rediger-artikel/"},
 	{from: "admin/articles/preview-article/", to: "forhåndsvis-artikel/"},
