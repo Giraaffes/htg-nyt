@@ -70,8 +70,8 @@ const remapPaths = [ // Order matters here
 	{from: "account/details", to: "profil"},
 	{from: "councils/list", to: "udvalg"},
 	{from: "klassen/arsbog/", to: "person/"},
-	{from: "register/step-three/", to: "registrer/"},
-	{from: "register/school-list/e9a", to: "registrer"}
+	// {from: "register/step-three/", to: "registrer/"},
+	// {from: "register/school-list/e9a", to: "registrer"}
 ];
 
 function remapAllPaths(string, pathRegex) {
