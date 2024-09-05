@@ -38,10 +38,13 @@ body {
 	align-items: center;
 }
 
+.authorDisName.no-pic {
+	margin-left: 10px;
+}
+
 .authorContainer .date {
 	color: #777777; 
 	font-size: 0.8em;
-	&.no-pic { margin-left: 10px; }
 }
 
 

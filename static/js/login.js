@@ -8,7 +8,7 @@ $(".check-toolbar:contains(OPRET), #findMagazine, .row > div:first").remove();
 
 $(".col-sm-12").prepend(
 	`<h5 id="title">HTG-NYT</h5>`,
-	`<img id="htg-img" src="https://inspir.dk/uploads/magazines/9e106940-5c97-11ee-b9bf-d56e49dc725a/9e106940-5c97-11ee-b9bf-d56e49dc725a.png">`
+	`<img id="htg-img" src="/custom/img/banner.png">`
 );
 
 let url_ = new URL(location);
