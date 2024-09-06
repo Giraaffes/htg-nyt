@@ -41,6 +41,4 @@ mdl.hook("GET", "/artikel/:articleId", async (database, req, $) => {
 			</div>
 		`);
 	}
-
-	$(".authorImage").remove(); // stopped working
 });

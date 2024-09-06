@@ -33,9 +33,19 @@ $(".style-body p, .style-illustration p, .style-answer p").each((_, e) => {
 });
 
 
+// (_) Subheading ids
+$(".style-middle-heading").each((_, e) => {
+	$(e).attr("id", $(e).text().trim().replace(/\s+/, "-"));
+});
+
+
 
 // (_) Kantinen date remove
 $(".authorContainer:contains(Af Kantinen På Htg) .date").remove();
+
+
+// (_) Stopped working T_T
+$(".authorImage").remove();
 
 
 // (G) OG headers
