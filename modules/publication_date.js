@@ -47,8 +47,8 @@ mdl.hook("GET", "/artikel/:articleId", async (database, req, $) => {
 	} else if (articleData.category != activitesCtgUuid) {
 		$(".post-headline").after(`
 			<div class="authorContainer">
-				<div class="authorDisName" class="no-pic">
-					<p><span class="date no-pic">Udgivet d. ${dateStr}</span></p>
+				<div class="authorDisName no-pic">
+					<p><span class="date">Udgivet d. ${dateStr}</span></p>
 				</div>
 			</div>
 		`);
