@@ -35,7 +35,7 @@ $(".style-body p, .style-illustration p, .style-answer p").each((_, e) => {
 
 // (_) Subheading ids
 $(".style-middle-heading").each((_, e) => {
-	$(e).attr("id", $(e).text().trim().replace(/\s+/, "-"));
+	$(e).attr("id", $(e).text().toLowerCase().trim().replace(/\s+/, "-"));
 });
 
 
