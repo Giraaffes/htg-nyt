@@ -37,7 +37,12 @@ $(".style-body p, .style-illustration p, .style-answer p").each((_, e) => {
 $(".style-middle-heading").each((_, e) => {
 	$(e).attr("id", $(e).text().toLowerCase().trim().replace(/\s+/, "-"));
 });
-
+$(document).ready(() => {
+	if (window.location.hash) {
+		window.scrollTo($(window.location.hash)[0]);
+		window.scrollBy(0, -70);
+	}
+});
 
 
 // (_) Kantinen date remove
