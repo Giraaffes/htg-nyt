@@ -1,4 +1,4 @@
-const skolebladUuid = "9e106940-5c97-11ee-b9bf-d56e49dc725a";
+const skolebladUuid = "11ee5c97-9e10-6940-b9bf-d56e49dc725a";
 let dataTable; // Is intialized later
 
 

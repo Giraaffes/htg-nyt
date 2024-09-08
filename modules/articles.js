@@ -4,7 +4,7 @@ const mdl = module.exports = new Module();
 
 
 // (R) Activites dates and images
-const activitesCtgUuid = "436a5cb2-f97d-11ed-801f-7963935a19ec";
+const activitesCtgUuid = "11edf97d-436a-5cb2-801f-7963935a19ec";
 
 function formatDate(date) {
 	return {

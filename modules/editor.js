@@ -41,7 +41,7 @@ mdl.route("GET", "/rediger-artikel/:articleUuid", async (database, req, res, nex
 
 
 // (Y) Article saving and loading
-const activitesCtgUuid = "436a5cb2-f97d-11ed-801f-7963935a19ec";
+const activitesCtgUuid = "11edf97d-436a-5cb2-801f-7963935a19ec";
 
 mdl.hook("POST", "/rediger-artikel/:articleUuid", async (database, req, $, err) => {
 	let { articleUuid } = req.params;

@@ -29,7 +29,7 @@ mdl.hook("GET", "/", async (database, req, $) => {
 
 
 // (O) Display dates on article
-const activitesCtgUuid = "436a5cb2-f97d-11ed-801f-7963935a19ec";
+const activitesCtgUuid = "11edf97d-436a-5cb2-801f-7963935a19ec";
 
 mdl.hook("GET", "/artikel/:articleId", async (database, req, $) => {
 	let articleData = (await database.execute(
