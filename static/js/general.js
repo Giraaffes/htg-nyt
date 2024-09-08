@@ -186,5 +186,7 @@ const tags = [
 		oldName: "lækkerier", name: "Opskrift", uuid: "11eeafa6-9c56-b2dc-af85-0b17f51c8368"
 	}, {
 		oldName: "talk", name: "Foredrag", uuid: "11eee5ec-57f2-71f4-83f8-87a53124b192"
+	}, {
+		oldName: "forstå", name: "Litteratur", uuid: "11eef0c8-61e9-f6fa-8867-73c1ccec8519"
 	}
 ];
