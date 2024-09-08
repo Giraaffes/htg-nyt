@@ -90,7 +90,8 @@ mdl.hook("GET", "/rediger-artikel/:articleUuid", async (database, req, $) => {
 		PUBLICATION_DATE: article.date,
 		CATEGORY_UUID: article.category,
 		ACTIVE_TAGS: (article.tags || "").split(","),
-		IS_PUBLIC: (article.isPublic == 1)
+		IS_PUBLIC: (article.isPublic == 1),
+		USES_UUID4: (article.usesUuid4 == 1)
 	});
 });
 

@@ -32,8 +32,23 @@ function swap(a, b) {
 	temp.replaceWith(b);
 };
 
+// Jesus... 
+// Inspiratorium most likely messed up with their uuid1 code when converting them all
+// (or they decided to make their own new quirky format (or I might be mising something))
+// Either way, they swapped it like this:
+//  aaaabbbb-cccc-dddd-xxxx-xxxxxxxxxxxx -> ddddcccc-aaaa-bbbb-xxxx-xxxxxxxxxxxx
+// Meaning that to go back it's:
+//  aaaabbbb-cccc-dddd-xxxx-xxxxxxxxxxxx -> ccccdddd-bbbb-aaaa-xxxx-xxxxxxxxxxxx
+// Although this doesn't matter on articles that are created after the change, since they started just using uuid4 instead
+function correctInspirUuid(uuid) {
+	let chunks = uuid.match(/\w{4}/g);
+	return `${chunks[2]}${chunks[3]}-${chunks[1]}-${chunks[0]}-${chunks[4]}-${chunks[5]}${chunks[6]}${chunks[7]}`;
+}
+
 // https://stackoverflow.com/a/26915856
 function getUuid1Date(uuid) {
+	uuid = correctInspirUuid(uuid); // special case
+
 	let splitUuid = uuid.split("-");
 	let time = parseInt(`${splitUuid[2].slice(1)}${splitUuid[1]}${splitUuid[0]}`, 16);
 	var timeMillis = Math.floor((time - 122192928000000000) / 10000);
@@ -306,7 +321,9 @@ dateDiv.appendTo(middleTopDiv).append("<h5>Udgivelsesdato</h5>");
 let dateSelect = $(`<input type="datetime-local" name="publicationDate" class="article-input-style">`);
 dateSelect.appendTo(dateDiv);
 
-let publicationDate = PUBLICATION_DATE ? new Date(PUBLICATION_DATE) : correctTimezone(getUuid1Date(pageUuid));
+let publicationDate = PUBLICATION_DATE ? new Date(PUBLICATION_DATE) : (
+	correctTimezone(USES_UUID4 ? new Date() : getUuid1Date(pageUuid))
+);
 dateSelect.val(publicationDate.toISOString().slice(0, 16));
 
 

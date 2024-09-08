@@ -3,13 +3,14 @@ let dataTable; // Is intialized later
 
 
 // (_) Util
+// I don't use this function here anymore, but if I do need it again, I need to over the fix from edit-article.js
 // https://stackoverflow.com/a/26915856
-function getUuid1Date(uuid) {
-	let splitUuid = uuid.split("-");
-	let time = parseInt(`${splitUuid[2].slice(1)}${splitUuid[1]}${splitUuid[0]}`, 16);
-	var timeMillis = Math.floor((time - 122192928000000000) / 10000);
-	return new Date(timeMillis);
-};
+// function getUuid1Date(uuid) {
+// 	let splitUuid = uuid.split("-");
+// 	let time = parseInt(`${splitUuid[2].slice(1)}${splitUuid[1]}${splitUuid[0]}`, 16);
+// 	var timeMillis = Math.floor((time - 122192928000000000) / 10000);
+// 	return new Date(timeMillis);
+// };
 
 function padNum(num, length) {
 	return num.toString().padStart(2, '0');
