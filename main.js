@@ -110,8 +110,8 @@ function unmapAllPaths(string, pathRegex) {
 // (Y) URL params
 const remapCategoryNames = {
 	"nyt": "new",
-	"sjovt": "faq",
-	"lærerigt": "hack",
+	"hygge": "faq",
+	"fagligt": "hack",
 	"aktiviteter": "calendar",
 	"kantinen": "folk"
 };
