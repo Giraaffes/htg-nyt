@@ -150,7 +150,7 @@ $("div:has(> .grey-box)").each((_, tagsDiv) => {
 // SECTION Articles
 
 // (Y) General fixes
-if (activeCtgName == "nyt" || activeCtgName == "lærerigt") {
+if (activeCtgName == "nyt" || activeCtgName == "fagligt") {
 	$(".article-listing").each((_, article) => {
 		$(article).find(".article-tags").appendTo($(article).find(".article-container > div:eq(0)"));
 	});
