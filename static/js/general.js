@@ -188,5 +188,7 @@ const tags = [
 		oldName: "talk", name: "Foredrag", uuid: "11eee5ec-57f2-71f4-83f8-87a53124b192"
 	}, {
 		oldName: "forstå", name: "Litteratur", uuid: "11eef0c8-61e9-f6fa-8867-73c1ccec8519"
+	}, {
+		oldName: "medier", name: "Film og serier", uuid: "11ee7e54-f1cd-ab04-b10e-4bbb6cc5128d"
 	}
 ];
