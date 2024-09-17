@@ -189,6 +189,6 @@ const tags = [
 	}, {
 		oldName: "forstå", name: "Litteratur", uuid: "11eef0c8-61e9-f6fa-8867-73c1ccec8519"
 	}, {
-		oldName: "medier", name: "Film og serier", uuid: "11ee7e54-f1cd-ab04-b10e-4bbb6cc5128d"
+		oldName: "medier", name: "Film & Serier", uuid: "11ee7e54-f1cd-ab04-b10e-4bbb6cc5128d"
 	}
 ];
