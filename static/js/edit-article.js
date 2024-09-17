@@ -240,12 +240,12 @@ $("#date-input").after(
 
 let tagsSorted = tags.sort((a, b) => a.name > b.name ? 1 : -1);
 for (let tag of tagsSorted) {
-	let tagId = "tag_" + tag.name.toLowerCase();
+	let tagId = "tag_" + tag.name.toLowerCase().replaceAll(/\s+/g, "_");
 	let tagCheckbox = addCheckField("checkbox",
 		tag.name, "tags[]", tag.uuid, tagId
 	);
 
-	// Have to figure out some way to do this
+	// Have to figure out some way to do this (future me: what do you mean...?)
 	if (ACTIVE_TAGS.includes(tag.uuid)) tagCheckbox.prop("checked", true);
 	tagCheckbox.appendTo("#dynamic-filters");
 }
