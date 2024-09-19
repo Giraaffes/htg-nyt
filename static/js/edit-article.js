@@ -430,6 +430,17 @@ thumbnailImg.on("error", () => {
 	thumbnailImg.remove();
 });
 
+// (_) Trim rubrik and underrubrik inputs (it doesn't save anything at all if either of them are over the respective character limits)
+let rubrikInput = $("input#title");
+rubrikInput.on("input", () => {
+	rubrikInput.val(rubrikInput.val().slice(0, 60));
+});
+
+let underrubrikInput = $("input#subheadline");
+underrubrikInput.on("input", () => {
+	underrubrikInput.val(underrubrikInput.val().slice(0, 120));
+});
+
 
 // (B) Renaming
 const renameHeaders = {
