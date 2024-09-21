@@ -127,7 +127,7 @@ const tags = [
 	}, {
 		oldName: "lær!", name: "Dansk", uuid: "11eeb51c-aaac-ffe6-acb1-73422d5abbdf"
 	}, {
-		oldName: "debat", name: "Debat", uuid: "11ed53d5-99b2-fe06-8926-73863c277a61"
+		oldName: "debat", name: "Konkurrence", uuid: "11ed53d5-99b2-fe06-8926-73863c277a61"
 	}, {
 		oldName: "strand", name: "Studietur", uuid: "11eea88d-a9e3-e2b4-8e84-1717508ba037"
 	}, {
