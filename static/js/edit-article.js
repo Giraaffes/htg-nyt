@@ -65,9 +65,24 @@ function correctTimezone(date) {
 const autoSaveInterval = 20 * 1000;
 const maxFailedAttempts = 3;
 
+let lastTitle = $("input#title").val();
+
 let doNotSave = false;
 async function saveArticle(useBeacon, silent) {
 	let formData = new FormData($("#magazines-articles-form")[0]);
+
+	// This is weird... 
+	// So if the case of any letters in the title are changed, 
+	// the article won't save due to "an article with this name already existing"
+	let title = formData.get("title");
+	if ( 
+		lastTitle && title != lastTitle &&
+		title.toLowerCase() == lastTitle.toLowerCase()
+	) {
+		formData.set("title", lastTitle);
+	}
+	lastTitle = title;
+
 	formData.set("title", formData.get("title").replaceAll("/", "⧸"));
 	formData.set("journalistName", $("label[for=with-author]").text());
 
