@@ -68,7 +68,10 @@ const maxFailedAttempts = 3;
 let lastTitle = $("input#title").val();
 
 let doNotSave = false;
-async function saveArticle(useBeacon, silent) {
+let waitSavingPromise;
+async function saveArticle(useBeacon, silentSuccess) {
+	if (waitSavingPromise) await waitSavingPromise;
+
 	let formData = new FormData($("#magazines-articles-form")[0]);
 
 	// This is weird... 
@@ -91,35 +94,37 @@ async function saveArticle(useBeacon, silent) {
 		return;
 	}
 
-	let success;
-	let duplicateNameError = false;
+	let res;
 	try {
-		let res = await fetch(window.location.href, {
+		res = await fetch(window.location.href, {
 			method: "POST",
 			body: formData
 		});
-		let body = await res.text();
-		if (res.url.includes("/login")) {
-			window.location = res.url;
-			return false;
-		} else {
-			success = (res.status < 400);
-			if (body == "Duplicate name") duplicateNameError = true;
-		}
-	} catch {
-		success = false;
+	} catch (reqError) {
+		$.notify(`Kunne ikke gemme pga. følgende fejl: "${reqError.message}"\nGem evt. dine ændringer midlertidigt et andet sted og prøv at genstarte siden :/`, "error");
+		return false;
 	}
 
-	if (!silent) {
-		if (success) {
-			$.notify("Artikel gemt!", "success");
-		} else if (duplicateNameError) {
-			$.notify("Der findes allerede en artikel med dette navn.\nIntet kan gemmes indtil navnet er ændret (sorry)", "error");
-		} else {
-			$.notify("Artiklen kunne ikke gemmes :/\nGem evt. dine ændringer midlertidigt et andet sted", "error");
-		}
+	if (res.url.includes("/login")) {
+		window.location = res.url;
+		return false;
 	}
-	return success;
+
+	let body = await res.text();
+	let errorMsg = $(body).find(".alert-danger").text().trim();
+	if (errorMsg) {
+		$.notify(`Kunne ikke gemme pga. følgende fejl: "${errorMsg}"\nIntet kan gemmes indtil denne fejl er fikset (sorry)`);
+		return false;
+	} else if (body == "Duplicate name") {
+		$.notify("Der findes allerede en artikel med dette navn.\nIntet kan gemmes indtil navnet er ændret (sorry)");
+		return false;
+	} else if (res.status >= 400) {
+		$.notify("Artiklen kunne ikke gemmes pga. en ukendt fejl :/\nGem evt. dine ændringer midlertidigt et andet sted og prøv at genstarte siden :/", "error");
+		return false;
+	} else {
+		if (!silentSuccess) $.notify("Artikel gemt!", "success");
+		return true;
+	}
 }
 
 // I'm not sure if this breaks anything :( - it's to prevent saving twice on pc (once for each event)
@@ -238,8 +243,6 @@ $(() => {
 		let success = await saveArticle(false, true);
 		if (success) {
 			$.notify(`Kategori ændret til "${$(label).text().trim()}"`, "success");
-		} else {
-			$.notify("Artiklens kategori kunne ikke ændres", "error");
 		}
 	});
 });
@@ -299,8 +302,6 @@ visibilitySelectDiv.find("input").on("change", async e => {
 	let success = await saveArticle(false, true);
 	if (success) {
 		$.notify(`Artikel sat til "${input.next().text()}"`, "success");
-	} else {
-		$.notify("Artiklens synlighed kunne ikke ændres", "error");
 	}
 });
 
@@ -323,8 +324,6 @@ authorSelectDiv.find("input").on("change", async e => {
 	let success = await saveArticle(false, true);
 	if (success) {
 		$.notify($(e.target).index() == 0 ? "Artikel ikke længere anonym" : "Artikel sat til anonym", "success");
-	} else {
-		$.notify("Artiklens skribent kunne ikke ændres", "error");
 	}
 });
 
@@ -446,15 +445,15 @@ thumbnailImg.on("error", () => {
 });
 
 // (_) Trim rubrik and underrubrik inputs (it doesn't save anything at all if either of them are over the respective character limits)
-let rubrikInput = $("input#title");
-rubrikInput.on("input", () => {
-	rubrikInput.val(rubrikInput.val().slice(0, 60));
-});
+// let rubrikInput = $("input#title");
+// rubrikInput.on("input", () => {
+// 	rubrikInput.val(rubrikInput.val().slice(0, 60));
+// });
 
-let underrubrikInput = $("input#subheadline");
-underrubrikInput.on("input", () => {
-	underrubrikInput.val(underrubrikInput.val().slice(0, 120));
-});
+// let underrubrikInput = $("input#subheadline");
+// underrubrikInput.on("input", () => {
+// 	underrubrikInput.val(underrubrikInput.val().slice(0, 120));
+// });
 
 
 // (B) Renaming
@@ -763,19 +762,23 @@ function addNewElementButtons(removeOnAdd) {
 			renameFormData(insertedElement);
 			insertedElement[0].scrollIntoView({ block: "start", inline: "nearest", behavior: "smooth" });
 
-			addingElement = true;
-			doNotSave = true;
-			let elementWasAdded = await saveArticle(false, true);
-			if (elementWasAdded) {
-				await loadNewElement(insertedElement);
-				reindexElements();
-			} else {
-				insertedElement.remove();
-				newNewElementButtons.remove();
-				$.notify("Kunne ikke tilføje element", "error");
-			}
-			doNotSave = false;
-			addingElement = false;
+			waitSavingPromise = (async () => {
+				addingElement = true;
+				doNotSave = true;
+				let elementWasAdded = await saveArticle(false, true);
+				if (elementWasAdded) {
+					await loadNewElement(insertedElement);
+					reindexElements();
+				} else {
+					insertedElement.remove();
+					newNewElementButtons.remove();
+					$.notify("Kunne ikke tilføje element", "error");
+				}
+				doNotSave = false;
+				addingElement = false;
+
+				waitSavingPromise = null;
+			})();
 		});
 		wrapper.append(button);
 	}
