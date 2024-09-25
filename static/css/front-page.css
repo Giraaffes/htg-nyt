@@ -257,11 +257,12 @@ body.general-page .article-image {
 	max-width: 25% !important;
 }
 
-body.general-page .article-views {
-	position: absolute;
-	bottom: 0;
+@media (min-width: 500px) {
+	body.general-page .article-views {
+		position: absolute;
+		bottom: 0;
+	}
 }
-
 
 /* Probably quite a bad way of doing it */
 @media (max-width: 500px) {
