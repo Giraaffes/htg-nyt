@@ -445,15 +445,15 @@ thumbnailImg.on("error", () => {
 });
 
 // (_) Trim rubrik and underrubrik inputs (it doesn't save anything at all if either of them are over the respective character limits)
-// let rubrikInput = $("input#title");
-// rubrikInput.on("input", () => {
-// 	rubrikInput.val(rubrikInput.val().slice(0, 60));
-// });
+let rubrikInput = $("input#title");
+rubrikInput.on("input", () => {
+	rubrikInput.val(rubrikInput.val().slice(0, 60));
+});
 
-// let underrubrikInput = $("input#subheadline");
-// underrubrikInput.on("input", () => {
-// 	underrubrikInput.val(underrubrikInput.val().slice(0, 120));
-// });
+let underrubrikInput = $("input#subheadline");
+underrubrikInput.on("input", () => {
+	underrubrikInput.val(underrubrikInput.val().slice(0, 120));
+});
 
 
 // (B) Renaming
@@ -760,7 +760,9 @@ function addNewElementButtons(removeOnAdd) {
 			let newNewElementButtons = addNewElementButtons().insertAfter(insertedElement); 
 			fixArticleElement(insertedElement);
 			renameFormData(insertedElement);
-			insertedElement[0].scrollIntoView({ block: "start", inline: "nearest", behavior: "smooth" });
+			setTimeout(() => {
+				insertedElement[0].scrollIntoView({ block: "start", inline: "nearest", behavior: "smooth" });
+			}, 50);
 
 			waitSavingPromise = (async () => {
 				addingElement = true;
