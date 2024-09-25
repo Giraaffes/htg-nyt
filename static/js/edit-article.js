@@ -722,6 +722,13 @@ function reindexElements() {
 	});
 }
 
+function scrollToElement(element) {
+	let bottomToElement = element.offset().top - ($(document).scrollTop() + $(window).height());
+	if (bottomToElement > -200) {
+		element[0].scrollIntoView({ block: "start", inline: "nearest", behavior: "smooth" });
+	}
+}
+
 let addingElement = false;
 function addNewElementButtons(removeOnAdd) {
 	let wrapper = $("<div></div>").addClass("new-element-buttons");
@@ -760,9 +767,7 @@ function addNewElementButtons(removeOnAdd) {
 			let newNewElementButtons = addNewElementButtons().insertAfter(insertedElement); 
 			fixArticleElement(insertedElement);
 			renameFormData(insertedElement);
-			setTimeout(() => {
-				insertedElement[0].scrollIntoView({ block: "start", inline: "nearest", behavior: "smooth" });
-			}, 50);
+			setTimeout(scrollToElement.bind(null, insertedElement), 50);
 
 			waitSavingPromise = (async () => {
 				addingElement = true;
