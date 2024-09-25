@@ -3,21 +3,34 @@
 // (R) General
 $(".magazine-image img").attr("src", "/custom/img/banner.png");
 
+let banner = $(".magazine-image");
+banner.append(
+	$(`<a href="/"></a>`).height(banner.height()).css("left", banner.width() / 2 - banner.height() / 2)
+);
+
 $("#filterList button").unwrap().filter(
 	(_, btn) => $(btn).data("value") == "folk" || !categories.find(ctg => ctg.oldName == $(btn).data("value"))
 ).remove();
 
-let activeCtgInfo = categories.find(ctg => 
+let params = new URLSearchParams(location.search);
+let isGeneralCtg = !categories.some(ctg => ctg.name == params.get("type"));
+if (isGeneralCtg) {
+	$("body").addClass("general-page");
+	$("#filterList button").removeClass("active");
+	$("#dynamic-filters button").remove();
+}
+
+let activeCtgInfo = isGeneralCtg ? {} : categories.find(ctg => 
 	ctg.oldName == $("#filterList button.active").data("value")
 );
 let activeCtgName = activeCtgInfo.name;
 
-$(".headline-content h1").text(activeCtgInfo.title);
-$("title").text(`${activeCtgInfo.nav} | HTG-NYT`);
+$(".headline-content h1").text(activeCtgInfo.title || "Seneste nyt");
+$("title").text(activeCtgInfo.nav ? `${activeCtgInfo.nav} | HTG-NYT` : "HTG-NYT");
 
 let activeColorName = $("#mediaContainer > div:first").attr("class").slice(0, -6);
-$(`.${activeColorName}-color`).removeClass(`${activeColorName}-color`).addClass(`${activeCtgInfo.color}-color`);
-$(`#${activeColorName}-headline`).attr("id", `${activeCtgInfo.color}-headline`);
+$(`.${activeColorName}-color`).removeClass(`${activeColorName}-color`).addClass(`${activeCtgInfo.color || "green"}-color`);
+$(`#${activeColorName}-headline`).attr("id", `${activeCtgInfo.color || "green"}-headline`);
 
 
 // (R) Navs
@@ -32,7 +45,7 @@ $("#filterList button").each((_, btn) => {
 
 	$(btn).contents().remove();
 	let ctgA = $("<a></a>").appendTo($(btn));
-	ctgA.attr("href", ctg.name == "nyt" ? "/" : `/?type=${ctg.name}`);
+	ctgA.attr("href", `/?type=${ctg.name}`);
 	ctgA.attr("draggable", "false");
 
 	ctgA.append(faIcon(ctg.icon));
@@ -171,7 +184,7 @@ $(".folk-article-section .article-text").each((_, toUnwrap) => {
 });
 
 // (Y) Add backTo to href's
-if (activeCtgName != "nyt") {
+if (!isGeneralCtg) {
 	$(".article-anchor").each((_, a) => {
 		$(a).attr("href", $(a).attr("href") + "?backToCategory=" + activeCtgName);
 	});

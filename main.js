@@ -18,10 +18,11 @@ const database = require("./database.js");
 // (_) Loading modules
 const modules = require("./modules.js");
 modules.register("editor");
-modules.register("articles");
-modules.register("publication_date");
-modules.register("views");
 modules.register("announcements");
+modules.register("general_category");
+modules.register("articles");
+modules.register("views");
+modules.register("publication_date");
 modules.register("thumbnails");
 // modules.register("kantinen");
 
@@ -117,8 +118,8 @@ const remapCategoryNames = {
 };
 
 function paramsHook(req, params) {
-	let typeParam = params.get("type") || "";
 	if (req.path == "/") {
+		let typeParam = params.get("type") || "";
 		if (typeParam) {
 			let newCategoryName = remapCategoryNames[typeParam];
 			if (newCategoryName) params.set("type", newCategoryName);

@@ -42,3 +42,25 @@ mdl.hook("GET", "/artikel/:articleId", async (database, req, $) => {
 		`);
 	}
 });
+
+
+// (O) Fix article descriptions
+function getArticleId(article) {
+	return article.find(".article-anchor").attr("href").match(/\/artikel\/([\w_]+)/)[1];
+}
+
+mdl.hook("GET", "/", async (database, req, $) => {
+	let articleElements = $(".article-listing").toArray();
+	let articlesData = await database.query(
+		`SELECT id, description FROM articles WHERE id IN ?;`,
+		[articleElements.map(a => getArticleId($(a)))]
+	);
+
+	$(".article-listing").each((_, a) => {
+		let articleId = getArticleId($(a));
+		let articleData = articlesData.find(e => e.id == articleId);
+		
+		let subheadline = $(a).find("h5:first").next();
+		subheadline.text(articleData.description);
+	});
+});

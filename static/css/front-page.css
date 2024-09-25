@@ -32,7 +32,24 @@
 }
 
 #wrapper {
-	box-shadow: 0 0 6px #00000018;
+	box-shadow: 0 0 6px #0000001A;
+}
+
+
+.magazine-image {
+	position: relative;
+}
+
+.magazine-image a {
+	display: block;
+	aspect-ratio: 1;
+
+	position: absolute;
+	top: 0;
+}
+
+.magazine-image img:has(+ a:hover) {
+	filter: brightness(85%);
 }
 
 
@@ -192,6 +209,7 @@
 .article-container .article-views {
 	text-align: left;
 	color: gray;
+	margin-top: 2px !important;
 }
 
 .article-container .article-views i {
@@ -223,6 +241,25 @@
 
 .headline-content .activities-notice i {
 	font-size: 75%;
+}
+
+
+body:not(.general-page) .article-container .article-subheadline, .article-container .folk-article-subheadline {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	line-clamp: 2; /* VSCode complains unless I also define this property, and I can't be bothered to get rid of the warning */
+	-webkit-line-clamp: 2;
+	padding-bottom: 1px; /* I guess hanging thingies (like in g and j) aren't displayed unless I do this */
+	overflow: hidden;
+}
+
+body.general-page .article-image {
+	max-width: 25% !important;
+}
+
+body.general-page .article-views {
+	position: absolute;
+	bottom: 0;
 }
 
 

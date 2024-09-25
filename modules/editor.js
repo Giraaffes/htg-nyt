@@ -46,7 +46,7 @@ const activitesCtgUuid = "11edf97d-436a-5cb2-801f-7963935a19ec";
 mdl.hook("POST", "/rediger-artikel/:articleUuid", async (database, req, $, err) => {
 	let { articleUuid } = req.params;
 	let { 
-		title, journalistName: author, withoutAuthor, publicationDate: date, type: category, tags, status, 
+		title, subheadline: description, journalistName: author, withoutAuthor, publicationDate: date, type: category, tags, status, 
 		date: startDate, endDate 
 	} = parseFormData(req);
 
@@ -69,11 +69,11 @@ mdl.hook("POST", "/rediger-artikel/:articleUuid", async (database, req, $, err) 
 
 	await database.execute(`
 		UPDATE articles SET 
-			title = IFNULL(?, title), author = ?, date = IFNULL(?, date), 
+			title = IFNULL(?, title), description = ?, author = ?, date = IFNULL(?, date), 
 			category = ?, tags = ?, isPublic = IFNULL(?, isPublic),
 			startDate = ?, endDate = ?
 		WHERE uuid = ?;
-		`, [title, author, date, category, tagsStr, isPublic, startDate, endDate, articleUuid]
+		`, [title, description, author, date, category, tagsStr, isPublic, startDate, endDate, articleUuid]
 	);
 	saveQueue[articleUuid].callback();
 	delete saveQueue[articleUuid];
