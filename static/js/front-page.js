@@ -183,6 +183,10 @@ $(".folk-article-section .article-text").each((_, toUnwrap) => {
 	$(toUnwrap).children().unwrap();
 });
 
+if (activeCtgName == "aktiviteter") {
+	$(".article-listing .article-tags").css({"bottom": "unset", "top": "4pt", "right": "8pt"});
+}
+
 // (Y) Add backTo to href's
 if (!isGeneralCtg) {
 	$(".article-anchor").each((_, a) => {

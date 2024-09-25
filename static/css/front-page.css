@@ -198,6 +198,10 @@
 	margin: 0;
 }
 
+.article-author {
+	margin-top: 0;
+}
+
 .article-tags, .folk-article-tags {
 	margin-top: 10px !important;
 }
