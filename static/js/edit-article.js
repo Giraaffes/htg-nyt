@@ -524,6 +524,11 @@ function addElementButtons(element) {
 	let buttonsDiv = element.find(".element-buttons");
 
 	let upButton = addButton(faIcon("arrow-up"), () => {
+		if (addingElement) {
+			$.notify("Vent venligst et øjeblik eller genindlæs siden...");
+			return;
+		}
+
 		let prev = element.prevAll(".form-data:first");
 		if (prev.length == 1) {
 			swap(element, prev);
@@ -531,6 +536,11 @@ function addElementButtons(element) {
 		}
 	}).appendTo(buttonsDiv);
 	let downButton = addButton(faIcon("arrow-down"), () => {
+		if (addingElement) {
+			$.notify("Vent venligst et øjeblik eller genindlæs siden...");
+			return;
+		}
+
 		let next = element.nextAll(".form-data:first");
 		if (next.length == 1) {
 				swap(element, next);
@@ -539,6 +549,11 @@ function addElementButtons(element) {
 	}).appendTo(buttonsDiv);
 
 	let deleteButton = addButton(faIcon("trash-can"), () => {
+		if (addingElement) {
+			$.notify("Vent venligst et øjeblik eller genindlæs siden...");
+			return;
+		}
+		
 		if (!window.confirm("Vil du virkelig slette dette element permanent?")) return;
 
 		let elementUuid = element.find("input[name*=\"[uuid]\"]").val();

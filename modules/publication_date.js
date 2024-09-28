@@ -8,7 +8,7 @@ function getArticleId(article) {
 }
 
 mdl.hook("GET", "/", async (database, req, $) => {
-	if (req.query["type"] == "aktiviteter") return;
+	if (!req.query["type"] || req.query["type"] == "aktiviteter") return;
 
 	let articleElements = $(".article-listing").toArray();
 	let articlesData = await database.query(
