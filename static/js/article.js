@@ -50,7 +50,7 @@ $(".authorContainer:contains(Af Kantinen På Htg) .date").remove();
 
 
 // (_) Stopped working T_T
-$(".authorImage").remove();
+// $(".authorImage").remove();
 
 
 // (G) OG headers

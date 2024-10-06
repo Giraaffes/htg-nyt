@@ -5,7 +5,7 @@ $(".magazine-image img").attr("src", "/custom/img/banner.png");
 
 let banner = $(".magazine-image");
 banner.append(
-	$(`<a href="/"></a>`).height(banner.height()).css("left", banner.width() / 2 - banner.height() / 2)
+	$(`<div class="a-container"><a href="/"></a></div>`)
 );
 
 $("#filterList button").unwrap().filter(

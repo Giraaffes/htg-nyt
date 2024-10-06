@@ -42,7 +42,6 @@ mdl.hook("GET", "/artikel/:articleId", async (database, req, $) => {
 		{day: "numeric", month: "long", year: "numeric", timeZone: "UTC"}
 	);
 	if ($(".authorContainer").length == 1) {
-		$(".authorDisName").addClass("no-pic"); // always no-pic since pictures stopped working
 		$(".authorDisName p").append(`<br><span class="date">${dateStr}</span>`)
 	} else if (articleData.category != activitesCtgUuid) {
 		$(".post-headline").after(`

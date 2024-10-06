@@ -24,6 +24,7 @@ modules.register("articles");
 modules.register("views");
 modules.register("publication_date");
 modules.register("thumbnails");
+modules.register("profile_pics");
 // modules.register("kantinen");
 
 
