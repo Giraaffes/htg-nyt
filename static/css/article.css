@@ -47,6 +47,10 @@ body {
 	font-size: 0.8em;
 }
 
+.authorContainer .authorImage img {
+	margin-right: 0;
+}
+
 
 .magazine-article-container {
 	display: flex;
