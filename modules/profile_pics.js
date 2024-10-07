@@ -15,7 +15,7 @@ mdl.route("GET", "/pfp/:uuid.png", async (database, req, res) => {
 mdl.hook("GET", "/artikel/:articleId", async (database, req, $) => {
 	let pfp = $(".authorImage img");
 	if (pfp.length == 0) {
-		$(".authorDisName").removeAttr("style").before(
+		$(".authorDisName:not(.no-pic)").removeAttr("style").before(
 			`<div class="authorImage"><img src="/custom/img/no_pfp.png"></div>`
 		);
 		return;
