@@ -14,8 +14,13 @@ mdl.route("GET", "/pfp/:uuid.png", async (database, req, res) => {
 
 mdl.hook("GET", "/artikel/:articleId", async (database, req, $) => {
 	let pfp = $(".authorImage img");
-	if (pfp.length == 0) return;
+	if (pfp.length == 0) {
+		$(".authorDisName").removeAttr("style").before(
+			`<div class="authorImage"><img src="/custom/img/no_pfp.png"></div>`
+		);
+		return;
+	}
 
-	let pfpUuid = $(".authorImage img").attr("src").match(/\/user\/([^\/]+)/)[1];
-	$(".authorImage img").attr("src", `/pfp/${pfpUuid}.png`);
+	let pfpUuid = pfp.attr("src").match(/\/user\/([^\/]+)/)[1];
+	pfp.attr("src", `/pfp/${pfpUuid}.png`);
 });
