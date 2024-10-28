@@ -28,7 +28,7 @@ if ($(".navbar-nav").length == 0) {
 
 
 // (_) Allow html (sometimes)
-$(".style-body p, .style-illustration p, .style-answer p").each((_, e) => {
+$("#subheadline, .style-body p, .style-illustration p, .style-answer p").each((_, e) => {
 	$(e).html($(e).text());
 });
 
@@ -61,3 +61,8 @@ $("head").append(`
 <meta property="og:image" content="https://htgnyt.dk/thumbnail/${ARTICLE_UUID}_${THUMBNAIL_VERSION}.png" />
 <meta property="og:site_name" content="HTG-NYT" />
 `);
+
+
+// (O) HALLOWEEN
+
+if (url_.pathname.endsWith("htg_36cc6ec")) $(".style-answer").css("background-color", "#e8ad79");

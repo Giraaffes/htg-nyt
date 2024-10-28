@@ -227,6 +227,11 @@ if (activeCtgName == "aktiviteter") {
 	});
 }
 
+// (Y) Allow HTML in subheadings
+$(".article-headline, .folk-article-headline").next("p").each((_, e) => {
+	$(e).html($(e).text());
+});
+
 // !SECTION
 
 

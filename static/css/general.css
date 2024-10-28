@@ -237,3 +237,20 @@ button.green-submit-btn i {
 		transition: unset !important;
 	}
 }
+
+
+/* (O) HALLOWEEN */
+/* Remember when changing this back to keep it for specific articles */
+
+.app {
+	background-color: black !important;
+	background-image: url("/custom/img/halloween-bgr.png") !important;
+}
+
+#wrapper {
+	box-shadow: 0 0 20px #CCCCCCCC !important;
+}
+
+/*.magazine-image {
+	filter: invert(1);
+}*/
