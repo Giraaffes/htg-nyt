@@ -64,5 +64,5 @@ $("head").append(`
 
 
 // (O) HALLOWEEN
-
+// Keep this when changing back
 if (url_.pathname.endsWith("htg_36cc6ec")) $(".style-answer").css("background-color", "#e8ad79");

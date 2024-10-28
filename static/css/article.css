@@ -206,3 +206,19 @@ body {
 		font-size: 50%;
 	}
 }
+
+
+/* (O) HALLOWEEN */
+
+.app {
+	background-color: black;
+	background-image: url("/custom/img/halloween-bgr.png");
+}
+
+#wrapper {
+	box-shadow: 0 0 20px #CCCCCCCC;
+}
+
+.arrow-button, .openbtn {
+	box-shadow: 0 0 15px #CCCCCC88;
+}
