@@ -29,8 +29,16 @@ $(".headline-content h1").text(activeCtgInfo.title || "Seneste nyt");
 $("title").text(activeCtgInfo.nav ? `${activeCtgInfo.nav} | HTG-NYT` : "HTG-NYT");
 
 let activeColorName = $("#mediaContainer > div:first").attr("class").slice(0, -6);
-$(`.${activeColorName}-color`).removeClass(`${activeColorName}-color`).addClass(`${activeCtgInfo.color || "green"}-color`);
-$(`#${activeColorName}-headline`).attr("id", `${activeCtgInfo.color || "green"}-headline`);
+//$(`.${activeColorName}-color`).removeClass(`${activeColorName}-color`).addClass(`${activeCtgInfo.color || "green"}-color`);
+//$(`#${activeColorName}-headline`).attr("id", `${activeCtgInfo.color || "green"}-headline`);
+
+
+// (O) HALLOWEEN
+
+$(".top-box h3").text("🎃 HTG-NYT 🎃");
+
+$(`.${activeColorName}-color`).removeClass(`${activeColorName}-color`).addClass(`${activeCtgInfo.color || "orange"}-color`);
+$(`#${activeColorName}-headline`).attr("id", `${activeCtgInfo.color || "orange"}-headline`);
 
 
 // (R) Navs
@@ -63,7 +71,6 @@ function overlayOn(colorStr, bgrStr) {
 
 	let [ r2, g2, b2 ] = bgrStr.match(/[\d\.]+/g);
 
-	// Lerp (r, g, b) and white by alpha
 	let r = Math.floor(r1 * a + r2 * (1 - a));
 	let g = Math.floor(g1 * a + g2 * (1 - a));
 	let b = Math.floor(b1 * a + b2 * (1 - a));
@@ -76,6 +83,7 @@ $("#filterList button:not(.active)").css("background-color", ctgColor);
 
 let opaqueCtgColor = $(".headline-content").css("background-color");
 let activeCtgColor = overlayOn(opaqueCtgColor, "rgb(255, 255, 255)");
+
 $(".headline-content, #filterList button.active").css("background-color", activeCtgColor);
 
 let darkenedCtgColor = overlayOn(opaqueCtgColor, "rgb(0, 0, 0)");
