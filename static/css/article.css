@@ -219,6 +219,8 @@ body {
 	box-shadow: 0 0 20px #CCCCCCCC;
 }
 
-.arrow-button, .openbtn {
-	box-shadow: 0 0 15px #CCCCCC88;
+@media (min-width: 650px) {
+	.arrow-button, .openbtn {
+		box-shadow: 0 0 15px #CCCCCC88;
+	}
 }
