@@ -318,6 +318,7 @@ body.general-page .article-image {
 .app {
 	background-color: black;
 	background-image: url("/custom/img/halloween-bgr.png");
+	background-size: cover;
 }
 
 #wrapper {
