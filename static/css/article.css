@@ -220,8 +220,8 @@ body {
 	background-image: url("/custom/img/halloween-bgr.png");
 	background-size: cover;
 	
-	& .style-answer {
-		background-color: #e8ad79;
+	.style-answer {
+		background-color: #e8ad79 !important;
 	}
 
 	@media (min-width: 650px) {
