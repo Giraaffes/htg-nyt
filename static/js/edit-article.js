@@ -14,7 +14,6 @@ function addButton(html, clickCallback) {
 	}).addClass("custom-button");
 }
 function addCheckField(type, html, name, value, id) {
-
 	let input = $(`<input type="${type}" name="${name}" value="${value}" id=${id}>`).addClass("custom-input").hide();
 	let field = $(`<label for="${id}">${html}</label>`).addClass("custom-field");
 	return $([input[0], field[0]]);
@@ -207,7 +206,7 @@ $("#hideable-menu").show();
 // (Y) Categories
 $(".form-data:has(#static-filters)").remove();
 $("#date-input").before(
-	$(`<div class="form-data"><h5>Kategori</h5></div>`).append(
+	$(`<div class="form-data"><h5>Placering</h5></div>`).append(
 		`<div id="static-filters" class="check-toolbar"></div>`
 	)
 );
@@ -223,9 +222,17 @@ for (let ctg of categories) {
 		label.html(`${faIcon(ctg.icon)}&nbsp;&nbsp;${label.html()}`)
 	});
 
-	// Have to figure out some way to do this
 	if (ctg.uuid == CATEGORY_UUID) ctgRadio.prop("checked", true);
 	$(ctgRadio).appendTo("#static-filters");
+}
+
+let notPublicCtg = addCheckField("radio",
+	"Ikke offentlig", "type", "11edf97d-3547-84a2-a06d-19a686eff9ad", "none"
+);
+notPublicCtg.appendTo("#static-filters");
+if ($("#static-filters").find("> :checked").length != 1) {
+	console.log("doin it");
+	notPublicCtg.prop("checked", true);
 }
 
 // Also must be done after ready for some reason
@@ -242,7 +249,11 @@ $(() => {
 
 		let success = await saveArticle(false, true);
 		if (success) {
-			$.notify(`Kategori ændret til "${$(label).text().trim()}"`, "success");
+			if ($(label).attr("for") == "none") {
+				$.notify(`Artiklen er ikke længere offentlig`, "success");
+			} else {
+				$.notify(`Artikel udgivet under "${$(label).text().trim()}"`, "success");
+			}
 		}
 	});
 });
@@ -276,34 +287,34 @@ $(() => {
 
 
 // (G) Visibility buttons
-let isArticleVisible;
+//let isArticleVisible;
 
-let visibilityDiv = $("<div></div>").addClass("form-data");
-visibilityDiv.appendTo(middleTopDiv).append("<h5>Synlighed</h5>");
+//let visibilityDiv = $("<div></div>").addClass("form-data");
+//visibilityDiv.appendTo(middleTopDiv).append("<h5>Synlighed</h5>");
 
-let visibilitySelectDiv = $("<div></div>").addClass("custom-select-div check-toolbar");
-visibilitySelectDiv.appendTo(visibilityDiv);
+//let visibilitySelectDiv = $("<div></div>").addClass("custom-select-div check-toolbar");
+//visibilitySelectDiv.appendTo(visibilityDiv);
 
-addCheckField("radio", "Offentlig", "status", "active", "offentlig").appendTo(visibilitySelectDiv);
-addCheckField("radio", "Ikke offentlig", "status", "inactive", "ikke-offentlig").appendTo(visibilitySelectDiv);
+//addCheckField("radio", "Offentlig", "status", "active", "offentlig").appendTo(visibilitySelectDiv);
+//addCheckField("radio", "Ikke offentlig", "status", "inactive", "ikke-offentlig").appendTo(visibilitySelectDiv);
 
-visibilitySelectDiv.find("input").eq(IS_PUBLIC ? 0 : 1).prop("checked", true);
-if (IS_PUBLIC) $("#magazines-articles-form").addClass("public");;
+//visibilitySelectDiv.find("input").eq(IS_PUBLIC ? 0 : 1).prop("checked", true);
+//if (IS_PUBLIC) $("#magazines-articles-form").addClass("public");;
 
 // This is a better way of handling an event for multiple elements - I will do this in the future
-visibilitySelectDiv.find("input").on("change", async e => {
-	let input = $(e.currentTarget);
-	if (input.attr("value") == "active") {
-		$("#magazines-articles-form").addClass("public");
-	} else {
-		$("#magazines-articles-form").removeClass("public");
-	}
+//visibilitySelectDiv.find("input").on("change", async e => {
+//	let input = $(e.currentTarget);
+//	if (input.attr("value") == "active") {
+//		$("#magazines-articles-form").addClass("public");
+//	} else {
+//		$("#magazines-articles-form").removeClass("public");
+//	}
 
-	let success = await saveArticle(false, true);
-	if (success) {
-		$.notify(`Artikel sat til "${input.next().text()}"`, "success");
-	}
-});
+//	let success = await saveArticle(false, true);
+//	if (success) {
+//		$.notify(`Artikel sat til "${input.next().text()}"`, "success");
+//	}
+//});
 
 
 // (G) Author buttons
@@ -345,20 +356,18 @@ dateSelect.val(publicationDate.toISOString().slice(0, 16));
 let saveButton = addButton("Gem artikel", () => { saveArticle(); });
 actionButtonsDiv.append(saveButton);	
 
-let previewButton = addButton("Forhåndsvis artikel", () => {
-		window.open(`/forhåndsvis-artikel/${pageUuid}`, "_blank");
-});
-actionButtonsDiv.append(previewButton);
+//let previewButton = addButton("Forhåndsvis artikel", () => {
+//		window.open(`/forhåndsvis-artikel/${pageUuid}`, "_blank");
+//});
+//actionButtonsDiv.append(previewButton);
 
 let viewArticleButton = addButton("Læs artikel", () => {
-	if (!$("#magazines-articles-form").hasClass("public")) return;
-
 	window.open(`/artikel/${ARTICLE_ID || $("#title").val()}`, "_blank");
 }).addClass("read-button");
 actionButtonsDiv.append(viewArticleButton);
 
 $("<p></p>").text(
-	"(Husk at gemme før du forhåndsviser / læser artiklen, så du kan se dine ændringer)"
+	"(Husk at gemme før du læser artiklen igennem, så du kan se dine ændringer)"
 ).addClass("info-text").appendTo(actionButtonsDiv)
 
 
@@ -403,6 +412,7 @@ deleteButton.addClass("delete-button").appendTo(actionButtonsDiv);
 $("#retningContainer, #niveauContainer").prependTo("#magazines-articles-form");
 $("#withoutAuthor").remove();
 $("#fixed-menu div:first input").prependTo("#magazines-articles-form").hide();
+$("#status-active").prop("checked", true);
 $("#fixed-menu").remove();
 $("#widgets-container").remove();
 

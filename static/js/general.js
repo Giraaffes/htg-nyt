@@ -111,11 +111,6 @@ const categories = [
 		icon: "calendar-alt", color: "grey",
 		title: "Aktiviteter på HTG", nav: "Aktiviteter",
 		uuid: "11edf97d-436a-5cb2-801f-7963935a19ec"
-	}, {
-		oldName: "folk", name: "kantinen", // hopeless lol
-		icon: "utensils",  color: "yellow",
-		title: "Kantinen", nav: "Kantinen",
-		uuid: "11edf97d-3547-84a2-a06d-19a686eff9ad"
 	}
 ];
 

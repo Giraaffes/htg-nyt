@@ -207,10 +207,10 @@ span {
 	margin-top: 10px;
 }
 
-#magazines-articles-form:not(.public) .read-button {
+/*#magazines-articles-form:not(.public) .read-button {
 	opacity: 0.6;
 	pointer-events: none;
-}
+}*/
 
 .info-text {
 	color: #555555;

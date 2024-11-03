@@ -173,15 +173,20 @@ a.edit-a {
 	height: 100%;
 }
 
+.action-buttons-wrapper > * {
+	margin: 0.15rem 0;
+	padding: 0.45rem 1.1rem;
+}
+
 .action-buttons-wrapper a.btn {
 	display: flex;
 	align-items: center;
 }
 
-tr:not(.public) .read-button {
+/*tr:not(.public) .read-button {
 	pointer-events: none;
 	opacity: 0.6;
-}
+}*/
 
 .edit-button {
 	color: #ffffff;

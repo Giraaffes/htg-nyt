@@ -30,11 +30,11 @@ mdl.hook("GET", "/", async (database, req, $) => {
 	let params = new URLSearchParams(paramsStr);
 	if (params.has("type")) return;
 
-	let articleTemplate = $('.article-listing:first').prop('outerHTML');
+	let articleTemplate = $('.article-listing:has(.article-image):first').prop('outerHTML');
 	$(".article-listing").remove();
 	
 	let articles = await database.query(
-		`SELECT * FROM articles WHERE isPublic = true;`
+		`SELECT * FROM articles WHERE category != "11edf97d-3547-84a2-a06d-19a686eff9ad";`
 	);
 	articles = selectGeneralArticles(articles);
 
