@@ -2,9 +2,14 @@ body {
 	margin: 0;
 }
 
+.app {
+	background-image: url("/custom/img/bgr.png");
+	background-size: cover;
+}
+
 #wrapper {
 	min-height: unset;
-	box-shadow: 0 0 6px #0000001A;
+	box-shadow: 0 0 20px #CCCCCCCC;
 }
 
 .top-box, .post-headline, #article-footer {
@@ -210,18 +215,18 @@ body {
 
 /* (O) HALLOWEEN */
 
-.app {
+.app.halloween {
 	background-color: black;
 	background-image: url("/custom/img/halloween-bgr.png");
 	background-size: cover;
-}
+	
+	& .style-answer {
+		background-color: #e8ad79;
+	}
 
-#wrapper {
-	box-shadow: 0 0 20px #CCCCCCCC;
-}
-
-@media (min-width: 650px) {
-	.arrow-button, .openbtn {
-		box-shadow: 0 0 15px #CCCCCC88;
+	@media (min-width: 650px) {
+		.arrow-button, .openbtn {
+			box-shadow: 0 0 15px #CCCCCC88;
+		}
 	}
 }

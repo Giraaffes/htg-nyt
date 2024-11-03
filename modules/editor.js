@@ -75,8 +75,10 @@ mdl.hook("POST", "/rediger-artikel/:articleUuid", async (database, req, $, err) 
 		WHERE uuid = ?;
 		`, [title, description, author, date, category, tagsStr, isPublic, startDate, endDate, articleUuid]
 	);
-	saveQueue[articleUuid].callback();
-	delete saveQueue[articleUuid];
+	if (saveQueue[articleUuid]) {
+		saveQueue[articleUuid].callback();
+		delete saveQueue[articleUuid];
+	}
 });
 
 mdl.hook("GET", "/rediger-artikel/:articleUuid", async (database, req, $) => {

@@ -99,7 +99,7 @@ const categories = [
 	}, {
 		oldName: "faq", name: "hygge", 
 		icon: "face-laugh", color: "red",
-		title: "Sjov og (u)hygge", nav: "(U)hygge", // (O) HALLOWEEN
+		title: "Sjov og (u)hygge", nav: "Hygge",
 		uuid: "11eeab1d-d0b4-4284-9ea8-dd9b09e4a5f2"
 	}, {
 		oldName: "hack", name: "fagligt", 

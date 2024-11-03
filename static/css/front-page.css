@@ -31,8 +31,13 @@
 	margin-left: 0;
 }
 
+.app {
+	background-image: url("/custom/img/bgr.png");
+	background-size: cover;
+}
+
 #wrapper {
-	box-shadow: 0 0 6px #0000001A;
+	box-shadow: 0 0 20px #CCCCCCCC;
 }
 
 
@@ -311,32 +316,3 @@ body.general-page .article-image {
 		font-size: 3vw !important;
 	}
 }
-
-
-/* (O) HALLOWEEN */
-
-.app {
-	background-color: black;
-	background-image: url("/custom/img/halloween-bgr.png");
-	background-size: cover;
-}
-
-#wrapper {
-	box-shadow: 0 0 20px #CCCCCCCC;
-}
-
-.orange-color {
-	background-color: #c77d3c;
-}
-
-#orange-headline {
-	background-color: #e08c42;
-}
-
-.openbtn {
-	box-shadow: 0 0 15px #CCCCCC88;
-}
-
-/*.magazine-image {
-	filter: invert(1);
-}*/
