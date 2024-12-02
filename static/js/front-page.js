@@ -33,6 +33,14 @@ $(`.${activeColorName}-color`).removeClass(`${activeColorName}-color`).addClass(
 $(`#${activeColorName}-headline`).attr("id", `${activeCtgInfo.color || "green"}-headline`);
 
 
+// (R) CHRISTMAS
+
+//$(".top-box h3").text("🎅 HTG-NYT 🤶");
+
+//$(`.${activeColorName}-color`).removeClass(`${activeColorName}-color`).addClass(`${activeCtgInfo.color || "christmas"}-color`);
+//$(`#${activeColorName}-headline`).attr("id", `${activeCtgInfo.color || "christmas"}-headline`);
+
+
 // (R) Navs
 function faIcon(iconName) {
 	return `<i class=\"fas fa-${iconName}\" aria-hidden=\"true\"></i>`;

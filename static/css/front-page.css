@@ -316,3 +316,29 @@ body.general-page .article-image {
 		font-size: 3vw !important;
 	}
 }
+
+
+/* (R) CHRISTMAS */
+
+/*.app {
+	
+}
+
+.christmas-color {
+	background-color: #a52828;
+}
+
+#christmas-headline {
+	background: linear-gradient(
+		#d30d0e,
+		#d30d0e 17%,
+		#ffffff 17%,
+		#ffffff calc(17% + 4px),
+		#45991f calc(17% + 4px),
+		#45991f calc(83% - 4px),
+		#ffffff calc(83% - 4px),
+		#ffffff 83%,
+		#d30d0e 83%,
+		#d30d0e
+	);
+}*/
