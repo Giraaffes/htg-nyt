@@ -320,25 +320,15 @@ body.general-page .article-image {
 
 /* (R) CHRISTMAS */
 
-/*.app {
-	
+.app {
+	background: url("/custom/img/christmas-bgr.png");
+	background-size: cover;
 }
 
 .christmas-color {
-	background-color: #a52828;
+	background-color: #a53434;
 }
 
 #christmas-headline {
-	background: linear-gradient(
-		#d30d0e,
-		#d30d0e 17%,
-		#ffffff 17%,
-		#ffffff calc(17% + 4px),
-		#45991f calc(17% + 4px),
-		#45991f calc(83% - 4px),
-		#ffffff calc(83% - 4px),
-		#ffffff 83%,
-		#d30d0e 83%,
-		#d30d0e
-	);
-}*/
+	background-color: #c94545;
+}
