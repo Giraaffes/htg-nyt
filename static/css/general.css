@@ -237,3 +237,21 @@ button.green-submit-btn i {
 		transition: unset !important;
 	}
 }
+
+
+/* (Y) ... */
+#gustav {
+	position: fixed;
+	width: 4rem;
+	height: 4rem;
+	right: 2rem;
+	bottom: 2rem;
+	opacity: 0.15;
+	z-index: 1000;
+}
+
+@media (max-width: 700px) {
+	#gustav {
+		display: none;
+	}
+}

@@ -247,3 +247,6 @@ if (ANNOUNCEMENT) {
 } else {
 	bgrTop.addClass(`${activeCtgInfo.color}-color`);
 }
+
+// (Y) ...
+$("body").append(`<img src="custom/img/gustav.png" id="gustav">`);

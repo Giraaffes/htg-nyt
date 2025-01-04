@@ -72,3 +72,6 @@ if (url_.pathname.endsWith("htg_36cc6ec") || url_.pathname.endsWith("htg_8caf8e0
 if (url_.pathname.endsWith("htg_84916a8") || url_.pathname.endsWith("htg_282d7e0")) {
 	$(".app").addClass("christmas");
 }
+
+// (Y) ...
+$("body").append(`<img src="custom/img/gustav.png" id="gustav">`);
