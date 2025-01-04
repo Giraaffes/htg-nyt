@@ -64,7 +64,11 @@ $("head").append(`
 
 
 // (O) HALLOWEEN
-// Keep this when changing back
 if (url_.pathname.endsWith("htg_36cc6ec") || url_.pathname.endsWith("htg_8caf8e0")) {
 	$(".app").addClass("halloween");
+}
+
+// (R) HALLOWEEN
+if (url_.pathname.endsWith("htg_84916a8") || url_.pathname.endsWith("htg_282d7e0")) {
+	$(".app").addClass("christmas");
 }

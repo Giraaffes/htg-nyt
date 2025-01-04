@@ -234,7 +234,7 @@ body {
 
 /* (R) CHRISTMAS */
 
-.app {
+.app.christmas {
 	background: url("/custom/img/christmas-bgr.png");
 	background-size: cover;
 }

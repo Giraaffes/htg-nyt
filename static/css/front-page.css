@@ -316,19 +316,3 @@ body.general-page .article-image {
 		font-size: 3vw !important;
 	}
 }
-
-
-/* (R) CHRISTMAS */
-
-.app {
-	background: url("/custom/img/christmas-bgr.png");
-	background-size: cover;
-}
-
-.christmas-color {
-	background-color: #a53434;
-}
-
-#christmas-headline {
-	background-color: #c94545;
-}

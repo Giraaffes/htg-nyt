@@ -29,17 +29,8 @@ $(".headline-content h1").text(activeCtgInfo.title || "Seneste nyt");
 $("title").text(activeCtgInfo.nav ? `${activeCtgInfo.nav} | HTG-NYT` : "HTG-NYT");
 
 let activeColorName = $("#mediaContainer > div:first").attr("class").slice(0, -6);
-//$(`.${activeColorName}-color`).removeClass(`${activeColorName}-color`).addClass(`${activeCtgInfo.color || "green"}-color`);
-//$(`#${activeColorName}-headline`).attr("id", `${activeCtgInfo.color || "green"}-headline`);
-
-
-// (R) CHRISTMAS
-
-$(".top-box h3").text("HTG-NYT");
-
-$(`.${activeColorName}-color`).removeClass(`${activeColorName}-color`).addClass(`${activeCtgInfo.color || "christmas"}-color`);
-$(`#${activeColorName}-headline`).attr("id", `${activeCtgInfo.color || "christmas"}-headline`);
-
+$(`.${activeColorName}-color`).removeClass(`${activeColorName}-color`).addClass(`${activeCtgInfo.color || "green"}-color`);
+$(`#${activeColorName}-headline`).attr("id", `${activeCtgInfo.color || "green"}-headline`);
 
 // (R) Navs
 function faIcon(iconName) {
