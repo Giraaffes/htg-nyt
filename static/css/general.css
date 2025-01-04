@@ -244,9 +244,10 @@ button.green-submit-btn i {
 	position: fixed;
 	width: 4rem;
 	height: 4rem;
-	right: 2rem;
+	transform: scale(-1, 1);
+	left: 2rem;
 	bottom: 2rem;
-	opacity: 0.15;
+	opacity: 0.1;
 	z-index: 1000;
 }
 
