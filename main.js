@@ -225,7 +225,7 @@ server.post("/registrer/*", express.raw({type: "*/*"}), (req, res, next) => {
 // (_) Kantinen
 const kantinenEmail = "nigen31637@picdv.com";
 server.post("/login", (req, res, next) => {
-	if (req.body.query.match(/^kantinen?$/i)) {
+	if (req.body.query && req.body.query.match(/^kantinen?$/i)) {
 		req.body.query = kantinenEmail;
 	}
 	next();
