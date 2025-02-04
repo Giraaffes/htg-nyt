@@ -231,7 +231,7 @@ let notPublicCtg = addCheckField("radio",
 );
 notPublicCtg.appendTo("#static-filters");
 if ($("#static-filters").find("> :checked").length != 1) {
-	console.log("doin it");
+	//console.log("doin it");
 	notPublicCtg.prop("checked", true);
 }
 

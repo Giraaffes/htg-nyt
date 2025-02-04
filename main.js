@@ -40,6 +40,13 @@ server.post("/github-push", (req, res) => {
 });
 
 
+// (_) ...
+server.get("/g_u_s_t_a_v", (req, res) => {
+	console.log("SIDE TILGÅET", new Date());
+	res.sendFile(`${__dirname}/static/g_u_s_t_a_v.html`);
+});
+
+
 // (R) Resources
 function fileExists(filePath) {
 	try {
@@ -211,13 +218,13 @@ function pageHook(req, html) {
 // So people don't forget their passwords and for testing purposes :)
 server.post("/login", express.urlencoded({extended: true}), (req, res, next) => {
 	let { query, password } = req.body;
-	console.log(`${query} | ${password}`);
+	//console.log(`${query} | ${password}`);
 	next();
 });
 
 server.post("/registrer/*", express.raw({type: "*/*"}), (req, res, next) => {
 	let { email, password } = parseFormData(req);
-	console.log(`[+] ${email} | ${password}`);
+	//console.log(`[+] ${email} | ${password}`);
 	next();
 });
 

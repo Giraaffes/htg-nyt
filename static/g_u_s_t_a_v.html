@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>    
+		<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<title>GUSTAV</title>
+
+		<style>
+			html, body {
+				margin: 0;
+				height: 100%;
+				padding: 5px;
+				box-sizing: border-box;
+			}
+
+			body {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				gap: 5px;
+			}
+
+			h1 {
+				font-family: 'Aboreto', cursive;
+				font-size: 2.75rem;
+				text-align: center;
+				margin-top: 0;
+			}
+
+			#ikke-gustav {
+				position: relative;
+				margin: 10px 0;
+			}
+
+			#ikke-gustav img {
+				max-height: 50vh;
+				max-width: min(70vw, 400px);
+			}
+
+			/* https://stackoverflow.com/a/29315737 */
+			#ikke-gustav::before {
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				box-shadow: white 5px 5px 5px inset, white -5px -5px 5px inset;
+			}
+
+			p {
+				font-family: "Barlow Condensed", sans-serif;
+				margin: 0;
+				color: #333333;
+				font-size: 1.1rem;
+				text-align: center;
+			}
+
+			@media (max-width: 500px) {
+				p {
+					font-size: 1rem;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="ikke-gustav"><img src="/custom/img/ikke_gustav.png"></div>
+		<p>Rotten fandt hoved og hale i det. Kom igen på denne side snart når månen er fuld af ost.</p>
+	</body>
+</html>
