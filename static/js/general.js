@@ -72,6 +72,8 @@ $("#footer-section-2 h4:contains(Webudvkling)").text("Webudvikling"); // lol
 $("#footer-section-2 a:contains(MEZZIO)").after("<p>Flap</p>");
 $("#footer-section-2 p:contains(MEZZIO)").unwrap();
 
+$("#footer-section-2 p:contains(Rosalina)").remove();
+
 let redaktører = $("#footer-section-2 h4:eq(0)").nextUntil("#footer-section-2 h4:eq(1)");
 if (redaktører) {
 	let sortedElements = redaktører.toArray().sort((a, b) => 
