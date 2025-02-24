@@ -344,8 +344,10 @@ server.use((err, req, res, next) => {
 	let timeStr = (new Date()).toLocaleString({timeZone: "Europe/Copenhagen"});
   console.error(timeStr, req.url, err);
 
-  res.status(500).send(res.locals.customError || "<title>Fejl</title>Beklager, der opstod en fejl...").end();
+  //res.status(500).send(res.locals.customError || "<title>Fejl</title>Beklager, der opstod en fejl...").end();
+  res.status(500).send(res.locals.customError || "<title>Fejl</title>Beklager... Skolebladet er nede lige nu :(\nVi prøver at fikse det!").end();
 })
+//})
 
 
 // (C) Start app
