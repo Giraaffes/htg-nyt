@@ -29,15 +29,16 @@ modules.register("profile_pics");
 
 
 // (_) Github webhook
-server.post("/github-push", (req, res) => {
-	if (!req.headers["x-github-hook-id"] == config.githubWebhookId) return;
-	res.status(200).end();
+// Not very safe...
+//server.post("/github-push", (req, res) => {
+//	if (!req.headers["x-github-hook-id"] == config.githubWebhookId) return;
+//	res.status(200).end();
 
-	exec("git pull", (error, stdout, stderr) => {
-		console.log(stdout);
-		process.exit();
-	});
-});
+//	exec("git pull", (error, stdout, stderr) => {
+//		console.log(stdout);
+//		process.exit();
+//	});
+//});
 
 
 // (_) ...

@@ -7,10 +7,10 @@
 		"timezone": "Z"
 	},
 	"dbRemoteOptions": {
-		"host": "64.226.88.255",
-		"user": "marcus",
-		"password": "password",
-		"database": "htgnyt",
+		"host": "XXXXXXXXX",
+		"user": "XXXXXXXXX",
+		"password": "XXXXXXXXX",
+		"database": "XXXXXXXXX",
 		"timezone": "Z"
 	},
 	"githubWebhookId": "457630844",
